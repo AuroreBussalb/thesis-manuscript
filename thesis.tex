@@ -1,0 +1,51 @@
+%% ----------------------------------------------------------------
+%% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
+%% ---------------------------------------------------------------
+
+\documentclass[12pt,a4paper,french]{report}
+
+\input{preamble}
+\input{glossaries}
+
+\begin{document}
+
+\afterpage{\blankpage}
+
+\input{title_page}
+
+\input{dedication}
+\thispagestyle{empty}
+
+\pagebreak{\blankpage}
+
+\input{acknowledgments}
+\thispagestyle{empty}
+
+\pagebreak{\blankpage}
+
+\input{abstract_keywords_french}
+\thispagestyle{empty}
+
+\pagebreak{\blankpage}
+
+\input{abstract_keywords}
+\thispagestyle{empty}
+
+\pagebreak{\blankpage}
+
+\tableofcontents
+\thispagestyle{empty}
+
+\input{chapter_1}
+
+\newpage
+
+\input{chapter_2}
+
+\newpage
+\bibliography{bibliography}
+
+\newpage
+\printglossary[title=List of abbreviations, type=\acronymtype]
+
+\end{document}

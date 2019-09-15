@@ -1,0 +1,96 @@
+% All packages are imported here
+
+% Write accents directly in source code
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% Insert blank pages
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+		
+% Table of contents		
+\renewcommand{\contentsname}{  }
+\addto\captionsfrench{
+  \renewcommand{\contentsname}%
+    {\MakeUppercase{\Large{T}\large{able des matières}}}%
+		}	
+		
+% Item with bullet points
+%\def\labelitemi{$\bullet$}
+%\def\labelitemii{$\cdot$}
+
+
+% Headers
+%\usepackage{fancyheadings}
+%\pagestyle{fancy}
+%\rhead{Test}
+
+
+% Quotes 
+\usepackage[square]{natbib}
+\bibliographystyle{abbrvnat}
+
+%% For hyperlinks in the pdf 
+%\usepackage{hyperref}
+
+% Glossaries
+\usepackage[acronym,shortcuts]{glossaries}
+
+% Font Helvetica
+\renewcommand{\familydefault}{\sfdefault}
+\def\helvetica{\fontfamily{phv}\selectfont}
+\def\helveticaitalic{\fontfamily{phv}\itshape\selectfont}
+\def\helveticabold{\fontfamily{phv}\bfseries\selectfont}
+\def\helveticabolditalic{\fontfamily{phv}\bfseries\itshape\selectfont}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% Line spacing
+\setlength{\baselineskip}{0.5mm}
+\setlength{\parskip}{2mm}
+
+% Margins
+\usepackage{geometry}\geometry{a4paper, total={170mm,257mm}, left=25mm, right=25mm, top=20mm, bottom=20mm}
+
+% For pictures in the pdf
+\usepackage{graphicx}
+
+% For tables
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+
+% For ref with figure, table or equation before the number
+\usepackage{cleveref}
+
+% landscape page
+\usepackage{lscape}
+
+% for argmin and argmax
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmin}{argmin}
+
+% Captions
+\usepackage{booktabs,caption}
+
+% Color
+\usepackage{xcolor}
+
+%% This is for me to comment
+%
+%% Not using the pdfcomment package but it is an interesting one  
+%%\usepackage[author={Louis Mayaud}]{pdfcomment}
+%
+%% Select what to do with todonotes: 
+%% \usepackage[disable]{todonotes} % notes not showed
+%\usepackage[draft]{todonotes}   % notes showed
+%
+%% Select what to do with command \comment:  
+%% \newcommand{\comment}[1]{}  %comment not showed
+%\newcommand{\comment}[1]
+%{\par {\bfseries \color{blue} #1 \par}} %comment showed
