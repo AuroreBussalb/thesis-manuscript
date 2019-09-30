@@ -1,12 +1,11 @@
 \chapter{Evaluation de l'efficacité du Neurofeedback par la méta-analyse}
 
-% Brief introduction here
 \section*{Introduction}
 Les méta-analyses ont pour but de combiner les données de plusieurs études visant à démontrer l'efficacité d'un traitement. Cette méthode est
 particulièrement intéressante lorsque les études comportent un faible nombre de sujets, comme c'est notamment le cas dans la plupart de celles sur 
 le \gls{nfb} appliqué aux enfants \gls{tdah}.
 
-Les différentes étapes à suivre pour réaliser une méta-analyse sont détaillées dans ce chapitre, ainsi que la
+Les différentes étapes à suivre pour réaliser une méta-analyse sont détaillées dans ce chapitre et résumées en Figure~\ref{Figure:pipeline_meta_analyse}, ainsi que la
 réplication et la mise à jour d'une récente méta-analyse sur le \gls{nfb} appliqué aux enfants \gls{tdah}, celle de \citet{Cortese2016}.
 
 \clearpage
@@ -58,7 +57,7 @@ Le modèle à effets aléatoires est souvent plus approprié du fait de la varia
 répondent toutes aux critères d'inclusion fixés au préalable, rien ne peut généralement permettre de supposer que ces études sont identiques et qu'elles 
 partagent donc toutes le même \gls{es} réel. Le modèle à effet fixe est ainsi rarement utilisé, on peut cependant y avoir recours lorsque le nombre d'études inluses 
 est très petit. Au sein du domaine du \gls{nfb} appliqué aux enfants \gls{tdah}, les méta-analyses suivent le modèle à effets aléatoires 
-\citep{Cortese2016, Micoulaud2014}.
+\citep{Cortese2016, Micoulaud2014}, c'est donc ce modèle que nous choisissons également.
 
 \subsection{Calcul de la taille d'effet}
 
@@ -82,7 +81,7 @@ Il existe différents \gls{es} \citep{Borenstein2009} :
 
 Etant donné que les données que nous allons utilisées pour la réplication et la mise à jour de \citet{Cortese2016} sont les moyennes des 
 scores cliniques obtenus par les sujets sur des échelles évaluant les symptômes du \gls{tdah} avant le traitement (pré-test) et 
-après le traitement (post-test) et leur déviation standard, nous nous concentrons sur 
+après le traitement (post-test) et leur écart-type, nous nous concentrons sur 
 les \gls{es} basés sur des moyennes. Par ailleurs, les échelles cliniques variant 
 d'une étude à l'autre, les moyennes ne sont pas comparables : il faut donc standardiser l'\gls{es}. 
 Ainsi, nous allons utiliser la différence moyenne standardisée \citep{Cortese2016, Micoulaud2014}.
@@ -100,7 +99,7 @@ dans le groupe contrôle ($M_{\text{pre},C}$, $M_{\text{post},C}$), divisée par
 \label{eq:stats_metareview_std_pre}
 \sigma_{\text{pre}} = \sqrt{\frac{(n_T - 1)\sigma_{\text{pre},T}^2 + (n_C - 1)\sigma_{\text{pre},C}^2} {n_T + n_C - 2}},
 \end{equation}
-où $\sigma_{t,G}$ correspond à la déviation standard du groupe $G$ à pré-test and $n_G$ indique le nombre de sujets dans chaque groupe ; 
+où $\sigma_{t,G}$ correspond à l'écart-type du groupe $G$ à pré-test and $n_G$ indique le nombre de sujets dans chaque groupe ; 
 $c_p$ est un bias d'ajustement utilisé pour les petites études :
 \begin{equation}
 \label{eq:metareview_correction_factor}
@@ -157,7 +156,7 @@ Si le modèle à effet fixe est choisi, le poids $w_{\text{fixe}_k}$ assisgné �
 w_{\text{fixe}_k} = \frac{1}{\sigma^2(\text{ES}_k)}.
 \end{equation} 
 
-Dans notre cas, nous employons le modèle à effets aléatoires \citep{Bussalb2019}, qui inclut également la variance inter-études $\tau^2$ conduisant à des 
+Dans notre cas nous employons le modèle à effets aléatoires \citep{Bussalb2019}, qui inclut également la variance inter-études $\tau^2$ conduisant à des 
 poids ($w_{\text{aléatoires}_k} = w_k$) associés aux études dfférents.
 
 Calculer la variance inter-études se fait en trois étapes décrites par les équations Eq.~(\ref{eq:metareview_Q}), Eq.~(\ref{eq:metareview_C}) 
@@ -197,21 +196,30 @@ et $I^2$ qui estime l'hétérogénéité des \gls{es}-inter-groupes.
 
 Afin de faciliter la lecture des résultats d'une méta-analyse, ceux-ci sont résumés dans un \textit{forest plot} \citep{Borenstein2009}. Les études incluses sont
 en ordonnées et les \gls{es}-inter-groupes en abscisses. Chaque \gls{es}-inter-groupes est représenté par un carré dont la taille est proportionnelle
-au poids $w_k$ attribué à l'étude. Les intervalles de confiance à 95\% pour chaque \gls{es}-inter-groupes sont représentés. En bas du graphique, l\gls{est}
-est symnolisé par un diamant avec son intervalle de confiance à à 95\%. Une droite verticale d'équation $x = 0$ est tracée pour délimiter la
+au poids $w_k$ attribué à l'étude $k$. Les intervalles de confiance à 95\% pour chaque \gls{es}-inter-groupes sont représentés. En bas du graphique, l\gls{est}
+est symbolisé par un diamant avec son intervalle de confiance à à 95\%. Une droite verticale d'équation $x = 0$ est tracée pour délimiter la
 partie du graphique où les \gls{es} sont en faveur du traitement de celle où ils ne le sont pas.
 
 Un autre graphique très utilisé dans la méta-analyse est le \textit{funnel plot} qui a pour but de détecter un éventuel biais de publication
 lors de la sélection des études et une hétérogénéité parmi elles \citep{Sterne2011}. Il s'agit d'un nuage de points de la précision de chaque 
 \gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'inverse de l'\gls{et} est couramment utilisé comme estimation de la précision et de la 
-taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études soient au sommet et que les plus petites études se retouvent 
-dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : le graphique 
-est symétrique. Le triangle centré sur \gls{est} obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté inclut 95\% des études s'il
-n'y a pas de biais.
+taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études soient au sommet et que les plus petites se retouvent 
+dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
+le graphique est symétrique. Le triangle centré sur \gls{est} obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté 
+inclut 95\% des études s'il n'y a pas de biais.
 
 Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant par exemple le test de \citet{Egger1997}. 
 Il s'agit de regresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
 0 (seuil de signifiance à 0.05) alors le \textit{funnel plot} est asymétrique.
+
+L'ensemble des étapes pour réaliser une méta-analyse en suivant le modèle à effets aléatoires est résumé sur la Figure~\ref{Figure:pipeline_meta_analyse}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-2/pipeline-perform-meta-analysis} 
+  \caption{Résumé des étapes à suivre pour effectuer une méta-analyse dans le cadre d'un modèle à effets aléatoires.}
+  \label{Figure:pipeline_meta_analyse}
+\end{figure}
 
 \section{Replication et mise à jour de la méta-analyse de Cortese et al., 2016}
 

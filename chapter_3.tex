@@ -1,0 +1,94 @@
+\chapter{Identification des facteurs influençant l'efficacité du Neurofeedback}
+
+\section*{Introduction}
+
+La réplication et la mise à jour de la méta-analyse de \citet{Cortese2016} décrite dans le chapitre précédent a permis de mettre en évidence la forte hétérogénéité des études incluses dans ce type d'analyse. 
+En effet, même si ces études satisfont toutes le critère d'inclusion défini par les auteurs, elles diffèrent d'un point de vue technique et méthodologique : elles ont été rassemblées 
+sans tenir compte par exemple de la qualité de l'acquisition de l'\gls{eeg}, du neuromarqueur entrainé lors du \gls{nfb} et du design de l'étude clinique (notamment le nombre de 
+sessions et la durée du traitement). 
+
+Afin de pallier ces limitations, une nouvelle approche a été implémentée : la \gls{saob} qui va justement tirer avantage de cette hétérogénéité. L'efficacité du traitement, quantifiée 
+par l'\gls{es}-intra-groupe, de chaque intervention est considérée comme variable dépendante expliquée par des variables indépendantes qui sont ici les facteurs méthologiques et techniques. 
+Le but de cette analyse est de déterminer les facteurs qui ont une influence sur l'efficacité du \gls{nfb} : au vu des résultats des précédentes méta-analyses \citep{Micoulaud2014, Cortese2016}, 
+on peut notamment s'attendre à ce que les évaluateurs aveugles soient associés à une plus faible efficacité du traitement. 
+
+\section{Extraction et pré-traitement des facteurs}
+
+La première étape de la \gls{saob} est d'extraire les facteurs des études sélectionnées. Une liste de facteurs ayant potentiellement une influence sur l'efficacité du \gls{nfb} a été 
+établie, puis les facteurs ont été extraits de chaque étude. Avant de débuter l'analyse, les facteurs sont pré-traités en suivant les étapes décrites dans cette section. 
+
+\subsection{Choix des facteurs}
+
+Les facteurs ayant une possible influence sur l'efficacité du \gls{nfb} ont été répartis en cinq catégories :
+\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
+\item \emph{les biais méthodologiques :} la présence d'un groupe contrôle, l'aveugle des évaluateurs, la randomisation des sujets dans les essais contrôlés, et la validation de l'étude 
+par un \gls{irb},
+\item \emph{la population :} prise de psychostimulants durant le traitement par \gls{nfb}, la tranche d'âge des enfants inclus, la sévérité des symptômes du TDAH à pré-test (score clinique à pré-test
+divisé par le score maximal à atteindre sur l'échelle clinique),
+\item \emph{l'implémentation du \gls{nfb} :} le protocole utilisé (\gls{scp}, \gls{smr}, l'augmentation du rythme theta, l'augmentation du rythme beta dans les aires centrales ou frontales 
+et la diminution du rythme theta), la présence d'une phase de transfert lors de l'entrainenement par \gls{nfb}, l'utilisation d'une carte de transfert pour s'entrainer à la maison ou à l'école, 
+le type de seuillage pour les récompenses discrètes, le nombre de sessions de \gls{nfb}, la durée et la fréquence des sessions, la durée du traitement, l'individualisation des bandes de fréquence
+basée sur l'\gls{iapf}, et le couplage du \gls{nfb} avec l'\gls{emg}-Biofeedback.
+\item \emph{la qualité de l'acquisition :} la présence d'une ou plus électrode active et la qualité de l'\gls{eeg}. Cette dernière est un indicateur allant de 1 à 3, calculé sur les critères 
+suivants : 
+\begin{description} 
+\item[le type d'électrode utilisée :] \gls{agcl}/Gel ou \gls{au}/Gel,
+\item[le contrôle de l'impédance :] la vérification du bon contact entre la peau et les électrodes en gardant l'impédance inférieure à $40$k$\Omega$,
+\item[la certification du matériel hardware utilisé :] le matériel doit être conforme à la norme ISO-60601-2-26 \citep{ISO}.
+\end{description}
+
+Un score de qualité de 3 est donné si tous les critères ci-dessus sont remplis. Si au moins l'un d'eux est satisfait, le score est de 2, sinon il sera mis à 1.
+
+\item \emph{la qualité du signal} : rejet en temps réel (l'\textit{epoch} est rejeté, pas de retour calculé) ou correction (retour calculé sur l'\textit{epoch} débruité) des 
+artefacts oculaires et rejet en temps réel d'artefacts génériques détectés grâce à leur large amplitude. 
+\end{itemize}
+
+Afin d'éviter tout biais, le nom des facteurs a été caché durant les analyses : il n'a été révélé que lorsque le modèle a été considéré comme valide notamment au niveau 
+de la normalisation des variables et de la validation des hypothèses du modèle.  
+
+\subsection{Pré-traitement des facteurs}
+
+Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. Afin que 
+les facteurs pour lesquels peu d'observations sont diponibles ne faussent pas l'analyse, un critère d'exclusion arbitraire a été mis en place : si pour un facteur le nombre d'observations 
+manquantes excède plus de 20\% du nombre total d'observations, ce facteur est exclu. 
+
+Par ailleurs, comme cette analyse tire avantage de l'hétérogénéité des études, si un facteur a plus de 80\% d'observations identiques, celui-ci est également exclu. 
+
+Il est important de noter qu'une étude ne correspond pas nécessairement à une observation : lorsque plusieurs échelles cliniques et/ou évaluateurs sont disponibles dans une étude,
+chaque couple échelle clinique-évaluateur est considéré comme une observation.
+
+Les facteurs qui sont des variables catégorielles (le protocole utilisé par exemple) sont codés en \textit{dummies} : la présence du facteur est représentée par un 1 et son absence par 0. 
+
+Enfin, toutes les variables sont standardisées : à chaque observation est soustraite la moyenne de l'ensemble des observations, le tout divisé par l'écart-type de la moyenne de 
+l'ensemble des observations. Cette étape n'est pas appliquée dans le cadre de l'arbre de décision.
+
+Les facteurs sont les variables indépendantes de l'analyse et la variable dépendante quantifiant l'efficacité du \gls{nfb} est décrite dans la section suivante.
+
+
+\section{Explication de l'efficacité du Neurofeedback par des méthodes multivariées}
+
+\subsection{Calcul de la taille d'effet intra-groupe}
+
+L'\gls{es}-intra-groupe est calculée à partir des moyennes et écart-types des scores cliniques totaux donnés par les parents et les enseignants. De plus, lorsqu'une étude 
+donne des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
+\begin{equation*}
+\label{eq:factors_effect_size_within_subject}
+\text{ES} = \frac{M_{\text{post,T}} - M_{\text{pre,T}}}{\sqrt{\frac{\sigma_{\text{pre,T}}^2 + \sigma_{\text{post,T}}^2}{2}}},
+\end{equation*} 
+\noindent où $M_{\text{t,T}}$ est la moyenne sur l'échelle clinique, pour le traitement T, au moment t (pré-test ou post-test) et $\sigma_{\text{t,T}}$ représente
+son écart-type. Avec cette défintion de l'\gls{es}, on se concentre sur l'effet du traitement au sein du groupe \citep{Cohen1988} précédemment utilisé dans la littérature sur le \gls{nfb} 
+\citep{Arns2009, Maurizio2014, Strehl2017}.  
+%Finally, to avoid to break analysis methods assumptions, an outlier rejection was applied defining thresholds of acceptance as 
+%$[\mu - 3 \sigma, \mu + 3 \sigma]$, with $\mu$ and $\sigma$ being respectively the mean and the standard deviation of all within-\gls{es} computed \citep{Shewhart1931}.
+%
+%The within-\gls{es} was then considered as a dependent variable to be explained by the factors (the independent variables). 
+%The following three methods, implemented with the Scikit-Learn Python \citep[version 0.18.1]{Pedregosa2011} and the Statsmodels Python
+%\citep[version 0.8.0]{Seabold2010} libraries, were used to perform the regression:
+%\begin{itemize}
+  %\item weighted multiple linear regression with \gls{wls} \citep{Montgomery2012};
+	%\item sparsity-regularized linear regression with \gls{lasso} \citep{Tibshirani1996};
+	%\item decision tree regression \citep{Quinlan1986}.
+%\end{itemize}
+
+\subsection{Pré-traitement des facteurs}
