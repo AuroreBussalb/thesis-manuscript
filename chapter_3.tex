@@ -7,14 +7,14 @@ En effet, même si ces études satisfont toutes le critère d'inclusion défini 
 sans tenir compte par exemple de la qualité de l'acquisition de l'\gls{eeg}, du neuromarqueur entrainé lors du \gls{nfb} et du design de l'étude clinique (notamment le nombre de 
 sessions et la durée du traitement). 
 
-Afin de pallier ces limitations, une nouvelle approche a été implémentée : la \gls{saob} qui va justement tirer avantage de cette hétérogénéité. L'efficacité du traitement, quantifiée 
+Afin de pallier ces limitations, une nouvelle approche a été implémentée : l'analyse systématique des bias (\gls{saob} en anglais) qui va justement tirer avantage de cette hétérogénéité. L'efficacité du traitement, quantifiée 
 par l'\gls{es}-intra-groupe, de chaque intervention est considérée comme variable dépendante expliquée par des variables indépendantes qui sont ici les facteurs méthologiques et techniques. 
 Le but de cette analyse est de déterminer les facteurs qui ont une influence sur l'efficacité du \gls{nfb} : au vu des résultats des précédentes méta-analyses \citep{Micoulaud2014, Cortese2016}, 
 on peut notamment s'attendre à ce que les évaluateurs aveugles soient associés à une plus faible efficacité du traitement. 
 
 \section{Extraction et pré-traitement des facteurs}
 
-La première étape de la \gls{saob} est d'extraire les facteurs des études sélectionnées. Une liste de facteurs ayant potentiellement une influence sur l'efficacité du \gls{nfb} a été 
+La première étape de la \gls{saob} est d'obtenir les facteurs des études sélectionnées. Une liste de facteurs ayant potentiellement une influence sur l'efficacité du \gls{nfb} a été 
 établie, puis les facteurs ont été extraits de chaque étude. Avant de débuter l'analyse, les facteurs sont pré-traités en suivant les étapes décrites dans cette section. 
 
 \subsection{Choix des facteurs}
@@ -30,7 +30,7 @@ divisé par le score maximal à atteindre sur l'échelle clinique),
 et la diminution du rythme theta), la présence d'une phase de transfert lors de l'entrainenement par \gls{nfb}, l'utilisation d'une carte de transfert pour s'entrainer à la maison ou à l'école, 
 le type de seuillage pour les récompenses discrètes, le nombre de sessions de \gls{nfb}, la durée et la fréquence des sessions, la durée du traitement, l'individualisation des bandes de fréquence
 basée sur l'\gls{iapf}, et le couplage du \gls{nfb} avec l'\gls{emg}-Biofeedback.
-\item \emph{la qualité de l'acquisition :} la présence d'une ou plus électrode active et la qualité de l'\gls{eeg}. Cette dernière est un indicateur allant de 1 à 3, calculé sur les critères 
+\item \emph{la qualité de l'acquisition :} la présence de plus d'une électrode active et la qualité de l'\gls{eeg}. Cette dernière est représentée par un indicateur allant de 1 à 3, calculé sur les critères 
 suivants : 
 \begin{description} 
 \item[le type d'électrode utilisée :] \gls{agcl}/Gel ou \gls{au}/Gel,
@@ -38,7 +38,7 @@ suivants :
 \item[la certification du matériel hardware utilisé :] le matériel doit être conforme à la norme ISO-60601-2-26 \citep{ISO}.
 \end{description}
 
-Un score de qualité de 3 est donné si tous les critères ci-dessus sont remplis. Si au moins l'un d'eux est satisfait, le score est de 2, sinon il sera mis à 1.
+Un score de qualité de 3 est donné si tous les critères ci-dessus sont remplis. Si au moins l'un d'eux est satisfait, le score est de 2, sinon il est mis à 1.
 
 \item \emph{la qualité du signal} : rejet en temps réel (l'\textit{epoch} est rejeté, pas de retour calculé) ou correction (retour calculé sur l'\textit{epoch} débruité) des 
 artefacts oculaires et rejet en temps réel d'artefacts génériques détectés grâce à leur large amplitude. 
@@ -63,32 +63,96 @@ Les facteurs qui sont des variables catégorielles (le protocole utilisé par ex
 Enfin, toutes les variables sont standardisées : à chaque observation est soustraite la moyenne de l'ensemble des observations, le tout divisé par l'écart-type de la moyenne de 
 l'ensemble des observations. Cette étape n'est pas appliquée dans le cadre de l'arbre de décision.
 
-Les facteurs sont les variables indépendantes de l'analyse et la variable dépendante quantifiant l'efficacité du \gls{nfb} est décrite dans la section suivante.
+Les facteurs extraits et prétraités sont les variables indépendantes de l'analyse.
 
 
 \section{Explication de l'efficacité du Neurofeedback par des méthodes multivariées}
 
 \subsection{Calcul de la taille d'effet intra-groupe}
 
-L'\gls{es}-intra-groupe est calculée à partir des moyennes et écart-types des scores cliniques totaux donnés par les parents et les enseignants. De plus, lorsqu'une étude 
+L'\gls{es}-intra-groupe est calculé à partir des moyennes et écart-types des scores cliniques totaux donnés par les parents et les enseignants. De plus, lorsqu'une étude 
 donne des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
-\begin{equation*}
+\begin{equation}
 \label{eq:factors_effect_size_within_subject}
-\text{ES} = \frac{M_{\text{post,T}} - M_{\text{pre,T}}}{\sqrt{\frac{\sigma_{\text{pre,T}}^2 + \sigma_{\text{post,T}}^2}{2}}},
-\end{equation*} 
+\text{ES-intra-groupe} = \frac{M_{\text{post,T}} - M_{\text{pré,T}}}{\sqrt{\frac{\sigma_{\text{pré,T}}^2 + \sigma_{\text{post,T}}^2}{2}}},
+\end{equation} 
 \noindent où $M_{\text{t,T}}$ est la moyenne sur l'échelle clinique, pour le traitement T, au moment t (pré-test ou post-test) et $\sigma_{\text{t,T}}$ représente
-son écart-type. Avec cette défintion de l'\gls{es}, on se concentre sur l'effet du traitement au sein du groupe \citep{Cohen1988} précédemment utilisé dans la littérature sur le \gls{nfb} 
-\citep{Arns2009, Maurizio2014, Strehl2017}.  
-%Finally, to avoid to break analysis methods assumptions, an outlier rejection was applied defining thresholds of acceptance as 
-%$[\mu - 3 \sigma, \mu + 3 \sigma]$, with $\mu$ and $\sigma$ being respectively the mean and the standard deviation of all within-\gls{es} computed \citep{Shewhart1931}.
-%
-%The within-\gls{es} was then considered as a dependent variable to be explained by the factors (the independent variables). 
-%The following three methods, implemented with the Scikit-Learn Python \citep[version 0.18.1]{Pedregosa2011} and the Statsmodels Python
-%\citep[version 0.8.0]{Seabold2010} libraries, were used to perform the regression:
-%\begin{itemize}
-  %\item weighted multiple linear regression with \gls{wls} \citep{Montgomery2012};
-	%\item sparsity-regularized linear regression with \gls{lasso} \citep{Tibshirani1996};
-	%\item decision tree regression \citep{Quinlan1986}.
-%\end{itemize}
+son écart-type. Au contraire de l'\gls{es}-inter-groupe défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de concentrer sur l'effet du 
+traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} a déjà été précédemment utilisée dans la littérature sur le \gls{nfb} 
+appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. 
 
-\subsection{Pré-traitement des facteurs}
+Etant donné que certains facteurs aux valeurs non catégorielles comportent quelques observations manquantes, qui sont considérées comme des \glspl{nan} en Python, 
+celles-ci sont imputées et remplacées par -1.
+
+Enfin, afin d'éviter de rompre les hypothèses des méthodes utilisées dans la \gls{saob}, les valeurs aberrantes sont rejetées : les valeurs à l'extérieur de l'intervalle 
+$[\mu - 3 \sigma, \mu + 3 \sigma]$  sont exclues (avec $\mu$ et $\sigma$ respectivement la moyenne et l'écart-type de tous les \gls{es}-intra-groupe calculés \citep{Shewhart1931}).
+
+Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la variable dépendante que les variables indépendantes (les facteurs) vont expliquer. 
+
+\subsection{L'analyse systématique des biais}
+
+La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide des bibliothèques Python Scikit-Learn \citep[version 0.18.1]{Pedregosa2011} et Statsmodels \citep[version 0.8.0]{Seabold2010} : 
+\begin{itemize}
+  \item Une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
+	\item Une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
+	\item Un arbre de décision de regression (\gls{dt} en anglais) \citep{Quinlan1986}.
+\end{itemize}
+
+\subsubsection{La régression linéaire multiple et pondérée}
+La régression linéaire a pour but d'estimer les coefficients de régression qui lient les facteurs aux \gls{es}-intra-groupe. Ici, la régression est pondérée pour, d'une part, 
+prendre en compte le fait que pour certaines études plusieurs échelles cliniques sont disponibles, et d'autre part pour capturer les différentes tailles d'échantillon parmi les études.
+Le poids $w_{n}$ associé à chaque observation $n$ est défini comme suit : 
+\begin{equation}
+\label{eq:weight_WLS}
+w_{n} = \frac{\text{N}_{k,T}}{\text{NScales}_{k,T}},
+\end{equation} 
+avec $\text{N}_{k,T}$ le nombre de sujets dans l'étude $k$ dans le groupe suivant le traitement $T$ et $\text{NScales}_{k,T}$ le nombre 
+d'échelles cliniques disponibles dans l'étude $k$ évaluant l'efficacité du traitement $T$.
+
+Mathématiquement, la \gls{wls} se traduit ainsi : 
+\begin{equation}
+\label{eq:factors_model_WLS}
+\textbf{W}y = \textbf{WX}\beta + \epsilon.
+\end{equation}
+$\textbf{X}$ est une matrice inversible $(n \times p)$ et représente $n$ observations sur chaque $p-1$ variable indépendante et l'intercept, 
+$\beta$ est un vecteur $(p \times 1)$ des coefficients de régression associés, $\textbf{W}$ est une matrice diagonale $(n \times n)$  
+des poids $w_{n}$, $y$ est un vecteur $(n \times 1)$ des variables dépendantes et $\epsilon$ est un vecteur $(n \times 1)$ d'erreurs.
+
+Le but de la \gls{wls} est d'estimer le vecteur de coefficients $\beta$ en minimisant la somme pondérée des carrés des résidus (\gls{wrss} en anglais) :
+\begin{equation}
+\label{eq:factors_WRSS}
+\text{WRSS} = \sum_{i=1}^{n} w_i \Big(y_i - \beta_{0} - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2.
+\end{equation}
+
+Une fois le vecteur $\beta$ estimé, on cherche à savoir si les hypothèses du modèle sont vérifiées : 
+\begin{itemize}
+	\item la matrice ${\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX}$ est régulière,
+  \item aucune corrélation apparente n'est trouvée entre les variables indépendantes non catégorielles, 
+  \item la tendance linéaire estimée est trouvée significative en se basant sur la statistique F,
+  \item les résidus sont distribués normalement en se basant sur le kurtosis et le test Omnibus.
+\end{itemize} 
+
+Si toutes ces hypothèses sont satisfaites, on peut interpréter les résultats de la \gls{wls}. On s'intéresse à la significativité de chaque coefficient $\beta_{j, 1<j<p}$ :
+s'il est significatif, le facteur associé à ce coefficient est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, le signe du coefficient indique si 
+cette influence est positive ou négative.
+
+Une régression linéaire ordinaire (\gls{ols} en anglais) est aussi mise en place pour observer l'impact des poids sur les résultats. 
+
+\subsubsection{La régression linéaire régularisée}
+
+La deuxième méthode appliquée lors de la \gls{saob} est le \gls{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce à la norme $\ell_1$ appliquée aux coefficients.
+Les coefficients $\hat{\beta}_j, 1<j<p$ sont obtenus en minimisant le coût :
+\begin{equation}
+\label{eq:factors_lasso-minimization}
+\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} \Big(y_i - \beta_{0} - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2 + \lambda \sum_{j=1}^{p}\abs{\beta_{j}},
+\end{equation} 
+où $\lambda$ est le paramètre de régularisation qui en augmentant met de plus en plus de coefficients à 0. 
+
+Le paramètre de régularisation optimal est déterminé par une validation croisée \textit{leave-one-out}. Cette méthode prend une seule observation 
+comme donnée de test pour la validation, laissant $n$ - 1 observations pour les données d'entraînement. Le processus de la validation croisée est ensuite répété $n$ fois pour que chaque observation 
+soit utilisée exactement une fois comme donnée de test. Pour chaque itération, appelée \textit{fold} en anglais, l'erreur quadratique moyenne (\gls{mse} en anglais) est calculée sur les données de test
+puis les $n$ resultats sont moyennés pour mener à une seule observation qui permet de trouver le $\lambda$ optimal. Celui-ci correspond à l'abscisse du minimum de la \gls{mse} 
+du \textit{fold} moyen calculée sur un large intervalle de $\lambda$ \citep{James2013}.
+Un coefficient non mis à 0 signifie que le facteur associé pourrait avoir une influence sur l'efficacité du \gls{nfb} et, ici aussi, le signe du coefficient indique la direction de l'effet. 
+
+\subsubsection{L'arbre de décision de régression}
