@@ -7,7 +7,7 @@ En effet, même si ces études satisfont toutes le critère d'inclusion défini 
 sans tenir compte par exemple de la qualité de l'acquisition de l'\gls{eeg}, du neuromarqueur entrainé lors du \gls{nfb} et du design de l'étude clinique (notamment le nombre de 
 sessions et la durée du traitement). 
 
-Afin de pallier ces limitations, une nouvelle approche a été implémentée : l'analyse systématique des bias (\gls{saob} en anglais) qui va justement tirer avantage de cette hétérogénéité. L'efficacité du traitement, quantifiée 
+Afin de pallier ces limitations, une nouvelle approche a été implémentée : l'analyse systématique des biais (\gls{saob} en anglais) qui va justement tirer avantage de cette hétérogénéité. L'efficacité du traitement, quantifiée 
 par l'\gls{es}-intra-groupe, de chaque intervention est considérée comme variable dépendante expliquée par des variables indépendantes qui sont ici les facteurs méthologiques et techniques. 
 Le but de cette analyse est de déterminer les facteurs qui ont une influence sur l'efficacité du \gls{nfb} : au vu des résultats des précédentes méta-analyses \citep{Micoulaud2014, Cortese2016}, 
 on peut notamment s'attendre à ce que les évaluateurs aveugles soient associés à une plus faible efficacité du traitement. 
@@ -24,7 +24,7 @@ Les facteurs ayant une possible influence sur l'efficacité du \gls{nfb} ont ét
 \begin{itemize}
 \item \emph{les biais méthodologiques :} la présence d'un groupe contrôle, l'aveugle des évaluateurs, la randomisation des sujets dans les essais contrôlés, et la validation de l'étude 
 par un \gls{irb},
-\item \emph{la population :} prise de psychostimulants durant le traitement par \gls{nfb}, la tranche d'âge des enfants inclus, la sévérité des symptômes du TDAH à pré-test (score clinique à pré-test
+\item \emph{la population :} la prise de psychostimulants durant le traitement par \gls{nfb}, la tranche d'âge des enfants inclus, la sévérité des symptômes du TDAH à pré-test (score clinique à pré-test
 divisé par le score maximal à atteindre sur l'échelle clinique),
 \item \emph{l'implémentation du \gls{nfb} :} le protocole utilisé (\gls{scp}, \gls{smr}, l'augmentation du rythme theta, l'augmentation du rythme beta dans les aires centrales ou frontales 
 et la diminution du rythme theta), la présence d'une phase de transfert lors de l'entrainenement par \gls{nfb}, l'utilisation d'une carte de transfert pour s'entrainer à la maison ou à l'école, 
@@ -40,8 +40,8 @@ suivants :
 
 Un score de qualité de 3 est donné si tous les critères ci-dessus sont remplis. Si au moins l'un d'eux est satisfait, le score est de 2, sinon il est mis à 1.
 
-\item \emph{la qualité du signal} : rejet en temps réel (l'\textit{epoch} est rejeté, pas de retour calculé) ou correction (retour calculé sur l'\textit{epoch} débruité) des 
-artefacts oculaires et rejet en temps réel d'artefacts génériques détectés grâce à leur large amplitude. 
+\item \emph{la qualité du signal} : le rejet en temps réel (l'\textit{epoch} est exlu, pas de retour calculé) ou la correction (retour calculé sur l'\textit{epoch} débruité) des 
+artefacts oculaires et le rejet en temps réel d'artefacts génériques détectés grâce à leur large amplitude. 
 \end{itemize}
 
 Afin d'éviter tout biais, le nom des facteurs a été caché durant les analyses : il n'a été révélé que lorsque le modèle a été considéré comme valide notamment au niveau 
@@ -51,19 +51,20 @@ de la normalisation des variables et de la validation des hypothèses du modèle
 
 Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. Afin que 
 les facteurs pour lesquels peu d'observations sont diponibles ne faussent pas l'analyse, un critère d'exclusion arbitraire a été mis en place : si pour un facteur le nombre d'observations 
-manquantes excède plus de 20\% du nombre total d'observations, ce facteur est exclu. 
+manquantes excède plus de 20\% du nombre total d'observations, ce facteur est exclu. Les facteurs qui sont des variables catégorielles et qui
+comportent quelques observations manquantes voient ces valeurs imputées et remplacées par -1.
 
 Par ailleurs, comme cette analyse tire avantage de l'hétérogénéité des études, si un facteur a plus de 80\% d'observations identiques, celui-ci est également exclu. 
 
 Il est important de noter qu'une étude ne correspond pas nécessairement à une observation : lorsque plusieurs échelles cliniques et/ou évaluateurs sont disponibles dans une étude,
 chaque couple échelle clinique-évaluateur est considéré comme une observation.
 
-Les facteurs qui sont des variables catégorielles (le protocole utilisé par exemple) sont codés en \textit{dummies} : la présence du facteur est représentée par un 1 et son absence par 0. 
+Ensuite, les facteurs qui sont des variables catégorielles (le protocole utilisé par exemple) sont codés en \textit{dummies} : la présence du facteur est représentée par un 1 et son absence par 0. 
 
 Enfin, toutes les variables sont standardisées : à chaque observation est soustraite la moyenne de l'ensemble des observations, le tout divisé par l'écart-type de la moyenne de 
-l'ensemble des observations. Cette étape n'est pas appliquée dans le cadre de l'arbre de décision.
+l'ensemble des observations. 
 
-Les facteurs extraits et prétraités sont les variables indépendantes de l'analyse.
+Les facteurs sélectionnés et prétraités sont les variables indépendantes de l'analyse.
 
 
 \section{Explication de l'efficacité du Neurofeedback par des méthodes multivariées}
@@ -74,18 +75,16 @@ L'\gls{es}-intra-groupe est calculé à partir des moyennes et écart-types des 
 donne des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
 \begin{equation}
 \label{eq:factors_effect_size_within_subject}
-\text{ES-intra-groupe} = \frac{M_{\text{post,T}} - M_{\text{pré,T}}}{\sqrt{\frac{\sigma_{\text{pré,T}}^2 + \sigma_{\text{post,T}}^2}{2}}},
+\text{ES-intra-groupe} = \frac{M_{\text{post},T} - M_{\text{pré},T}}{\sqrt{\frac{\sigma_{\text{pré},T}^2 + \sigma_{\text{post},T}^2}{2}}},
 \end{equation} 
-\noindent où $M_{\text{t,T}}$ est la moyenne sur l'échelle clinique, pour le traitement T, au moment t (pré-test ou post-test) et $\sigma_{\text{t,T}}$ représente
-son écart-type. Au contraire de l'\gls{es}-inter-groupe défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de concentrer sur l'effet du 
+\noindent où $M_{\text{t},T}$ est la moyenne sur l'échelle clinique, pour le traitement $T$, au moment t (pré-test ou post-test) et $\sigma_{\text{t},T}$ représente
+son écart-type. Au contraire de l'\gls{es}-inter-groupes défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de se concentrer sur l'effet du 
 traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} a déjà été précédemment utilisée dans la littérature sur le \gls{nfb} 
 appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. 
 
-Etant donné que certains facteurs aux valeurs non catégorielles comportent quelques observations manquantes, qui sont considérées comme des \glspl{nan} en Python, 
-celles-ci sont imputées et remplacées par -1.
-
-Enfin, afin d'éviter de rompre les hypothèses des méthodes utilisées dans la \gls{saob}, les valeurs aberrantes sont rejetées : les valeurs à l'extérieur de l'intervalle 
-$[\mu - 3 \sigma, \mu + 3 \sigma]$  sont exclues (avec $\mu$ et $\sigma$ respectivement la moyenne et l'écart-type de tous les \gls{es}-intra-groupe calculés \citep{Shewhart1931}).
+Enfin, afin d'éviter de rompre les hypothèses des méthodes utilisées dans la \gls{saob}, les valeurs non comprises dans l'intervalle 
+$[\mu - 3 \sigma, \mu + 3 \sigma]$ (avec $\mu$ et $\sigma$ respectivement la moyenne et l'écart-type de tous les \gls{es}-intra-groupe calculés \citep{Shewhart1931})
+sont considérées comme aberrantes et sont donc rejetées.
 
 Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la variable dépendante que les variables indépendantes (les facteurs) vont expliquer. 
 
@@ -141,12 +140,12 @@ Une régression linéaire ordinaire (\gls{ols} en anglais) est aussi mise en pla
 \subsubsection{La régression linéaire régularisée}
 
 La deuxième méthode appliquée lors de la \gls{saob} est le \gls{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce à la norme $\ell_1$ appliquée aux coefficients.
-Les coefficients $\hat{\beta}_j, 1<j<p$ sont obtenus en minimisant le coût :
+Les coefficients $\hat{\beta}_{j, 1<j<p}$ sont obtenus en minimisant le coût :
 \begin{equation}
 \label{eq:factors_lasso-minimization}
 \hat{\beta} = \argmin_\beta \sum_{i=1}^{n} \Big(y_i - \beta_{0} - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2 + \lambda \sum_{j=1}^{p}\abs{\beta_{j}},
 \end{equation} 
-où $\lambda$ est le paramètre de régularisation qui en augmentant met de plus en plus de coefficients à 0. 
+où $\lambda$ est le paramètre de régularisation qui, en augmentant, met de plus en plus de coefficients à 0. 
 
 Le paramètre de régularisation optimal est déterminé par une validation croisée \textit{leave-one-out}. Cette méthode prend une seule observation 
 comme donnée de test pour la validation, laissant $n$ - 1 observations pour les données d'entraînement. Le processus de la validation croisée est ensuite répété $n$ fois pour que chaque observation 
@@ -156,3 +155,79 @@ du \textit{fold} moyen calculée sur un large intervalle de $\lambda$ \citep{Jam
 Un coefficient non mis à 0 signifie que le facteur associé pourrait avoir une influence sur l'efficacité du \gls{nfb} et, ici aussi, le signe du coefficient indique la direction de l'effet. 
 
 \subsubsection{L'arbre de décision de régression}
+
+La troisième et dernière méthode utilisée est le \gls{dt} de régression qui, à l'inverse des deux précédentes méthodes, n'est pas une méthode 
+linéaire \citep{Quinlan1986}. Elle divise l'ensemble des observations en sous-ensembles de plus en plus petits en se basant sur la présence 
+d'une variable qualitative ou sur la comparaison à un seuil appliqué à une variable quantitative. La position de la variable indépendante utilisée (et le
+seuil de comparaison dans le cas d'une variable quantitative) pour subdiviser l'ensemble des données est déterminée de façon à minimiser la
+\gls{mse} définie comme suit :
+
+\begin{equation}
+\label{eq:factors_decision_tree_mse}
+\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} \Big(\hat{y}_i - {y}_i\Big)^2,
+\end{equation}
+avec $\hat{y}$ les valeurs prédites.
+
+La première variable utilisée pour diviser l'ensemble des données se situe dans le noeud racine (\textit{root node} en anglais), les autres
+variables qui mènent à une nouvelle subdivision sont dans des noeuds, et les noeuds où la divsion s'arrête sont appelés
+feuilles (\textit{leaf nodes}) de l'arbre. La profondeur de l'arbre peut être définie par le nombre d'observations minimal nécessaire
+pour diviser un sous ensemble. Un arbre exemple est schématisé à la Figure~\ref{Figure:factors_decision_tree_example}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-3/decision-tree-example} 
+  \caption{Exemple schématique d'arbre de décision de régression. Le \textit{root node} est en rouge, les noeuds sont en bleu et les feuilles en vert. 
+	Les variables A, C et D sont catégorielles ; les variables B, E et F sont numériques. Les valeurs dans les feuilles correspondent à la valeur 
+	prédite par l'arbre de décision de la variable dépendante.}
+  \label{Figure:factors_decision_tree_example}
+\end{figure}
+
+Cette méthode gère facilement les valeurs manquantes : ainsi aucune imputation n'a été effectuée avant le calcul du \gls{dt}. Dans le cas de la \gls{saob}, 
+les facteurs se retrouvent dans les feuilles : leur influence sur l'efficacité du \gls{nfb} est quantifiée par la valeur de la variable dépendante 
+obtenue après chaque division mais aussi par leur place dans l'arbre. En effet, plus un facteur est en haut de l'arbre plus les divisions se font sur un grand nombre
+d'observations, ainsi son impact sur l'efficacité a plus de chance d'être avérée.
+
+\section{Analyse des facteurs influençant le Neurofeedback}
+
+\subsection{Sélection des études}
+
+Les termes entrés dans Pubmed pour la recherche des articles à inclure dans la \gls{saob} sont :
+(ADHD OR adhd OR attention deficit disorder with hyperactivity OR minimal brain disorders OR syndrome hyperkinetic OR hyperkinetic
+ syndrome OR hyperactivity disorder OR hyperactive child syndrome OR childhood hyperkinetic syndrome OR attention deficit hyperactivity disorders
+ OR attention deficit hyperactivity disorder OR adhd attention deficit hyperactivity disorder OR addh OR overactive child syndrome OR attention deficit 
+hyperkinetic disorder OR hyperkinetic disorder OR attention deficit disorder hyperactivity OR attention deficit disorders hyperactivity OR child 
+attention deficit disorder OR hyperkinetic syndromes OR syndromes hyperkinetic OR hyperkinetic syndrome childhood) AND 
+(randomized control trial OR RCT OR randomized control study OR Pilot Study OR Study OR Trial OR randomized trial) AND 
+(neurofeedback OR “EEG biofeedback” OR neurotherapy OR SCP OR “slow cortical potentials” OR Theta Beta Ratio OR “TBR”). 
+
+La dernière recherche effectuée le 12 février 2018 avec ces termes a retourné 155 résultats, auxquels se sont ajoutés 22 articles inclus dans les précédentes 
+méta-analyses sur le \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2009, Sonuga-Barke2013, Micoulaud2014, Cortese2016, Catala2017}. Afin de sélectionner
+les études à inclure dans la \gls{saob}, les 177 résultats ont été filtrés en passant par un pipeline représenté à la figure 
+Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 33 études ont été sélectionnées, qui correspondent par ailleurs au critère d'inclusion de
+\citet{Cortese2016} sans les exigences sur les groupes contrôles. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-3/factors-selection-studies} 
+  \caption{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 12 fevrier 2018). n(NFB) correspond
+	au nombre total de sujets inclus dans le groupe Neurofeedback sur les 33 études sélectionnées.}
+  \label{Figure:factors_pipeline_selection_studies}
+\end{figure}
+
+La \gls{saob} est donc effectuée sur 33 études listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies} (qui correspondent à 
+67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah}. 
+
+\begin{table}[h!]
+  \centering
+  \caption{Liste des études incluses dans l'analyse systématique des biais : a) études incluses dans \citet{Cortese2016}
+	(dernière recherche le 30 août 2015); b) études satisfaisant le critère d'inclusion de \citet{Cortese2016} (dernière recherche le 12 février 2018); c) études 
+	satisfaisant le critère d'inclusion de \citet{Cortese2016} à l'exception de la partie concernant le groupe contrôle (dernière recherche le 12 février 2018).}
+  \input{tables/chapter-3/table_factors_analysis_meta_analysis_list_studies}
+  \label{Table:table_factors_analysis_meta_analysis_list_studies}
+\end{table}
+
+\subsection{Facteurs identifiés}
+
+
+
+
