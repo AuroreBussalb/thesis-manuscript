@@ -17,7 +17,7 @@ précautionneux dans le choix de ces paramètres.
 La première étape de la \gls{saob} est d'obtenir les facteurs des études sélectionnées. Une liste de facteurs ayant potentiellement une influence sur l'efficacité du \gls{nfb} a été 
 établie, puis les facteurs ont été extraits de chaque étude. Avant de débuter l'analyse, ils sont pré-traités en suivant les étapes décrites dans cette section. 
 
-\subsection{Choix des facteurs}
+\subsection{Choix des facteurs} \label{choix_des_facteurs}
 
 Les facteurs ayant une possible influence sur l'efficacité du \gls{nfb} ont été répartis en cinq catégories :
 \renewcommand{\labelitemi}{$\bullet$}
@@ -99,7 +99,8 @@ La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide de
 	\item Un arbre de décision de regression (\gls{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
 
-Les résultats de ces trois méthodes intrinséquement différentes vont être combinés pour déterminer si un facteur influence l'efficacité du \gls{nfb}. 
+Les résultats de ces trois méthodes intrinséquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
+\gls{nfb} est plus probable que si seulement une méthode l'avait identifié. 
 
 \subsubsection{La régression linéaire multiple et pondérée}
 La régression linéaire a pour but d'estimer les coefficients de régression qui lient les facteurs aux \gls{es}-intra-groupe. Ici, la régression est pondérée pour, d'une part, 
@@ -392,21 +393,21 @@ le fait que la variable \textit{fréquence des sessions} (nombre de sessions par
 observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Ainsi, ces résultats indiquent qu'adopter une fréquence 
 élevée de sessions est préférable, ce qui est peu connu dans le domaine du \gls{nfb}.
 
-\subsection{Perspectives de futures analyses}
+\subsection{Perspectives pour de futures analyses}
 
-L'influence d'autres facteurs sur l'efficacité du \gls{nfb} aurait été intéressante à analyser, comme la personnalissation des protocoles d'entrainement basée sur l'\gls{iapf},
+L'influence d'autres facteurs sur l'efficacité du \gls{nfb} aurait été intéressante à analyser, comme la personnalisation des protocoles d'entrainement basée sur l'\gls{iapf},
 dont les résultats paraissent prometteurs selon \citet{Bazanova2018} et \citet{Escolano2014}. Cependant elle n'a pas pu être incluse dans la \gls{saob} faute d'un 
 nombre suffisant d'études proposant un protocole personnalisé. Ce manque d'études est aussi la raison pour laquelle le couplage entre l'\gls{emg}-Biofeedback et le 
 \gls{nfb} n'a pas pu être étudié dans la \gls{saob}. 
 
-Un autre facteur intéressant, qui aurait pu aider à expliquer les résultats sur la durée du traitement a 
+Un autre facteur intéressant, qui aurait pu aider à expliquer les résultats sur la durée du traitement, a 
 également été exclu de l'analyse : la sévérité des symptômes à pré-test. Bien que les scores à pré-test soient disponibles pour chaque étude, ils ne sont pas
 comparables car différentes échelles sont utilisées. Afin de résoudre ce problème, ces scores ont été normalisés grâce au score maximum pouvant être atteint
 sur chaque échelle. Toutefois, cette valeur n'a pas pu être trouvée pour plusieurs échelles cliniques : trop d'observations manquantes ont mené au rejet de facteur.
 
 Enfin, il serait intéressant de s'intéresser au lieu où les sessions de \gls{nfb} sont effectuées. En effet, \citet{Minder2018} souligne le fait que que le lieu
 d'entrainement pourrait aussi être un facteur contribuant à l'efficacité du \gls{nfb}. Toutefois, dans son étude aucune différence significative n'est trouvée entre
-les résultats cliniques des performances à la cliniques et à l'école. Dans la grande majorité des études cliniques sur le \gls{nfb} appliqué aux enfants
+les résultats des performances à la clinique et à l'école. Dans la grande majorité des études cliniques sur le \gls{nfb} appliqué aux enfants
 \gls{tdah}, les sessions ont lieu en clinique, rendant impossible à la \gls{saob} d'étudier ce facteur. Cependant, à l'instar de \citet{Minder2018}, d'autres 
 études effectuent leurs séances en dehors du milieu hospitalier \citep{Bioulac2019}, ainsi l'influence du lieu d'entrainement pourra finir par être étudiée
 plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tôt et qui ont dû être exclus de la \gls{saob}.
@@ -419,21 +420,21 @@ méta-analyses existantes \citep{Micoulaud2014, Cortese2016}.
 
 Les enseignants sont considérés comme \gls{pblind} par \citet{Cortese2016, Micoulaud2014} et cette définition a été suivie dans la \gls{saob}. Etonnamment, les données
 à disposition ne vont pas exactement dans le sens de l'hypothèse largement acceptée que la différence entre \gls{mprox} et \gls{pblind} peut être seulement 
-expliquée par l'effet placebo. Par ailleurs, les enseignant sont désignés comme "probablement" aveugles, ce qui signifie qu'ils peuvent être au courant du
+expliquée par l'effet placebo. Par ailleurs, les enseignants sont désignés comme "probablement" aveugles, ce qui signifie qu'ils peuvent être au courant du
 traitement suivi par les enfants. 
 
 Un élément corrobore cette hypothèse : pour chaque étude incluse dans cette analyse, l'évaluation des symptômes avant le début
 du traitement par les parents comparée à celle des enseignants montre que ces derniers ne voient pas l'ensemble des symptômes, autrement dit qu'ils sont probablement
 plus aveugles aux symptômes qu'au traitement comme l'illustre la Figure~\ref{Figure:factors_pblind_discussion}. En effet, à pré-test, les enseignants évaluent les 
 symptômes moins sévèrement que le parents et observent moins d'amélioration à post-test : cela correspond davantage au cas \textbf{A} représentant l'absence d'effet placebo
-que le cas \textbf{B}.
+qu'au cas \textbf{B}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-pblind-discussion} 
   \caption{Scores à pré-test et post-test ($\pm$ erreur type) donnés par les parents (\gls{mprox}) en bleu et les enseignants (\gls{pblind}) en pointillés verts. 
 	Deux hypothèses sur des données hypothétiques : \textbf{(A)} pas d'effet placebo, les enseignants notent moins de symptômes du \gls{tdah} donc la difference entre pré et post-test est faible
-	et \textbf{(B)} effet placebo, les enseignants observent autant de symptômes à pré-test que les parents mais autant d'amélioration. \textbf{(C)} Données réelles : 
+	et \textbf{(B)} effet placebo, les enseignants observent autant de symptômes à pré-test que les parents mais pas autant d'amélioration. \textbf{(C)} Données réelles : 
 	évolution des scores attribués par les parents et enseignants entre pré- et post-test dans les études qui satisfont le critère d'inclusion de \citeauthor{Cortese2016} 
 	et qui donnent les scores sur les mêmes échelles pour les deux types d'évaluateurs.}
   \label{Figure:factors_pblind_discussion}
@@ -447,8 +448,8 @@ sont plus variables que ceux entre parents, ce qui peut en partie expliquer le f
 
 Une autre façon de mettre en évidence un éventuel effet placebo est de se rapporter au \gls{dt} présenté à la Figure~\ref{Figure:factors_decision_tree}. Le 
 \textit{root node} divise l'ensemble des données en deux parties : d'une part un sous arbre est créé avec 46 observations correspondant aux évaluateurs
-\gls{mprox} et 21 observations correspondant aux évaluateurs \gls{pblind}. Si les différences observées entre ces deux types d'évaluateurs est due à l'effet
-placebo, il serait attendu que le sous-arbre des \gls{mprox} comporte des facteurs liés à la perception de l'implication dans le traitement. En effet, dans cette
+\gls{mprox} et d'autre part, 21 observations correspondant aux évaluateurs \gls{pblind}. Si les différences observées entre ces deux types d'évaluateurs est due à l'effet
+placebo, il serait attendu que le sous-arbre des observations \gls{mprox} comporte des facteurs liés à la perception de l'implication dans le traitement. En effet, dans cette
 partie de l'arbre on trouve bien le facteur "`durée du traitement", mais qui ne va pas dans la direction corroborant l'effet placebo : intuitivement, 
 il est attendu que plus le traitement est long, plus l'effet placebo est important et plus l'\gls{es}-intra-groupe est élevé, or ici l'inverse est observé ce qui
 contredit l'hypothèse. 
@@ -457,9 +458,14 @@ Ainsi, ces résultats suggèrent que les évaluateurs \gls{pblind} peuvent diffi
 plus aveugles aux symptômes qu'au traitement. En l'absence de protocoles de \textit{sham}-\gls{nfb} éthiquement \citep{Holtmann2014} et techniquement \citep{Birbaumer1991} 
 faisables, il est nécessaire d'avoir recours à une méthode alternative acceptable pour juger de l'efficacité du traitement \citep{World-Medical-Association2000}. Une analyse robuste envisageable 
 serait d'étudier les neuromarqueurs collectés durant le traitement par \gls{nfb} pour démontrer que les patients contrôlent effectivement le neuromarqueur, qu'ils 
-apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le temps), et que cet apprentissage conduit à une réogarnisation cérabrale durable. 
+apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le temps), et que cet apprentissage conduit à une réogarnisation cérébrale durable. 
 
 \subsection{Validation prospective sur les nouvelles études publiées depuis le 18/02/2018}
+
+L'analyse précédente présente des résultats obtenus sur des études publiées avant le le 12/02/2018, or la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est
+en pleine expansion conduisant à de nombreuses publications en peu de temps.
+
+\subsubsection{Sélection des nouvelles études} 
 
 Les résultats décrits précédemment ont été obtenus avec les études disponibles sur PubMed le 12/02/2018. Cependant, depuis cette date d'autres études satisfaisant
 les critères d'inclusion présentés à la Figure~\ref{Figure:factors_pipeline_selection_studies} ont été publiées. Ainsi, la \gls{saob} a été mise à jour avec les 
@@ -474,9 +480,9 @@ nouvelles études identifiées au 02/09/2019 dont les principales caractéristiq
   \label{Table:factors_new_studies_update}
 \end{table}
 
-Cette mise à jour permet ainsi d'appliquer la \gls{saob} sur 41 études ce qui correspond à 84 observations, permettant ainsi d'augmenter la robustesse des
-résultats. Malheureusement, tous les facteurs exclus dans l'étude ultérieure le sont également avec cette mise à jour et la validation par
-un \gls{irb} est également rejeté.
+Cette mise à jour permet ainsi d'appliquer la \gls{saob} sur 41 études ce qui correspond à 84 observations, augmentant ainsi la robustesse des
+résultats. Malheureusement, tous les facteurs exclus dans l'analyse antérieure le sont également avec cette mise à jour et la validation par
+un \gls{irb} est également rejetée.
 
 \subsubsection{Résumé des résultats} 
 
@@ -486,7 +492,7 @@ Table~\ref{Table:table_factors_analysis_results_summary_update}.
 \newpage\
 \begin{table}[h!]
   \centering
-  \caption{Resultats de la mise à jour de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une p-value $<$ 0.05 
+  \caption{Resultats des mises à jour de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une p-value $<$ 0.05 
 	(en gras) signifie que le coefficient du facteur correspondant est significativement différent de 0. Pour le \gls{lasso}, les facteurs dont les coefficients sont non mis à 0 (en gras) sont 
 	sélectionnés. Pour l'arbre de décision, la place du facteur dans l'arbre est indiquée. Pour les deux premières colonnes, quand la valeur du coefficient est négative le facteur 
 	correspondant pourrait mener à de meilleurs résultats du \gls{nfb}. Les valeurs en vert correspondent aux valeurs devenues significatives après la mise à jour ; les valeurs
@@ -494,3 +500,49 @@ Table~\ref{Table:table_factors_analysis_results_summary_update}.
   \input{tables/chapter-3/table_factors_analysis_results_summary_update}
   \label{Table:table_factors_analysis_results_summary_update}
 \end{table}
+
+Les résultats obtenus sont globalement cohérents avec ceux présentés dans \citet{Bussalb2019a}. Alors que la \gls{wls} identifie les mêmes facteurs à l'exception de la correction ou rejet 
+des artefacts oculaires (deuxième colonne de Table~\ref{Table:table_factors_analysis_results_summary_update}), le \gls{lasso} (troisième colonne de 
+Table~\ref{Table:table_factors_analysis_results_summary_update}) est beaucoup plus sévère : tous les coefficients des facteurs sont mis à 0 sauf celui de \gls{pblind}. Ce facteur est ainsi 
+le seul à être encore identifié par les trois méthodes qui s'accordent une nouvelle fois sur l'influence négative des évaluateurs aveugles sur les résultats.  
+
+En ce qui concerne les deux autres facteurs précédemment identifiés par les trois méthodes : 
+\begin{itemize}
+\item la durée du traitement n'est plus retournée que par deux méthodes 
+\item la qualité de l'\gls{eeg} égale à 2 n'est plus retournée que par la \gls{wls}. 
+\end{itemize}
+
+Un seul autre facteur est identifié par deux méthodes : la présence d'une phase de transfert qui semblerait, selon la \gls{wls} et le \gls{dt}, avoir un impact négatif sur l'efficacité 
+du \gls{nfb}. Ce facteur a été identifié dans \citet{Bussalb2019a} seulement par la \gls{wls} avec cette même direction d'effet.
+
+\subsubsection{Discussion sur la mise à jour}
+
+Entre le 12 février 2019 et le 2 septembre 2019, 8 nouvelles études répondant au critère d'inclusion de la \gls{saob} ont été publiées, ce qui montre l'importance de mettre à jour ce 
+genre d'analyse. L'ajout de ces 8 études a modifié certaines conclusions de \citet{Bussalb2019a}. 
+
+En effet, tout d'abord, la qualité de l'\gls{eeg} égale à 2 n'est plus retournée que par une seule méthode,
+remettant en question son influence positive sur l'efficacité du \gls{nfb}. Toutefois, Bien que ce facteur soit intéressant, sa définition (voir \ref{choix_des_facteurs}) manque de précision 
+du fait du peu d'informations disponibles sur le matériel utilisé par les études. Ainsi, afin d'évaluer au mieux son influence, les études devraient fournir davantage d'informations. Ensuite, 
+la durée du traitement n'est plus identifiée que par deux méthodes et la fréquence des sessions par une seule : on peut encore avancer, bien qu'avec moins de certitude que précédemment, 
+qu'un traitement intensif est préférable.  Bien que la significativité avait été atteinte pour la qualité de l'\gls{eeg} égale à 2 et pour la durée du traitement par les trois méthodes, 
+les résultats ne sont pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Afin de mettre en évidence cette fluctuation, l'évolution 
+de la p-value obtenue par la \gls{wls} en fonction des études incluses par année de publication.
+
+%% plot évalution de p-value en fonction de l'ajout de nouvelles études.
+
+Afin d'apporter des indications robustes quant au design de l'étude, la \gls{saob} doit être régulièrement mise à jour afin que ses résultats se stabilisent. 
+
+
+
+
+
+Alors que cette mise à jour a causé la perte de significativité de plusieurs facteurs, un facteur se voit identifié par deux méthodes : la présence d'une phase de transfert. 
+Cette phase a pour but d'aider à transposer le contrôle appris lors des séances de \gls{nfb} à la vie de tous les jours, on pourrait donc s'attendre à un effet positif sur les symptômes
+du \gls{tdah} comme le soulignent \citet{Arns2014, Strehl2006, Gani2008}, or la \gls{saob} conclut à un impact négatif. Il est possible qu'une phase de transfert seule ne soit pas si efficace
+si elle n'est pas couplée à l'utilisation d'une carte de transfert représentant la métaphore utilisée lors des sessions de \gls{nfb} qui permet à l'enfant de se souvenir plus facilement du contrôle
+qu'il exerçait durant la séance. Une autre explication est peut-être que regarder un écran sans feedback est trop déroutant pour l'enfant et le fruste. 
+
+
+
+
+ 
