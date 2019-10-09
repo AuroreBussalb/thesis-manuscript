@@ -19,7 +19,7 @@ La première étape de la \gls{saob} est d'obtenir les facteurs des études sél
 
 \subsection{Choix des facteurs} \label{choix_des_facteurs}
 
-Les facteurs ayant une possible influence sur l'efficacité du \gls{nfb} ont été répartis en cinq catégories :
+Les paramètres ayant une possible influence sur l'efficacité du \gls{nfb} ont été répartis en cinq catégories :
 \renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 \item \emph{les biais méthodologiques :} la présence d'un groupe contrôle, l'aveugle des évaluateurs (\gls{pblind}), la randomisation des sujets dans les essais contrôlés, et la validation de l'étude 
@@ -50,7 +50,7 @@ de la normalisation des variables et de la validation des hypothèses du modèle
 \subsection{Pré-traitement des facteurs}
 
 Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. Afin que 
-les facteurs pour lesquels peu d'observations sont diponibles ne faussent pas l'analyse, un critère d'exclusion arbitraire a été mis en place : si pour un facteur le nombre d'observations 
+les paramètres pour lesquels peu d'observations sont diponibles ne faussent pas l'analyse, un critère d'exclusion arbitraire a été mis en place : si pour un facteur le nombre d'observations 
 manquantes excède plus de 20\% du nombre total d'observations, il est exclu. Les observations manquantes dans les facteurs comportant des valeurs numériques sont 
 imputées et remplacées par -1.
 
@@ -63,7 +63,8 @@ chaque couple échelle clinique-évaluateur est considéré comme une observatio
 Ensuite, les facteurs qui sont des variables catégorielles (le protocole utilisé par exemple) sont codés en \textit{dummies} : la présence du facteur est représentée par un 1 et son absence par 0. 
 
 Enfin, toutes les variables sont standardisées : à chaque observation est soustraite la moyenne de l'ensemble des observations, le tout divisé par l'écart-type de la moyenne de 
-l'ensemble des observations. 
+l'ensemble des observations. La standardisation a été choisie plutôt que la normalisation afin de garder les valeurs extrêmes dans la \gls{saob} qui auraient été mises à 0 ou 1 avec 
+la normalisation. 
 
 Les facteurs sélectionnés et prétraités sont les variables indépendantes de l'analyse.
 
@@ -100,15 +101,15 @@ La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide de
 \end{itemize}
 
 Les résultats de ces trois méthodes intrinséquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
-\gls{nfb} est plus probable que si seulement une méthode l'avait identifié. 
+\gls{nfb} est plus probable que si seulement une méthode l'identifie. 
 
 \subsubsection{La régression linéaire multiple et pondérée}
 La régression linéaire a pour but d'estimer les coefficients de régression qui lient les facteurs aux \gls{es}-intra-groupe. Ici, la régression est pondérée pour, d'une part, 
-prendre en compte le fait que pour certaines études plusieurs échelles cliniques sont disponibles, et d'autre part pour capturer les différentes tailles d'échantillon parmi les études.
-Le poids $w_{n}$ associé à chaque observation $n$ est défini comme suit : 
+prendre en compte le fait que, pour certaines études, plusieurs échelles cliniques sont disponibles, et d'autre part pour capturer les différentes tailles d'échantillon parmi les études.
+Le poids $w_{i}$ associé à chaque observation $i$ est défini comme suit : 
 \begin{equation}
 \label{eq:weight_WLS}
-w_{n} = \frac{\text{N}_{k,T}}{\text{NScales}_{k,T}},
+w_{i} = \frac{\text{N}_{k,T}}{\text{NScales}_{k,T}},
 \end{equation} 
 avec $\text{N}_{k,T}$ le nombre de sujets dans l'étude $k$ dans le groupe suivant le traitement $T$ et $\text{NScales}_{k,T}$ le nombre 
 d'échelles cliniques disponibles dans l'étude $k$ évaluant l'efficacité du traitement $T$.
@@ -120,7 +121,7 @@ Mathématiquement, la \gls{wls} se traduit ainsi :
 \end{equation}
 $\textbf{X}$ est une matrice inversible $(n \times p)$ et représente $n$ observations sur chaque $p-1$ variable indépendante et l'intercept, 
 $\beta$ est un vecteur $(p \times 1)$ des coefficients de régression associés, $\textbf{W}$ est une matrice diagonale $(n \times n)$  
-des poids $w_{n}$, $y$ est un vecteur $(n \times 1)$ des variables dépendantes et $\epsilon$ est un vecteur $(n \times 1)$ d'erreurs.
+des poids $w_{i}$, $y$ est un vecteur $(n \times 1)$ des variables dépendantes et $\epsilon$ est un vecteur $(n \times 1)$ d'erreurs.
 
 Le but de la \gls{wls} est d'estimer le vecteur de coefficients $\beta$ en minimisant la somme pondérée des carrés des résidus (\gls{wrss} en anglais) :
 \begin{equation}
@@ -167,7 +168,7 @@ Un coefficient non mis à 0 signifie que le facteur associé pourrait avoir une 
 La troisième et dernière méthode utilisée est le \gls{dt} de régression qui, à l'inverse des deux précédentes méthodes, n'est pas une méthode 
 linéaire \citep{Quinlan1986}. Elle divise l'ensemble des observations en sous-ensembles de plus en plus petits en se basant sur la présence 
 d'une variable qualitative ou sur la comparaison à un seuil appliqué à une variable quantitative. La position de la variable indépendante utilisée (et le
-seuil de comparaison dans le cas d'une variable quantitative) pour subdiviser l'ensemble des données est déterminée de façon à minimiser la
+choix du seuil de comparaison dans le cas d'une variable quantitative) pour subdiviser l'ensemble des données est déterminée de façon à minimiser la
 \gls{mse} définie comme suit :
 
 \begin{equation}
@@ -185,8 +186,8 @@ pour diviser un sous ensemble. Un arbre exemple est schématisé à la Figure~\r
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/decision-tree-example} 
   \caption{Exemple schématique d'arbre de décision de régression. Le \textit{root node} est en rouge, les noeuds sont en bleu et les feuilles en vert. 
-	Les variables A, C et D sont catégorielles ; les variables B, E et F sont numériques. Les valeurs dans les feuilles correspondent à la valeur 
-	prédite par l'arbre de décision de la variable dépendante.}
+	Les variables A, C et D sont catégorielles ; les variables B, E et F sont numériques. Les "Valeurs\_X" correspondent à la valeur 
+	prédite par l'arbre de décision de la variable dépendante suite à la division précédente.}
   \label{Figure:factors_decision_tree_example}
 \end{figure}
 
@@ -211,7 +212,7 @@ attention deficit disorder OR hyperkinetic syndromes OR syndromes hyperkinetic O
 La dernière recherche effectuée le 12 février 2018 avec ces termes a retourné 155 résultats, auxquels se sont ajoutés 22 articles inclus dans les précédentes 
 méta-analyses sur le \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2009, Sonuga-Barke2013, Micoulaud2014, Cortese2016, Catala2017}. Afin de sélectionner
 les études à inclure dans la \gls{saob}, les 177 résultats ont été filtrés à l'aide du pipeline représenté à la 
-Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 33 études ont été sélectionnées, qui correspondent par ailleurs au critère d'inclusion de
+Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 33 études ont été retenues, qui correspondent par ailleurs au critère d'inclusion de
 \citet{Cortese2016} sans les exigences sur les groupes contrôles. 
 
 \newpage\
@@ -235,10 +236,10 @@ de l'intervalle d'inclusion sont représentées à la Figure~\ref{Figure:distrib
 
 Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et celui de
 l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges (respectivement -3.41 et -3.95)
-qui sont même plus élevés que ceux reportés dans la littérature sur l'efficacité des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}.
+qui sont même plus élevés que ceux rapportés dans la littérature sur l'efficacité des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}.
 Ces valeurs invalident nos hypothèses de travail, ainsi afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, un rejet des valeurs aberrantes a été implémenté.
 
-La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et qui son listées dans la 
+La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et qui son listées dans le 
 Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 33 études sélectionnées rassemblent 846 enfants \gls{tdah} effectuant du \gls{nfb}.
 
 \newpage\
@@ -254,7 +255,7 @@ Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, l
 \newpage\
 \subsection{Facteurs identifiés}
 
-Vingt-huit facteurs ont été initialement identifiés afin d'analyser leur influence sur l'efficacité du \gls{nfb}. Parmi ces facteurs, neuf ont dû être exclus car ils étaient trop
+Vingt-huit paramètres ont été initialement identifiés afin d'analyser leur influence sur l'efficacité du \gls{nfb}. Parmi eux, neuf ont dû être exclus car ils étaient trop
 homogènes ou présentaient trop d'observations manquantes : 
 \begin{itemize}
 	\item l'augmentation du rythme beta dans les aires frontales,
@@ -267,6 +268,25 @@ homogènes ou présentaient trop d'observations manquantes :
 	\item la sévérité des symptômes du \gls{tdah},
 	\item le degré d'engagement dans l'entraînement par \gls{nfb}.
 \end{itemize} 
+
+
+Afin de comparer la variabilité des valeurs au sein des facteurs non catégoriels sélectionnés, les boxplots des valeurs standardisées ont été obtenus et représentés à la Figure~\ref{Figure:factors-boxplots} :
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-distribution-of-factors} 
+  \caption{Boxplots des facteurs aux valeurs numériques standardisées.} 
+  \label{Figure:factors-boxplots}
+\end{figure}
+
+Le nombre de sessions et la durée de la session sont plus variables que l'âge minimal et maximal des enfants inclus dans l'étude. Les extremum et la moyenne de ces facteurs aux valeurs numériques
+non standardisées sont listés dans la Table~\ref{Table:table_factors_extremum_values} pour donner une idée de la variabilité de ces facteurs dans les études inluses. 
+
+\begin{table}[h!]
+  \centering
+  \caption{Extremum et moyenne des facteurs numériques non standardisés.}
+  \input{tables/chapter-3/table_factors_extremum_values}
+  \label{Table:table_factors_extremum_values}
+\end{table}
 
 Les trois méthodes décrites précédemment sont donc appliquées tour à tour sur les 19 facteurs restants. Tous les résultats sont résumés dans la Table~\ref{Table:table_factors_analysis_results_summary}.
 
@@ -291,9 +311,9 @@ Les hypothèses de ce modèle sont respectées, les résultats sont interprétab
   \item les résidus sont distribués normalement (kurtosis = 3.154 et Prob(Omnibus) = 0.392).
 \end{itemize}
 
-La \gls{wls} a trouvé 9 facteurs significatifs (deuxième colonne de Table~\ref{Table:table_factors_analysis_results_summary}) avec un \textit{adjusted R Squared} de 0.62. 
-Dans le cas de l'\gls{ols}, les mêmes facteurs ont été trouvés significatifs (à l'exception de qualité de 
-l'\gls{eeg} égal à 2 et la présence de plus d'une électrode active) mais avec un \textit{adjusted R Squared} plus faible (0.35). Ainsi, associer un poids
+La \gls{wls} a trouvé 9 facteurs significatifs (deuxième colonne de la Table~\ref{Table:table_factors_analysis_results_summary}) avec un \textit{adjusted R Squared} de 0.62. 
+Dans le cas de l'\gls{ols}, les mêmes facteurs ont été trouvés significatifs (à l'exception de la qualité de 
+l'\gls{eeg} égal à 2 et de la présence de plus d'une électrode active) mais avec un \textit{adjusted R Squared} plus faible (0.35). Ainsi, associer un poids
 à chaque observation permet d'expliquer davantage de variabilité. 
 
 Il est important de noter qu'étant donné qu'un \gls{es}-intra-groupe négatif est en faveur de l'efficacité du \gls{nfb},
@@ -312,12 +332,12 @@ La validation croisée \textit{leave-one-out} illustrée à la Figure~\ref{Figur
   \label{Figure:selection_lambda_lasso}
 \end{figure}
 
-Le \gls{lasso} a gardé six facteurs différents de 0 (troisième colonne de Table~\ref{Table:table_factors_analysis_results_summary}). Pour cette méthode également,
+Le \gls{lasso} a gardé six facteurs différents de 0 (troisième colonne de la Table~\ref{Table:table_factors_analysis_results_summary}). Pour cette méthode également,
 un facteur dont le coefficient est négatif aurait un bon impact sur l'efficacité du \gls{nfb}.
 
 \subsubsection{L'arbre de décision de régression}
 
-L'arbre de décision obtenu est présenté à la Figure~\ref{Figure:factors_decision_tree} : \gls{pblind} est le meilleur prédicteur (dernière colonne de 
+L'arbre de décision obtenu est présenté à la Figure~\ref{Figure:factors_decision_tree} : \gls{pblind} est le meilleur prédicteur (dernière colonne de la
 Table~\ref{Table:table_factors_analysis_results_summary}). Quatre autres facteurs divisent ensuite les sous-ensembles, toutefois étant donné que de moins
 en moins d'observations sont disponibles plus on descend dans l'arbre, l'influence de ces facteurs est de moins en moins certaine.
 
@@ -369,7 +389,7 @@ Toutefois, les deux méthodes qui ont identifié ce facteur s'accordent toutes d
 plus le \gls{nfb} semble être efficace. 
 
 Le type de protocole \gls{nfb} n'a été identifié par aucune méthode et donc n'influencerait pas l'efficacité du \gls{nfb}. Cette importance minime octroyée par la \gls{saob} au type de protocole
-est contre intuitive étant donné le rôle central du protocole choisi sur le mode d'action neurophysiologique et donc sur l'impact sur l'efficacité thérapeutique \citep{Vernon2004}. Une probable 
+est contre-intuitive étant donné le rôle central du protocole choisi sur le mode d'action neurophysiologique et donc sur l'impact sur l'efficacité thérapeutique \citep{Vernon2004}. Une probable 
 explication pour ce résultat est que tous ces protocoles ont une efficacité équivalente sur les populations étudiées et donc ne représentent pas un facteur explicatif significatif. 
 Toutefois, ce résultat n'exclut pas une stratégie personnalisée basée sur les phénotypes pour augmenter les performances, comme précédemment suggéré par \citet{Alkoby2017}.
 
@@ -386,10 +406,10 @@ Ensuite, il semblerait que plus le traitement par \gls{nfb} est long, moins il d
 résultat : être engagé dans un traitement long est plus compliqué. Cependant, il est difficile de quantifier ce degré car soit aucun questionnaire n'est rempli 
 par les enfants à ce sujet, soit cette information n'est pas mentionnée. 
 
-La durée du traitement est étroitement liée son intensité, ainsi il est possible de supposer qu'une période de traitement plus courte est préférable 
+La durée du traitement est étroitement liée à son intensité, ainsi il est possible de supposer qu'une période de traitement plus courte est préférable 
 car la fréquence des sessions est plus élevée. Cette hypoyhèse est étayée par 
-le fait que la variable \textit{fréquence des sessions} (nombre de sessions par semaine) est aussi associée à de plus grands \gls{es}-intra-groupe selon le
-\gls{lasso} et le \gls{dt}. L'impact de l'intensité du traitement par \gls{nfb} a été explorée par \citet{Rogala2016} sur des sujets adultes sains : il est
+le fait que la variable "fréquence des sessions" (nombre de sessions par semaine) est aussi associée à de plus grands \gls{es}-intra-groupe selon le
+\gls{lasso} et le \gls{dt}. L'impact de l'intensité du traitement par \gls{nfb} a été exploré par \citet{Rogala2016} sur des sujets adultes sains : il est
 observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Ainsi, ces résultats indiquent qu'adopter une fréquence 
 élevée de sessions est préférable, ce qui est peu connu dans le domaine du \gls{nfb}.
 
@@ -405,9 +425,9 @@ Un autre facteur intéressant, qui aurait pu aider à expliquer les résultats s
 comparables car différentes échelles sont utilisées. Afin de résoudre ce problème, ces scores ont été normalisés grâce au score maximum pouvant être atteint
 sur chaque échelle. Toutefois, cette valeur n'a pas pu être trouvée pour plusieurs échelles cliniques : trop d'observations manquantes ont mené au rejet de facteur.
 
-Enfin, il serait intéressant de s'intéresser au lieu où les sessions de \gls{nfb} sont effectuées. En effet, \citet{Minder2018} souligne le fait que que le lieu
+Enfin, il serait intéressant de s'intéresser au lieu où les sessions de \gls{nfb} sont effectuées. En effet, \citet{Minder2018} souligne le fait que le lieu
 d'entrainement pourrait aussi être un facteur contribuant à l'efficacité du \gls{nfb}. Toutefois, dans son étude aucune différence significative n'est trouvée entre
-les résultats des performances à la clinique et à l'école. Dans la grande majorité des études cliniques sur le \gls{nfb} appliqué aux enfants
+les résultats des performances à la clinique et à l'école. Dans la grande majorité des études sur le \gls{nfb} appliqué aux enfants
 \gls{tdah}, les sessions ont lieu en clinique, rendant impossible à la \gls{saob} d'étudier ce facteur. Cependant, à l'instar de \citet{Minder2018}, d'autres 
 études effectuent leurs séances en dehors du milieu hospitalier \citep{Bioulac2019}, ainsi l'influence du lieu d'entrainement pourra finir par être étudiée
 plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tôt et qui ont dû être exclus de la \gls{saob}.
@@ -415,7 +435,7 @@ plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tô
 \subsection{Analyse approfondie des évaluateurs probablement aveugles}
 
 Les résultats de la \gls{saob} sont globalement en faveur de l'efficacité du \gls{nfb} pour traiter les enfants \gls{tdah}. Toutefois, comme attendu, l'évaluation
-des symptômes par des personnes non-aveugles (\gls{mprox} conduit à des résultats plus favorables que celles des évaluateurs \gls{pblind}, ce qui est en accord avec les
+des symptômes par des personnes non-aveugles (\gls{mprox}) conduit à des résultats plus favorables que celles des évaluateurs \gls{pblind}, ce qui est en accord avec les
 méta-analyses existantes \citep{Micoulaud2014, Cortese2016}. 
 
 Les enseignants sont considérés comme \gls{pblind} par \citet{Cortese2016, Micoulaud2014} et cette définition a été suivie dans la \gls{saob}. Etonnamment, les données
@@ -426,7 +446,7 @@ traitement suivi par les enfants.
 Un élément corrobore cette hypothèse : pour chaque étude incluse dans cette analyse, l'évaluation des symptômes avant le début
 du traitement par les parents comparée à celle des enseignants montre que ces derniers ne voient pas l'ensemble des symptômes, autrement dit qu'ils sont probablement
 plus aveugles aux symptômes qu'au traitement comme l'illustre la Figure~\ref{Figure:factors_pblind_discussion}. En effet, à pré-test, les enseignants évaluent les 
-symptômes moins sévèrement que le parents et observent moins d'amélioration à post-test : cela correspond davantage au cas \textbf{A} représentant l'absence d'effet placebo
+symptômes moins sévèrement que les parents et observent moins d'amélioration à post-test : cela correspond davantage au cas \textbf{A} représentant l'absence d'effet placebo
 qu'au cas \textbf{B}.
 
 \begin{figure}[h!]
@@ -462,14 +482,14 @@ apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le
 
 \subsection{Validation prospective sur les nouvelles études publiées depuis le 18/02/2018}
 
-L'analyse précédente présente des résultats obtenus sur des études publiées avant le le 12/02/2018, or la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est
+L'analyse précédente présente des résultats obtenus sur des études publiées avant le 12 février 2018 \citep{Bussalb2019a}, or la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est
 en pleine expansion conduisant à de nombreuses publications en peu de temps.
 
 \subsubsection{Sélection des nouvelles études} 
 
-Les résultats décrits précédemment ont été obtenus avec les études disponibles sur PubMed le 12/02/2018. Cependant, depuis cette date d'autres études satisfaisant
-les critères d'inclusion présentés à la Figure~\ref{Figure:factors_pipeline_selection_studies} ont été publiées. Ainsi, la \gls{saob} a été mise à jour avec les 
-nouvelles études identifiées au 02/09/2019 dont les principales caractéristiques sont présentées dans la Table~\ref{Table:factors_new_studies_update}.
+Les résultats décrits précédemment ont été obtenus avec les études disponibles sur PubMed le 12 février 2018. Cependant, depuis cette date d'autres études satisfaisant
+les critères d'inclusion présentés à la Figure~\ref{Figure:factors_pipeline_selection_studies} ont été publiées. Ainsi, la \gls{saob} a été mise à jour avec ces 
+nouvelles études identifiées au 2 septembre 2019 dont les principales caractéristiques sont présentées dans la Table~\ref{Table:factors_new_studies_update}.
 
 \begin{table}[h!]
   \centering
@@ -486,10 +506,9 @@ un \gls{irb} est également rejetée.
 
 \subsubsection{Résumé des résultats} 
 
-Les hypothèses des méthodes utilisées dans la \gls{saob} sont validées, il est donc possible d'analyser les résultats qui sont présentés à la 
+Les hypothèses des méthodes utilisées dans la \gls{saob} sont validées, il est donc possible d'analyser les résultats qui sont présentés dans la 
 Table~\ref{Table:table_factors_analysis_results_summary_update}.
 
-\newpage\
 \begin{table}[h!]
   \centering
   \caption{Resultats des mises à jour de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une p-value $<$ 0.05 
@@ -502,13 +521,13 @@ Table~\ref{Table:table_factors_analysis_results_summary_update}.
 \end{table}
 
 Les résultats obtenus sont globalement cohérents avec ceux présentés dans \citet{Bussalb2019a}. Alors que la \gls{wls} identifie les mêmes facteurs à l'exception de la correction ou rejet 
-des artefacts oculaires (deuxième colonne de Table~\ref{Table:table_factors_analysis_results_summary_update}), le \gls{lasso} (troisième colonne de 
+des artefacts oculaires (deuxième colonne de la Table~\ref{Table:table_factors_analysis_results_summary_update}), le \gls{lasso} (troisième colonne de la 
 Table~\ref{Table:table_factors_analysis_results_summary_update}) est beaucoup plus sévère : tous les coefficients des facteurs sont mis à 0 sauf celui de \gls{pblind}. Ce facteur est ainsi 
 le seul à être encore identifié par les trois méthodes qui s'accordent une nouvelle fois sur l'influence négative des évaluateurs aveugles sur les résultats.  
 
 En ce qui concerne les deux autres facteurs précédemment identifiés par les trois méthodes : 
 \begin{itemize}
-\item la durée du traitement n'est plus retournée que par deux méthodes 
+\item la durée du traitement n'est plus retournée que par deux méthodes, 
 \item la qualité de l'\gls{eeg} égale à 2 n'est plus retournée que par la \gls{wls}. 
 \end{itemize}
 
@@ -521,26 +540,39 @@ Entre le 12 février 2019 et le 2 septembre 2019, 8 nouvelles études répondant
 genre d'analyse. L'ajout de ces 8 études a modifié certaines conclusions de \citet{Bussalb2019a}. 
 
 En effet, tout d'abord, la qualité de l'\gls{eeg} égale à 2 n'est plus retournée que par une seule méthode,
-remettant en question son influence positive sur l'efficacité du \gls{nfb}. Toutefois, Bien que ce facteur soit intéressant, sa définition (voir \ref{choix_des_facteurs}) manque de précision 
+remettant en question son influence positive sur l'efficacité du \gls{nfb}. Toutefois, bien que ce facteur soit intéressant, sa définition (voir \ref{choix_des_facteurs}) manque de précision 
 du fait du peu d'informations disponibles sur le matériel utilisé par les études. Ainsi, afin d'évaluer au mieux son influence, les études devraient fournir davantage d'informations. Ensuite, 
 la durée du traitement n'est plus identifiée que par deux méthodes et la fréquence des sessions par une seule : on peut encore avancer, bien qu'avec moins de certitude que précédemment, 
-qu'un traitement intensif est préférable.  Bien que la significativité avait été atteinte pour la qualité de l'\gls{eeg} égale à 2 et pour la durée du traitement par les trois méthodes, 
-les résultats ne sont pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Afin de mettre en évidence cette fluctuation, l'évolution 
-de la p-value obtenue par la \gls{wls} en fonction des études incluses par année de publication.
-
-%% plot évalution de p-value en fonction de l'ajout de nouvelles études.
-
-Afin d'apporter des indications robustes quant au design de l'étude, la \gls{saob} doit être régulièrement mise à jour afin que ses résultats se stabilisent. 
-
-
-
-
+qu'un traitement intensif est préférable. 
 
 Alors que cette mise à jour a causé la perte de significativité de plusieurs facteurs, un facteur se voit identifié par deux méthodes : la présence d'une phase de transfert. 
 Cette phase a pour but d'aider à transposer le contrôle appris lors des séances de \gls{nfb} à la vie de tous les jours, on pourrait donc s'attendre à un effet positif sur les symptômes
-du \gls{tdah} comme le soulignent \citet{Arns2014, Strehl2006, Gani2008}, or la \gls{saob} conclut à un impact négatif. Il est possible qu'une phase de transfert seule ne soit pas si efficace
-si elle n'est pas couplée à l'utilisation d'une carte de transfert représentant la métaphore utilisée lors des sessions de \gls{nfb} qui permet à l'enfant de se souvenir plus facilement du contrôle
-qu'il exerçait durant la séance. Une autre explication est peut-être que regarder un écran sans feedback est trop déroutant pour l'enfant et le fruste. 
+du \gls{tdah} comme le soulignent \citet{Arns2014, Strehl2006, Gani2008}, or la \gls{saob} conclut à un impact négatif. Ce résultat s'expliquerait peut-être par le fait qu'une phase de 
+transfert seule ne soit pas si efficace si elle n'est pas couplée à l'utilisation d'une carte représentant la métaphore utilisée lors des sessions de \gls{nfb} qui permet à l'enfant de se 
+souvenir plus facilement du contrôle qu'il exerçait durant la séance \citep{Bioulac2019, Bluschke2016}. Ce facteur devait être analysé mais étant trop homogène (plus de 80\% des observations n'utilisent pas de carte), il 
+a été exclus de l'analyse. 
+
+Bien que la significativité avait été atteinte pour la qualité de l'\gls{eeg} égale à 2 et pour la durée du traitement par les trois méthodes, 
+les résultats ne sont pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Afin de mettre en évidence cette fluctuation, l'évolution 
+des p-values obtenues par la \gls{wls} en fonction des études incluses au fur et à mesure selon leur année de publication est représentée à la Figure~\ref{Figure:factors_evolution_pvalue} 
+pour la qualité de l'\gls{eeg} égale à 2 et pour la fréquence des sessions.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-pvalue-evolution} 
+  \caption{Evolution des p-values obtenues par la régression linéaire pondérée \gls{wls} pour les coefficients associés à la fréquence des sessions (en vert) et à la qualité de l'\gls{eeg} égale à 2. 
+	Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
+  \label{Figure:factors_evolution_pvalue}
+\end{figure}
+
+La p-value du coefficient associé à la qualité de l'\gls{eeg} égale à 2 se stabilise dès l'année 2014, alors que celle du coefficient associé à la fréquence des sessions 
+n'est plus stable à partir de l'année 2017. En effet, en plus de n'être plus significative, la p-value augmente énormément pour atteindre un pic à 0.30 et redescendre à environ 0.20
+avec l'ajout à la \gls{saob} des études publiées en 2019. Cette évolution montre bien que les résultats ne sont pas figés et donc pour que la \gls{saob} puisse apporter des indications
+fiables pour aider au design d'une étude évaluant l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah}, elle doit être régulièrement mise à jour. 
+
+\section{Conclusion}
+
+
 
 
 
