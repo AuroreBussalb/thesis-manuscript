@@ -8,7 +8,7 @@ sans tenir compte par exemple de la qualité de l'acquisition de l'\gls{eeg}, du
 sessions et la durée du traitement). 
 
 Afin de pallier ces limitations, une nouvelle approche a été implémentée : l'analyse systématique des biais (\gls{saob} en anglais) qui va justement tirer avantage de cette hétérogénéité. 
- L'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes qui sont ici les facteurs méthologiques et techniques. 
+L'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes qui sont ici les facteurs méthologiques et techniques. 
 Le but de cette analyse est de déterminer les facteurs qui ont une influence sur l'efficacité du \gls{nfb} et d'ainsi mettre en évidence la nécessité d'être
 précautionneux dans le choix de ces paramètres. 
 
@@ -62,7 +62,7 @@ chaque couple échelle clinique-évaluateur est considéré comme une observatio
 
 Ensuite, les facteurs qui sont des variables catégorielles (le protocole utilisé par exemple) sont codés en \textit{dummies} : la présence du facteur est représentée par un 1 et son absence par 0. 
 
-Enfin, toutes les variables sont standardisées : à chaque observation est soustraite la moyenne de l'ensemble des observations, le tout divisé par l'écart-type de la moyenne de 
+Enfin, les variables sont standardisées : à chaque observation est soustraite la moyenne de l'ensemble des observations, le tout divisé par l'écart-type de la moyenne de 
 l'ensemble des observations. La standardisation a été choisie plutôt que la normalisation afin de garder les valeurs extrêmes dans la \gls{saob} qui auraient été mises à 0 ou 1 avec 
 la normalisation. 
 
@@ -95,9 +95,9 @@ Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la vari
 
 La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide des bibliothèques Python Scikit-Learn \citep[version 0.18.1]{Pedregosa2011} et Statsmodels \citep[version 0.8.0]{Seabold2010} : 
 \begin{itemize}
-  \item Une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
-	\item Une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
-	\item Un arbre de décision de regression (\gls{dt} en anglais) \citep{Quinlan1986}.
+  \item une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
+	\item une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
+	\item un arbre de décision de regression (\gls{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
 
 Les résultats de ces trois méthodes intrinséquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
@@ -560,8 +560,8 @@ pour la qualité de l'\gls{eeg} égale à 2 et pour la fréquence des sessions.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-pvalue-evolution} 
-  \caption{Evolution des p-values obtenues par la régression linéaire pondérée \gls{wls} pour les coefficients associés à la fréquence des sessions (en vert) et à la qualité de l'\gls{eeg} égale à 2. 
-	Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
+  \caption{Evolution des p-values obtenues par la régression linéaire pondérée \gls{wls} pour les coefficients associés à la fréquence des sessions (en vert) et 
+	à la qualité de l'\gls{eeg} égale à 2 (en bleu). Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
   \label{Figure:factors_evolution_pvalue}
 \end{figure}
 
@@ -572,7 +572,22 @@ fiables pour aider au design d'une étude évaluant l'efficacité du \gls{nfb} a
 
 \section{Conclusion}
 
+La \gls{saob} a permis d'identifier un facteur lié au matériel d'acquisition de l'\gls{eeg} comme ayant une influence positive sur l'efficacité du \gls{nfb}, 
+ce qui indique fortement qu'elle est liée à un mécanisme d'action basé sur la modulaion de l'\gls{eeg}. Toutefois, la mise à jour de la \gls{saob} a rendu
+plus incertain l'impact de ce paramètre dont la définition souffre du peu d'informations fourni par les études à ce sujet. 
 
+L'intensité du traitement a aussi été trouvée comme contribuant à l'efficacité du \gls{nfb}, ce qui va dans le sens de ce qui est connu à propos de 
+la théorie de l'apprentissage \citep{Mowrer1960} : un entrainement plus intense mène à une efficacité clinique augmentée. 
+
+Alors que ces résultats contribuent certainement au débat, ce travail montre également que l'ultime démonstration de la preuve de l'efficacité du \gls{nfb}
+appliqué aux enfants \gls{tdah} n'est pas encore atteinte, étant donné que les évaluations des enseignants ont été en partie invalidées comme indicateur de 
+l'effet placebo. Par conséquent, se référer aux résultats des évaluateurs \gls{pblind} pour mettre en évidence la spécificité de l'efficacité clinique n'est pas 
+recommandé : il serait préférable d'avoir recours au sham-\gls{nfb} et à l'analyse des changements de l'\gls{eeg} en fonction des neuromarqueurs entrainés.
+
+Comme l'a montré la mise à jour des résultats de la \gls{saob}, les conclusions de cette analyse peuvent encore évoluer. Au vu du nombre important 
+d'études publiées sur le \gls{nfb} appliqué aux enfants \gls{tdah}, certains facteurs vont pouvoir finir par être inclus dans la \gls{saob}, comme par exemple 
+l'individualisation du protocole de \gls{nfb} qui semble prometteuse. Le chapitre suivant va justement s'intéresser à la distibution d'un marqueur de l'attention, 
+le \gls{tbr}, au sein d'une large population afin de déterminer si une personnalisation basée sur ce neuromarqueur est envisageable.
 
 
 
