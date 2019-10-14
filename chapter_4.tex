@@ -4,13 +4,13 @@
 Diminuer le \gls{tbr} est un protocole d'entrainement de \gls{nfb} couramment utilisé pour traiter le \gls{tdah} chez les enfants 
 \citep{Arnold2014, Deilami2016, Gevensleben2009, VanDongen2013}. Cependant, ce protocole ne serait peut-être pas adapté à tous les enfants \gls{tdah} si 
 on se base sur le phénotype de leur \gls{eeg}. En effet, il a été avancé qu'il existerait un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé 
-\citep{Zhang2017, Clarke2011}, ainsi ces enfants bénéficiraient peut-être davantage d'un protocole diminuant leur \gls{tbr} que les autres. 
+\citep{Zhang2017, Clarke2011}, ainsi ces enfants bénéficieraient peut-être davantage d'un protocole diminuant leur \gls{tbr} que les autres. 
 
 Quelques études ont proposé de personnaliser le protocole d'entrainement par \gls{nfb} \citep{Bazanova2018, Escolano2014}, mais trop peu pour en déterminer
 l'impact sur l'efficacité du \gls{nfb} par la \gls{saob}. L'analyse présentée dans ce chapitre n'a pas pour but d'évaluer directement l'efficacité de la 
 personnalisation des protocoles de \gls{nfb} mais sa pertinence. Pour ce faire, la distribution des valeurs de \gls{tbr} chez les enfants \gls{tdah} est 
-étudiée à l'aide de différentes méthodes de partitionnement : si un groupe d'enfants avec un \gls{tbr} élevé est mis en évidence, la personnalisation 
-des protocoles est envisageable. 
+étudiée à l'aide de différentes méthodes de partitionnement pour déterminer combien de groupes d'enfants \gls{tdah} existent en se basant seulement sur les 
+valeurs de \gls{tbr}. 
 
 \section{Population étudiée}
 
@@ -102,7 +102,7 @@ La base de données \gls{cmi-hbn} contient également des sujets sains qui vont 
 modèle bayesien décrit en \ref{bgmm}. Pour être inclus dans cette analyse en tant que \textit{priors}, les sujets ne doivent avoir aucun diagnostic 
 et doivent remplir les critères 2. et 3. cités précédemment. Au final, 74 sujets entre 5 et 21 ans sont sélectionnés. 
 
-\subsection{Pré-traitement et homogénéisation des bases de données}
+\subsection{Pré-traitement et homogénéisation des bases de données} \label{pré-traitement TBR}
 Les \gls{eeg} des différentes bases de données sont pré-traités de façon à être comparables, notamment au niveau du placement des électrodes.
 En ce qui concerne le traitement des artefacts et l'extraction du \gls{tbr}, les étapes sont les mêmes quelle que soit la base de données. 
 Les pré-traitements ainsi que les analyses des signaux \gls{eeg} qui suivent sont effectués à l'aide du logiciel NeuroRT (v3, Mensia Technologies, 
@@ -138,14 +138,91 @@ Si le z-score temporel n'est pas compris entre -5 et 5, le signal est détecté 
 Si le z-score spatial n'est pas compris entre -2 et 2, soit le signal a une trop grande variance (autrement dit il est bruité), soit une trop faible
 variance (autrement dit l'électrode doit être déconnectée et n'energistre rien) : dans les deux cas il est interpolé.
 
+Les données sont re-référéncées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
+de données NEWROFEED. Les signaux \gls{eeg} des 128 électrodes de l'espace \gls{egi} sont ensuite spatialement reconstruits dans l'espace à 8 électrodes 
+dans le système international 10-20 en projetant les coordonnées sur une sphère unitaire.
+
+
 \section{Theta-Beta ratio : un marqueur de l'attention}
 
 \subsection{Définition du Theta-Beta ratio}
-Articles scientifiques sur le TBR chez les enfants TDAH, marqueur de l'attention, parler de NebaHealth
+La littérature indique qu'il existerait différents groupes de patients \gls{tdah} identifiés à l'aide de leur profil \gls{eeg}, comme l'augmentation
+de la puisssance dans la bande theta et/ou la diminution de la puissance dans la bande beta \citep{Clarke2011, Loo2018}. Ces différences de puissances dans ces 
+bandes de fréquence peuvent être quantifiées en calculant la ratio de la puissance dans la bande theta et de la puissance dans la bande beta : le 
+\gls{tbr} \citep{Arns2013}. 
+
+De nombreuses études ont été menées pour analyser la pertinence d'utilser le \gls{tbr} comme biomarqueur pour diagnostiquer le \gls{tdah}. En effet, certains auteurs suggèrent qu'un \gls{tbr}
+élevé peut aider à confirmer les diagnostics du \gls{tdah} \citep{NebaHealth, Saad2018, FDA}. Cependant, les études récentes ont échoué à repliquer les résultats
+montrant une différence entre les valeurs de \gls{tbr} des patients \gls{tdah} et celles des patients sains, remettant en question son utilisation comme outil 
+diagnostic \citep{Zhang2017, Arns2013, Clarke2001}. A la place, ces études trouvent qu'environ 35\% des sujets \gls{tdah} présenteraient un \gls{tbr} élevé : ce
+résultat pourrait être utilisé pour identifier de meilleurs répondeurs à une intervention donnée. 
+
+La diminution du \gls{tbr} fait partie des protocoles le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
+On peut soutenir que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eeg}. 
+Par exemple, les sujets présentant un haut \gls{tbr} suivraient un protocole de \gls{nfb} où il est demandé de diminuer le \gls{tbr}. Cette répartition a été proposée lors 
+de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi. Un essai clinique randomisé et en double aveugle proposé par \citet{Kerson2013} 
+prévoyait d'utiliser un seuil \gls{tbr} de 5 mais cette valeur a été modifiée et fixée à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov), valeur également
+utilisée dans NEWROFEED. Choisir correctement la valeur de seuil est crucial car cette valeur détermine quel protocole \gls{nfb} le patient va suivre. 
+
+Le caractère arbitraire des valeurs de seuil basées sur le \gls{tbr} et l'hétérogénéité des méthodes utilisées appelle à une validation précise de l'existence d'un 
+sous-groupe de patients \gls{tdah} présentant un \gls{tbr} élevé, et de la valeur du seuil qui sépare ces sous-groupes. L'existence de deux sous-groupes \gls{tdah} distincts, 
+définis par des valeurs faibles ou élevées doit être validée, tout comme le seuil à partir duquel les valeurs de \gls{tbr} sont considérées comme élevées.  
+ 
 
 \subsection{Extraction du Theta-Beta ratio}
+L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitement TBR} comprend plusieurs étapes :
+\begin{enumerate}
+\item le rejet des artefacts en utilisant la géométrie Riemannienne,
+\item l'extraction de l'\gls{iapf},
+\item le calcul du \gls{tbr}.
+\end{enumerate}
 
-\section{Méthodes de modélisation de la distribution des Theta-Beta ratios}
+\subsubsection{Rejet des artefacts}
+Tout d'abord, les données artefactées sont exclues en utilisant le \gls{rpf} \citep{Barthelemy2019}. Les données \gls{eeg} sont épochées (durée de 2 secondes avec 
+un chevauchement toutes les 0.125s) et la matrice de covariance de chaque epoch est calculée pour un sous-ensemble de canaux. Ensuite, la \gls{rpf} rejette les 
+epochs dont la matrice de covariance se retouve à l'extérieure d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres. 
+
+\subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}}
+Ensuite, l'\gls{iapf} est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha définie entre 7 et 13Hz. Si aucun pic n'est observé,
+l'\gls{iapf} est obtenue grâce à l'estimation de Klimesch basée sur l'âge du sujet \citep{Klimesch1999}. L'\gls{iapf} est calculée sur l'\gls{eeg} mesuré à l'électrode Pz au repos
+et les yeux ouverts. 
+
+L'\gls{iapf} permet de définir des bandes de fréquence personnalisées pour chaque sujet : theta = [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz], beta = [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
+Cette étape a pour but d'adapter précisément l'entrainement aux jeunes cerveaux qui se développent très vite. En effet, dans le cas des enfants, il serait possible de considérer 
+des basses fréquences de la bande alpha comme appartenant à la bande theta, ce qui fausserait l'entrainement par \gls{nfb} car la modulation de mauvaises fréquences 
+seraient récompensée. Cette méthode mène évidemment à des résultats différents d'avec des bandes de fréquence aux bornes fixes \citep{Arns2008, Vollebregt2015} et a été 
+l'objet de plusieurs études \citep{Kaiser2001, Bazanova2006, Vollebregt2015} dont les résultats montrent que cette personnalisation pourrait améliorer l'efficacité du protocole
+\gls{tbr} pour le traitement du \gls{tdah}.
+
+\subsubsection{Calcul du Theta-Beta ratio}
+La dernière étape consiste à calculer le \gls{tbr} : il est défini comme le ratio de la puissance dans la bande de fréquences theta et de la bande de fréquences beta obtenues 
+grâce à l'\gls{iapf}. Une moyenne mobile de la puissance du signal $\bar{P}$ est estimée par la méthode de Welch \citep{Welch1967} sur 32 epochs, de 2 secondes chacun, avec un 
+chevauchement toutes les 1/16 de seconde :
+\begin{equation}
+\label{eq:tbr_power_computation}
+P_{c,b} = \norm{ x_{c,b} }_{F}^2,
+\end{equation}
+\begin{equation}
+\label{eq:tbr_average_power_computation}
+\bar{P}_{c,b} = \frac{1}{I} \sum_{i=1}^{I} (P_{c,b})_{i},
+\end{equation}
+où $x_{c,b}$ correspond à un epoch du signal \gls{eeg} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
+le nombre d'epochs. La puissance dans les bandes theta et beta est calculé avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
+puis ces deux puissances sont divisées entre elles :
+
+\begin{equation}
+\label{eq:tbr_tbr_computation}
+\text{TBR} = \frac{\bar{P}_{c,\theta}}{\bar{P}_{c,\beta}},
+\end{equation}
+conduisant à un ratio instantané de valeurs de puissances qui représente une implémentation en temps réel du \gls{tbr}.
+
+La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la mediane calculée à Fz et Cz est utilisée pour représenter le \gls{tbr} pour l'ensemble 
+de l'enregistrement. Le maximum sur ces deux électrodes est retenu, il sera enfin normalisé pour les analyses suivantes en un \gls{srntbr} :
+
+\begin{equation}
+\label{eq:tbr_srntbr_computation}
+\text{srnTBR} = \sqrt{ \text{max}(\frac{\bar{P}_{Fz,\theta}}{\bar{P}_{Fz,\beta} } ; \frac{\bar{P}_{Cz,\theta}}{\bar{P}_{Cz,\beta}} ) }.
+\end{equation}
 
 \subsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} \label{bgmm}
 
