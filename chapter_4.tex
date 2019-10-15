@@ -1,8 +1,8 @@
 \chapter{Analyse de la distribution d'un marqueur de l'attention au sein d'une population d'enfants TDAH}
 
 \section*{Introduction}
-Diminuer le \gls{tbr} est un protocole d'entrainement de \gls{nfb} couramment utilisé pour traiter le \gls{tdah} chez les enfants 
-\citep{Arnold2014, Deilami2016, Gevensleben2009, VanDongen2013}. Cependant, ce protocole ne serait peut-être pas adapté à tous les enfants \gls{tdah} si 
+Le \gls{tbr} a été massivment étudié chez les enfants \gls{tdah}. Diminuer le \gls{tbr} est par ailleurs un protocole d'entrainement de \gls{nfb} couramment utilisé 
+pour traiter le \gls{tdah} chez les enfants \citep{Arnold2014, Deilami2016, Gevensleben2009, VanDongen2013}. Cependant, ce protocole ne serait peut-être pas adapté à tous les enfants \gls{tdah} si 
 on se base sur le phénotype de leur \gls{eeg}. En effet, il a été avancé qu'il existerait un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé 
 \citep{Zhang2017, Clarke2011}, ainsi ces enfants bénéficieraient peut-être davantage d'un protocole diminuant leur \gls{tbr} que les autres. 
 
@@ -66,7 +66,7 @@ L'étude NEWROFEED a été menée dans 12 centres cliniques dans 5 pays europée
 \subsection{Données CMI-MIPDB}
 Au moment de l'analyse, l'intégralité de la base \gls{cmi-mipdb} compte 126 participants à la fois avec et sans diagnostic clinique \citep{Langer2017, Langer2017b}.
 Les participants ont été recrutés au Child Mind Medical Practice et dans la région de la ville de New-York. Chaque sujet a été questionné pendant 10 minutes
-au téléphone ou en personne par un chercheur assistant expérimenté pour évaluer son éligibilité grâce à :
+au téléphone ou en personne par un chercheur expérimenté pour évaluer son éligibilité grâce à :
 \begin{itemize}
 \item l'historique de ses troubles psychiatriques, incluant les traitements en cours et précédents,
 \item l'historique de ses troubles neurologiques et/ou épilepsie.
@@ -86,7 +86,7 @@ L'électrode de référence est Cz, localisée au vertex de la tête. Le tour de
 soit à la bonne taille. L'impédance des électrodes est gardée inférieure à $40$k$\Omega$ : elle est vérifiée toutes les 30 minutes ainsi qu'avant chaque enregitrement.
 
 \subsection{Données CMI-HBN}
-La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les fammilles recoivent 150\$ pour leur participation 
+La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles recoivent 150\$ pour leur participation 
 et les sujets se voient de plus offrir les rapports de consultation et les avis sur les sessions d'\gls{eeg}.
 
 Seuls les sujets remplissant les critères suivants ont été inclus dans notre analyse :
@@ -98,8 +98,8 @@ Seuls les sujets remplissant les critères suivants ont été inclus dans notre 
 
 Des 881 sujets disponibles, 231 (âgés entre 5 et 21 ans) satisfont ces critères et sont inclus dans notre analyse.
 
-La base de données \gls{cmi-hbn} contient également des sujets sains qui vont être utilisés en tant qu'a priori (\textit{priors} en anglais) pour le
-modèle bayesien décrit en \ref{bgmm}. Pour être inclus dans cette analyse en tant que \textit{priors}, les sujets ne doivent avoir aucun diagnostic 
+La base de données \gls{cmi-hbn} contient également des sujets sains qui vont être utilisés en tant qu'\textit{a priori} (\textit{priors} en anglais) pour le
+modèle bayesien décrit en \label{clustering}. Pour être inclus dans cette analyse en tant que \textit{priors}, les sujets ne doivent avoir aucun diagnostic 
 et doivent remplir les critères 2. et 3. cités précédemment. Au final, 74 sujets entre 5 et 21 ans sont sélectionnés. 
 
 \subsection{Pré-traitement et homogénéisation des bases de données} \label{pré-traitement TBR}
@@ -109,7 +109,7 @@ Les pré-traitements ainsi que les analyses des signaux \gls{eeg} qui suivent so
 Paris, France).
 
 \subsubsection{Base de données NEWROFEED}
-Le seul pré-traitement que nécessite les signaux de la base de données NEWROFEED est un filtrage temporel : 
+Le seul pré-traitement que nécessitent les signaux de la base de données NEWROFEED est un filtrage temporel : 
 \begin{itemize}
 \item un filtre Butterworth passe-haut d'ordre 1 à 0.5Hz afin d'enlever la composante continue (\textit{DC component} en anglais),
 \item un filtre Butteroworth coupe-bande d'ordre 3 de 47 à 53Hz afin d'enlever l'artefact causé par les lignes électriques.
@@ -121,12 +121,12 @@ Le pré-traitement des bases de données \gls{cmi-mipdb} et \gls{cmi-hbn} demand
 interpolation des canaux bruités et/ou déconnectés, et une interpolation spatiale afin de passer d'un espace à 128 électrodes \gls{egi},
 à l'espace de 8 électrodes placées selon le système 10-20 utilisé dans la base de données NEWROFEED.
 
-Tout d'abord, les \gls{eeg} obtenus au repos sont débruités et séparés en deux fichiers : l'un pour les enregistrements les yeux fermés, 
+Tout d'abord, les \gls{eeg} obtenus au repos sont séparés en deux fichiers : l'un pour les enregistrements les yeux fermés, 
 l'autre pour les enregistrements \gls{eo} ; seul ce dernier va être analysé. Ensuite, les mêmes filtres temporels vont être appliqués
 que pour les données NEWROFEED, à l'exception du filtre coupe bande dont les bornes sont modifiées pour intercepter les artefacts 
 causés par les lignes électriques américaines (57-63Hz).
 
-Dans le cas d'enregistrements d'\gls{eeg} avec une haute résolution spatiale comme c'est le cas avec les données CMI, 
+Dans le cas d'enregistrements d'\gls{eeg} avec une haute résolution spatiale comme ici avec les données CMI, 
 il est courant qu'au moins un canal se déconnecte ponctuellement causant aussi bien des artefacts de large amplitude que des signaux plats. 
 Une strategie est ici mise en place pour détecter de façon fiable puis interpoler ces électrodes déconnectées. La variance de chaque canal 
 \gls{eeg} est calculée sur une fenêtre glissante de 10 secondes. Cette variance est ensuite convertie en deux z-scores grâce à :
@@ -207,7 +207,7 @@ P_{c,b} = \norm{ x_{c,b} }_{F}^2,
 \bar{P}_{c,b} = \frac{1}{I} \sum_{i=1}^{I} (P_{c,b})_{i},
 \end{equation}
 où $x_{c,b}$ correspond à un epoch du signal \gls{eeg} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
-le nombre d'epochs. La puissance dans les bandes theta et beta est calculé avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
+le nombre d'epochs. La puissance dans les bandes theta et beta est calculée avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
 puis ces deux puissances sont divisées entre elles :
 
 \begin{equation}
@@ -216,7 +216,7 @@ puis ces deux puissances sont divisées entre elles :
 \end{equation}
 conduisant à un ratio instantané de valeurs de puissances qui représente une implémentation en temps réel du \gls{tbr}.
 
-La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la mediane calculée à Fz et Cz est utilisée pour représenter le \gls{tbr} pour l'ensemble 
+La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la mediane obtenue à Fz et Cz est utilisée pour représenter le \gls{tbr} pour l'ensemble 
 de l'enregistrement. Le maximum sur ces deux électrodes est retenu, il sera enfin normalisé pour les analyses suivantes en un \gls{srntbr} :
 
 \begin{equation}
@@ -224,13 +224,71 @@ de l'enregistrement. Le maximum sur ces deux électrodes est retenu, il sera enf
 \text{srnTBR} = \sqrt{ \text{max}(\frac{\bar{P}_{Fz,\theta}}{\bar{P}_{Fz,\beta} } ; \frac{\bar{P}_{Cz,\theta}}{\bar{P}_{Cz,\beta}} ) }.
 \end{equation}
 
-\subsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} \label{bgmm}
+\subsection{Méthodes de partitionnement de la distribution des Theta-beta ratios} \label{clustering}
 
-\subsection{Partitionnement basé sur les distances : méthode de Ward}
+Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement (\textit{clustering} en anglais) 
+sont mises en place : une qui se base sur les distributions (\gls{bgmm}), une sur les distances (la méthode de Ward) et une autre sur 
+les densités \gls{dbscan}. Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (V0.18.1, \citet{Pedregosa2011}).
 
-\subsection{Partitionnement basé sur les densités : DBSCAN}
+\subsubsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} 
+Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population.
+La distribution des \glspl{srntbr} est ainsi tracée et ajustée par un \gls{gmm} et un \gls{bgmm} \citep{Attias2000, Blei2006}. Un \textit{Gaussian Mixture Model} 
+est un modèle probabiliste qui suppose que toutes les observations proviennent d'un mélange d'un nombre fini de distributions gaussiennes avec des paramètres inconnus. 
+Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur la distribution des données pour 
+assigner des probabilités postérieures à chaque \textit{Gaussian Mixture} distribution définie par des paramètres. Un grand nombre de \glspl{tbr} 
+extraits de sujets sains de la base de données \gls{cmi-hbn} est disponible, il est donc utilisé pour estimer les \textit{a priori} du \gls{bgmm}. Lorsque les 
+observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes gaussiennes est créé pour modéliser les données. 
+Les valeurs de \gls{srntbr} sont approximées par un \gls{bgmm} avec un nombre croissant de composantes. Il en va de même pour l'utilisation du \gls{gmm}.
+
+Afin de déterminer le nombre de composantes optimal, la significativité de la différence entre chaque modèle est testée grâce à un test $\chi^2$ sur la déviance. 
+La déviance est une mesure de la qualité de l'ajustement (\textit{goodness-of-fit} en anglais) d'un modèle statistique et est définie comme suit :
+
+c
+où $log(L(\beta_{0}))$ est la \textit{log likelihood} du modèle nul et $log(L(\beta_{\alpha}))$ est la \textit{log likelihood} du modèle alternatif. La \textit{log likelihood}
+a pour rôle de donner une idée sur la capacité des données à résumer les paramètres de la distribution de probabilités. La multiplication par -2 est une étape nécessaire 
+pour convertir la \textit{log likelihood} en une \textit{distribution chi-square} qui permet l'utilisation d'un test $\chi^2$ pour tester 
+la significativité statistique. Un seuil de significativité $\alpha = 0.01$ a été utlisé.
+
+\subsubsection{Partitionnement basé sur les distances : méthode de Ward}
+La méthode de Ward fait partie des algorithmes de partitionnement hiérarchique \citep{Ward1963}. Cet algorithme est un type d'\textit{agglomerative clustering}, 
+qui de façon récursive, fusionne une paire de groupes en minimisant la variance de ces \textit{clusters}.
+
+Afin de déterminer le nombre de \textit{clusters} à trouver par le \textit{clustering} de Ward, un dendogramme basé sur la distance de Ward est tracé. 
+Sur ce graphique, une fois que la plus longue distance (représentée par les traits verticaux) non coupée par une ligne horizontale est repérée, une ligne 
+horizontale est tracée de façon à couper cette ligne verticale. Le nombre de lignes verticales coupées par la ligne horizontale tout juste tracée correspond au nombre
+optimal de groupes.
+
+\subsubsection{Partitionnement basé sur les densités : DBSCAN}
+\gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. Il a besoin de deux paramètres :
+la distance $\epsilon$ et le nombre minimum de points $MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un \textit{cluster}. 
+Le choix du $MinPts$ peut se faire en suivant une une méthode heuristique :
+\begin{equation}
+\label{eq:tbr_dbscan}
+MinPts = ln(n),
+\end{equation}
+avec n le nombre total de points à être partitionnés.
+
+Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le \textit{k-distance plot} en prenant $k = MinPts$. Etant donné que les points bruités 
+sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut s'attendre à observer un genou sur ce tracé : 
+alors l'ordonnée de ce point correspond à $\epsilon$.
+
 
 \subsection{Identification du seuil optimal pour la personnalisation du protocole de Neurofeedback}
+Si le \gls{bgmm} à deux composantes est identifié comme  offrant le meilleur ajustement du modèle, la distribution théorique de chaque composant 
+est utilisée pour en déduire la valeur du seuil conduisant à la meilleure discrimination entre les deux \textit{clusters}. De plus, une \gls{roc} 
+est aussi tracée à partir du \gls{bgmm} à deux composantes pour calculer le taux de faux positifs (\gls{fpr} en anglais) et de vrais positifs 
+(\gls{tpr} en anglais).
+
+Si le \gls{gmm}, la méthode de Ward et le \gls{dbscan} identifient deux \gls{clusters}, le seuil de discrimination obtenu 
+est comparé à celui trouvé pour le \gls{bgmm} à deux composantes.
+
+Enfin, les seuils de \gls{tbr} calculés dans cette étude sont également comparés à ceux utilisés dans la littérature. Les seuils de 5 et de 4.5 sont
+ajoutés à la courbe \gls{roc} car \citet{Kerson2013} a suggéré l'utilsation d'un seuil de \gls{tbr} à 5, même si leur étude clinique l'a fixé 
+à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov) tout comme l'étude NEWROFEED. Le seuil qui sépare 35\% des valeurs de 
+\gls{tbr} est également ajouté à la courbe \gls{roc} pour visualiser les résultats de \citet{Zhang2017} basés sur les conclusions de \citet{Clarke2011}.
+Le 10\% de \gls{fpr} est aussi tracé car il peut constituer une stratégie prognostique intéressante : on voudrait idéalement traiter les patients qui 
+appartiennent au sous-goupe \gls{tbr} élevé avec le protocole de diminution du \gls{tbr}.
+
 
 \section{Partitionnement de la distribution des Theta-Beta ratios}
 
