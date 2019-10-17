@@ -232,34 +232,39 @@ les densités \gls{dbscan}. Les analyses statistiques sont effectuées avec la b
 
 \subsubsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} 
 Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population.
-La distribution des \glspl{srntbr} est ainsi tracée et ajustée par un \gls{gmm} et un \gls{bgmm} \citep{Attias2000, Blei2006}. Un \textit{Gaussian Mixture Model} 
-est un modèle probabiliste qui suppose que toutes les observations proviennent d'un mélange d'un nombre fini de distributions gaussiennes avec des paramètres inconnus. 
+La distribution des \glspl{srntbr} est ainsi tracée et ajustée par un \gls{bgmm} \citep{Attias2000, Blei2006} puis par 
+un \gls{gmm}. Un \textit{Gaussian Mixture Model} est un modèle probabiliste qui suppose que toutes les observations proviennent d'un mélange 
+d'un nombre fini de distributions gaussiennes aux paramètres inconnus. 
 Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur la distribution des données pour 
-assigner des probabilités postérieures à chaque \textit{Gaussian Mixture} distribution définie par des paramètres. Un grand nombre de \glspl{tbr} 
-extraits de sujets sains de la base de données \gls{cmi-hbn} est disponible, il est donc utilisé pour estimer les \textit{a priori} du \gls{bgmm}. Lorsque les 
-observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes gaussiennes est créé pour modéliser les données. 
-Les valeurs de \gls{srntbr} sont approximées par un \gls{bgmm} avec un nombre croissant de composantes. Il en va de même pour l'utilisation du \gls{gmm}.
+assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \glspl{tbr} 
+extraits de sujets sains de la base de données \gls{cmi-hbn} est disponible, ces valeurs donc utilisées pour estimer les \textit{a priori} du \gls{bgmm}. 
+Lorsque les observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes gaussiennes est 
+créé pour modéliser les données. Les valeurs de \gls{srntbr} sont approximées par un \gls{bgmm} avec un nombre croissant de composantes. Il en va de même 
+pour l'utilisation du \gls{gmm}.
 
-Afin de déterminer le nombre de composantes optimal, la significativité de la différence entre chaque modèle est testée grâce à un test $\chi^2$ sur la déviance. 
-La déviance est une mesure de la qualité de l'ajustement (\textit{goodness-of-fit} en anglais) d'un modèle statistique et est définie comme suit :
-
-c
-où $log(L(\beta_{0}))$ est la \textit{log likelihood} du modèle nul et $log(L(\beta_{\alpha}))$ est la \textit{log likelihood} du modèle alternatif. La \textit{log likelihood}
-a pour rôle de donner une idée sur la capacité des données à résumer les paramètres de la distribution de probabilités. La multiplication par -2 est une étape nécessaire 
-pour convertir la \textit{log likelihood} en une \textit{distribution chi-square} qui permet l'utilisation d'un test $\chi^2$ pour tester 
-la significativité statistique. Un seuil de significativité $\alpha = 0.01$ a été utlisé.
+Afin de déterminer le nombre de composantes qui décrit le mieux la distribution des \gls{srntbr}, la significativité de la différence entre chaque 
+modèle est testée grâce à un test $\chi^2$ sur la déviance \citep{James2013}. La déviance est une mesure de la qualité de l'ajustement (\textit{goodness-of-fit} en anglais) 
+d'un modèle statistique et est définie comme suit :
+\begin{equation}
+\label{eq:tbr_deviance}
+\text{D} = -2(log(L(\beta_{0})) - log(L(\beta_{\alpha}))),
+\end{equation}
+où $log(L(\beta_{0}))$ est la \textit{log likelihood} du modèle nul et $log(L(\beta_{\alpha}))$ est la \textit{log likelihood} du modèle alternatif. 
+La \textit{log likelihood} a pour rôle de donner une idée sur la capacité des données à résumer les paramètres de la distribution de probabilités. 
+La multiplication par -2 est une étape nécessaire pour convertir la \textit{log likelihood} en une distribution \textit{chi-square} qui permet 
+l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le seuil de significativité est fixé à $\alpha = 0.01$.
 
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
-La méthode de Ward fait partie des algorithmes de partitionnement hiérarchique \citep{Ward1963}. Cet algorithme est un type d'\textit{agglomerative clustering}, 
-qui de façon récursive, fusionne une paire de groupes en minimisant la variance de ces \textit{clusters}.
+La méthode de Ward fait partie des algorithmes de partitionnement hiérarchique \citep{Ward1963}. Cet algorithme est un type d'\textit{agglomerative clustering} 
+qui, de façon récursive, fusionne une paire de groupes en minimisant la variance de ces \textit{clusters}.
 
 Afin de déterminer le nombre de \textit{clusters} à trouver par le \textit{clustering} de Ward, un dendogramme basé sur la distance de Ward est tracé. 
 Sur ce graphique, une fois que la plus longue distance (représentée par les traits verticaux) non coupée par une ligne horizontale est repérée, une ligne 
-horizontale est tracée de façon à couper cette ligne verticale. Le nombre de lignes verticales coupées par la ligne horizontale tout juste tracée correspond au nombre
-optimal de groupes.
+horizontale est tracée de façon à couper cette ligne verticale. Le nombre de lignes verticales coupées par la ligne horizontale tout juste tracée correspond 
+au nombre optimal de groupes.
 
 \subsubsection{Partitionnement basé sur les densités : DBSCAN}
-\gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. Il a besoin de deux paramètres :
+\gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. Deux paramètres sont entrés dans l'algorithme :
 la distance $\epsilon$ et le nombre minimum de points $MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un \textit{cluster}. 
 Le choix du $MinPts$ peut se faire en suivant une une méthode heuristique :
 \begin{equation}
@@ -268,33 +273,81 @@ MinPts = ln(n),
 \end{equation}
 avec n le nombre total de points à être partitionnés.
 
-Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le \textit{k-distance plot} en prenant $k = MinPts$. Etant donné que les points bruités 
+Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le \textit{k-distance plot} obtenu par la méthode des k plus proches voisins 
+(\textit{K-nearest neighbors} en anglais) en prenant $k = MinPts$ \citep{James2013, Goldberger2005}. Etant donné que les points bruités 
 sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut s'attendre à observer un genou sur ce tracé : 
 alors l'ordonnée de ce point correspond à $\epsilon$.
 
-
 \subsection{Identification du seuil optimal pour la personnalisation du protocole de Neurofeedback}
-Si le \gls{bgmm} à deux composantes est identifié comme  offrant le meilleur ajustement du modèle, la distribution théorique de chaque composant 
-est utilisée pour en déduire la valeur du seuil conduisant à la meilleure discrimination entre les deux \textit{clusters}. De plus, une \gls{roc} 
+Si le \gls{bgmm} à deux composantes est identifié comme offrant le meilleur ajustement du modèle, la distribution théorique de chaque composant 
+est utilisée pour en déduire la valeur du seuil conduisant à la meilleure discrimination entre les deux \textit{clusters}. De plus, une courbe \gls{roc} 
 est aussi tracée à partir du \gls{bgmm} à deux composantes pour calculer le taux de faux positifs (\gls{fpr} en anglais) et de vrais positifs 
-(\gls{tpr} en anglais).
+(\gls{tpr} en anglais) \citep{James2013} :
 
-Si le \gls{gmm}, la méthode de Ward et le \gls{dbscan} identifient deux \gls{clusters}, le seuil de discrimination obtenu 
+\begin{equation}
+\label{eq:tbr_fpr_tpr}
+\text{FPR} = \frac{\text{FP}}{\text{FP + TN}},
+\end{equation}
+
+\begin{equation}
+\label{eq:tbr_tpr}
+\text{TPR} = \frac{\text{TP}}{\text{TP + FN}},
+\end{equation}
+où FP est le nombre de vrais positifs, TN le nombre de vrais négatifs, TP le nombre de vrais positifs et FN le nombre de faux négatifs. 
+De plus, FP $+$ TN correspond au nombre total de négatifs, et TP $+$ FN au nombre total de positifs. 
+
+Les courbes \gls{roc} sont fréquemment utilisées pour mesurer la performance de partionnements binaires, notamment grâce à
+l'\gls{auc} : plus cette aire est grande, plus la courbe \gls{roc} s'éloigne du partionnement aléatoire.
+
+Si le \gls{gmm}, la méthode de Ward et le \gls{dbscan} identifient également deux \textit{clusters}, le seuil de discrimination obtenu par ces approches
 est comparé à celui trouvé pour le \gls{bgmm} à deux composantes.
 
 Enfin, les seuils de \gls{tbr} calculés dans cette étude sont également comparés à ceux utilisés dans la littérature. Les seuils de 5 et de 4.5 sont
-ajoutés à la courbe \gls{roc} car \citet{Kerson2013} a suggéré l'utilsation d'un seuil de \gls{tbr} à 5, même si leur étude clinique l'a fixé 
+ajoutés à la courbe \gls{roc} car \citet{Kerson2013} ont suggéré l'utilsation d'un seuil de \gls{tbr} à 5, même si leur étude clinique l'a fixé 
 à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov) tout comme l'étude NEWROFEED. Le seuil qui sépare 35\% des valeurs de 
 \gls{tbr} est également ajouté à la courbe \gls{roc} pour visualiser les résultats de \citet{Zhang2017} basés sur les conclusions de \citet{Clarke2011}.
 Le 10\% de \gls{fpr} est aussi tracé car il peut constituer une stratégie prognostique intéressante : on voudrait idéalement traiter les patients qui 
 appartiennent au sous-goupe \gls{tbr} élevé avec le protocole de diminution du \gls{tbr}.
 
-
 \section{Partitionnement de la distribution des Theta-Beta ratios}
 
 \subsection{Partitionnements obtenus}
 
+Les différentes méthodes décrites précédemment sont appliquées tour à tour sur l'ensemble des \gls{srntbr}.
+
+\subsubsection{Bayesian Gaussian Mixture Model}
+
+Les résultats des \gls{bgmm} avec un nombre croissant de composantes sont représentés à la Figure~\ref{Figure:tbr_bgmm}. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-bgmm} 
+  \caption{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec \textbf{A)} 1-mode, \textbf{B)} 2-modes et \textbf{C)} 3-modes du \gls{bgmm} superposés. P-value (1-2) correspond
+	à la p-value du test de déviance comparant les 1-mode et 2-modes du \gls{bgmm} ; p-value (2-3) correspond à la p-value du test de déviance comparant les 2-modes et 3-modes du \gls{bgmm}. 
+	Significativité symbolisée par ** (seuil fixé à 0.01). Le seuil \gls{srntbr} est précisé pour le modèle .
+  \label{Figure:tbr_bgmm}
+\end{figure}
+
+Une différence statistiquement significative est observée dans la modélisation des distributions entre les modes à 1 (modèle nul) et à 2 composantes 
+du \gls{bgmm} (p-value = 0.005), alors qu'aucune différence statistiquement significative n'est observée entre les modes à 2 (modèle nul) 
+et à 3 composantes du \gls{bgmm} (p-value = 0.850). On peut donc en conclure que le \gls{bgmm} à deux modes décrit mieux la donnée que les deux
+autre modes. 
+
+Le \gls{gmm} arrive à la même conclusion : la distribution des \gls{srntbr} est mieux ajustées par deux modes (p-value pour la comparaison
+entre le modèle à 1 mode (modèle nul) et à 2 modes = 0.002). Ainsi, les \textit{a priori} utilisés pour le \gls{bgmm} semblent bien 
+représenter la donnée. 
+
+
+\subsubsection{Méthode de Ward}
+
+\subsubsection{DBSCAN}
+
 \subsection{Seuils identifiés}
+% expliquer qu'on met le seuil au carré faire une ref aux figures où le seuil est écrit. 
+Le seuil qui sépare le plus précisément les deux \textit{clusters} du \gls{bgmm} à deux composantes est de 1.925 pour les valeurs \gls{srntbr},
+ce qui correspond pour les valeurs \gls{tbr} à un seuil de 3.7.
+
+Le seuil \gls{tbr} obtenu avec le \gls{gmm} à deux modes est de 3.8. 
 
 \section{Discussion}
 
