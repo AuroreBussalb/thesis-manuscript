@@ -1,7 +1,7 @@
 \chapter{Analyse de la distribution d'un marqueur de l'attention au sein d'une population d'enfants TDAH}
 
 \section*{Introduction}
-Le \gls{tbr} a été massivment étudié chez les enfants \gls{tdah}. Diminuer le \gls{tbr} est par ailleurs un protocole d'entrainement de \gls{nfb} couramment utilisé 
+Le \gls{tbr} a été massivement étudié chez les enfants \gls{tdah}. Diminuer le \gls{tbr} est par ailleurs un protocole d'entrainement de \gls{nfb} couramment utilisé 
 pour traiter le \gls{tdah} chez les enfants \citep{Arnold2014, Deilami2016, Gevensleben2009, VanDongen2013}. Cependant, ce protocole ne serait peut-être pas adapté à tous les enfants \gls{tdah} si 
 on se base sur le phénotype de leur \gls{eeg}. En effet, il a été avancé qu'il existerait un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé 
 \citep{Zhang2017, Clarke2011}, ainsi ces enfants bénéficieraient peut-être davantage d'un protocole diminuant leur \gls{tbr} que les autres. 
@@ -178,9 +178,9 @@ L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitemen
 \end{enumerate}
 
 \subsubsection{Rejet des artefacts}
-Tout d'abord, les données artefactées sont exclues en utilisant le \gls{rpf} \citep{Barthelemy2019}. Les données \gls{eeg} sont épochées (durée de 2 secondes avec 
-un chevauchement toutes les 0.125s) et la matrice de covariance de chaque epoch est calculée pour un sous-ensemble de canaux. Ensuite, la \gls{rpf} rejette les 
-epochs dont la matrice de covariance se retouve à l'extérieure d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres. 
+Tout d'abord, les données artefactées sont exclues en utilisant le \gls{rpf} \citep{Barthelemy2019}. Les données \gls{eeg} sont ségmentées (durée de 2 secondes avec 
+un chevauchement toutes les 0.125s) et la matrice de covariance de chaque segment est calculée pour un sous-ensemble de canaux. Ensuite, la \gls{rpf} rejette les 
+segments dont la matrice de covariance se retouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres. 
 
 \subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}}
 Ensuite, l'\gls{iapf} est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha définie entre 7 et 13Hz. Si aucun pic n'est observé,
@@ -196,7 +196,7 @@ l'objet de plusieurs études \citep{Kaiser2001, Bazanova2006, Vollebregt2015} do
 
 \subsubsection{Calcul du Theta-Beta ratio}
 La dernière étape consiste à calculer le \gls{tbr} : il est défini comme le ratio de la puissance dans la bande de fréquences theta et de la bande de fréquences beta obtenues 
-grâce à l'\gls{iapf}. Une moyenne mobile de la puissance du signal $\bar{P}$ est estimée par la méthode de Welch \citep{Welch1967} sur 32 epochs, de 2 secondes chacun, avec un 
+grâce à l'\gls{iapf}. Une moyenne mobile de la puissance du signal $\bar{P}$ est estimée par la méthode de Welch \citep{Welch1967} sur 32 segments, de 2 secondes chacun, avec un 
 chevauchement toutes les 1/16 de seconde :
 \begin{equation}
 \label{eq:tbr_power_computation}
@@ -206,8 +206,8 @@ P_{c,b} = \norm{ x_{c,b} }_{F}^2,
 \label{eq:tbr_average_power_computation}
 \bar{P}_{c,b} = \frac{1}{I} \sum_{i=1}^{I} (P_{c,b})_{i},
 \end{equation}
-où $x_{c,b}$ correspond à un epoch du signal \gls{eeg} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
-le nombre d'epochs. La puissance dans les bandes theta et beta est calculée avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
+où $x_{c,b}$ correspond à un segment du signal \gls{eeg} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
+le nombre de segments. La puissance dans les bandes theta et beta est calculée avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
 puis ces deux puissances sont divisées entre elles :
 
 \begin{equation}
@@ -270,17 +270,19 @@ $MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment 
 Le choix du $MinPts$ peut se faire grâce une méthode heuristique :
 \begin{equation}
 \label{eq:tbr_dbscan}
-MinPts = ln(n),
+MinPts = ln(\text{n}),
 \end{equation}
 avec n le nombre total de points à être partitionnés.
 
 Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le graphique des \textit{k-distance} obtenu par la méthode des k plus proches voisins 
-(\textit{K-nearest neighbors} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005}. Le principe de cette méthode
+(\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005}. Le principe de cette méthode
 est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance d'un nouveau point et de prédire la classe de ce dernier. 
-Le grahique des \textit{k-distance} représente les distances de chaque observation à un des k points classées par ordre décroissant. 
-Ainsi, les points bruités sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut 
-s'attendre à observer un genou sur ce tracé : l'ordonnée de ce point correspond à $\epsilon$.
+Le grahique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à un des k points classées par ordre décroissant. 
+Ainsi, étant donné que les points bruités sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut 
+s'attendre à observer un coude sur ce tracé : l'ordonnée de ce point correspond à $\epsilon$.
 
+Le \textit{silhouette coefficient} est utilisé pour rendre compte de la qualité du partitionnement : -1 est la pire valeur, 1 la meilleure et 0
+correspond à des \textit{clusters} qui se superposent.
 
 \subsection{Identification du seuil optimal pour la personnalisation du protocole de Neurofeedback}
 
@@ -289,33 +291,34 @@ est utilisée pour en déduire la valeur du seuil conduisant à la meilleure dis
 à l'abscisse $x$ de l'intersection des deux gaussiennes. Pour déterminer $x$ il suffit de traduire mathématiquement les deux gaussiennes ce qui
 conduit à une équation quadratique dont les coefficients comportent les moyennes et variances des gaussiennes. La solution de cette équation est $x$.
 
-
 Une courbe \gls{roc} est ensuite tracée à partir du \gls{bgmm} à deux composantes : en abscisses figurent le taux de faux positifs (\gls{fpr} en anglais) 
 et en ordonnées celui de vrais positifs (\gls{tpr} en anglais) \citep{James2013} :
 
 \begin{equation}
 \label{eq:tbr_fpr_tpr}
-\text{FPR} = \frac{\text{FP}}{\text{FP + TN}},
+\text{FPR} = \frac{\text{FP}}{\text{FP + TN}} = 1 - \text{TNR},
 \end{equation}
 
 \begin{equation}
 \label{eq:tbr_tpr}
-\text{TPR} = \frac{\text{TP}}{\text{TP + FN}},
+\text{TPR} = \frac{\text{TP}}{\text{TP + FN}} = 1 - \text{FNR},
 \end{equation}
 où FP est le nombre de vrais positifs, TN le nombre de vrais négatifs, TP le nombre de vrais positifs et FN le nombre de faux négatifs. 
-De plus, FP $+$ TN correspond au nombre total de négatifs, et TP $+$ FN au nombre total de positifs. 
+TNR est le taux de vrais négatifs et FNR le taux de faux négatifs.
+De plus, FP $+$ TN correspond au nombre total de négatifs, et TP $+$ FN au nombre total de positifs.
 
 Les courbes \gls{roc} sont fréquemment utilisées pour mesurer la performance de partionnements binaires, notamment grâce à
-l'\gls{auc} : plus cette aire est grande, plus la courbe \gls{roc} s'éloigne du partionnement aléatoire. Une autre métrique est utilsée 
-pour juger de la fiabilité des partionnements utilisés ici, il s'agit de la justesse (\textit{accuracy} en anglais) :
+l'\gls{auc} : plus cette aire est grande, plus la courbe \gls{roc} s'éloigne du partionnement aléatoire modélisé par une droite allant
+de (0, 0) à (1, 1). 
+
+Les seuils identifiés pour la discrimination de deux groupes par le \gls{gmm}, la méthode de Ward et le \gls{dbscan} sont comparés à celui trouvé pour 
+le \gls{bgmm} à deux composantes en étant ajoutés à la courbe \gls{roc} et grâce à une métrique quantifiant la précision de ces seuils, 
+il s'agit de la justesse (\textit{accuracy} en anglais) :
 
 \begin{equation}
 \label{eq:tbr_accuracy}
 \text{accuracy} = \frac{\text{TP + TN}}{\text{TP + TN + FP + FN}}.
 \end{equation}
-
-Les seuils identifiés pour la discrimination de deux groupes par le \gls{gmm}, la méthode de Ward et le \gls{dbscan} sont comparés à celui trouvé pour 
-le \gls{bgmm} à deux composantes.
 
 Enfin, les seuils de \gls{tbr} calculés dans cette étude sont également comparés à ceux utilisés dans la littérature. Les seuils de 5 et de 4.5 sont
 ajoutés à la courbe \gls{roc} car \citet{Kerson2013} ont suggéré l'utilsation d'un seuil de \gls{tbr} à 5, même si leur étude clinique l'a fixé 
@@ -360,20 +363,64 @@ Tout d'abord, les résultats d'un partitionnement suivant la méthode de Ward so
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
   \caption{Dendrogramme représentant le partitionnement obtenu suivant la méthode de Ward. Tous les liens connectant des noeuds avec des distances plus 
 	grandes ou égales à un seuil fixé à 6 sont colorés en bleu. Les deux clusters définis par les deux noeuds en dessous de ce seuil de 6 sont colorés différemment.}
-  \label{Figure:tbr_bgmm}
+  \label{Figure:tbr_ward_dendrogram}
 \end{figure}
 
-Visuellement, la Figure~\ref{Figure:tbr_ward_dendrogram} permet de supposer que les données pourraient \textit{clusters} (en rouge et vert) e
+Visuellement, la Figure~\ref{Figure:tbr_ward_dendrogram} permet de supposer que les données pourraient être séparées en 2 \textit{clusters} (en rouge et vert) 
+mais aussi en 3 (2 verts et 1 rouge). Les résultats d'un partitionnement en 2 et 3 \textit{clusters} sont représentés à la Figure~\ref{Figure:tbr_ward_histograms}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-histogram-ward} 
+  \caption{Distribution des \gls{srntbr} répartis en \textbf{A)} : 2 \textit{clusters} (rouge et jaune) et \textbf{B)} : 3 \textit{clusters} 
+	(vert, rouge et jaune). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointilés rouges.}
+  \label{Figure:tbr_ward_histograms}
+\end{figure}
+
+Dans le cas du partitionnement en 3 groupes, le groupe des \gls{srntbr} élevés est toujours identifié (en jaune), le troisième groupe est formé dans 
+la sous population des \gls{srntbr} plus faibles. 
 
 \subsubsection{DBSCAN}
 
-\subsection{Seuils identifiés}
-% expliquer qu'on met le seuil au carré faire une ref aux figures où le seuil est écrit. Rajouter sur la figure des plots glmm l'intersection
-% qui correspond au seuil
-Le seuil qui sépare le plus précisément les deux \textit{clusters} du \gls{bgmm} à deux composantes est de 1.925 pour les valeurs \gls{srntbr},
-ce qui correspond pour les valeurs \gls{tbr} à un seuil de 3.7.
+Les paramètres $MinPts$ et $epsilon$ de l'algorithme \gls{dbscan} sont tout d'abord calculés. Etant donné qu'ici $MinPts = $ 6, 
+l'algorithme des \gls{knn} prend k = 6, on obtient alors le grahique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
+où un coude est identifié à $y$ = 0.048, valeur choisie pour $epsilon$.
 
-Le seuil \gls{tbr} obtenu avec le \gls{gmm} à deux modes est de 3.8. 
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dbscan-knn-plot} 
+  \caption{Graphique des k distances. La ligne en pointillés noirs coupe la courbe où le coude est identifié.}
+  \label{Figure:tbr_dbscan_kdistance_plot}
+\end{figure}
+
+Le partitionnement par \gls{dbscan} est représenté à Figure~\ref{Figure:tbr_dbscan_clustering_plot} : deux groupes (en rouge et jaune) et 13 
+points considérés comme du bruit et donc attribués à aucun groupe (en noir) sont identifiés. Le \textit{silhouette coefficient} de 0.388 
+indique un partionnement convenable mais dont les groupes sont proches l'un de l'autre. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dbscan-clustering-plot} 
+  \caption{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en jaune et rouge) et 13 points sont considérés comme du bruit (en noir).
+	En \textbf{B)} le seuil \gls{srntbr} est représenté par la droite verticale en pointillés rouges.}
+  \label{Figure:tbr_dbscan_clustering_plot}
+\end{figure}
+
+Le groupe de \gls{srntbr} élevés (en jaune) est très dense : ces valeurs varient peu d'un sujet à l'autre.
+
+
+\subsection{Seuils identifiés}
+Chaque méthode permet de déterminer un seuil sur les \gls{srntbr} : pour obtenir le seuil sur les valeurs de \gls {tbr}, il suffit ce calculer
+le carré du seuil \gls{srntbr}. 
+
+Le \gls{bgmm} à deux composantes, illustré à la Figure~\ref{Figure:tbr_bgmm}, est identifié comme ajustant le mieux la donnée : 
+le seuil qui sépare le plus précisément les deux \textit{clusters} du \gls{bgmm} 
+à deux composantes est de 1.925 pour les valeurs \gls{srntbr} ce qui correspond pour les valeurs \gls{tbr} à un seuil de 3.7 qui est très proche 
+de celui obtenu avec le \gls{gmm} à deux modes (3.8). 
+
+Le partitionnement en deux groupes avec la distance de Ward présenté à la Figure~\ref{tbr_ward_histograms} conduit à un seuil \gls{tbr} de 4.032.
+
+En ce qui concerne le seuil \gls{tbr} identifié par l'algorithme \gls{dbscan}, il est de 6.426, une valeur bien plus élevée que pour les autres seuils
+qui pourrait s'expliquer par le fait que 13 points ne soient attribués à aucun \textit{cluster}.
 
 \section{Discussion}
 
