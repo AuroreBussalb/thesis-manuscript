@@ -322,8 +322,9 @@ Enfin, les seuils de \gls{tbr} calculés dans cette étude sont également compa
 ajoutés à la courbe \gls{roc} car \citet{Kerson2013} ont suggéré l'utilsation d'un seuil de \gls{tbr} à 5, même si lors de leur étude clinique il a été fixé 
 à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov) tout comme le seuil utilisé pendant l'étude NEWROFEED. Le seuil qui sépare 35\% des valeurs de 
 \gls{tbr} est également ajouté à la courbe \gls{roc} pour visualiser les résultats de \citet{Zhang2017} basés sur les conclusions de \citet{Clarke2011}.
-Le 10\% de \gls{fpr} est aussi tracé car il peut constituer une stratégie prognostique intéressante : on voudrait idéalement traiter les patients qui 
-appartiennent au sous-goupe \gls{tbr} élevé avec le protocole de diminution du \gls{tbr}.
+De plus, le seuil conduisant à 10\% de \gls{fpr} selon le partitionnement par le \gls{bgmm} à deux composantes est aussi ajouté à la courbe \gls{roc}. 
+En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéalement traiter les patients qui appartiennent au sous-goupe \gls{tbr} élevé avec 
+un protocole adapté à leur profil \gls{eeg}, comme la diminution du \gls{tbr}.
 
 \section{Partitionnement de la distribution des Theta-Beta ratios}
 
@@ -372,7 +373,8 @@ mais aussi en 3 (2 verts et 1 rouge). Les résultats d'un partitionnement en 2 e
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-histogram-ward} 
   \caption{Distribution des \gls{srntbr} répartis en \textbf{A)} : 2 \textit{clusters} (rouge et jaune) et \textbf{B)} : 3 \textit{clusters} 
-	(vert, rouge et jaune). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointilés rouges.}
+	(vert, rouge et jaune). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointilés rouges sur la 
+	figure \textbf{A}.}
   \label{Figure:tbr_ward_histograms}
 \end{figure}
 
@@ -383,7 +385,7 @@ la sous population des \gls{srntbr} plus faibles.
 
 Les paramètres $MinPts$ et $\epsilon$ de l'algorithme \gls{dbscan} sont tout d'abord calculés. Etant donné qu'ici $MinPts = $ 6, 
 l'algorithme des \gls{knn} prend k = 6, on obtient alors le grahique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
-où un coude est identifié à $y$ = 0.048, valeur choisie pour $\epsilon$.
+où un coude est observé à $y$ = 0.048, valeur choisie pour $\epsilon$.
 
 \begin{figure}[h!]
   \centering
@@ -404,26 +406,28 @@ indique un partionnement convenable mais dont les groupes sont proches l'un de l
   \label{Figure:tbr_dbscan_clustering_plot}
 \end{figure}
 
-Le groupe de \gls{srntbr} élevés (en jaune) est très dense : ces valeurs varient peu d'un sujet à l'autre.
+Le groupe de \gls{srntbr} élevés (en jaune) contient peu d'observations et est très dense : ces valeurs varient peu d'un sujet à l'autre.
 
 
 \subsection{Seuils identifiés}
-Chaque méthode permet de déterminer un seuil sur les \gls{srntbr} : pour obtenir le seuil sur les valeurs de \gls {tbr}, il suffit de calculer
-le carré du seuil \gls{srntbr}. 
+Etant donné que les méthodes utilisées ici concluent toutes qu'un partitionnement des \gls{srntbr} en deux groupes est pertinent, il est possible de s'intéresser
+au seuil qui permet de discriminer les données. Ce seuil est calculé pour toutes les méthodes sur les valeurs de \gls{srntbr} : pour convertir le seuil sur 
+les valeurs de \gls {tbr}, il suffit de calculer le carré du seuil \gls{srntbr}. Les valeurs de seuil présentées par la suite correspondent au seuil
+sur les données \gls{tbr}.
 
-Le \gls{bgmm} à deux composantes, illustré à la Figure~\ref{Figure:tbr_bgmm}, est identifié comme ajustant le mieux la donnée : 
-le seuil qui sépare le plus précisément les deux \textit{clusters} du \gls{bgmm} 
-à deux composantes est de 1.925 pour les valeurs \gls{srntbr} ce qui correspond pour les valeurs \gls{tbr} à un seuil de 3.7 qui est très proche 
-de celui obtenu avec le \gls{gmm} à deux modes (3.8). 
+Les seuils obtenus sont : 
+\begin{description}
+\item[pour le \gls{bgmm} : ] le seuil identifié est de 3.7, il est représenté par un point rouge à la Figure~\ref{Figure:tbr_bgmm},
+\item[pour le \gls{gmm} : ] le seuil identifié est de 3.8, valeur très proche de celle du seuil déterminé par le \gls{bgmm},
+\item[pour la méthode de Ward : ] le seuil identifié lorsque le nombre de \textit{clusters} est fixé à 2 est de 4.032, représenté
+par une ligne verticale en pointillés rouges à la Figure~\ref{Figure:tbr_ward_histograms},
+\item[pour le \gls{dbscan} : ] le seuil identifié est de 6.426, schématisé à la Figure~\ref{Figure:tbr_dbscan_clustering_plot} par une ligne
+verticale en pointillés rouges. 
+\end{description}
 
-Le partitionnement en deux groupes avec la distance de Ward présenté à la Figure~\ref{Figure:tbr_ward_histograms} conduit à un seuil \gls{tbr} de 4.032.
-
-En ce qui concerne le seuil \gls{tbr} identifié par l'algorithme \gls{dbscan}, il est de 6.426, une valeur bien plus élevée que pour les autres seuils
-qui pourrait s'expliquer par le fait que 13 points ne sont attribués à aucun \textit{cluster}.
-
-Le courbe \gls{roc} calculée sur le \gls{bgmm} à deux composantes ajustant les \gls{srntbr} est tracée à la Figure~\ref{Figure:tbr_roc} et présente une \gls{auc} de 0.872. 
-Sur cette courbe sont ajoutés les seuils obtenus par les autres méthodes et l'\gls{acc} à laquelle ils conduisent. La valeur des seuils affichée correspond
-au seuil sur les valeurs \gls{tbr}. 
+Le courbe \gls{roc} calculée sur le \gls{bgmm} à deux composantes ajustant les \gls{srntbr} est tracée à la Figure~\ref{Figure:tbr_roc} et 
+présente une \gls{auc} de 0.872. Sur cette courbe sont ajoutés les seuils obtenus par les autres méthodes et l'\gls{acc} à laquelle ils conduisent. 
+La valeur des seuils affichée correspond au seuil sur les valeurs \gls{tbr}. 
 
 \begin{figure}[h!]
   \centering
@@ -435,15 +439,15 @@ au seuil sur les valeurs \gls{tbr}.
 \end{figure}
 
 Les seuils obtenus par les \gls{bgmm} et \gls{gmm} à deux modes et le seuil séparant 35\% de la population étudiée sont ceux conduisant à la plus grande \gls{acc} :
-79.2 \%. Deux seuils menant à des \gls{acc} bien plus faibles sont celui égal à 5 et celui trouvé par \gls{dbscan} avec respectivement une \gls{acc} de 71.4\%
-et de 59.1\%. Toutefois, cette faible \gls{acc} est compensée par un plus faible taux de faux positifs.
+79.2 \%. Les deux seuils menant à des \gls{acc} bien plus faibles sont celui égal à 5 et celui trouvé par \gls{dbscan} avec respectivement une \gls{acc} de 71.4\%
+et de 59.1\%. Toutefois, cette faible \gls{acc} est en partie compensée par un plus faible taux de faux positifs.
 
-La Table~\ref{Table:tbr_thresholds_number_of_subjects} résume le nombre de sujets attribués au groupe \gls{tbr} élevé en utilisant tous les seuils présentés
-sur la courbe \gls{roc} à la Figure~\ref{Figure:tbr_roc}. La taille des groupes de \gls{tbr} élevés est assez stable, sauf pour le seuil identifié 
+La Table~\ref{Table:tbr_thresholds_number_of_subjects} résume le nombre de sujets attribués au groupe \gls{tbr} élevés en discriminant les données 
+avec les seuils présentés sur la courbe \gls{roc} à la Figure~\ref{Figure:tbr_roc}. La taille de ce groupe est assez stable, sauf pour le seuil identifié 
 par \gls{dbscan} qui mène à un groupe comprenant seulement 5\% de la population étudiée.
 \begin{table}[h!]
   \centering
-  \caption{A REMPLIR.}
+  \caption{Poucentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil étudié.}
   \input{tables/chapter-4/tbr_thresholds_number_of_subjects}
   \label{Table:tbr_thresholds_number_of_subjects}
 \end{table}
@@ -451,53 +455,57 @@ par \gls{dbscan} qui mène à un groupe comprenant seulement 5\% de la populatio
 
 \section{Discussion}
 
-% à revoir
-Trois méthodes de partitionnement différentes ont été utilisées afin de déterminer si un groupe d'enfants avec un \gls{tbr} existe et, auquel cas, quel
-est le seuil à partir duquel le \gls{tbr} est considéré comme élevé. Cependant, cette analyse présente quelques limites qu'il est important de noter.
+Trois méthodes de partitionnement différentes ont été utilisées afin de déterminer si un groupe d'enfants avec un \gls{tbr} élevé existe et, auquel cas, 
+le seuil à partir duquel le \gls{tbr} est considéré comme élevé est calculé. Ces résultats sont discutés ici puis les limites de cette analyse sont 
+explorées.
 
 \subsection{Groupes et seuils identifiés}
 
+\subsubsection{Groupes d'enfants \gls{tdah}}
+
 Le partitionnement par \gls{bgmm} montre que le modèle à deux composantes ajuste la distribution des \gls{srntbr} significativement mieux que le modèle
 à une composante (p-value = 0.005). En ce qui concerne la comparaison entre le modèle à 2 composantes et celui à 3 composantes, même si ce dernier présente 
-une \textit{log likelihood} un peu plus élevée (-204.790 contre -204.955), il n'y a pas de différence statistiquement significative entre ces dex modèles (p-value
+une \textit{log likelihood} un peu plus élevée (-204.790 contre -204.955), il n'y a pas de différence statistiquement significative entre ces deux modèles (p-value
 = 0.850). Ainsi, en accord avec le rasoir d'Occam, le modèle le plus simple qui ajuste le mieux la donnée est retenu. Il est important de souligner
 qu'ajouter des composantes au modèle va dans la plupart des cas augmenter la \textit{log likelihood}, c'est pourquoi, on s'intéresse à 
-la significativité de cette augmentation pour éviter l'\textit{overfitting}. Le modèle \gls{bgmm} à deux composantes décrit le mieux la distribution
+la significativité de cette augmentation pour éviter l'\textit{overfitting}. Le modèle \gls{bgmm} à deux composantes décrit donc le mieux la distribution
 des valeurs de \gls{tbr}, ce qui indique qu'il existerait deux groupes distincts d'enfants \gls{tdah}, dont un présentant un \gls{tbr} élevé.
 
-Cette conclusion obtenue avec le partitionnement par \gls{bgmm} est confirmée par les résultats du \gls{gmm} qui par ailleurs, valident le choix de 
+Cette conclusion obtenue avec le partitionnement par \gls{bgmm} est confirmée par les résultats du \gls{gmm} qui, par ailleurs, valident le choix de 
 l'\textit{a priori} du \gls{bgmm}. 
 
 L'\textit{agglomerative clustering} basé sur la distance de Ward montre que l'ensemble des données peut être réparti 
 en deux ou trois groupes. Lors du partitionnement en deux groupes, un \textit{cluster} correspondant aux \gls{tbr} élevés et comprenant 29\% de la donnée
 est identifié. Ce \textit{cluster} est toujours identifié lorsque le partionnement se fait en trois groupes : le nouveau groupe est formé dans la sous-population
-des \gls{tbr} plus faibles. Lors de recherches précédentes sur l'identification de sous groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg}, la méthode de
-Ward a été utilisé \citep{Clarke2011} 
+des \gls{tbr} plus faibles. La méthode de Ward a déjà été utilisée lors de recherches 
+précédentes sur l'identification de sous groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. 
 
 L'algorithme \gls{dbscan} conduit également à deux \textit{clusters}, dont l'un correspond aux \gls{tbr} élevés avec un \textit{silhouette score} de 0.388 
 qui permet d'être assez confiant dans le partitionnement retourné. Parmi les 13 points attribués à 
 aucune classe, 9 correspondent à des sujets ayant un \gls{tbr} élevé. La possibilité qu'a cet algorithme de considérer certains points comme bruités, conduit à
 une classe de \gls{tbr} élevés très dense. 
 
-Par conséquent chacune de ces méthodes va dans le sens de l'existence d'un groupe de \gls{tbr} élevés, ce qui permet d'apporter de nouvelles preuves à
-l'hétérogénéité du \gls{tdah} déjà évoquée dans la littérature \citep{Arns2008, Arns2012, Barry2003, Clarke2011, Liechti2013, Loo2013, Loo2018}.
+Par conséquent ces deux dernières méthodes confirment les résultats du \gls{bgmm} quant à l'existence d'un groupe de \gls{tbr} élevés, ce qui permet 
+d'apporter de nouvelles preuves à l'hétérogénéité du \gls{tdah} déjà évoquée dans la littérature \citep{Arns2008, Arns2012, Barry2003, Clarke2011, 
+Liechti2013, Loo2013, Loo2018}.
 
-Etant donné que le \gls{tdah} est un trouble hétérogène, tous les enfants \gls{tdah} ne vont pas nécessairement répondre au même traitement, ainsi personnaliser
-le traitement pourrait être un moyen d'optimiser son efficacité pour chaque patient. L'existence de deux groupes distincts au sein de la 
-population \gls{tdah} basé sur la valeur du \gls{tbr} étaye l'idée que le traitement par \gls{nfb} devrait être différent pour ces groupes. En effet, il semblerait
+\subsubsection{Seuils de partitionnements}
+
+Etant donné que le \gls{tdah} est un trouble hétérogène, tous les enfants \gls{tdah} ne vont pas nécessairement répondre au même traitement, ainsi le personnaliser 
+pourrait être un moyen d'optimiser son efficacité pour chaque patient. L'existence de deux groupes distincts au sein de la 
+population \gls{tdah} basée sur la valeur du \gls{tbr} étaye l'idée que le traitement par \gls{nfb} devrait être différent pour ces groupes. En effet, il semblerait
 plus approprié que le protocole de diminution du \gls{tbr} ne soit proposé qu'aux enfants du groupe \gls{tbr} élevés et que les autres enfants entrainent un autre
-neuromarqueur, comme par exemple le \gls{smr}. Ce modèle à deux protocoles est une façon de personnaliser le traitement pour optimiser son efficacité. 
-Cette personnalisation a été notamment suggérée par \citet{Kerson2013, Arns2012} et a été évaluée dans un récent essai clinique (NCT02778360, Mensia Technologies,
-France, ClinicalTrials.gov, \citet{Bioulac2019}).
+neuromarqueur, comme par exemple le \gls{smr}. Ce modèle à deux protocoles a été notamment suggérés par \citet{Kerson2013, Arns2012} et a été évaluée lors 
+d'un récent essai clinique (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019}).
 
-L'essai clinique de Mensia Technologies se base sur un seuil de \gls{tbr} = 4.5 pour assigner les sujets au groupe devant augmenter leur \gls{smr} ou au groupe 
-devant diminuer leur \gls{tbr}. La courbe \gls{roc} représentée à la Figure~\ref{Figure:tbr_roc}, montre que choisir un seuil \gls{tbr} égal à 4.5 conduit
+L'essai clinique de Mensia Technologies a fixé un seuil de \gls{tbr} = 4.5 qui permet d'assigner les sujets soit au groupe devant augmenter leur \gls{smr}, soit 
+au groupe devant diminuer leur \gls{tbr}. La courbe \gls{roc} représentée à la Figure~\ref{Figure:tbr_roc}, montre que choisir un seuil \gls{tbr} égal à 4.5 conduit
 à une \gls{acc} de 75.7\% et à un \gls{fpr} qui est environ deux fois plus faible que celui obtenu avec le seuil déterminé par le \gls{bgmm}. Toutefois, 
 le \gls{tpr} est plus faible avec le seuil \gls{tbr} à 4.5. En supposant que le but du seuil est de maximiser l'\gls{acc}, le seuil \gls{bgmm} serait le 
 plus adéquat, avec une \gls{acc} de 79.2\%.
 
-Le seuil calculé à partir du \gls{bgmm} à deux composantes comprend 36\% des sujets \gls{tdah}, formant le groupe des \gls{tbr} élevés. Ce pourcentage est
-en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
+Le seuil calculé à partir du \gls{bgmm} à deux composantes comduit à un groupe d'enfants au \gls{tbr} élevé représentant 36\% de la population étudiée. 
+Ce pourcentage est en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
 De plus,\citep{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
 25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un \textit{cluster}
@@ -510,15 +518,97 @@ Au moment de choisir un seuil pour attribuer le protocole d'entrainement par \gl
 En effet, optimiser l'\gls{acc} revient à utilser le seuil du \gls{bgmm} de 3.7. Cependant, si on suppose que le protocole de diminution du \gls{tbr} est plus 
 efficace pour les patients dans le groupe des \gls{tbr} élevés tandis que le protocole alternatif est efficace de la même façon pour tous les patients, il 
 serait préférable de minimiser le \gls{fpr} plutôt que de maximiser l'\gls{acc}. Si on fixe raisonnablement un seuil menant à 10\% de \gls{fpr}, un seuil de 4.1
-est obtenu résultant en un \gls{tpr} de 67\% et une \gls{acc} de 78\%. Ainsi, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
-les protocoles d'entrainement du fait de son bon équilibre entre avoir un faible \gls{fpr} et une haute \gls{acc} et \gls{tpr}. 
+est obtenu, résultant en un \gls{tpr} de 67\% et une \gls{acc} de 78\%. Ainsi, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
+les protocoles d'entrainement du fait de son bon équilibre entre un faible \gls{fpr} et une \gls{acc} et un \gls{tpr} élevés. 
   
 \subsection{Normalisation des Theta-Beta ratios}
 
+Une des hypothèses posée pour avoir recours aux \gls{bgmm} et \gls{gmm} pour modéliser la distribution des \gls{tbr} est que ces derniers suivent une
+distribution normale. En effet, un \gls{bgmm} appliqué à une distribution non normale identifierait de faux \textit{clusters} pour ajuster les données. 
+Ainsi, pour être certain que l'hypothèse de normalité est valide, la distribution des \gls{tbr} de patients sains (provenant de la base de données \gls{cmi-hbn})
+est analysée avec deux techniques de normalisation différentes : la \textit{log normalization} et la \textit{square-root-normalization}.
+
+Les distributions de \gls{tbr} non normalisés, log normalisés et \textit{square-root} normalisés (les \gls{srntbr}) sont visuellement analysées à l'aide 
+d'histogrammes, puis des tracés de probabilités (\textit{probability plots}) sont utilisés pour comparer ces distributions à des distributions normales 
+et sont présentés à la Figure~\ref{Figure:tbr_normalization}. Le test de Shapiro-Wilk \citep{Shapiro1965} a été utilisé pour obtenir une mesure quantitative 
+de la normalité des \gls{tbr} contrôles. Avec un seuil de significativité de 0.01, seule la distribution des \gls{srntbr} ne permet pas de rejeter l'hypothèse
+nulle de normalité (p-value = 0.46). Ainsi, on suppose que les valeurs de \gls{srntbr} sont distribuées normalement. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-normalization} 
+  \caption{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. Les histogrammmes des distributions de valeurs \gls{tbr} non nomalisées,
+	log normalisées et \textit{square-root} normalisées sont presentés à la première ligne. La seconde ligne contient les tracés de probabilités comparant les
+	dstributions. La statistique W du test de Shapiro-Wilk et la p-value correspondante sont affichées sur chaque tracé de probabilité.}
+  \label{Figure:tbr_normalization}
+\end{figure}
+
 \subsection{Calcul des Theta-Beta ratios}
+
+La façon dont est calculé le \gls{tbr} est très variable dans la littérature, ce qui conduit à des valeurs variant entre 2 et 8 pour les sujets contrôles \citep{Arns2012,
+Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses défintions du \gls{tbr}. En effet, le \gls{tbr} peut faire référence au ratio
+des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz). 
+
+Par ailleurs, la défintion des bandes de fréquences pour calculer le \gls{tbr} peuvent aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. Ainsi, pour pouvoir comparer les valeurs de \gls{tbr} provenant de différentes
+études, une définition homogène doit être mise en place. A travers cette analyse, nous recommandons de définir le \gls{tbr} de la façon suivante : 
+le ratio entre la puissance dans la bande theta et la puissance dans la bande beta, avec une bande theta correspondant à [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz]
+et une bande beta à [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
+
+Il est important de souligner que les résultats de cette étude sont comparés à ceux où les \gls{tbr} sont calculés à partir de bandes de fréquence standards
+les yeux fermés \citep{Zhang2017, Clarke2011}. Ces valeurs de \gls{tbr} sont donc différentes, mais nous supposons que les tendances dans la distribution et le
+partitionnement obtenues ici doivent y être observées.
 
 \subsection{Analyse des facteurs de confusion}
 
+Les conclusions de cette analyse de la distribution des \gls{tbr} au sein de la population d'enfants \gls{tdah} doivent prendre en compte ses limitations.
+En effet, deux points ont été approfondis ici pour juger de leur impact sur les résultats.
+
 \subsubsection{Correction des artefacts oculaires}
 
+La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eeg}. Ces artefacts
+peuvent affecter les calculs de puissance et donc par ricochet les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
+la correction d'artefacts oculaires basée sur la séparation aveugle de sources (\textit{blind source separation} en anglais) \citep{Barthelemy2017} 
+ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée.
+Par conséquent la correction des artefacts oculares ne semble pas influencer les valeurs de \gls{tbr} calculées.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.5\linewidth]{figures/chapter-4/tbr-eye-artifact-correction} 
+  \caption{Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts oculaires (en bleu) et sans correction (en vert).}
+  \label{Figure:tbr_eye_artifact_correction}
+\end{figure}
+
 \subsubsection{Influence de l'âge}
+
+Une autre source d'inexactitude pourrait être l'âge des sujets inclus dans l'analyse. En effet, la littérature a montré que les valeurs de \gls{tbr} varient
+avec l'âge des enfants \citep{Liechti2013, Snyder2015, Perone2018}. De plus, le U-test de Mann-Whitney a été appliqué à nos données \gls{tbr} et a montré
+qu'il existe une différence significative entre le groupe de \gls{tbr} faibles et de \gls{tbr} élevés définis avec le seuil de 3.7 du \gls{bgmm} à deux composantes
+(p-value = 2.30e-15, U = 22 104, avec les âges médians $\pm$ l'ecart absolu médian de chaque groupe : 8.0$\pm$1.57 et 10.1$\pm$2.43). Par ailleurs, lorsqu'on trace
+la distribution des âges dans chaque groupe représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que plus les sujets sont âgés, plus leur 
+\gls{tbr} semble faible.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.5\linewidth]{figures/chapter-4/tbr-age-distribution} 
+  \caption{Comparaison des distributions normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes.}
+  \label{Figure:tbr_age_distribution}
+\end{figure}
+
+Ainsi, afin de prendre en compte cette relation, le \gls{bgmm} a été relancé une seconde fois sur un intervalle d'âges plus restreint : seuls les enfants
+entre 7 et 13 ans sont inclus, ce qui correspond à un total de 560 sujets \gls{tdah} et de 53 sujets sains. les résultats obtenus sur cette nouvelle population 
+conduisent à la même conclusion que sur l'intégralité de la population : deux groupes sont significativement identifiés (p-value entre le \gls{bgmm} à 1 et 2 
+composantes = 2e-4) et un seuil \gls{tbr} de 3.84 est trouvé. 
+
+Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge, il serait intéressant d'effectuer cette analyse sur une sous population de jeunes (5 
+à 6 ans) et plus grands (18 à 21) sujets. Cependant, faute d'un nombre suffisant d'informations dans ces extrêmes, cette étude ne peut pas être menée. Les prochaines
+études sur le \gls{tbr} devront corriger les valeurs de \gls{tbr} de façon à ce qu'elles ne soient pas affectées par l'âge des patients.
+
+\section{Conclusion}
+
+Cette étude avait pour but d'explorer l'existence d'un groupe d'enfants \gls{tdah} basée sur leur \gls{tbr} extraits de signaux \gls{eeg} enregistrés les yeux 
+ouverts. Les résultats montrent qu'il existerait deux groupes : un avec un \gls{tbr} élevé, et l'autre avec des valeurs de \gls{tbr} normales. Bien que les 
+distributions de ces deux \textit{clusters} se superposent, le seuil de séparation le plus précis est de 3.7. La confirmation de l'existence de deux groupes
+distincts est importante pour l'utilisation du \gls{nfb} pour traiter le \gls{tdah}. En effet, cela indique qu'un traitement par \gls{nfb} proposant deux protocoles
+en fonction du \gls{tbr} pourrait être plus efficace que le même protocole de \gls{nfb} appliqué à tout le monde. A partir des résultats de cette étude, un seuil 
+\gls{tbr} de 4.1 est recommandé pour assigner les protocoles de \gls{nfb}.
