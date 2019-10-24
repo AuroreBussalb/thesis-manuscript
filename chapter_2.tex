@@ -8,13 +8,13 @@ le \gls{nfb} appliqué aux enfants \gls{tdah}.
 Les différentes étapes à suivre pour réaliser une méta-analyse sont détaillées dans ce chapitre et résumées en Figure~\ref{Figure:pipeline_meta_analyse}.
 Ces étapes sont ensuite appliquées à la réplication et à la mise à jour d'une récente méta-analyse sur le \gls{nfb} appliqué aux enfants \gls{tdah}, 
 celle de \citet{Cortese2016}, dont certains résultats ont été débattus par la communauté scientifique \citep{Micoulaud2016}. Ainisi, cette analyse a pour but
-de mettre en évidence l'impact de certains choix de \citet{Cortese2013} sur ses conclusions quant à l'efficacité du \gls{nfb}
+de mettre en évidence l'impact de certains choix de \citet{Cortese2016} sur ses conclusions quant à l'efficacité du \gls{nfb}
 \clearpage
 
-\section{Principe d'une méta-analyse}
+\section{Principe d'une méta-analyse} \label{methods}
 
 Les différentes étapes pour réaliser une méta-analyse sont décrites dans cette partie. Bien qu'il existe des logiciels permettant de réaliser une
-méta-analyse, ces étapes ont été implémentées en Python dont le code source est disponible sur un dépôt GitHub \citep{Bussalb2019c}.
+méta-analyse, ces étapes ont été implémentées en Python par souci de transparence et de reproductibilité dont le code source est disponible sur un dépôt GitHub \citep{Bussalb2019c}.
 
 \subsection{Buts d'une méta-analyse}
 
@@ -224,7 +224,35 @@ L'ensemble des étapes pour réaliser une méta-analyse en suivant le modèle à
 
 \section{Replication et mise à jour de la méta-analyse de Cortese et al., 2016} \label{replication_and_update}
 
+La méta-analyse de \citet{Cortese2016} a eu un fort impact dans la communauté du \gls{nfb}, d'une part du fait du nombre d'études incluses (13) et d'autre part
+du fait du soin apporté au choix des études. Cependant, quelques choix faits par les auteurs, comme le souligne \citet{Micoulaud2016} méritent d'être explorés.
+C'est pourquoi dans un premier temps, la méta-analyse de \citet{Cortese2016} est répliquée en modifiant les points débattus pour évaluer leur impact sur les
+résultats. Ensuite, étant donné que la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est très active, de nouvelles études ont pu
+être publiées depuis la méta-analyse de \citet{Cortese2016} et qui aurait pu y être incluses. La mise à jour de ce genre d'analyse est importante
+car plus d'études y seront incluses plus les résultats vont se stabiliser, c'est pourquoi nous allons relancer l'analyse avec les nouvelles études
+satisfaisant les critères d'inclusion de \citet{Cortese2016}.
+
+Dans un souci de transparence et pour faciliter la réplication de ce travail, ces deux analyses sont effectuées en utilisant le package Python dont 
+le contenu est décrit en \ref{methodes} \citep{Bussalb2019c}. 
+
 \subsection{Réplication de la méta-analyse de Cortese et al., 2016}
+
+\subsubsection{Evaluation des résultats obtenus avec le package Python}
+
+Tout d'abord, avant de discuter de certains choix de \citet{Cortese2016}, le package Python ayant pour but de réaliser une méta-analyse est évalué
+en répliquant exactement ce qui a été fait dans \citet{Cortese2016}. 
+
+Pour effectuer une méta-analyse, les auteurs utilisent en général le logiciel RevMan \citep{Revman}. Ici les résultats obtenus avec le package Python vont être
+comparés à ceux donnés par la version 5.1 de RevMan. 
+
+La première étape a été d'entrer dans un fichier .csv pour chaque étude incluse les scores cliniques à pré-test et post-test avec leur écart-type utilisés 
+par \citet{Cortese2016} pour calculer les \gls{es}-inter-groupes. Lorsqu'ils sont disponibles les scores cliniques évaluant l'inattention, l'hyperactivité 
+et la totalité des symptômes sont extraits afin d'obtenir une valeur d'efficacité sur chacune de ces composantes. Par ailleurs, les scores donnés par les
+parents mais aussi par les enseignants sont utilisés : ce qui différencie ces deux types d'évaluateurs est leur connaissance du traitement. Alors que les
+parents connais
+
+Une fois cette étape remplie, le package Python lit ce fichier et retourne l
+
 
 \subsection{Mise à jour de la méta-analyse de Cortese et al., 2016}
 
