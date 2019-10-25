@@ -74,8 +74,8 @@ Les facteurs sélectionnés et prétraités sont les variables indépendantes de
 \subsection{Calcul de la taille d'effet intra-groupe}
 
 L'efficacité du traitement est quantifiée par L'\gls{es}-intra-groupe. Celui-ci est calculé à partir des moyennes et écart-types des scores 
-cliniques totaux donnés par les parents et les enseignants (considérés comme \gls{pblind} \citep{Cortese2016, Micoulaud2014}. De plus, lorsqu'une étude 
-fournit des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
+cliniques totaux donnés par les parents et les enseignants (considérés comme \gls{pblind} \citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016}. De plus, 
+lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
 \begin{equation}
 \label{eq:factors_effect_size_within_subject}
 \text{ES-intra-groupe} = \frac{M_{\text{post},T} - M_{\text{pré},T}}{\sqrt{\frac{\sigma_{\text{pré},T}^2 + \sigma_{\text{post},T}^2}{2}}},
@@ -228,16 +228,17 @@ de l'intervalle d'inclusion sont représentées à la Figure~\ref{Figure:distrib
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.7\linewidth]{figures/chapter-3/distribution-ES-within} 
+	\includegraphics[width=0.5\linewidth]{figures/chapter-3/distribution-ES-within} 
   \caption{Distribution des tailles d'effet (\gls{es}) intra-groupe, une valeur négative est en faveur du Neurofeedback. Les lignes verticales noires correspondent aux bornes supérieure et 
 	inférieure de l'intervalle dans lequel les observations sont acceptées.}
   \label{Figure:distribution_ES_within}
 \end{figure}
 
-Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et celui de
-l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges (respectivement -3.41 et -3.95)
-qui sont même plus élevés que ceux rapportés dans la littérature sur l'efficacité des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}.
-Ces valeurs invalident nos hypothèses de travail, ainsi afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, un rejet des valeurs aberrantes a été implémenté.
+Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
+celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges 
+(respectivement -3.41 et -3.95) qui sont même plus élevés que ceux rapportés dans la littérature sur l'efficacité des psychostimulants sur les symptômes du 
+\gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}. Ces valeurs invalident nos hypothèses de travail, ainsi afin de pouvoir conclure sur les résultats 
+obtenus par la \gls{saob}, un rejet des valeurs aberrantes a été implémenté.
 
 La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et qui son listées dans le 
 Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 33 études sélectionnées rassemblent 846 enfants \gls{tdah} effectuant du \gls{nfb}.
@@ -325,7 +326,7 @@ un facteur dont le coefficient est négatif aurait une influence positive sur le
 La validation croisée \textit{leave-one-out} illustrée à la Figure~\ref{Figure:selection_lambda_lasso} a permis de déterminer un $\lambda$ optimal égal à 0.059.
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-selection-lasso-best-lambda} 
+	\includegraphics[width=0.5\linewidth]{figures/chapter-3/factors-selection-lasso-best-lambda} 
   \caption{Erreur quadratique moyenne (\gls{mse}) obtenue sur la moyenne de tous les \textit{folds} utilisés lors de la validation 
 	croisée \textit{leave-one-out}. La courbe bleue représente la \gls{mse} moyennée sur tous les \textit{folds} ; la droite verticale en pointillé correspond
 	au minimum de la \gls{mse} moyenne.}
@@ -370,8 +371,10 @@ des artefacts basée sur l'amplitude. Ainsi ces facteurs n'influenceraient pas l
 \section{Discussion}
 
 La description et l'analyse des différents types d'implémentation de \gls{nfb} ont fait l'objet de plusieurs études \citep{Arns2014, 
-Jeunet2018, Arns2009, Cortese2016}. Cependant, à notre connaissance, aucune de ces études n'a implémenté 
-une approche systématique et multivariée pour associer les facteurs aux résultats cliniques.
+Jeunet2018, Arns2009, Cortese2016}. Cependant, à notre connaissance, aucune de ces études n'a implémenté une approche systématique et 
+multivariée pour associer les facteurs aux résultats cliniques. La rigueur et la transparence lors de la conduite d'essais cliniques sur l'efficacité
+du \gls{nfb} est essentielle pour comprendre son effet sur les fonctions cérébrales et le comportement comme le soulignent \citet{Ros2019} lors de l'élaboration
+de leur liste de bonnes pratiques. 
 
 \subsection{Facteurs et efficacité du \gls{nfb}}
 
@@ -453,8 +456,8 @@ qu'au cas \textbf{B}.
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-pblind-discussion} 
   \caption{Scores à pré-test et post-test ($\pm$ erreur type) donnés par les parents (\gls{mprox}) en bleu et les enseignants (\gls{pblind}) en pointillés verts. 
-	Deux hypothèses sur des données hypothétiques : \textbf{(A)} pas d'effet placebo, les enseignants notent moins de symptômes du \gls{tdah} donc la difference entre pré et post-test est faible
-	et \textbf{(B)} effet placebo, les enseignants observent autant de symptômes à pré-test que les parents mais pas autant d'amélioration. \textbf{(C)} Données réelles : 
+	Deux hypothèses sur des données hypothétiques : \textbf{A)} pas d'effet placebo, les enseignants notent moins de symptômes du \gls{tdah} donc la difference entre pré et post-test est faible
+	et \textbf{B)} effet placebo, les enseignants observent autant de symptômes à pré-test que les parents mais pas autant d'amélioration. \textbf{C)} Données réelles : 
 	évolution des scores attribués par les parents et enseignants entre pré- et post-test dans les études qui satisfont le critère d'inclusion de \citeauthor{Cortese2016} 
 	et qui donnent les scores sur les mêmes échelles pour les deux types d'évaluateurs.}
   \label{Figure:factors_pblind_discussion}
@@ -476,9 +479,11 @@ contredit l'hypothèse.
 
 Ainsi, ces résultats suggèrent que les évaluateurs \gls{pblind} peuvent difficilement être utilisés pour quantifier l'effet placebo étant donné qu'ils paraissent
 plus aveugles aux symptômes qu'au traitement. En l'absence de protocoles de \textit{sham}-\gls{nfb} éthiquement \citep{Holtmann2014} et techniquement \citep{Birbaumer1991} 
-faisables, il est nécessaire d'avoir recours à une méthode alternative acceptable pour juger de l'efficacité du traitement \citep{World-Medical-Association2000}. Une analyse robuste envisageable 
-serait d'étudier les neuromarqueurs collectés durant le traitement par \gls{nfb} pour démontrer que les patients contrôlent effectivement le neuromarqueur, qu'ils 
-apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le temps), et que cet apprentissage conduit à une réogarnisation cérébrale durable. 
+faisables, il est nécessaire d'avoir recours à une méthode alternative acceptable pour juger de l'efficacité du traitement \citep{World-Medical-Association2000}. 
+Une analyse robuste envisageable serait d'étudier les neuromarqueurs collectés durant le traitement par \gls{nfb} pour démontrer que les patients contrôlent 
+effectivement le neuromarqueur, qu'ils apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le temps), et que cet apprentissage conduit 
+à une réogarnisation cérébrale durable. Ce genre d'analyse a été menée pour certaines études et conduit à des résultats favorables à contrôle mais n'est pas 
+systématique \citep{Arns2014}.
 
 \subsection{Validation prospective sur les nouvelles études publiées depuis le 18/02/2018}
 
@@ -577,7 +582,9 @@ a été exclus de l'analyse.
 
 La \gls{saob} a permis d'identifier un facteur lié au matériel d'acquisition de l'\gls{eeg} comme ayant une influence positive sur l'efficacité du \gls{nfb}, 
 ce qui indique fortement qu'elle est liée à un mécanisme d'action basé sur la modulaion de l'\gls{eeg}. Toutefois, la mise à jour de la \gls{saob} a rendu
-plus incertain l'impact de ce paramètre dont la définition souffre du peu d'informations fourni par les études à ce sujet. 
+plus incertain l'impact de ce paramètre dont la définition souffre du peu d'informations fourni par les études à ce sujet. Toutefois, étant donné que la
+communauté du \gls{nfb} appelle à être le plus transparent possible quant au matériel utilisé \citep{Ros2019}, il sera sans doute possible d'étudier plus précisément
+son impact lors de futures analyses.
 
 L'intensité du traitement a aussi été trouvée comme contribuant à l'efficacité du \gls{nfb}, ce qui va dans le sens de ce qui est connu à propos de 
 la théorie de l'apprentissage \citep{Mowrer1960} : un entrainement plus intense mène à une efficacité clinique augmentée. 
