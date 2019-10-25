@@ -158,14 +158,15 @@ diagnostic \citep{Zhang2017, Arns2013, Clarke2001}. A la place, ces études trou
 résultat pourrait être utilisé pour identifier de meilleurs répondeurs à une intervention donnée. 
 
 La diminution du \gls{tbr} fait partie des protocoles le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
-On peut soutenir que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eeg}. 
-Par exemple, les sujets présentant un haut \gls{tbr} suivraient un protocole de \gls{nfb} où il est demandé de diminuer le \gls{tbr}. Cette répartition a été proposée lors 
-de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi. Un essai clinique randomisé et en double aveugle proposé par \citet{Kerson2013} 
-prévoyait d'utiliser un seuil \gls{tbr} de 5 mais cette valeur a été modifiée et fixée à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov), valeur également
+On peut supposer que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eeg}. 
+Par exemple, il serait peut-être plus pertinent que les sujets présentant un haut \gls{tbr} suivent un protocole de \gls{nfb} où il est demandé de 
+diminuer le \gls{tbr}. Cette répartition a été proposée lors de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi. 
+Un essai clinique randomisé et en double aveugle proposé par \citet{Kerson2013} prévoyait d'utiliser un seuil \gls{tbr} de 5 mais cette valeur a 
+été modifiée et fixée à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov), valeur également
 utilisée dans NEWROFEED. Choisir correctement la valeur de seuil est crucial car cette valeur détermine quel protocole de \gls{nfb} le patient va suivre. 
 
 Le caractère arbitraire des valeurs de seuil basées sur le \gls{tbr} appelle à une validation précise de l'existence d'un 
-sous-groupe de patients \gls{tdah} présentant un \gls{tbr} élevé et du le seuil à partir duquel les valeurs de \gls{tbr} sont considérées comme élevées.  
+sous-groupe de patients \gls{tdah} présentant un \gls{tbr} élevé et du seuil à partir duquel les valeurs de \gls{tbr} sont considérées comme élevées.  
  
 \subsection{Extraction du Theta-Beta ratio}
 L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitement TBR} comprend plusieurs étapes :
@@ -226,7 +227,7 @@ de l'enregistrement. Le maximum sur ces deux électrodes est retenu, il sera enf
 
 Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement (\textit{clustering} en anglais) 
 sont mises en place : une qui se base sur les distributions (\gls{bgmm}), une sur les distances (la méthode de Ward) et une autre sur 
-les densités (\gls{dbscan}). Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (V0.18.1, \citet{Pedregosa2011}).
+les densités (\gls{dbscan}). Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (v0.18.1, \citet{Pedregosa2011}).
 
 \subsubsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} 
 Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population.
@@ -402,7 +403,8 @@ indique un partionnement convenable mais dont les groupes sont proches l'un de l
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dbscan-clustering-plot} 
   \caption{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en jaune et rouge) et 13 points sont considérés comme du bruit (en noir).
-	En \textbf{B)} le seuil \gls{srntbr} est représenté par la droite verticale en pointillés rouges.}
+	En \textbf{A)} le partitionnement est représenté par un nuage de points et en \textbf{B)} sous forme d'histogramme. Le seuil \gls{srntbr} est représenté par 
+	la droite verticale en pointillés rouges en \textbf{B)}.}
   \label{Figure:tbr_dbscan_clustering_plot}
 \end{figure}
 
@@ -509,7 +511,7 @@ Ce pourcentage est en accord avec les précédentes études qui concluent qu'ent
 De plus,\citep{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
 25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un \textit{cluster}
-de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la faible \gls{acc} obtenue laisse à penser
+de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faile pourcentage ainsi que la basse \gls{acc} obtenue laisse à penser
 que la valeur de ce seuil ne sépare pas de manière fiable les deux groupes. Le seuil identifié par la méthode de Ward dans le cas de deux \textit{clusters}
 est proche de celui trouvé par le \gls{bgmm} à deux composantes (4 contre 3.7), ce qui prouve une nouvelle fois qu'il existe un groupe d'enfants \gls{tdah}
 présentant un \gls{tbr} élevé.
@@ -583,7 +585,7 @@ Par conséquent la correction des artefacts oculares ne semble pas influencer le
 
 Une autre source d'inexactitude pourrait être l'âge des sujets inclus dans l'analyse. En effet, la littérature a montré que les valeurs de \gls{tbr} varient
 avec l'âge des enfants \citep{Liechti2013, Snyder2015, Perone2018}. De plus, le U-test de Mann-Whitney a été appliqué à nos données \gls{tbr} et a montré
-qu'il existe une différence significative entre le groupe de \gls{tbr} faibles et de \gls{tbr} élevés définis avec le seuil de 3.7 du \gls{bgmm} à deux composantes
+qu'il existe une différence significative entre le groupe de \gls{tbr} plus faibles et de \gls{tbr} élevés définis avec le seuil de 3.7 du \gls{bgmm} à deux composantes
 (p-value = 2.30e-15, U = 22 104, avec les âges médians $\pm$ l'ecart absolu médian de chaque groupe : 8.0$\pm$1.57 et 10.1$\pm$2.43). Par ailleurs, lorsqu'on trace
 la distribution des âges dans chaque groupe représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que plus les sujets sont âgés, plus leur 
 \gls{tbr} semble faible.
@@ -591,7 +593,8 @@ la distribution des âges dans chaque groupe représentée à la Figure~\ref{Fig
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.5\linewidth]{figures/chapter-4/tbr-age-distribution} 
-  \caption{Comparaison des distributions normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes.}
+  \caption{Comparaison des distributions normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes. La distribution
+	en rouge correspond aux sujets inclus dans le groupe des valeurs de \gls{tbr} normales et celle en jaune au groupe dont les valeurs sont élevées.}
   \label{Figure:tbr_age_distribution}
 \end{figure}
 
@@ -608,9 +611,14 @@ Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge
 
 Cette étude avait pour but d'explorer l'existence d'un groupe d'enfants \gls{tdah} basée sur leur \gls{tbr} extraits de signaux \gls{eeg} enregistrés les yeux 
 ouverts. Les résultats montrent qu'il existerait deux groupes : un avec un \gls{tbr} élevé, et l'autre avec des valeurs de \gls{tbr} normales. Bien que les 
-distributions de ces deux \textit{clusters} se superposent, le seuil de séparation le plus précis est de 3.7. La confirmation de l'existence de deux groupes
-distincts est importante pour l'utilisation du \gls{nfb} pour traiter le \gls{tdah}. En effet, cela indique qu'un traitement par \gls{nfb} proposant deux protocoles
-en fonction du \gls{tbr} pourrait être plus efficace que le même protocole de \gls{nfb} appliqué à tout le monde. A partir des résultats de cette étude, un seuil 
-\gls{tbr} de 4.1 est recommandé pour assigner les protocoles de \gls{nfb}.
+distributions de ces deux \textit{clusters} se superposent, le seuil de séparation le plus précis est de 3.7. Toutefois, le seuil qui équilibre le mieux
+le \gls{tpr} et le \gls{fpr} est celui de 4.1, il est donc recommandé pour assigner les protocoles de \gls{nfb}. 
 
-% ici l'efficacité du protocole TBR n'est pas étudiée, seule la faisabilité d'une personnalisation est analysée.
+La confirmation de l'existence de deux groupes distincts est importante pour l'utilisation du \gls{nfb} pour traiter le \gls{tdah}. En effet, cela indique 
+qu'un traitement par \gls{nfb} proposant deux protocoles en fonction du \gls{tbr} serait pertinent et pourrait être plus efficace que le même protocole 
+de \gls{nfb} appliqué à tout le monde. Toutefois cette étude n'avait pas pour but de démontrer l'efficacité du protocole de diminution de \gls{tbr} chez les 
+enfants \gls{tdah} présentant un \gls{tbr} élevé. Alors que certaines études notent une amélioration des symptômes à l'issue d'un protocole \gls{tbr}, 
+d'autres obtiennent des résultats plus négatifs. Une pssible explication de ce manque d'efficacité reporté dans ces études serait que contrôler 
+un ratio de fréquence se revèle plus complexe que de moduler la puissance dans une simple bande de fréquence. 
+
+% retrouver de la biblio
