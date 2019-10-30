@@ -2,22 +2,27 @@
 
 \section*{Introduction}
 
-La réplication et la mise à jour de la méta-analyse de \citet{Cortese2016} décrite dans le chapitre précédent a permis de mettre en évidence la forte hétérogénéité des études incluses dans ce type d'analyse. 
-En effet, même si ces études satisfont toutes le critère d'inclusion défini par les auteurs, elles diffèrent d'un point de vue technique et méthodologique : elles ont été rassemblées 
-sans tenir compte par exemple de la qualité de l'acquisition de l'\gls{eeg}, du neuromarqueur entrainé lors du \gls{nfb} et du design de l'étude clinique (notamment le nombre de 
-sessions et la durée du traitement). 
+La réplication et la mise à jour de la méta-analyse de \citet{Cortese2016} décrite dans le chapitre précédent a permis de mettre en évidence la forte 
+hétérogénéité des études incluses dans ce type d'analyse. En effet, même si ces études satisfont toutes des critères définis par les auteurs pour pouvoir
+les inclure dans leur analyse, elles diffèrent d'un point de vue technique et méthodologique : elles ont été rassemblées sans tenir compte, par exemple, 
+de la qualité de l'acquisition de l'\gls{eeg}, du neuromarqueur entrainé lors du \gls{nfb} et du design de l'étude clinique (notamment le nombre de sessions 
+et la durée du traitement). 
 
-Afin de pallier ces limitations, une nouvelle approche a été implémentée : l'analyse systématique des biais (\gls{saob} en anglais) qui va justement tirer avantage de cette hétérogénéité. 
-L'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes qui sont ici les facteurs méthologiques et techniques. 
-Le but de cette analyse est de déterminer les facteurs qui ont une influence sur l'efficacité du \gls{nfb} et d'ainsi mettre en évidence la nécessité d'être
-précautionneux dans le choix de ces paramètres. 
+Afin de mieux identifier le poids de ces facteurs sur l'efficacité du \gls{nfb}, une nouvelle approche a été implémentée : l'analyse systématique des biais 
+(\gls{saob} en anglais). Dans cette analyse, l'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes 
+qui sont ici les facteurs méthologiques et techniques. Le but de cette analyse est donc de déterminer les paramètres qui ont une influence sur l'efficacité du 
+\gls{nfb} afin de mieux les prendre en compte dans les études d'efficacité. 
 
 \section{Extraction et pré-traitement des facteurs}
 
-La première étape de la \gls{saob} est d'obtenir les facteurs des études sélectionnées. Une liste de facteurs ayant potentiellement une influence sur l'efficacité du \gls{nfb} a été 
-établie, puis les facteurs ont été extraits de chaque étude. Avant de débuter l'analyse, ils sont pré-traités en suivant les étapes décrites dans cette section. 
+La première étape de la \gls{saob} est d'obtenir les facteurs des études sélectionnées. Une liste de facteurs ayant potentiellement une influence sur 
+l'efficacité du \gls{nfb} a été établie. Ces facteurs ont ensuite été extraits de chaque étude. Avant de débuter l'analyse, ils ont été pré-traités en 
+suivant les étapes décrites dans cette section. 
 
 \subsection{Choix des facteurs} \label{choix_des_facteurs}
+
+Tout d'abord, une revue de littérature et des discussions avec des experts du \gls{nfb} appliqué aux enfants \gls{tdah} ont permis de déterminer les facteurs
+dont il serait intéressant d'étudier l'influence \citep{Vernon2004, Arns2014, Cortese2016, Enriquez2017}. 
 
 Les paramètres ayant une possible influence sur l'efficacité du \gls{nfb} ont été répartis en cinq catégories :
 \renewcommand{\labelitemi}{$\bullet$}
@@ -49,9 +54,9 @@ de la normalisation des variables et de la validation des hypothèses du modèle
 
 \subsection{Pré-traitement des facteurs}
 
-Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. Afin que 
-les paramètres pour lesquels peu d'observations sont diponibles ne faussent pas l'analyse, un critère d'exclusion arbitraire a été mis en place : si pour un facteur le nombre d'observations 
-manquantes excède plus de 20\% du nombre total d'observations, il est exclu. Les observations manquantes dans les facteurs comportant des valeurs numériques sont 
+Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. 
+Afin que les paramètres pour lesquels peu d'observations sont disponibles ne faussent l'analyse, il est apparu raisonnable de considérer qu'au-delà de 20\%
+d'observations manquantes ce paramètre est exclu. Les observations manquantes dans les facteurs comportant des valeurs numériques sont 
 imputées et remplacées par -1.
 
 Par ailleurs, comme cette analyse tire avantage de l'hétérogénéité des études, si un facteur a plus de 80\% d'observations identiques, 
@@ -68,13 +73,17 @@ la normalisation.
 
 Les facteurs sélectionnés et prétraités sont les variables indépendantes de l'analyse.
 
-
 \section{Explication de l'efficacité du Neurofeedback par des méthodes multivariées}
+
+Afin de déterminer quels facteurs parmi ceux sélectionnés précédemment ont une influence sur l'efficacité du \gls{nfb}, trois méthodes multivariées sont
+utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. Ces méthodes ont pour but d'expliquer l'efficacité du \gls{nfb}, quantifiée par un \gls{es}
+défini par la suite, à l'aide des facteurs. Les résultats de chaque méthode vont être combinés pour identifier quels paramètres sont susceptibles 
+d'avoir un impact sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah}. 
 
 \subsection{Calcul de la taille d'effet intra-groupe}
 
 L'efficacité du traitement est quantifiée par L'\gls{es}-intra-groupe. Celui-ci est calculé à partir des moyennes et écart-types des scores 
-cliniques totaux donnés par les parents et les enseignants (considérés comme \gls{pblind} \citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016}. De plus, 
+cliniques totaux donnés par les parents et les enseignants (considérés comme \gls{pblind} \citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016}). De plus, 
 lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
 \begin{equation}
 \label{eq:factors_effect_size_within_subject}
@@ -101,7 +110,7 @@ La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide de
 \end{itemize}
 
 Les résultats de ces trois méthodes intrinséquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
-\gls{nfb} est plus probable que si seulement une méthode l'identifie. 
+\gls{nfb} est plus probable que si une seule méthode l'identifie. 
 
 \subsubsection{La régression linéaire multiple et pondérée}
 La régression linéaire a pour but d'estimer les coefficients de régression qui lient les facteurs aux \gls{es}-intra-groupe. Ici, la régression est pondérée pour, d'une part, 
@@ -137,7 +146,7 @@ Une fois le vecteur $\beta$ estimé, on cherche à savoir si les hypothèses du 
   \item les résidus sont distribués normalement en se basant sur le kurtosis et le test Omnibus.
 \end{itemize} 
 
-Si toutes ces hypothèses sont satisfaites, on peut interpréter les résultats de la \gls{wls}. On s'intéresse à la significativité de chaque coefficient $\beta_{j, 1<j<p}$ :
+Si toutes ces hypothèses sont satisfaites, alors les résultats de la \gls{wls} peuvent être interprétés. On s'intéresse à la significativité de chaque coefficient $\beta_{j, 1<j<p}$ :
 s'il est significativement différent de 0, le facteur associé à ce coefficient est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, le signe du coefficient indique si 
 cette influence est positive ou négative. 
 
@@ -198,6 +207,10 @@ d'observations, ainsi son impact sur l'efficacité est davantage probable.
 
 \section{Analyse des facteurs influençant le Neurofeedback}
 
+Les résultats de la \gls{saob} sont présentés ici. Cette méthode, dont les premières étapes (i.e. la sélection des études et le calcul du \gls{es}) rappellent
+la méta-analyse, se distingue de cette dernière par l'utilisation de méthodes multivariées. Celles-ci tirent avantage de l'hétérogénéité des études
+sur le \gls{nfb} appliqué aux enfants \gls{tdah} pour déterminer les facteurs ayant un impact sur la performance du \gls{nfb}.
+
 \subsection{Sélection des études}
 
 Les termes entrés dans Pubmed pour la recherche des articles à inclure dans la \gls{saob} sont :
@@ -219,7 +232,7 @@ Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 33 étude
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/factors-selection-studies} 
-  \caption{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 12 fevrier 2018).}
+  \caption{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 12 fevrier 2018).} 
   \label{Figure:factors_pipeline_selection_studies}
 \end{figure}
 
@@ -237,11 +250,13 @@ de l'intervalle d'inclusion sont représentées à la Figure~\ref{Figure:distrib
 Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
 celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges 
 (respectivement -3.41 et -3.95) qui sont même plus élevés que ceux rapportés dans la littérature sur l'efficacité des psychostimulants sur les symptômes du 
-\gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}. Ces valeurs invalident nos hypothèses de travail, ainsi afin de pouvoir conclure sur les résultats 
-obtenus par la \gls{saob}, un rejet des valeurs aberrantes a été implémenté.
+\gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}. Ces valeurs invalident nos hypothèses de travail : les résidus ne sont plus distribués normalement
+et la tendance linéaire estimée n'est plus significative. Ainsi afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, un rejet des valeurs 
+aberrantes a été implémenté.
 
-La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et qui son listées dans le 
-Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 33 études sélectionnées rassemblent 846 enfants \gls{tdah} effectuant du \gls{nfb}.
+La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et 
+qui son listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 33 études sélectionnées rassemblent 
+846 enfants \gls{tdah} effectuant du \gls{nfb}.
 
 \newpage\
 \begin{table}[h!]
@@ -254,7 +269,7 @@ Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, l
 \end{table}
 
 \newpage\
-\subsection{Facteurs identifiés}
+\subsection{Facteurs identifiés méthode par méthode}
 
 Vingt-huit paramètres ont été initialement identifiés afin d'analyser leur influence sur l'efficacité du \gls{nfb}. Parmi eux, neuf ont dû être exclus car ils étaient trop
 homogènes ou présentaient trop d'observations manquantes : 
@@ -289,7 +304,8 @@ non standardisées sont listés dans la Table~\ref{Table:table_factors_extremum_
   \label{Table:table_factors_extremum_values}
 \end{table}
 
-Les trois méthodes décrites précédemment sont donc appliquées tour à tour sur les 19 facteurs restants. Tous les résultats sont résumés dans la Table~\ref{Table:table_factors_analysis_results_summary}.
+Les trois méthodes décrites précédemment sont donc appliquées tour à tour sur les 19 facteurs restants. Tous les résultats sont résumés dans la 
+Table~\ref{Table:table_factors_analysis_results_summary}.
 
 \newpage\
 \begin{table}[h!]
@@ -350,7 +366,7 @@ en moins d'observations sont disponibles plus on descend dans l'arbre, l'influen
   \label{Figure:factors_decision_tree}
 \end{figure}
 
-\subsubsection{Résumé des résultats}
+\subsection{Résumé des résultats}
 
 Plusieurs facteurs ont été trouvés significatifs par plus d'une méthode, notamment les évaluateurs \gls{pblind}, la qualité de l'\gls{eeg} égale à 2 et la durée du traitement. 
 De plus, dans le cas de ces trois facteurs, toutes les méthodes s'accordent quant à la direction de leur influence : alors qu'évaluer l'efficacité du \gls{nfb} en étant \gls{pblind}
@@ -387,7 +403,7 @@ simples sans correction pour tests multiples \citep{Arns2009}, \citet{Arns2014} 
 \citet{Vernon2004} a observé que des changements positifs aussi bien sur l'\gls{eeg} qu'au niveau comportemental apparaissent après au moins 20 sessions. Toutefois, \citep{Enriquez2017}
 souligne le fait que le nombre de sessions doit être choisi avec précaution afin d'éviter "l'\textit{overtraining}". Le fait que le nombre de sessions n'a pas été identifié par le \gls{lasso}
 pourrait s'expliquer par la présence de seulement deux observations de 20 sessions ou moins. Ainsi, étant donné que le seuil minimal pour obtenir des résultats avec l'entrainement
-par \gls{nfb} semble dépassé pour la très grande majorité des observations, il est donc peu probable que ce facteur puisse être retourné par les trois méthodes sur cet ensemble de données. 
+par \gls{nfb} semble dépassé pour la très grande majorité des observations, il est peu probable que ce facteur puisse être retrouvé par les trois méthodes sur cet ensemble de données. 
 Toutefois, les deux méthodes qui ont identifié ce facteur s'accordent toutes deux sur la direction de l'effet : comme attendu plus le nombre de sessions effectué est important, 
 plus le \gls{nfb} semble être efficace. 
 
@@ -409,8 +425,8 @@ Ensuite, il semblerait que plus le traitement par \gls{nfb} est long, moins il d
 résultat : être engagé dans un traitement long est plus compliqué. Cependant, il est difficile de quantifier ce degré car soit aucun questionnaire n'est rempli 
 par les enfants à ce sujet, soit cette information n'est pas mentionnée. 
 
-La durée du traitement est étroitement liée à son intensité, ainsi il est possible de supposer qu'une période de traitement plus courte est préférable 
-car la fréquence des sessions est plus élevée. Cette hypoyhèse est étayée par 
+Par ailleurs, la durée du traitement est étroitement liée à son intensité, ainsi on peut supposer qu'une période de traitement plus courte est préférable 
+du fait de la fréquence plus élevée des sessions. Cette hypoyhèse est étayée par 
 le fait que la variable "fréquence des sessions" (nombre de sessions par semaine) est aussi associée à de plus grands \gls{es}-intra-groupe selon le
 \gls{lasso} et le \gls{dt}. L'impact de l'intensité du traitement par \gls{nfb} a été exploré par \citet{Rogala2016} sur des sujets adultes sains : il est
 observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Ainsi, ces résultats indiquent qu'adopter une fréquence 
@@ -437,7 +453,7 @@ plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tô
 
 \subsection{Analyse approfondie des évaluateurs probablement aveugles}
 
-Les résultats de la \gls{saob} sont globalement en faveur de l'efficacité du \gls{nfb} pour traiter les enfants \gls{tdah}. Toutefois, comme attendu, l'évaluation
+Les résultats de la \gls{saob} sont globalement en faveur de l'efficacité du \gls{nfb} pour le traitement des enfants \gls{tdah}. Toutefois, comme attendu, l'évaluation
 des symptômes par des personnes non-aveugles (\gls{mprox}) conduit à des résultats plus favorables que celles des évaluateurs \gls{pblind}, ce qui est en accord avec les
 méta-analyses existantes \citep{Micoulaud2014, Cortese2016}. 
 
