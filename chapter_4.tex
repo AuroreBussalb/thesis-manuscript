@@ -14,7 +14,7 @@ valeurs de \gls{tbr}.
 
 \section{Population étudiée}
 
-Les signaus \gls{eeg} utilisés dans cette analyse proviennent de trois bases de données différentes :
+Les signaux \gls{eeg} utilisés dans cette analyse proviennent de trois bases de données différentes :
 \begin{itemize}
 \item NEWROFEED (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019}),
 \item \gls{cmi-mipdb} \citep{Langer2017, Langer2017b},
@@ -145,6 +145,10 @@ dans le système international 10-20 en projetant les coordonnées sur une sphè
 
 \section{Theta-Beta ratio : un marqueur de l'attention}
 
+Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah}. Il est défini ici, puis les étapes pour l'extraire des
+signaux \gls{eeg} à notre disposition sont décrites. Ces \gls{tbr} sont ensuite partitionnés à l'aide de trois méthodes dont le principe est expliqué dans cette partie. 
+Enfin, la méthode pour identifier le seuil optimal séparant les classes obtenues est détaillée.
+
 \subsection{Définition du Theta-Beta ratio}
 La littérature indique qu'il existerait différents groupes de patients \gls{tdah} identifiés à l'aide de leur profil \gls{eeg}, comme l'augmentation
 de la puisssance dans la bande theta et/ou la diminution de la puissance dans la bande beta \citep{Clarke2011, Loo2018}. Ces différences de puissances dans ces 
@@ -168,7 +172,7 @@ utilisée dans NEWROFEED. Choisir correctement la valeur de seuil est crucial ca
 Le caractère arbitraire des valeurs de seuil basées sur le \gls{tbr} appelle à une validation précise de l'existence d'un 
 sous-groupe de patients \gls{tdah} présentant un \gls{tbr} élevé et du seuil à partir duquel les valeurs de \gls{tbr} sont considérées comme élevées.  
  
-\subsection{Extraction du Theta-Beta ratio}
+\subsection{Extraction du Theta-Beta ratio} \label{extraction_tbr}
 L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitement TBR} comprend plusieurs étapes :
 \begin{enumerate}
 \item le rejet des artefacts en utilisant la géométrie Riemannienne,
@@ -328,6 +332,10 @@ En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéaleme
 un protocole adapté à leur profil \gls{eeg}, comme la diminution du \gls{tbr}.
 
 \section{Partitionnement de la distribution des Theta-Beta ratios}
+
+Les \gls{tbr} ont été extraits en suivant les étapes présentées en \ref{extraction_tbr}. Les \gls{srntbr} calculés sont ensuite partitionnés à l'aide de trois
+méthodes (\gls{bgmm}, partitionnement hiérarchique et \gls{dbscan}) et les seuils de séparation obtenus pour chacune de ces méthodes, dans le cas où deux classes sont 
+identifiées, sont comparés entre eux.  
 
 \subsection{Partitionnements obtenus}
 
