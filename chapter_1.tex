@@ -26,13 +26,48 @@ valid components of ADHD assessments (McGough  Barkley, 2004)), définir pblind 
 Parler des traitements possibles (bien définir les cognitives therapy)
 
 \section{Objectifs de la thèse}
-Enoncé de la problématique quant à l’efficacité du NFB appliqué aux enfants TDAH
-Utilisation de données cliniques pour montrer l'efficacité du NFB et proposer des améliorations du NFB appliqué aux enfants TDAH
--> étudier l'efficacité du NFB à l'aide des méta-analyses
--> identifier les facteurs ayant une influence sur l'efficacité du NFB
--> analyser un marqueur de l'attention pour mieux cibler l'entrainement par NFB
+Le \gls{nfb} a fait l'objet de nombreuses études pour déterminer son efficacité dans le cadre du \gls{tdah} chez l'enfant comme souligné précédemment.
+Malheureusement, aucun consensus n'a encore été clairement atteint, ainsi le travail effectué au cours de cette thèse a pour but de déterminer les facteurs 
+de réussite de l'entraînement par \gls{nfb} pour les enfants \gls{tdah} en se basant sur des données cliniques mais aussi physiologiques. 
+
+Les trois sous objectifs de ce travail, chacun développé dans un chapitre, sont les suivants :
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\cdot$}
+\begin{itemize}
+\item étudier l'efficacité du \gls{nfb} chez les enfants \gls{tdah} à l'aide d'une méthode couramment utilisée : la méta-analyse,
+\item identifier les paramètres méthodologiques et cliniques influençant la performance de ce traitement,
+\item analyser la distribution d'un marqueur de l'attention au sein d'une population d'enfants \gls{tdah} pour mieux cibler
+l'entrainement par \gls{nfb}. 
+\end{itemize}
+
+La réponse à ces questions 
 
 \section{Contribution et résumé des chapitres}
+
+Ce manuscrit est divisé en trois chapitres, dont chacun a pour but de remplir un des objectifs précédemment énoncés.
+
+Le premier chapitre s'intéresse à une méthode largement utilisée pour évaluer la performance du \gls{nfb} pour les enfants \gls{tdah} 
+\citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016} : la méta-analyse. Les résultats de ce type d'analyse ont un impact important sur la
+communauté scientifique : \citet{Micoulaud2016} a notamment réagi à la méta-analyse de \citet{Cortese2016} en discutant certains points de cette 
+analyse. 
+
+Ainsi, dans ce chapitre la méta-analyse de \citet{Cortese2016} est répliquée en modifiant les points soulignés par \citet{Micoulaud2016}
+afin de jauger leur impact sur les conclusions de la méta-analyse. Ensuite, étant donné que de nouvelles études satisfaisant les critères d'inclusion
+établis par \citet{Cortese2016} sont disponibles depuis la fin de leurs recherches, cette méta-analyse est mise à jour ce qui apporte une plus grande puissance
+statistique aux résultats. La réplication et la mise à jour sont effectuées, non pas avec les logiciels habituellement utilisés tels que Revman \citep{Revman},
+mais à l'aide d'un package Python développé pour cette occasion. 
+
+La réplication de la méta-analyse conduisant aux mêmes résultats que \citet{Cortese2016}, les choix discutés par \citet{Micoulaud2016} n'ont pas un impact assez
+important pour changer ses conclusions. Par ailleurs, la mise à jour confirme les résultats qui semblent se stabiliser.
+
+Ce premier chapitre a été l'occasion de mener une revue de littérature des études cliniques sur le \gls{nfb} appliqué aux enfants \gls{tdah}. 
+Cette revue de littérature a permis de mettre en évidence la forte hétérogénéité d'un point de vue clinique et méthodologique de ces études.
+Alors que les résultats des méta-analyses peuvent souffrir de ces différences, une analyse en tirant avantage est implémentée : la \gls{saob}.
+Cette analyse comprend trois méthodes multivariées qui tentent d'expliquer l'efficacité du \gls{nfb} à l'aide de paramètres méthodologiques et 
+cliniques. 
+
+
+
 Lister les objectifs de la thèse :
 - Réplication et mise à jour d’une méta analyse en codant les étapes en Python
 - Identification des facteurs ayant une influence sur le NFB grâce à des méthodes multivariées
@@ -45,3 +80,19 @@ Méthodes utilisées : méta-analyse, méthode multivariées et méthodes de par
 - Discussion
 
 \section{Liste des publications}
+
+Le travail décrit dans ce manuscrit a donné lieu aux publications avec comité de lecture suivantes :
+
+\begin{description}
+\item \citet{Bussalb2019tbr} : A. Bussalb, S. Collin, Q. Barthélemy, D. Ojeda, E. Acquaviva, S. Bioulac, H. Blasco-Fontecilla,
+D. Brandeis, R. Delorme, D. P. Ouakil, T. Ros, and L. Mayaud. Is there a cluster of high
+theta-beta ratio patients in attention deficit hyperactivity disorder ? \textit{Clinical Neurophysiology}, 2019a.
+\item \citet{Bussalb2019clinical} : A. Bussalb, M. Congedo, Q. Barthélemy, D. Ojeda, E. Acquaviva, R. Delorme,
+and L. Mayaud. Clinical and experimental factors influencing the efficacy of
+neurofeedback in ADHD: a meta-analysis. \textit{Frontiers in psychiatry}, 10 :35, 2019b.
+\end{description}
+
+Une partie des travaux de \citet{Bussalb2019clinical} ont fait l'objet d'une communication orale :
+
+\noindent A. Bussalb, M. Congedo, R. Delorme, E. Acquaviva, Q. Barthelemy, D. Ojeda, J.A. Micoulaud-Franchi, L. Mayaud. Neurofeedback 
+appliqué aux enfants TDAH : quels facteurs influencent son efficacité ? 6ème Congrès de la SOFTAL, mai 2018. 
