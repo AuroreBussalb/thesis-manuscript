@@ -1,4 +1,4 @@
-\chapter{Analyse de la distribution d'un marqueur de l'attention au sein d'une population d'enfants TDAH}
+\chapter{Analyse de la distribution d'un marqueur de l'attention au sein d'une population d'enfants TDAH} \label{chapitre-4}
 
 \section*{Introduction}
 Le \gls{tbr} a été massivement étudié chez les enfants \gls{tdah}. Diminuer le \gls{tbr} est par ailleurs un protocole d'entrainement de \gls{nfb} couramment utilisé 
@@ -11,6 +11,7 @@ l'impact sur l'efficacité du \gls{nfb} par la \gls{saob}. L'analyse présentée
 personnalisation des protocoles de \gls{nfb} mais sa pertinence. Pour ce faire, la distribution des valeurs de \gls{tbr} chez les enfants \gls{tdah} est 
 étudiée à l'aide de différentes méthodes de partitionnement pour déterminer combien de groupes d'enfants \gls{tdah} existent en se basant seulement sur les 
 valeurs de \gls{tbr}. 
+\clearpage
 
 \section{Population étudiée}
 
@@ -24,7 +25,8 @@ Pour chacune de ces bases de données, un consentement éclairé écrit a été 
 ont été effectués dans un environnement contrôlé avec les yeux ouverts (\gls{eo} en anglais) et au repos (c'est à dire que le sujet n'effectue aucune tâche) 
 pendant une minute sous la supervision d'un clinicien ou d'un chercheur. 
 
-La description de l'ensemble des données est disponible dans la Table~\ref{Table:tbr_datasets_description}.
+La description de l'ensemble des données est disponible dans la Table~\ref{Table:tbr_datasets_description}. Au total, 363 \gls{eeg} de sujets \gls{tdah} 
+sont analysés.
 
 \begin{table}[h!]
   \centering
@@ -442,7 +444,7 @@ La valeur des seuils affichée correspond au seuil sur les valeurs \gls{tbr}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-roc} 
-  \caption{Courbe \gls{roc} obtenue avec le \gls{bgmm} à deux composantes (en bleu). Les seuils obtenus avec les méthodes implémentées ici sont représentés 
+  \caption{Courbe \gls{roc} obtenue avec le \gls{bgmm} à deux composantes (en bleu). Les seuils \gls{tbr} obtenus avec les méthodes implémentées ici sont représentés 
 	par un point rouge sur la courbe ; les seuils issus de la littérrature sont représentés par un point noir. Pour chaque seuil la valeur de justesse (\gls{acc}) 
 	est donnée.}
   \label{Figure:tbr_roc}
@@ -457,7 +459,7 @@ avec les seuils présentés sur la courbe \gls{roc} à la Figure~\ref{Figure:tbr
 par \gls{dbscan} qui mène à un groupe comprenant seulement 5\% de la population étudiée.
 \begin{table}[h!]
   \centering
-  \caption{Poucentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil étudié.}
+  \caption{Poucentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.}
   \input{tables/chapter-4/tbr_thresholds_number_of_subjects}
   \label{Table:tbr_thresholds_number_of_subjects}
 \end{table}
@@ -626,7 +628,7 @@ La confirmation de l'existence de deux groupes distincts est importante pour l'u
 qu'un traitement par \gls{nfb} proposant deux protocoles en fonction du \gls{tbr} serait pertinent et pourrait être plus efficace que le même protocole 
 de \gls{nfb} appliqué à tout le monde. Toutefois cette étude n'avait pas pour but de démontrer l'efficacité du protocole de diminution de \gls{tbr} chez les 
 enfants \gls{tdah} présentant un \gls{tbr} élevé. Alors que certaines études notent une amélioration des symptômes à l'issue d'un protocole \gls{tbr}, 
-d'autres obtiennent des résultats plus négatifs. Une pssible explication de ce manque d'efficacité reporté dans ces études serait que contrôler 
+d'autres obtiennent des résultats plus négatifs. Une possible explication de ce manque d'efficacité reporté dans ces études serait que contrôler 
 un ratio de fréquence se revèle plus complexe que de moduler la puissance dans une simple bande de fréquence. 
 
 % retrouver de la biblio
