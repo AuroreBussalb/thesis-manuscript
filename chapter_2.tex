@@ -1,4 +1,4 @@
-\chapter{Evaluation de l'efficacité du Neurofeedback par la méta-analyse}
+\chapter{Evaluation de l'efficacité du Neurofeedback par la méta-analyse} \label{chapitre-2}
 
 \section*{Introduction}
 Les méta-analyses ont pour but de combiner les données de plusieurs études visant à démontrer l'efficacité d'un traitement. Cette méthode est
@@ -16,7 +16,7 @@ ces résultats en incluant de nouvelles études.
 
 Les différentes étapes pour réaliser une méta-analyse sont décrites dans cette partie. Bien qu'il existe des logiciels permettant de réaliser une
 méta-analyse, ces étapes ont été implémentées en Python par souci de transparence et de reproductibilité dont le code source est disponible sur un 
-dépôt GitHub \citep{Bussalb2019c} avec sa documentation associée générée par Sphinx (version 1.5.6.).
+dépôt GitHub \citep{Bussalb2019clinical} avec sa documentation associée générée par Sphinx (version 1.5.6.).
 
 \subsection{Buts d'une méta-analyse}
 
@@ -90,7 +90,7 @@ d'une étude à l'autre, les moyennes ne sont pas comparables : il faut donc sta
 Ainsi, nous allons utiliser la différence moyenne standardisée \citep{Cortese2016, Micoulaud2014}.
 
 Enfin, lorsqu'un groupe contrôle est disponible, on peut calculer l'\gls{es}-inter-groupes (\textit{between}-\gls{es}) comme défini par \citet{Morris2008}.
-Cet \gls{es} est utilisé par \citet{Cortese2016, Micoulaud2014} et implémenté dans \citet{Bussalb2019a} :
+Cet \gls{es} est utilisé par \citet{Cortese2016, Micoulaud2014} et implémenté dans \citet{Bussalb2019clinical} :
 \begin{equation}
 \label{eq:metareview_effect_size_between}
 \text{ES-inter-groupes} = c_p \left(\frac{(M_{\text{post},T} - M_{\text{pre},T}) - (M_{\text{post},C} - M_{\text{pre},C}) }{\sigma_{\text{pre}}} \right).
@@ -256,13 +256,13 @@ Table~\ref{Table:table_meta_review_comparison_revman_python}.
 
 \begin{table}[h!]
   \centering
-  \caption{Comparaison entre les résultats de \citet{Cortese2016} obtenus avec RevMan \citep{Revman} et ceux obtenus avec le package Python \citep{Bussalb2019a}.
+  \caption{Comparaison entre les résultats de \citet{Cortese2016} obtenus avec RevMan \citep{Revman} et ceux obtenus avec le package Python \citep{Bussalb2019clinical}.
 	Avec le package Python un \gls{es} négatif est en faveur du neurofeedback. Le seuil de significativité est fixé à 0.05.}
   \input{tables/chapter-2/table_meta_review_comparison_revman_python}
   \label{Table:table_meta_review_comparison_revman_python}
 \end{table}
 
-Les différences de signe entre les \gls{est} de \citet{Cortese2016} et ceux de \citet{Bussalb2019a} s'expliquent par le choix qu'il a été fait de ne pas multiplier
+Les différences de signe entre les \gls{est} de \citet{Cortese2016} et ceux de \citet{Bussalb2019clinical} s'expliquent par le choix qu'il a été fait de ne pas multiplier
 par -1 les \gls{es}-inter-groupes calculés avec l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cette décision a également été prise par 
 \citet{Micoulaud2014}.
 
@@ -295,7 +295,7 @@ La significativité des \gls{est} est inchangée aussi bien pour les parents que
 
 \begin{table}[h!]
   \centering
-  \caption{Comparaison entre les résultats de \citet{Cortese2016} obtenus avec RevMan \citep{Revman} et ceux obtenus avec le package Python \citep{Bussalb2019a}
+  \caption{Comparaison entre les résultats de \citet{Cortese2016} obtenus avec RevMan \citep{Revman} et ceux obtenus avec le package Python \citep{Bussalb2019clinical}
 	avec nos choix appliqués ($^a$ valeurs à post-test de \citet{Arnold2014} sont prises après 40 sessions de \gls{nfb} et l'efficacité du \gls{nfb} évaluée 
 	par les enseignants dans \citet{Steiner2014} se base sur la Conners-3 Teachers).
 	Avec le package Python un \gls{es} négatif est en faveur du neurofeedback. Le seuil de significativité est fixé à 0.05.}
