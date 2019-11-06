@@ -147,9 +147,10 @@ Une fois le vecteur $\beta$ estimé, on cherche à savoir si les hypothèses du 
   \item les résidus sont distribués normalement en se basant sur le kurtosis et le test Omnibus.
 \end{itemize} 
 
-Si toutes ces hypothèses sont satisfaites, alors les résultats de la \gls{wls} peuvent être interprétés. On s'intéresse à la significativité de chaque coefficient $\beta_{j, 1<j<p}$ :
-s'il est significativement différent de 0, le facteur associé à ce coefficient est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, le signe du coefficient indique si 
-cette influence est positive ou négative. 
+Si toutes ces hypothèses sont satisfaites, alors les résultats de la \gls{wls} peuvent être interprétés. A l'aide d'un t-test, on détermine  
+parmi les coefficients $\beta_{j, 1<j<p}$, ceux qui sont significativement différent de 0 (avec un seuil de significativité égal à 0.05) : 
+pour ces coefficients, le facteur qui leur est associé est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, 
+le signe du coefficient indique si cette influence est positive ou négative. 
 
 Etant donné le nombre important de variables indépendantes, le pourcentage de variance estimée par la \gls{wls} est quantifié par le coefficient de 
 détermination ajusté (\textit{adjusted R-Squared} en anglais) plutôt que par le coefficient de détermination simple (\textit{R-Squared} en anglais).
@@ -251,9 +252,9 @@ de l'intervalle d'inclusion sont représentées à la Figure~\ref{Figure:distrib
 Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
 celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges 
 (respectivement -3.41 et -3.95) qui sont même plus élevés que ceux rapportés dans la littérature sur l'efficacité des psychostimulants sur les symptômes du 
-\gls{tdah} chez les enfants \gls{tdah} \citep{Luan2017}. Ces valeurs invalident nos hypothèses de travail : les résidus ne sont plus distribués normalement
-et la tendance linéaire estimée n'est plus significative. Ainsi afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, un rejet des valeurs 
-aberrantes a été implémenté.
+\gls{tdah} chez les enfants \citep{Luan2017}. Ces valeurs invalident nos hypothèses de travail : dans le cas de la \gls{wls}, les résidus ne sont plus 
+distribués normalement et la tendance linéaire estimée n'est plus significative. Ainsi afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, 
+un rejet des valeurs aberrantes a été implémenté.
 
 La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et 
 qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 33 études sélectionnées rassemblent 
@@ -295,8 +296,9 @@ Afin de comparer la variabilité des valeurs au sein des facteurs non catégorie
   \label{Figure:factors-boxplots}
 \end{figure}
 
-Le nombre de sessions et la durée de la session sont plus variables que l'âge minimal et maximal des enfants inclus dans l'étude. Les extremum et la moyenne de ces facteurs aux valeurs numériques
-non standardisées sont listés dans la Table~\ref{Table:table_factors_extremum_values} pour donner une idée de la variabilité de ces facteurs dans les études incluses. 
+Le nombre de sessions et la durée de la session sont plus variables que l'âge minimal et maximal des enfants inclus dans l'étude. Les extremum et la 
+moyenne de ces facteurs aux valeurs numériques non standardisées sont listés dans la Table~\ref{Table:table_factors_extremum_values} pour mettre en 
+évidence la variabilité de ces facteurs dans les études incluses. 
 
 \begin{table}[h!]
   \centering
@@ -370,7 +372,7 @@ en moins d'observations sont disponibles plus on descend dans l'arbre, l'influen
 \subsection{Résumé des résultats}
 
 Plusieurs facteurs ont été trouvés significatifs par plus les trois méthodes : les évaluateurs \gls{pblind}, la qualité de l'\gls{eeg} égale à 2 et la durée du traitement. 
-De plus toutes les méthodes s'accordent quant à la direction de leur influence : alors qu'évaluer l'efficacité du \gls{nfb} en étant \gls{pblind}
+De plus, toutes les méthodes s'accordent quant à la direction de leur influence : alors qu'évaluer l'efficacité du \gls{nfb} en étant \gls{pblind}
 semble conduire à de moins bons résultats, une durée de traitement plus courte et l'acquisition de l'\gls{eeg} avec un bon matériel mèneraient à un traitement plus efficace. 
 
 L'influence des facteurs retournés par deux méthodes est plus incertaine :
@@ -392,7 +394,7 @@ Ces résultats sont résumés à la Table~\ref{Table:table_factors_analysis_resu
 \begin{table}[h!]
   \centering
   \caption{Facteurs classés selon le nombre de méthodes les identifiant comme significatifs. Un signe + signifie que la présence (dans le cas d'une variable catégorielle) ou l'importante valeur
-	de la variable a un effet favorable sur l'efficacité du \gls{nfb}. A l'inverse, un signe - signifie que l'absence (dans le cas d'une variable catégorielle) ou plus la faible valeur
+	de la variable a un effet favorable sur l'efficacité du \gls{nfb}. A l'inverse, un signe - signifie que l'absence (dans le cas d'une variable catégorielle) ou la faible valeur
 	de la variable a un effet favorable sur l'efficacité du \gls{nfb}. Le nombre de signes est décroissant avec le degré de confiance accordé à l'influence du facteur. 0 signifie 
 	que le facteur n'aurait pas d'effet.}
   \input{tables/chapter-3/table_factors_analysis_results_summary_number_of_factors}
@@ -409,13 +411,13 @@ de leur liste de bonnes pratiques.
 
 \subsection{Facteurs et efficacité du \gls{nfb}}
 
-La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence sur l'efficacité du \gls{nfb}. Certains facteurs ont été par les trois méthodes,
+La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence sur l'efficacité du \gls{nfb}. Certains facteurs ont été trouvés par les trois méthodes,
 d'autres par deux ou une et certains par aucune. Ces résultats sont discutés ici, en s'intéressant à la fois aux paramètres pour lesquels l'influence sur la performance
 clinique est fortement probable et à ceux pour lesquels l'impact s'avère moins certain. 
 
 Comme attendu, le nombre de sessions s'avère être identifié par deux méthodes ce qui est en accord avec la littérature existante. En effet, grâce à plusieurs régressions linéaires 
 simples sans correction pour tests multiples \citep{Arns2009}, \citet{Arns2014} affirme qu'effectuer moins de 20 sessions de \gls{nfb} conduit à une moins bonne efficacité. De même,
-\citet{Vernon2004} a observé que des changements positifs aussi bien sur l'\gls{eeg} qu'au niveau comportemental apparaissent après au moins 20 sessions. Toutefois, \citep{Enriquez2017}
+\citet{Vernon2004} a observé que des changements positifs, aussi bien sur l'\gls{eeg} qu'au niveau comportemental, apparaissent après au moins 20 sessions. Toutefois, \citep{Enriquez2017}
 souligne le fait que le nombre de sessions doit être choisi avec précaution afin d'éviter "l'\textit{overtraining}". Le fait que le nombre de sessions n'a pas été identifié par le \gls{lasso}
 pourrait s'expliquer par la présence de seulement deux observations de 20 sessions ou moins. Ainsi, étant donné que le seuil minimal pour obtenir des résultats avec l'entrainement
 par \gls{nfb} semble dépassé pour la très grande majorité des observations, il est peu probable que ce facteur puisse être retrouvé par les trois méthodes sur cet ensemble de données. 
@@ -438,16 +440,16 @@ de précisions quant au matériel utilisé afin de pouvoir plus aisément juger 
 métriques dont certaines ont été utilisées par \citep{Bussalb2018benchmark} lors de la comparaison de différents systèmes \gls{eeg}. 
 
 Ensuite, il semblerait que plus le traitement par \gls{nfb} est long, moins il devient efficace. Le degré d'engagement dans l'intervention pourrait expliquer ce
-résultat : être engagé dans un traitement long est plus compliqué. Cependant, il est difficile de quantifier ce degré car soit aucun questionnaire n'est rempli 
+résultat : être engagé dans un traitement long est plus compliqué. Cependant, il est difficile de quantifier ce degré car, soit aucun questionnaire n'est rempli 
 par les enfants à ce sujet, soit cette information n'est pas mentionnée. 
 
 Par ailleurs, la durée du traitement est étroitement liée à son intensité, ainsi on peut supposer qu'une période de traitement plus courte est préférable 
 du fait de la fréquence plus élevée des sessions. Cette hypoyhèse est étayée par 
 le fait que la variable "fréquence des sessions" (nombre de sessions par semaine) est aussi associée à de plus grands \gls{es}-intra-groupe selon le
 \gls{lasso} et le \gls{dt}. L'impact de l'intensité du traitement par \gls{nfb} a été exploré par \citet{Rogala2016} sur des sujets adultes sains : il est
-observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Par ailleurs, un autre facteur va dans le sens de 
-ces observations : le nombre de sessions qui, bien que retourné que par une seule méthode comme expliqué précédemment, semble plus favorable lorsqu'il est important.   
-Ainsi, ces résultats indiquent qu'adopter une fréquence élevée de sessions est préférable, ce qui est peu connu dans le domaine du \gls{nfb}.
+observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Par ailleurs, un autre facteur permet de soutenir
+qu'un traitement intensif est favorable : le nombre de sessions lequel, selon la \gls{wls} et le \gls{dt}, semble plus favorable lorsqu'il 
+est important. Ainsi, ces résultats indiquent qu'adopter une fréquence élevée de sessions est préférable, ce qui est peu connu dans le domaine du \gls{nfb}.
 
 \subsection{Perspectives pour de futures analyses}
 
@@ -523,7 +525,8 @@ des symptômes, on pourrait conclure que l'effet placebo joue un rôle dans ces 
 \subsection{Validation prospective sur les nouvelles études publiées depuis le 12/02/2018}
 
 L'analyse précédente présente des résultats obtenus sur des études publiées avant le 12 février 2018 \citep{Bussalb2019clinical}, or la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est
-en pleine expansion conduisant à de nombreuses publications en peu de temps.
+en pleine expansion conduisant à de nombreuses publications en peu de temps. Or, plus le nombre d'études incluses dans la \gls{saob} sera important, plus ses 
+résultats seront fiables. Par conséquent, une mise à jour est menée et ces nouveaux résultats sont comaprés à ceux de \citet{Bussalb2019clinical}.
 
 \subsubsection{Sélection des nouvelles études} 
 
@@ -580,7 +583,7 @@ Entre le 12 février 2019 et le 2 septembre 2019, 8 nouvelles études répondant
 genre d'analyse. L'ajout de ces 8 études a modifié certaines conclusions de \citet{Bussalb2019clinical}. 
 
 En effet, tout d'abord, la qualité de l'\gls{eeg} égale à 2 n'est plus retournée que par une seule méthode,
-remettant en question son influence positive sur l'efficacité du \gls{nfb}. Toutefois, bien que ce facteur soit intéressant, sa définition (voir \ref{choix_des_facteurs}) manque de précision 
+remettant en question son influence positive sur l'efficacité du \gls{nfb}. Toutefois, bien que ce facteur soit intéressant, sa définition, donnée en \ref{choix_des_facteurs}, manque de précision 
 du fait du peu d'informations disponibles sur le matériel utilisé par les études. Ainsi, afin d'évaluer au mieux son influence, les études devraient fournir davantage d'informations. Ensuite, 
 la durée du traitement n'est plus identifiée que par deux méthodes et la fréquence des sessions par une seule : on peut encore avancer, bien qu'avec moins de certitude que précédemment, 
 qu'un traitement intensif est préférable. 
@@ -592,9 +595,9 @@ transfert seule ne soit pas si efficace si elle n'est pas couplée à l'utilisat
 souvenir plus facilement du contrôle qu'il exerçait durant la séance \citep{Bioulac2019, Bluschke2016}. Ce facteur devait être analysé mais étant trop homogène (plus de 80\% des observations 
 n'utilisent pas de carte), il a été exclus de l'analyse. 
 
-Bien que la significativité avait été atteinte pour la qualité de l'\gls{eeg} égale à 2 et pour la durée du traitement par les trois méthodes, 
+Bien que la significativité avait été atteinte pour la qualité de l'\gls{eeg} égale à 2 et pour la durée du traitement par les trois méthodes \citep{Bussalb2019clinical}, 
 les résultats ne sont pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Ce constat est illustré dans le cadre de la méta-analyse 
-présentée au chapitre \ref{chapitre2} à la Figure~\ref{Figure:meta_analysis_evolution_pvalue}).
+présentée au chapitre \ref{chapitre-2} à la Figure~\ref{Figure:meta_analysis_evolution_pvalue}).
 
 Ainsi, pour que la \gls{saob} puisse apporter des indications fiables quant au design d'une étude évaluant l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah}, elle doit être 
 régulièrement mise à jour. 
