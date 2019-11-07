@@ -1,12 +1,21 @@
 \chapter{Introduction} \label{chapitre-1}
 
+Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}, 
+qui est au centre de ce travail, est présentée, puis ses diverses applications sont listées. Ici, seule l'une d'entre est étudiée : il s'agit du \gls{tdah}
+chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
+
+Une fois le décor planté, les objectifs de cette thèse sont énoncés et la contribution de chaque chapitre est mise en évidence. Enfin, les analyses présentées 
+ici ont fait l'objet de publications scientifiques et d'une communication orale dont les références sont fournies en fin de partie.  
+
 \section{Définition du Neurofeedback}
-% voir lambez B et al. 2019
+
+Le \gls{nfb} est une technique d’apprentissage à visée thérapeutique permettant de modifier un paramètre d’activité cérébrale au moyen d’une 
+information en temps réel associée à une récompense \citep{Arns2014}. 
+La découverte et l'évolution de cette méthode sont retracées ici, puis son principe est décrit précisément.
 
 \subsection{Historique}
 
-Le \gls{nfb} est une technique de thérapie comportementale ayant pour but d'apprendre ou d'améliorer l'auto-régulation de l'activité cérébrale.
-Les prémices du \gls{nfb} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain par Hans Berger en 1929.
+Les prémices du \gls{nfb} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain par Hans Berger en 1929 \citep{Berger1929}.
 En effet, \citet{Durup1935} et \citet{Loomis1936} ont observé que les ondes alpha, oscillant entre 8 et 12Hz, pouvaient être contrôlées grâce au 
 conditionnment classique. 
 
@@ -28,31 +37,67 @@ ses mécanismes et ses effets, illustrée à la Figure~\ref{Figure:introduction_
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-1/introduction-number-of-nfb-publications} 
-  \caption{Evolution du nombre de publications sur le Neurofeedback par année, entre 1962 et 2018. La base de données PubMed a été questionnée avec les 
+  \caption{Evolution du nombre de publications sur le \gls{nfb} par année, entre 1962 et 2018. La base de données PubMed a été questionnée avec les 
 	termes de recherche "Neurofeedback OR EEG Biofeedback".}
   \label{Figure:introduction_number_of_nfb_publications}
 \end{figure}
 
 \subsection{Principe du Neurofeedback}
 
-Le \gls{nfb} a pour but d'apprendre à un sujet à auto-réguler son activité cérébrale à l'aide de retours auditifs et/ou visuels en temps réel. 
-Ces retours lui permettent de suivre la régulation de son rythme cérébral : si elle est modulée de la manière souhaitée, une récompense 
-auditive et/ou visuelle est attribuée, sinon le sujet doit prendre une action corrective. Le \gls{nfb} est basé sur le conditionnement opérant 
-\citep{Reynolds1975} : celui-ci se distingue du conditionnement classique où un stimulus conduit à une réaction automatique. 
-En effet, dans le cas du conditionnement opérant, le conditionnement n'est pas lié à des réponses réflexes de
+Le \gls{nfb} a pour but d'apprendre à un sujet à auto-réguler son activité cérébrale à l'aide de retours auditifs et/ou visuels en temps réel
+intégrés dans un jeu sérieux \citep{Wang2010}. Ces retours lui permettent de suivre la régulation de son rythme cérébral : si elle est modulée de 
+la manière souhaitée, une récompense auditive et/ou visuelle est attribuée, sinon le sujet doit prendre une action corrective. Le \gls{nfb} 
+est basé sur le conditionnement opérant \citep{Reynolds1975} : celui-ci se distingue du conditionnement classique où un stimulus conduit à 
+une réaction automatique. En effet, dans le cas du conditionnement opérant, le conditionnement n'est pas lié à des réponses réflexes de
 l'organisme mais à l'influence de l'environnement, qui renforce positivement ou négativement le conditionnement \citep{Skinner1948}. 
 
 L'activité cérébrale enregistrée lors du \gls{nfb} est couramment l'\gls{eeg}, cependant d'autres modalités telles que l'imagerie par résonance 
-magnétique fonctionnelle (\gls{fmri} en anglais) \citep{Sulzer2013} ou le couplage entre l'\gls{eeg} et la \gls{fmri} \citep{Perronnet2017} existent. Ici,
-on s'intéresse seulement au \gls{nfb} \gls{eeg}. L'\gls{eeg} est enregistré de façon non-invasive au moyen d'électrodes placées sur le scalp, 
-le bon contact entre la peau et les électrodes est quantifiée par une faible impédance. Le signal passe ensuite par un amplificateur, qui peut être
-conforme à la norme \citep{ISO}, avant d'être analysé par le logiciel de \gls{nfb}. 
+magnétique fonctionnelle (\gls{fmri} en anglais) \citep{Sulzer2013} ou le couplage entre l'\gls{eeg} et la \gls{fmri} \citep{Perronnet2017} existent ; ici,
+seul le \gls{nfb} \gls{eeg} est étudié. L'\gls{eeg} est enregistré de façon non-invasive au moyen d'électrodes placées sur le scalp, 
+le bon contact entre la peau et les électrodes est représenté par une faible impédance, qui réduit le niveau de bruit dans le 
+signal \citep{Kappenman2010}. Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
+\ref{applications_NFB}. Le signal passe ensuite par un amplificateur, qui peut être conforme à la norme ISO-60601-2-26 \citep{ISO}, avant d'être analysé 
+par le logiciel de \gls{nfb}. 
 
-L'application de \gls{nfb} extrait alors le marqueur à moduler : celui-ci dépend de l'application du \gls{nfb}, comme expliqué en \ref{applications_NFB},
-et appelé par la suite neuromarqueur. Le seuil défini pour octroyer les récompenses visuelles et/ou auditives peut être fixe au cours de la session, ou
-bien tout aulong tu traitement 
+L'application de \gls{nfb} extrait alors le marqueur à moduler, appelé par la suite neuromarqueur : celui-ci, tout comme les électrodes utilisées, 
+dépend de l'application du \gls{nfb}. Le seuil auquel est comparé le neuromarqueur pour octroyer les récompenses visuelles et/ou auditives peut être fixe 
+au cours de la session, ou bien tout au long du traitement, ou alors incrémental intra ou inter-sessions. Par ailleurs, sa valeur, dans 
+les deux cas, peut être définie soit par un practicien, soit être calculée automatiquement \citep{Arns2014}. La répétition de cet exercice mène au phénomène de 
+neuroplasticité \citep{VanDoren2017, Ros2010} qui permet une réorganisation neuronale durable.
 
+Toutes ces étapes sont résumées à la Figure~\ref{Figure:introduction_nfb_explications}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-nfb-explication} 
+  \caption{Schématisation du principe de \gls{nfb}.}
+  \label{Figure:introduction_nfb_explications}
+\end{figure}
+
+Certaines applications de \gls{nfb} se démarquent des autres en proposant une correction ou un rejet des artefacts en temps réel des signaux \gls{eeg}
+\citep{Maurizio2014, Barthelemy2019} ou bien en incluant une phase de transfert entre les blocs d'entrainement. En effet, une session de \gls{nfb} est 
+généralement sectionnée en blocs de quelques minutes, séparés par une courte période de repos. Parmi ces blocs, certaines applications intégrent 
+un bloc dit de tranfert durant lequel aucun retour n'est donné à l'utilisateur alors que celui-ci doit moduler son activité cérébrale \citep{Bioulac2019,
+Bluschke2016}. Dans certains cas, une carte représentant l'interface du jeu sérieux est fournie au sujet afin qu'il puisse la regarder en modulant son 
+activité cérébrale \citep{Leins2007}. Cette phase de transfert et cette carte ont pour but de faciliter la transposition du contrôle appris durant les 
+sessions de \gls{nfb} à la vie de tous les jours \citep{Arns2014}.
+
+Une autre différence que peuvent présenter les applications de \gls{nfb} est la personnalisation du \gls{nfb} selon le profil \gls{eeg} du sujet
+\citep{Alkoby2017}. En effet, certaines applications proposent d'adapter les définitions des bandes de fréquences au sujet en utilisant la fréquence de son
+pic alpha (\gls{iapf} en anglais) \citep{Alkoby2017, Escolano2014, Bazanova2018}, dont un exemple est présenté à la Figure~\ref{Figure:introduction_iapf}, 
+qui est variable entre les sujets \citep{Haegens2014, Aurlien2004, Smit2006}. Par ailleurs, certaines applications de \gls{nfb} proposent d'entrainer 
+le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet.
+\citep{Bioulac2019, Kerson2013}. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.5\linewidth]{figures/chapter-1/introduction-iapf} 
+  \caption{Spectre d'un signal \gls{eeg}. L'\gls{iapf} correspond au point rouge.}
+  \label{Figure:introduction_iapf}
+\end{figure}
+ 
 % utiliser Marzbani
+% voir lambez B et al. 2019
 
 % définition NFB : technique d'autorégulation des ondes cérébrales en temps réel à l'aide de retours auditifs et/ou visuels
 % basé sur le conditionnement opérant (à distinguer du conditinnement classique -> donner def).
