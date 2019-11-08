@@ -31,7 +31,7 @@ sont analysés.
 \begin{table}[h!]
   \centering
   \caption{Informations sur les données utilisées. Les critères d'inclusion pour chaque base de données sont listés, ainsi que le nombre de sujets satisfaisant
-	chaque critère entre parenthèses. Le nombre total de sujets inclus par base de données est précisé à la dernère ligne.}
+	chaque critère entre parenthèses. Le nombre total de sujets inclus par base de données est précisé à la dernière ligne.}
   \input{tables/chapter-4/table_tbr_datasets_description}
   \label{Table:tbr_datasets_description}
 \end{table}
@@ -56,7 +56,7 @@ Pour participer à l'étude NEWROFEED, les sujets devaient remplir les critères
 De plus, les enfants correspondant à un de ces critères ont été exclus :
 \begin{itemize}
 \item être \gls{tdah} avec le sous-type hyperactif/impulsif mais sans la composante inattention,
-\item avoir un trouble psychiatrique sevère et/ou incontrôlable autre que le \gls{tdah} diagnostiqué avec Kiddie-SADS tel que par 
+\item avoir un trouble psychiatrique sévère et/ou incontrôlable autre que le \gls{tdah} diagnostiqué avec Kiddie-SADS tel que par 
 exemple l'autisme ou la schizophrénie,
 \item avoir un trouble comorbide nécessitant des médicaments psychoactifs autres que ceux prescrits pour le \gls{tdah},
 \item avoir un QI < 80 d'après les trois sous-tests du WASI ou du WISC \citep{Wechsler1999}.
@@ -74,7 +74,7 @@ au téléphone ou en personne par un chercheur expérimenté pour évaluer son �
 \item l'historique de ses troubles neurologiques et/ou épilepsie.
 \end{itemize}
 
-L'enregistrement de l'\gls{eeg} est prévu si aucune contre indication n'est trouvée. 
+L'enregistrement de l'\gls{eeg} est prévu si aucune contre-indication n'est trouvée. 
 
 De tous les patients présents dans la base \gls{cmi-mipdb}, seulement ceux satisfaisant les critères suivants ont été inclus dans l'analyse présentée dans ce chapitre :
 \begin{enumerate}
@@ -85,10 +85,10 @@ De tous les patients présents dans la base \gls{cmi-mipdb}, seulement ceux sati
 
 L'\gls{eeg} a été enregistré avec un système \gls{eeg} Geodesic Hydrocel à une fréquence d'échantillonnage de 500Hz et un filtre passe-bande entre 0.1 et 100Hz. 
 L'électrode de référence est Cz, localisée au vertex de la tête. Le tour de tête de chaque participant est mesuré pour que le bonnet utilisé lors de l'enregistrement 
-soit à la bonne taille. L'impédance des électrodes est gardée inférieure à $40$k$\Omega$ : elle est vérifiée toutes les 30 minutes ainsi qu'avant chaque enregitrement.
+soit à la bonne taille. L'impédance des électrodes est gardée inférieure à $40$k$\Omega$ : elle est vérifiée toutes les 30 minutes ainsi qu'avant chaque enregistrement.
 
 \subsection{Données CMI-HBN}
-La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles recoivent 150\$ pour leur participation 
+La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles reçoivent 150\$ pour leur participation 
 et les sujets se voient de plus offrir les rapports de consultation et les avis sur les sessions d'\gls{eeg}.
 
 Seuls les sujets remplissant les critères suivants ont été inclus dans notre analyse :
@@ -101,7 +101,7 @@ Seuls les sujets remplissant les critères suivants ont été inclus dans notre 
 Des 881 sujets disponibles, 231 (âgés entre 5 et 21 ans) satisfont ces critères et sont inclus dans notre analyse.
 
 La base de données \gls{cmi-hbn} contient également des sujets sains qui vont être utilisés en tant qu'\textit{a priori} (\textit{priors} en anglais) pour le
-modèle bayesien décrit en \ref{clustering}. Pour être inclus dans cette analyse en tant que \textit{priors}, les sujets ne doivent avoir aucun diagnostic 
+modèle bayésien décrit en \ref{clustering}. Pour être inclus dans cette analyse en tant que \textit{priors}, les sujets ne doivent avoir aucun diagnostic 
 et doivent remplir les critères 2. et 3. cités précédemment. Au final, 74 sujets entre 5 et 21 ans sont sélectionnés. 
 
 \subsection{Pré-traitement et homogénéisation des bases de données} \label{pré-traitement TBR}
@@ -138,7 +138,7 @@ Une strategie est ici mise en place pour détecter de façon fiable puis interpo
 \end{enumerate}
 Si le z-score temporel n'est pas compris entre -5 et 5, le signal est détecté comme étant un artefact et est interpolé à partir des canaux voisins.
 Si le z-score spatial n'est pas compris entre -2 et 2, soit le signal a une trop grande variance (autrement dit il est bruité), soit une trop faible
-variance (autrement dit l'électrode doit être déconnectée et n'energistre rien) : dans les deux cas il est interpolé.
+variance (autrement dit l'électrode doit être déconnectée et n'enregistre rien) : dans les deux cas il est interpolé.
 
 Les données sont re-référéncées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
 de données NEWROFEED. Les signaux \gls{eeg} des 128 électrodes de l'espace \gls{egi} sont ensuite spatialement reconstruits dans l'espace à 8 électrodes 
@@ -153,12 +153,12 @@ Enfin, la méthode pour identifier le seuil optimal séparant les classes obtenu
 
 \subsection{Définition du Theta-Beta ratio}
 La littérature indique qu'il existerait différents groupes de patients \gls{tdah} identifiés à l'aide de leur profil \gls{eeg}, comme l'augmentation
-de la puisssance dans la bande theta et/ou la diminution de la puissance dans la bande beta \citep{Clarke2011, Loo2018}. Ces différences de puissances dans ces 
+de la puissance dans la bande theta et/ou la diminution de la puissance dans la bande beta \citep{Clarke2011, Loo2018}. Ces différences de puissances dans ces 
 bandes de fréquence peuvent être quantifiées en calculant la ratio de la puissance dans la bande theta et de la puissance dans la bande beta : le 
 \gls{tbr} \citep{Arns2013}. 
 
-De nombreuses études ont été menées pour analyser la pertinence d'utilser le \gls{tbr} comme biomarqueur pour diagnostiquer le \gls{tdah}. En effet, certains auteurs suggèrent qu'un \gls{tbr}
-élevé peut aider à confirmer les diagnostics du \gls{tdah} \citep{NebaHealth, Saad2018, FDA}. Cependant, les études récentes ont échoué à repliquer les résultats
+De nombreuses études ont été menées pour analyser la pertinence d'utiliser le \gls{tbr} comme biomarqueur pour diagnostiquer le \gls{tdah}. En effet, certains auteurs suggèrent qu'un \gls{tbr}
+élevé peut aider à confirmer les diagnostics du \gls{tdah} \citep{NebaHealth, Saad2018, FDA}. Cependant, les études récentes ont échoué à répliquer les résultats
 montrant une différence entre les valeurs de \gls{tbr} des patients \gls{tdah} et celles des patients sains, remettant en question son utilisation comme outil 
 diagnostic \citep{Zhang2017, Arns2013, Clarke2001, VanDoren2017}. A la place, ces études trouvent qu'environ 35\% des sujets \gls{tdah} présenteraient un \gls{tbr} élevé : ce
 résultat pourrait être utilisé pour identifier de meilleurs répondeurs à une intervention donnée. 
@@ -185,7 +185,7 @@ L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitemen
 \subsubsection{Rejet des artefacts}
 Tout d'abord, les données artefactées sont exclues en utilisant le \gls{rpf} \citep{Barthelemy2019}. Les données \gls{eeg} sont segmentées (durée de 2 secondes avec 
 un chevauchement toutes les 0.125s) et la matrice de covariance de chaque segment est calculée pour un sous-ensemble de canaux. Ensuite, la \gls{rpf} rejette les 
-segments dont la matrice de covariance se retouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres. 
+segments dont la matrice de covariance se retrouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres. 
 
 \subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}}
 Ensuite, l'\gls{iapf} est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha définie entre 7 et 13Hz. Si aucun pic n'est observé,
@@ -221,7 +221,7 @@ puis ces deux puissances sont divisées entre elles :
 \end{equation}
 conduisant à un ratio instantané de valeurs de puissances qui représente une implémentation en temps réel du \gls{tbr}.
 
-La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la mediane obtenue à Fz et Cz est utilisée pour représenter le \gls{tbr} sur l'ensemble 
+La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la médiane obtenue à Fz et Cz est utilisée pour représenter le \gls{tbr} sur l'ensemble 
 de l'enregistrement. Le maximum sur ces deux électrodes est retenu, il sera enfin normalisé pour les analyses suivantes en un \gls{srntbr} :
 
 \begin{equation}
@@ -282,7 +282,7 @@ avec n le nombre total de points à être partitionnés.
 Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le graphique des \textit{k-distance} obtenu par la méthode des k plus proches voisins 
 (\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005}. Le principe de cette méthode
 est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance d'un nouveau point et de prédire la classe de ce dernier. 
-Le grahique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à un des k points classées par ordre décroissant. 
+Le graphique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à un des k points classées par ordre décroissant. 
 Ainsi, étant donné que les points bruités sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut 
 s'attendre à observer un coude sur ce tracé : l'ordonnée de ce point correspond à $\epsilon$.
 
@@ -312,8 +312,8 @@ où FP est le nombre de vrais positifs, TN le nombre de vrais négatifs, TP le n
 TNR est le taux de vrais négatifs et FNR le taux de faux négatifs.
 De plus, FP $+$ TN correspond au nombre total de négatifs, et TP $+$ FN au nombre total de positifs.
 
-Les courbes \gls{roc} sont fréquemment utilisées pour mesurer la performance de partionnements binaires, notamment grâce à
-l'\gls{auc} : plus cette aire est grande, plus la courbe \gls{roc} s'éloigne du partionnement aléatoire modélisé par une droite allant
+Les courbes \gls{roc} sont fréquemment utilisées pour mesurer la performance de partitionnements binaires, notamment grâce à
+l'\gls{auc} : plus cette aire est grande, plus la courbe \gls{roc} s'éloigne du partitionnement aléatoire modélisé par une droite allant
 de (0, 0) à (1, 1). 
 
 Les seuils identifiés pour la discrimination de deux groupes par le \gls{gmm}, la méthode de Ward et le \gls{dbscan} sont comparés à celui trouvé pour 
@@ -326,11 +326,11 @@ il s'agit de la justesse (\gls{acc} en anglais) :
 \end{equation}
 
 Enfin, les seuils de \gls{tbr} calculés dans cette étude sont également comparés à ceux utilisés dans la littérature. Les seuils de 5 et de 4.5 sont
-ajoutés à la courbe \gls{roc} car \citet{Kerson2013} ont suggéré l'utilsation d'un seuil de \gls{tbr} à 5, même si lors de leur étude clinique il a été fixé 
+ajoutés à la courbe \gls{roc} car \citet{Kerson2013} ont suggéré l'utilisation d'un seuil de \gls{tbr} à 5, même si lors de leur étude clinique il a été fixé 
 à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov) tout comme le seuil utilisé pendant l'étude NEWROFEED. Le seuil qui sépare 35\% des valeurs de 
 \gls{tbr} est également ajouté à la courbe \gls{roc} pour visualiser les résultats de \citet{Zhang2017} basés sur les conclusions de \citet{Clarke2011}.
 De plus, le seuil conduisant à 10\% de \gls{fpr} selon le partitionnement par le \gls{bgmm} à deux composantes est aussi ajouté à la courbe \gls{roc}. 
-En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéalement traiter les patients qui appartiennent au sous-goupe \gls{tbr} élevé avec 
+En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéalement traiter les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec 
 un protocole adapté à leur profil \gls{eeg}, comme la diminution du \gls{tbr}.
 
 \section{Partitionnement de la distribution des Theta-Beta ratios}
@@ -384,7 +384,7 @@ mais aussi en 3 (2 verts et 1 rouge). Les résultats d'un partitionnement en 2 e
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-histogram-ward} 
   \caption{Distribution des \gls{srntbr} répartis en \textbf{A)} : 2 \textit{clusters} (rouge et jaune) et \textbf{B)} : 3 \textit{clusters} 
-	(vert, rouge et jaune). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointilés rouges sur la 
+	(vert, rouge et jaune). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointillés rouges sur la 
 	figure \textbf{A}.}
   \label{Figure:tbr_ward_histograms}
 \end{figure}
@@ -395,7 +395,7 @@ la sous population des \gls{srntbr} plus faibles.
 \subsubsection{DBSCAN}
 
 Les paramètres $MinPts$ et $\epsilon$ de l'algorithme \gls{dbscan} sont tout d'abord calculés. Etant donné qu'ici $MinPts = $ 6, 
-l'algorithme des \gls{knn} prend k = 6, on obtient alors le grahique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
+l'algorithme des \gls{knn} prend k = 6, on obtient alors le graphique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
 où un coude est observé à $y$ = 0.048, valeur choisie pour $\epsilon$.
 
 \begin{figure}[h!]
@@ -407,7 +407,7 @@ où un coude est observé à $y$ = 0.048, valeur choisie pour $\epsilon$.
 
 Le partitionnement par \gls{dbscan} est représenté à Figure~\ref{Figure:tbr_dbscan_clustering_plot} : deux groupes (en rouge et jaune) et 13 
 points considérés comme du bruit et donc attribués à aucun groupe (en noir) sont identifiés. Le \textit{silhouette coefficient} de 0.388 
-indique un partionnement convenable mais dont les groupes sont proches l'un de l'autre. 
+indique un partitionnement convenable mais dont les groupes sont proches l'un de l'autre. 
 
 \begin{figure}[h!]
   \centering
@@ -445,7 +445,7 @@ La valeur des seuils affichée correspond au seuil sur les valeurs \gls{tbr}.
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-roc} 
   \caption{Courbe \gls{roc} obtenue avec le \gls{bgmm} à deux composantes (en bleu). Les seuils \gls{tbr} obtenus avec les méthodes implémentées ici sont représentés 
-	par un point rouge sur la courbe ; les seuils issus de la littérrature sont représentés par un point noir. Pour chaque seuil la valeur de justesse (\gls{acc}) 
+	par un point rouge sur la courbe ; les seuils issus de la littérature sont représentés par un point noir. Pour chaque seuil la valeur de justesse (\gls{acc}) 
 	est donnée.}
   \label{Figure:tbr_roc}
 \end{figure}
@@ -488,9 +488,9 @@ l'\textit{a priori} du \gls{bgmm}.
 
 L'\textit{agglomerative clustering} basé sur la distance de Ward montre que l'ensemble des données peut être réparti 
 en deux ou trois groupes. Lors du partitionnement en deux groupes, un \textit{cluster} correspondant aux \gls{tbr} élevés et comprenant 29\% de la donnée
-est identifié. Ce \textit{cluster} est toujours identifié lorsque le partionnement se fait en trois groupes : le nouveau groupe est formé dans la sous-population
+est identifié. Ce \textit{cluster} est toujours identifié lorsque le partitionnement se fait en trois groupes : le nouveau groupe est formé dans la sous-population
 des \gls{tbr} plus faibles. La méthode de Ward a déjà été utilisée lors de recherches 
-précédentes sur l'identification de sous groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. 
+précédentes sur l'identification de sous-groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. 
 
 L'algorithme \gls{dbscan} conduit également à deux \textit{clusters}, dont l'un correspond aux \gls{tbr} élevés avec un \textit{silhouette score} de 0.388 
 qui permet d'être assez confiant dans le partitionnement retourné. Parmi les 13 points attribués à 
@@ -516,12 +516,12 @@ au groupe devant diminuer leur \gls{tbr}. La courbe \gls{roc} représentée à l
 le \gls{tpr} est plus faible avec le seuil \gls{tbr} à 4.5. En supposant que le but du seuil est de maximiser l'\gls{acc}, le seuil \gls{bgmm} serait le 
 plus adéquat, avec une \gls{acc} de 79.2\%.
 
-Le seuil calculé à partir du \gls{bgmm} à deux composantes comduit à un groupe d'enfants au \gls{tbr} élevé représentant 36\% de la population étudiée. 
+Le seuil calculé à partir du \gls{bgmm} à deux composantes conduit à un groupe d'enfants au \gls{tbr} élevé représentant 36\% de la population étudiée. 
 Ce pourcentage est en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
 De plus,\citep{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
 25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un \textit{cluster}
-de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faile pourcentage ainsi que la basse \gls{acc} obtenue laisse à penser
+de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la basse \gls{acc} obtenue laisse à penser
 que la valeur de ce seuil ne sépare pas de manière fiable les deux groupes. Le seuil identifié par la méthode de Ward dans le cas de deux \textit{clusters}
 est proche de celui trouvé par le \gls{bgmm} à deux composantes (4 contre 3.7), ce qui prouve une nouvelle fois qu'il existe un groupe d'enfants \gls{tdah}
 présentant un \gls{tbr} élevé.
@@ -549,7 +549,7 @@ nulle de normalité (p-value = 0.46). Ainsi, on suppose que les valeurs de \gls{
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-normalization} 
-  \caption{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. Les histogrammmes des distributions de valeurs \gls{tbr} non nomalisées,
+  \caption{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. Les histogrammes des distributions de valeurs \gls{tbr} non nomalisées,
 	log normalisées et \textit{square-root} normalisées sont presentés à la première ligne. La seconde ligne contient les tracés de probabilités comparant les
 	dstributions. La statistique W du test de Shapiro-Wilk et la p-value correspondante sont affichées sur chaque tracé de probabilité.}
   \label{Figure:tbr_normalization}
@@ -558,10 +558,10 @@ nulle de normalité (p-value = 0.46). Ainsi, on suppose que les valeurs de \gls{
 \subsection{Calcul des Theta-Beta ratios}
 
 La façon dont est calculé le \gls{tbr} est très variable dans la littérature, ce qui conduit à des valeurs variant entre 2 et 8 pour les sujets contrôles \citep{Arns2012,
-Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses défintions du \gls{tbr}. En effet, le \gls{tbr} peut faire référence au ratio
+Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses définitions du \gls{tbr}. En effet, le \gls{tbr} peut faire référence au ratio
 des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz). 
 
-Par ailleurs, la défintion des bandes de fréquences pour calculer le \gls{tbr} peuvent aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+Par ailleurs, la définition des bandes de fréquences pour calculer le \gls{tbr} peuvent aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
 de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. Ainsi, pour pouvoir comparer les valeurs de \gls{tbr} provenant de différentes
 études, une définition homogène doit être mise en place. A travers cette analyse, nous recommandons de définir le \gls{tbr} de la façon suivante : 
 le ratio entre la puissance dans la bande theta et la puissance dans la bande beta, avec une bande theta correspondant à [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz]
@@ -582,7 +582,7 @@ La première source d'erreur possible de cette analyse est que les artefacts ocu
 peuvent affecter les calculs de puissance et donc par ricochet les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
 la correction d'artefacts oculaires basée sur la séparation aveugle de sources (\textit{blind source separation} en anglais) \citep{Barthelemy2017} 
 ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée.
-Par conséquent la correction des artefacts oculares ne semble pas influencer les valeurs de \gls{tbr} calculées.
+Par conséquent la correction des artefacts oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées.
 
 \begin{figure}[h!]
   \centering
@@ -629,6 +629,6 @@ qu'un traitement par \gls{nfb} proposant deux protocoles en fonction du \gls{tbr
 de \gls{nfb} appliqué à tout le monde. Toutefois cette étude n'avait pas pour but de démontrer l'efficacité du protocole de diminution de \gls{tbr} chez les 
 enfants \gls{tdah} présentant un \gls{tbr} élevé. Alors que certaines études notent une amélioration des symptômes à l'issue d'un protocole \gls{tbr}, 
 d'autres obtiennent des résultats plus négatifs. Une possible explication de ce manque d'efficacité reporté dans ces études serait que contrôler 
-un ratio de fréquence se revèle plus complexe que de moduler la puissance dans une simple bande de fréquence. 
+un ratio de fréquence se révèle plus complexe que de moduler la puissance dans une simple bande de fréquence. 
 
 % retrouver de la biblio
