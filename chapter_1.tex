@@ -17,7 +17,7 @@ La découverte et l'évolution de cette méthode sont retracées ici, puis son p
 
 Les prémices du \gls{nfb} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain par Hans Berger en 1929 \citep{Berger1929}.
 En effet, \citet{Durup1935} et \citet{Loomis1936} ont observé que les ondes alpha, oscillant entre 8 et 12Hz, pouvaient être contrôlées grâce au 
-conditionnment classique. 
+conditionnement classique. 
 
 Plus tard, ce qui peut être considéré comme le premier entrainement par \gls{nfb} a été mené par le Dr. Kamiya qui a demandé aux sujets de son étude 
 de contrôler le rythme alpha et qui a obtenu des résultats prometteurs \citep{Kamiya1969}. 
@@ -54,15 +54,15 @@ l'organisme mais à l'influence de l'environnement, qui renforce positivement ou
 L'activité cérébrale enregistrée lors du \gls{nfb} est couramment l'\gls{eeg}, cependant d'autres modalités telles que l'imagerie par résonance 
 magnétique fonctionnelle (\gls{fmri} en anglais) \citep{Sulzer2013} ou le couplage entre l'\gls{eeg} et la \gls{fmri} \citep{Perronnet2017} existent ; ici,
 seul le \gls{nfb} \gls{eeg} est étudié. L'\gls{eeg} est enregistré de façon non-invasive au moyen d'électrodes placées sur le scalp, 
-le bon contact entre la peau et les électrodes est représenté par une faible impédance, qui réduit le niveau de bruit dans le 
-signal \citep{Kappenman2010}. Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
+le bon contact entre la peau et les électrodes est représenté par une faible impédance, qui signifie que le niveau de bruit dans le 
+signal est réduit \citep{Kappenman2010}. Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
 \ref{applications_NFB}. Le signal passe ensuite par un amplificateur, qui peut être conforme à la norme ISO-60601-2-26 \citep{ISO}, avant d'être analysé 
 par le logiciel de \gls{nfb}. 
 
 L'application de \gls{nfb} extrait alors le marqueur à moduler, appelé par la suite neuromarqueur : celui-ci, tout comme les électrodes utilisées, 
 dépend de l'application du \gls{nfb}. Le seuil auquel est comparé le neuromarqueur pour octroyer les récompenses visuelles et/ou auditives peut être fixe 
-au cours de la session, ou bien tout au long du traitement, ou alors incrémental intra ou inter-sessions. Par ailleurs, sa valeur, dans 
-les deux cas, peut être définie soit par un practicien, soit être calculée automatiquement \citep{Arns2014}. La répétition de cet exercice mène au phénomène de 
+au cours de la session et/ou du traitement, ou alors incrémental intra ou inter-sessions. Par ailleurs, sa valeur, dans 
+les deux cas, peut être définie soit par un praticien, soit être calculée automatiquement \citep{Arns2014}. La répétition de cet exercice mène au phénomène de 
 neuroplasticité \citep{VanDoren2017, Ros2010} qui permet une réorganisation neuronale durable.
 
 Toutes ces étapes sont résumées à la Figure~\ref{Figure:introduction_nfb_explications}.
@@ -75,47 +75,32 @@ Toutes ces étapes sont résumées à la Figure~\ref{Figure:introduction_nfb_exp
 \end{figure}
 
 Certaines applications de \gls{nfb} se démarquent des autres en proposant une correction ou un rejet des artefacts en temps réel des signaux \gls{eeg}
-\citep{Maurizio2014, Barthelemy2019} ou bien en incluant une phase de transfert entre les blocs d'entrainement. En effet, une session de \gls{nfb} est 
-généralement sectionnée en blocs de quelques minutes, séparés par une courte période de repos. Parmi ces blocs, certaines applications intégrent 
-un bloc dit de tranfert durant lequel aucun retour n'est donné à l'utilisateur alors que celui-ci doit moduler son activité cérébrale \citep{Bioulac2019,
-Bluschke2016}. Dans certains cas, une carte représentant l'interface du jeu sérieux est fournie au sujet afin qu'il puisse la regarder en modulant son 
-activité cérébrale \citep{Leins2007}. Cette phase de transfert et cette carte ont pour but de faciliter la transposition du contrôle appris durant les 
-sessions de \gls{nfb} à la vie de tous les jours \citep{Arns2014}.
+\citep{Maurizio2014, Barthelemy2019, Barthelemy2017} pour s'assurer que les récompenses sont bien calculées à partir du signal \gls{eeg} et non sur du bruit. 
+Dans le cas où des artefacts sont détectés, l'utilisateur peut en être informé et adopter une action corrective, à l'instar de ce qui est implémenté dans 
+\citep{Bioulac2019}
+
+Quelquefois, une phase de transfert entre les blocs d'entrainement est intégrée. En effet, une session de \gls{nfb} est 
+généralement sectionnée en blocs d'entrainement de quelques minutes, séparés par une courte période de repos. Entre ces blocs, certaines applications insèrent 
+un bloc dit de transfert durant lequel aucun retour n'est donné à l'utilisateur alors que celui-ci doit moduler son activité cérébrale \citep{Bioulac2019,
+Bluschke2016}. Cette phase de transfert a pour but de faciliter la transposition du contrôle appris durant les 
+sessions de \gls{nfb} à la vie de tous les jours \citep{Arns2014}. Dans certains cas, afin d'aider à cette transposition, une carte représentant l'interface du jeu sérieux est 
+fournie au sujet afin qu'il puisse la regarder en modulant son activité cérébrale \citep{Leins2007} en dehors des sessions de \gls{nfb}. 
 
 Une autre différence que peuvent présenter les applications de \gls{nfb} est la personnalisation du \gls{nfb} selon le profil \gls{eeg} du sujet
 \citep{Alkoby2017}. En effet, certaines applications proposent d'adapter les définitions des bandes de fréquences au sujet en utilisant la fréquence de son
 pic alpha (\gls{iapf} en anglais) \citep{Alkoby2017, Escolano2014, Bazanova2018}, dont un exemple est présenté à la Figure~\ref{Figure:introduction_iapf}, 
 qui est variable entre les sujets \citep{Haegens2014, Aurlien2004, Smit2006}. Par ailleurs, certaines applications de \gls{nfb} proposent d'entrainer 
-le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet.
-\citep{Bioulac2019, Kerson2013}. 
+le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet \citep{Bioulac2019, Kerson2013}. 
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.5\linewidth]{figures/chapter-1/introduction-iapf} 
-  \caption{Spectre d'un signal \gls{eeg}. L'\gls{iapf} correspond au point rouge.}
+  \caption{Spectre d'un signal \gls{eeg} obtenu les yeux fermés au repos. L'\gls{iapf} correspond au point rouge.}
   \label{Figure:introduction_iapf}
 \end{figure}
  
 % utiliser Marzbani
 % voir lambez B et al. 2019
-
-% définition NFB : technique d'autorégulation des ondes cérébrales en temps réel à l'aide de retours auditifs et/ou visuels
-% basé sur le conditionnement opérant (à distinguer du conditinnement classique -> donner def).
-% il existe différents type de nfb (fmri) ou coupler fmr-eeg (perronet) mais ici on ne s'intéressse qu'au nfb eeg
-% enregistrement de l'eeg : différents casques eeg (nbre d'électrodes, types...) et amplificateur qui peut être marqué ce ou non, vérification de
-% 
-% le choix du nombre et du placement des électrodes se fait en fonction du marqueur à moduler, appelé par la suite neuromarqueur
-% extraction du marqueur à moduler : correspond à une fréquence donnée dans une zone précise
-% donner des exemples (smr, tbr, alpha, theta...)
-% si contrôle du neuromarqueur dans le sens souhaité -> récompense (conditionnement opérant, plasticité cérébrale)
-% utilisation d'un seuil pour déterminer l'obtention de récompenses : il peut être fixe ou adaptatif, manuel ou automatique
-% répétition de l'exercice pour mener à une réorganisation neuronale durable
-% analyse de l'eeg en tant réel pour contrôler le retour à travers des jeux sérieux.
-% gestion des artefacts en temps réel 
-% Les ajouts au NFB :
-% phase de transfert, carte de transfert
-% individualisation des protocoles (iapf)
-% individualisation des bandes de fréquence grâce à l'iapf
 
 
 %NFB is a self-paced brain neuromodulation technique that
@@ -146,29 +131,50 @@ le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet.
 %in particular, the amplitude of the P300 ERP can be
 %considered as a specific neurophysiological marker of selective
 %attention (47).
-%Moreover, NFB protocols can be personalized: some studies
-%did not use the usual definitions of EEG band ranges
-%but determined them thanks to the individual Alpha
-%Peak Frequency (iAPF) (48), giving individualized NFB
-%protocols (49–51).
-%NFB efficacy on
-
-
 
 \section{Les champs d'application du Neurofeedback} \label{applications_NFB}
 
+Le \gls{nfb} présente de nombreuses applications dont les principales sont détaillées ici. Parmi ces applications, l'une d'entre elles est présentée plus précisément :
+le \gls{tdah} chez l'enfant.
+
 \subsection{De nombreuses applications}
+
+
+
+% composantes fréquentielles 
+% placement des électrodes (rôle de chaque zone)
+% les protocoles de traitement
+% finir sur tdah
+
 Epilepsie, diminution de l’anxiété, douleurs chroniques (citer papier de louis et quentin), etc
 % dire quels sont les neuromarqueurs utilisés, à quoi correspondent les rythmes et les zones du cerveau
 
 \subsection{Neurofeedback et \gls{tdah}}
-Définition TDAH chez l’enfant (parler du dsm-4 et 5) et parler de l’essor de la problématique du TDAH chez l’adulte, parler des études et des méta-analyses
-sham-NFB, parler des échelles cliniques (It is generally accepted that parent and teacher rating scales are reliable and 
-valid components of ADHD assessments (McGough  Barkley, 2004)), définir pblind et mprox, dire que c'est admis de les utiliser comme évaluateurs lambez B et al. 2019
-Parler des traitements possibles (bien définir les cognitives therapy)
-% dire quels sont les neuromarqueurs utilisés et les autre types de nfb
+
+Le \gls{tdah} est un trouble psychiatrique répandu chez les enfants qui se caractérise par des problèmes d'attention couplés parfois à de l'hyperactivité/impulsivité. 
+La prévalence de ce trouble est d'environ 5\% chez les enfants en âge d'aller à l'école, ce qui représente 2.5 millions d'enfants en Europe \citep{DSM-5}. 
+En plus des symptômes du \gls{tdah}, le bien être des enfants est impacté : en effet, ces derniers souffrent d'une faible estime d'eux-mêmes et ont de mauvaises notes à l'école
+
+
+
+% définition du tdah chez l'enfant (symptômes, prévalence)
+% diagnostic du tdah (dsm-4 et dsm 5), essor du tdah chez les adultes (10.1001/jamanetworkopen.2019.14344, Chung et al.) mais ici on ne s'intéresse qu'aux enfants
+% parler des traitements possibles (methylphenidate, thérapies comportementales et finir sur NFB)
+% neuromarqueurs couramment utilisés (utiliser intro Bussalb2019clinical
+% efficacité du nfb à travers les méta-analyses, l'efficacité du nfb est souvent donnée à l'aide d'évaluations sur des échelles cliniques
+% décire les échelles cliniques (composantes inattention, hypercativité et totale)
+% les évaluateurs parents et teachers sont reliable selon lambez B et al. 2019, c'est admis de les utiliser comme évaluateurs
+% dans les méta-analyses on parle de pblind et de mprox
+
+
+%Définition TDAH chez l’enfant (parler du dsm-4 et 5) et parler de l’essor de la problématique du TDAH chez l’adulte (10.1001/jamanetworkopen.2019.14344, Chung et al.), parler des études et des méta-analyses
+%sham-NFB, parler des échelles cliniques (It is generally accepted that parent and teacher rating scales are reliable and 
+%valid components of ADHD assessments (McGough  Barkley, 2004)), définir pblind et mprox, dire que c'est admis de les utiliser comme évaluateurs lambez B et al. 2019
+%Parler des traitements possibles (bien définir les cognitives therapy)
+%% dire quels sont les neuromarqueurs utilisés et les autre types de nfb
 
 \section{Objectifs de la thèse}
+
 Le \gls{nfb} a fait l'objet de nombreuses études pour déterminer son efficacité dans le cadre du \gls{tdah} chez l'enfant comme souligné précédemment.
 Malheureusement, aucun consensus n'a encore été clairement atteint, ainsi le travail effectué au cours de cette thèse a pour but de déterminer les facteurs 
 de réussite de l'entraînement par \gls{nfb} pour les enfants \gls{tdah} en se basant sur des données cliniques mais aussi physiologiques. 
@@ -185,12 +191,13 @@ l'entrainement par \gls{nfb}.
 
 \section{Contribution et résumé des chapitres}
 
-Ce manuscrit est divisé en 5 parties : les chapitres \ref{chapitre-2}, \ref{saob} et \ref{chapitre-4} ont chacun pour but de remplir un des objectifs précédemment énoncés.
+Ce manuscrit est divisé en 5 parties, dont les trois centrales (les chapitres \ref{chapitre-2}, \ref{saob} et \ref{chapitre-4}) ont chacune pour but de remplir 
+un des objectifs précédemment énoncés.
 
-Le chapitre \ref{chapitre-2} s'intéresse à une méthode largement utilisée pour évaluer la performance du \gls{nfb} pour les enfants \gls{tdah} 
-\citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016} : la méta-analyse. Les résultats de ce type d'analyse ont un impact important sur la
-communauté scientifique : \citet{Micoulaud2016} a notamment réagi à la méta-analyse de \citet{Cortese2016} en discutant certains points de cette 
-analyse. 
+Avant de chercher à déterminer les facteurs de réussite de l'entrainement par \gls{nfb}, son efficacité sur les enfants \gls{tdah} est évaluée à l'aide 
+d'une méthode couramment utilisée \citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016} et présentée dans le chapitre \ref{chapitre-2} : la méta-analyse. 
+Les résultats de ce type d'analyse ont un impact important sur la communauté scientifique : \citet{Micoulaud2016} a notamment réagi à la méta-analyse de 
+\citet{Cortese2016} en discutant certains points de cette analyse. 
 
 Ainsi, dans ce chapitre la méta-analyse de \citet{Cortese2016} est répliquée en modifiant les points soulignés par \citet{Micoulaud2016}
 afin de jauger leur impact sur les conclusions émises dans la méta-analyse. Ensuite, étant donné que de nouvelles études satisfaisant les critères d'inclusion
@@ -203,14 +210,14 @@ La réplication de la méta-analyse conduisant aux mêmes résultats que \citet{
 important pour changer ses conclusions : le \gls{nfb} est jugé efficace par les parents alors que les enseignants, considérés comme \gls{pblind}, ne notent aucune
 amélioration significative. Par ailleurs, la mise à jour confirme les résultats qui semblent commencer à se stabiliser pour les évaluations des parents.
 
-Ce chapitre a été l'occasion de mener une revue de littérature des études cliniques sur le \gls{nfb} appliqué aux enfants \gls{tdah} 
+Ce chapitre a été l'occasion de mener une revue de littérature des études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah} 
 qui a permis de mettre en évidence la forte hétérogénéité d'un point de vue clinique et méthodologique de ces études. 
 
-Alors que les résultats des méta-analyses peuvent souffrir de ces différences qui pourraient, par ailleurs, expliquer l'absence de consensus quant 
-à l'efficacité du \gls{nfb}, une analyse en tirant avantage est implémentée : la \gls{saob} décrite dans le chapitre \ref{saob}. Les facteurs méthodologiques et/ou 
-cliniques fortement variables entre les études tels que, par exemple, la durée du traitement, le nombre de sessions et le type de protocole de \gls{nfb} 
-suivi, sont extraits de 33 études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah} dans le but de déterminer lesquels ont un impact sur 
-l'efficacité du \gls{nfb}. Pour ce faire, trois méthodes multivariées sont utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. 
+Alors que la fiabilité des résultats des méta-analyses souffrent de ces différences qui pourraient, par ailleurs, expliquer l'absence de consensus quant 
+à l'efficacité du \gls{nfb} \citep{Alkoby2017}, une analyse en tirant avantage est implémentée : la \gls{saob} décrite dans le chapitre \ref{saob}. 
+Les facteurs méthodologiques et/ou cliniques fortement variables entre les études tels que, par exemple, la durée du traitement, le nombre de sessions et le type 
+de protocole de \gls{nfb} suivi, sont extraits de 33 études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah} dans le but de déterminer lesquels 
+ont un impact sur l'efficacité du \gls{nfb}. Pour ce faire, trois méthodes multivariées sont utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. 
 
 La \gls{saob} identifie trois facteurs qui semblent avoir un impact sur l'efficacité du \gls{nfb} : tout d'abord, utiliser un matériel d'acquisition de bonne 
 qualité conduirait à de meilleurs résultats, ensuite un traitement intensif semblerait préférable, et enfin les évaluations des enseignants seraient plus
