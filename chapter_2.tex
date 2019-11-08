@@ -25,7 +25,7 @@ sur un plus grand nombre de sujets provenant de populations différentes, l'effi
 (\textit{narrative reviews} en anglais) étaient le plus couramment utilisées pour cette tâche, elles ont perdu leur popularité au profit des méta-analyses.
 En effet, les revues narratives souffrent de la subjectivité des auteurs qui choisissent notamment le poids à donner à telle ou telle étude : alors que certains
 vont donner plus d'importance aux études incluant de nombreux sujets, d'autres vont favoriser les études qu'ils jugent de bonne qualité. La méta-analyse permet 
-de réduire cette subjectivité en utilsant par exemple des critères mathématiques définis à l'avance pour calculer le poids à attribuer à chaque étude incluse
+de réduire cette subjectivité en utilisant par exemple des critères mathématiques définis à l'avance pour calculer le poids à attribuer à chaque étude incluse
 \citep{Borenstein2009}.
 
 Réaliser une méta-analyse permet de confronter les résultats de toute étude incluse à ceux des autres études intégrées dans l'analyse : l'efficacité (mesurée par 
@@ -58,7 +58,7 @@ L'hypothèse nulle testée lors de la méta-analyse est différente selon le mod
 
 Le modèle à effets aléatoires est souvent plus approprié du fait de la variabilité des études. En effet, même si les études incluses dans la méta-analyse 
 répondent toutes aux critères d'inclusion fixés au préalable, rien ne peut généralement permettre de supposer que ces études sont identiques et qu'elles 
-partagent donc toutes le même \gls{es} réel. Le modèle à effet fixe est ainsi rarement utilisé, on peut cependant y avoir recours lorsque le nombre d'études inluses 
+partagent donc toutes le même \gls{es} réel. Le modèle à effet fixe est ainsi rarement utilisé, on peut cependant y avoir recours lorsque le nombre d'études incluses 
 est très petit. Au sein du domaine du \gls{nfb} appliqué aux enfants \gls{tdah}, les méta-analyses suivent le modèle à effets aléatoires 
 \citep{Cortese2016, Micoulaud2014}, c'est donc ce modèle que nous choisissons également.
 
@@ -152,7 +152,7 @@ estimations de \gls{es}-inter-groupes plus précises, c'est pourquoi un plus gra
 Afin d'obtenir l'estimation la plus précise possible de l'effet du traitement sur la population, une moyenne pondérée des \gls{es}-inter-groupes 
 des études incluses est calculée.
 
-Si le modèle à effet fixe est choisi, le poids $w_{\text{fixe}_k}$ assisgné à chaque étude $k$ correspond à l'inverse de la variance de son 
+Si le modèle à effet fixe est choisi, le poids $w_{\text{fixe}_k}$ assigné à chaque étude $k$ correspond à l'inverse de la variance de son 
 \gls{es}-inter-groupes ($\sigma^2(\text{ES})$, la variance intra-étude) \citep{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_weight_fixed_study}
@@ -160,7 +160,7 @@ w_{\text{fixe}_k} = \frac{1}{\sigma^2(\text{ES}_k)}.
 \end{equation} 
 
 Dans notre cas nous employons le modèle à effets aléatoires, qui inclut également la variance inter-études $\tau^2$ conduisant à des 
-poids ($w_{\text{aléatoires}_k} = w_k$) associés aux études dfférents.
+poids ($w_{\text{aléatoires}_k} = w_k$) associés aux études différents.
 
 Calculer la variance inter-études se fait en trois étapes décrites par les équations Eq.~(\ref{eq:metareview_Q}), Eq.~(\ref{eq:metareview_C}) 
 et Eq.~(\ref{eq:metareview_Tau}) \citep{Borenstein2009} :
@@ -206,13 +206,13 @@ partie du graphique où les \gls{es} sont en faveur du traitement de celle où i
 Un autre graphique très utilisé dans la méta-analyse est le \textit{funnel plot} qui a pour but de détecter un éventuel biais de publication
 lors de la sélection des études et une hétérogénéité parmi elles \citep{Sterne2011}. Il s'agit d'un nuage de points de la précision de chaque 
 \gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'inverse de l'\gls{et} est couramment utilisé comme estimation de la précision et de la 
-taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études soient au sommet et que les plus petites se retouvent 
+taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études soient au sommet et que les plus petites se retrouvent 
 dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
 le graphique est symétrique. Le triangle centré sur \gls{est} obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté 
 inclut 95\% des études s'il n'y a pas de biais.
 
 Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant par exemple le test d'\citet{Egger1997}. 
-Il s'agit de regresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
+Il s'agit de régresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
 0 (seuil de signifiance à 0.05) alors le \textit{funnel plot} est asymétrique.
 
 L'ensemble des étapes pour réaliser une méta-analyse en suivant le modèle à effets aléatoires est résumé à la Figure~\ref{Figure:pipeline_meta_analyse}.
@@ -272,7 +272,7 @@ Eq.~(\ref{eq:metareview_variance_effect_size_between}). Une analyse de sensibili
 corrélation de Pearson intra-groupes : lorsqu'elle varie entre 0.2 et 0.8, la significativité de l'\gls{est} ne change pas.
 
 Au vu de la faible différence entre ce qui est retourné par RevMan et par le package Python, on peut être confiants quant aux résultats obtenus pour les 
-deux analyses suivantes utilsant le package Python. 
+deux analyses suivantes utilisant le package Python. 
 
 \subsection{Réplication de la méta-analyse de Cortese et al., 2016} \label{replication}
 
@@ -280,7 +280,7 @@ Certains choix de cette méta-analyse ont été discutés par la communauté sci
 de \citet{Cortese2016}, les changements suivants ont été étudiés :
 
 \begin{itemize}
-\item l'\gls{es}-inter-groupes de \citet{Arnold2014} est calculé en utilsant les valeurs cliniques à post-test, c'est à dire obtenues lorsque la totalité 
+\item l'\gls{es}-inter-groupes de \citet{Arnold2014} est calculé en utilisant les valeurs cliniques à post-test, c'est à dire obtenues lorsque la totalité 
 des 40 sessions est effectuée, à la différence de \citet{Cortese2016} qui a utilisé les scores cliniques donnés apres 12 sessions de \gls{nfb} car les valeurs 
 finales n'étaient pas encore disponibles,
 \item \citet{Cortese2016} a calculé les \gls{es}-inter-groupes \citet{Steiner2014} pour les enseignants à partir de leurs évaluations reportées sur 
@@ -327,7 +327,7 @@ et d'exclusion sont \citep{Cortese2016} :
 \item les contrôles acceptés sont : le traitement habituel, la liste d'attente, un traitement actif, un placebo/\textit{sham}-\gls{nfb},
 \item les études comparant le \gls{nfb} au traitement médicamenteux dont la dose est optimisée ou où le \gls{nfb} est couplé au traitement médicamenteux
 dont la dose est optimisée sont exclues.
-\item la prise de médicaments en tant que traitement en arrière plan dans le groupe \gls{nfb} ou contrôle est acceptée.
+\item la prise de médicaments en tant que traitement en arrière-plan dans le groupe \gls{nfb} ou contrôle est acceptée.
 \end{itemize}
 
 Afin de trouver les études à inclure, \citet{Cortese2016} ont cherché sur plusieurs bases de données (dont la dernière vérification
@@ -399,7 +399,7 @@ L'ajout des 2 études correspondant à cette définition \citep{Strehl2017, Baum
 
 La deuxième sous population étudiée comprend les sujets ne prenant aucun traitement médicamenteux durant le traitement par \gls{nfb}. A l'origine, 7 études
 sont incluses dans cette analyse \citep{Beauregard2006, Gevensleben2009, Bakhshayesh2011, Arnold2014, Linden1996, Christiansen2014, Maurizio2014} et la 
-mise à jour conduit à l'ajout de \citep{Bazanova2018}. Pour ce sous groupe, seul l'\gls{est} de la composante inattention évaluée par les parents est significatif
+mise à jour conduit à l'ajout de \citep{Bazanova2018}. Pour ce sous-groupe, seul l'\gls{est} de la composante inattention évaluée par les parents est significatif
 (p-value = 0.017). En effet, les différences dans les valeurs à post-test de \citet{Arnold2014} et l'inclusion de \citet{Bazanova2018} a conduit à la perte de 
 significativité de l'\gls{est} de la composante hyperactivité évaluée par les parents (p-value = 0.062) par rapport au résultat de \citet{Cortese2016} (p-value 
 = 0.016).
@@ -422,7 +422,7 @@ Toutefois, l'utilisation de l'une ou l'autre de ces échelles ne change pas la s
 
 La seconde différence entre \citep{Cortese2016} et la réplication effectuée ici est que le calcul des \gls{es}-intra-groupes de \citet{Arnold2014} se base 
 sur les valeurs à post-test obtenues après 40 sessions de \gls{nfb} au lieu de valeurs temporaires obtenues après 12 sessions de \gls{nfb}. Des études montrent
-que le nombre de sessions est corrélé postivement avec les changements observés sur l'\gls{eeg} \citep{Vernon2004}, ainsi un faible nombre de sessions menerait
+que le nombre de sessions est corrélé positivement avec les changements observés sur l'\gls{eeg} \citep{Vernon2004}, ainsi un faible nombre de sessions mènerait
 à des \gls{es}-intra-groupes plus petits. Or, ici les \gls{es}-intra-groupes calculés après la réalisation de toutes les sessions sont plus faibles que ceux 
 obtenus après 12 sessions. Toutefois, ces différences ne changent pas la significativité des \gls{est}. 
 
@@ -444,8 +444,8 @@ et la performance du \gls{nfb}.
 \subsection{Evolution des résultats avec la nouvelle recherche du \\ 12/02/2018}
 
 Même si la mise à jour de la méta-analyse de \citet{Cortese2016} montre une certaine stabilité dans les résultats, il est important de la mettre à jour
-régulièrement du fait de l'absence de consensus quand à l'efficacité du \gls{nfb}. Par ailleurs, depuis les années 2010, de nombre d'essais cliniques 
-a fortement augmenté permettant aux méta-analyses de regrouper de plus en plus d'études. 
+régulièrement du fait de l'absence de consensus quant à l'efficacité du \gls{nfb}. Par ailleurs, depuis les années 2010, de nombre d'essais cliniques 
+a fortement augmenté permettant aux méta-analyses de regrouper de plus en plus d'études. % approche bayésienne
 
 Ainsi, une nouvelle recherche sur PubMed a été lancée le 2 septembre 2019 en suivant les mêmes étapes que présentées en \ref{selection_studies}, le détail
 des études identifiées est donné à la Table~\ref{Table:table_meta_review_update_september_2019}.
@@ -463,15 +463,17 @@ Les \gls{est} évalués par les enseignants sont quant à eux toujours non signi
 
 En ce qui concerne les résultats dans les sous-groupes :
 \begin{description}
-\item[protocole standard :] 2 études ont été ajoutées \citep{Aggensteiner2019, Minder2018} et rendent tous les \gls{est} initiallement significatifs 
-non significatifs, désormais seul l'\gls{est} de la composante totale évaluée par les parents est encore significatif (p-value = 0.047). 
-Les \gls{est} donnés par les enseignants pour la composante totale est limite significative (p-value = 0.053),
+\item[protocole standard :] 2 études ont été ajoutées \citep{Aggensteiner2019, Minder2018} et rendent tous les \gls{est} initialement significatifs 
+non significatifs ; désormais seul l'\gls{est} de la composante totale évaluée par les parents est encore significatif (p-value = 0.047). 
+L'\gls{est} calculé pour la composante totale évaluée par les enseignants est limite significatif (p-value = 0.053),
 \item [pas de traitement médicamenteux en simultané :] seule une étude a été ajoutée \citep{Moreno2019} et aucune modification de significativité
 n'est observée.
 \end{description}
 
 Ainsi, les conclusions précédentes sur le protocole standard sont à nuancer : l'utilisation de ce type de protocole ne mène peut-être pas nécessairement
-à une bonne performance. Quoiqu'il en soit il est utile de mettre à jour ces analyses jusqu'à obtenir une p-value stable. En effet, les résultats ne sont 
+à une bonne performance. 
+
+Quoiqu'il en soit il est utile de mettre à jour ces analyses jusqu'à obtenir une p-value stable. En effet, les résultats ne sont 
 pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Afin de mettre en évidence cette fluctuation, 
 l'évolution des p-values obtenues des \gls{est} de la composante totale en fonction des études incluses au fur et à mesure selon leur année de publication 
 est représentée à la Figure~\ref{Figure:meta_analysis_evolution_pvalue}. 
@@ -482,7 +484,7 @@ est représentée à la Figure~\ref{Figure:meta_analysis_evolution_pvalue}.
   \caption{Evolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études pour les évaluations des 
 	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
 	La courbe orange correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
-	Le seuil de significativité à 0.05 est représentée en pointillés rouges.}
+	Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
   \label{Figure:meta_analysis_evolution_pvalue}
 \end{figure}
 
@@ -494,11 +496,11 @@ la Figure~\ref{Figure:meta_analysis_evolution_pvalue}), ce qui laisse penser que
 
 \subsection{Hétérogénéité des études} 
 
-Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exmple, ceux énoncés à \ref{selection_studies}, 
+Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exemple, ceux énoncés à \ref{selection_studies}, 
 elles diffèrent tout de même sur de nombreux points, limitant la fiabilité de leurs résultats comme le souligne \citep{Alkoby2017}. Afin de pallier 
 cette hétérogénéité, l'analyse peut cibler une population plus précise, comme ce qui a été effectué lors de l'analyse
 des sous populations. Cependant, ce genre de restriction souffre d'une puissance statistique plus faible et regroupe encore des études fortement hétérogènes.
-En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinséquement différents et il est probable que leur
+En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinsèquement différents et il est probable que leur
 efficacité ne soit pas la même. 
 
 Par ailleurs, le matériel d'acquisition utilisé, ainsi que le traitement du signal varient d'une étude à l'autre, or ces points sont sans doute centraux 
