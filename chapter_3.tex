@@ -10,7 +10,7 @@ et la durée du traitement).
 
 Afin de mieux identifier le poids de ces facteurs sur l'efficacité du \gls{nfb}, une nouvelle approche a été implémentée : l'analyse systématique des biais 
 (\gls{saob} en anglais). Dans cette analyse, l'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes 
-qui sont ici les facteurs méthologiques et techniques. Le but de cette analyse est donc de déterminer les paramètres qui ont une influence sur l'efficacité du 
+qui sont ici les facteurs méthodologiques et techniques. Le but de cette analyse est donc de déterminer les paramètres qui ont une influence sur l'efficacité du 
 \gls{nfb} afin de mieux les prendre en compte dans les études d'efficacité. 
 \clearpage
 
@@ -33,7 +33,7 @@ par un \gls{irb},
 \item \emph{la population :} la prise de psychostimulants durant le traitement par \gls{nfb}, la tranche d'âge des enfants inclus, la sévérité des symptômes du TDAH à pré-test (score clinique à pré-test
 divisé par le score maximal à atteindre sur l'échelle clinique), et le degré d'engagement dans l'entrainement par \gls{nfb},
 \item \emph{l'implémentation du \gls{nfb} :} le protocole utilisé (\gls{scp}, \gls{smr}, l'augmentation du rythme theta, l'augmentation du rythme beta dans les aires centrale ou frontale 
-et la diminution du rythme theta), la présence d'une phase de transfert lors de l'entrainenement par \gls{nfb}, l'utilisation d'une carte de transfert pour s'entrainer à la maison ou à l'école, 
+et la diminution du rythme theta), la présence d'une phase de transfert lors de l'entrainement par \gls{nfb}, l'utilisation d'une carte de transfert pour s'entrainer à la maison ou à l'école, 
 le type de seuillage pour les récompenses discrètes, le nombre de sessions de \gls{nfb}, la durée et la fréquence des sessions, la durée du traitement, l'individualisation des bandes de fréquence
 basée sur l'\gls{iapf}, et le couplage du \gls{nfb} avec l'\gls{emg}-Biofeedback.
 \item \emph{la qualité de l'acquisition :} la présence de plus d'une électrode active et la qualité de l'\gls{eeg}. Cette dernière est représentée par un indicateur allant de 1 à 3, calculé sur les critères 
@@ -107,10 +107,10 @@ La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide de
 \begin{itemize}
   \item une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
 	\item une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
-	\item un arbre de décision de regression (\gls{dt} en anglais) \citep{Quinlan1986}.
+	\item un arbre de décision de régression (\gls{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
 
-Les résultats de ces trois méthodes intrinséquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
+Les résultats de ces trois méthodes intrinsèquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
 \gls{nfb} est plus probable que si une seule méthode l'identifie. 
 
 \subsubsection{La régression linéaire multiple et pondérée}
@@ -170,7 +170,7 @@ où $\lambda$ est le paramètre de régularisation qui, en augmentant, met de pl
 Le paramètre de régularisation optimal est déterminé par une validation croisée \textit{leave-one-out}. Cette méthode prend une seule observation 
 comme donnée de test pour la validation, laissant $n$ - 1 observations pour les données d'entraînement. Le processus de la validation croisée est ensuite répété $n$ fois pour que chaque observation 
 soit utilisée exactement une fois comme donnée de test. Pour chaque itération, appelée \textit{fold} en anglais, l'erreur quadratique moyenne (\gls{mse} en anglais) est calculée sur les données de test
-puis les $n$ resultats sont moyennés pour mener à une seule observation qui permet de trouver le $\lambda$ optimal. Celui-ci correspond à l'abscisse du minimum de la \gls{mse} 
+puis les $n$ résultats sont moyennés pour mener à une seule observation qui permet de trouver le $\lambda$ optimal. Celui-ci correspond à l'abscisse du minimum de la \gls{mse} 
 du \textit{fold} moyen calculée sur un large intervalle de $\lambda$ \citep{James2013}.
 Un coefficient non mis à 0 signifie que le facteur associé pourrait avoir une influence sur l'efficacité du \gls{nfb} et, ici aussi, le signe du coefficient indique la direction de l'effet. 
 
@@ -189,7 +189,7 @@ choix du seuil de comparaison dans le cas d'une variable quantitative) pour subd
 avec $\hat{y}$ les valeurs prédites.
 
 La première variable utilisée pour diviser l'ensemble des données se situe dans le noeud racine (\textit{root node} en anglais), les autres
-variables qui mènent à une nouvelle subdivision sont dans des noeuds, et les noeuds où la divsion s'arrête sont appelés
+variables qui mènent à une nouvelle subdivision sont dans des noeuds, et les noeuds où la division s'arrête sont appelés
 feuilles (\textit{leaf nodes}) de l'arbre. La profondeur de l'arbre peut être définie par le nombre d'observations minimal nécessaire
 pour diviser un sous ensemble. Un arbre exemple est schématisé à la Figure~\ref{Figure:factors_decision_tree_example}.
 
@@ -288,7 +288,8 @@ homogènes ou présentaient trop d'observations manquantes :
 \end{itemize} 
 
 
-Afin de comparer la variabilité des valeurs au sein des facteurs non catégoriels sélectionnés, les boxplots des valeurs standardisées ont été obtenus et représentés à la Figure~\ref{Figure:factors-boxplots} :
+Afin de comparer la variabilité des valeurs au sein des facteurs non catégoriels sélectionnés, les boxplots des valeurs standardisées ont 
+été obtenus et représentés à la Figure~\ref{Figure:factors-boxplots} :
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-distribution-of-factors} 
@@ -296,7 +297,7 @@ Afin de comparer la variabilité des valeurs au sein des facteurs non catégorie
   \label{Figure:factors-boxplots}
 \end{figure}
 
-Le nombre de sessions et la durée de la session sont plus variables que l'âge minimal et maximal des enfants inclus dans l'étude. Les extremum et la 
+Le nombre de sessions et la durée de la session sont plus variables que l'âge minimal et maximal des enfants inclus dans l'étude. Les extrema et la 
 moyenne de ces facteurs aux valeurs numériques non standardisées sont listés dans la Table~\ref{Table:table_factors_extremum_values} pour mettre en 
 évidence la variabilité de ces facteurs dans les études incluses. 
 
@@ -444,7 +445,7 @@ résultat : être engagé dans un traitement long est plus compliqué. Cependant
 par les enfants à ce sujet, soit cette information n'est pas mentionnée. 
 
 Par ailleurs, la durée du traitement est étroitement liée à son intensité, ainsi on peut supposer qu'une période de traitement plus courte est préférable 
-du fait de la fréquence plus élevée des sessions. Cette hypoyhèse est étayée par 
+du fait de la fréquence plus élevée des sessions. Cette hypothèse est étayée par 
 le fait que la variable "fréquence des sessions" (nombre de sessions par semaine) est aussi associée à de plus grands \gls{es}-intra-groupe selon le
 \gls{lasso} et le \gls{dt}. L'impact de l'intensité du traitement par \gls{nfb} a été exploré par \citet{Rogala2016} sur des sujets adultes sains : il est
 observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Par ailleurs, un autre facteur permet de soutenir
@@ -518,7 +519,7 @@ plus aveugles aux symptômes qu'au traitement. Etant donné que la mise en place
 \citep{Birbaumer1991} faisables est très difficile, il est nécessaire d'avoir recours à une méthode alternative et objective acceptable pour juger de l'efficacité du traitement 
 \citep{World-Medical-Association2000}. Une analyse robuste envisageable serait d'étudier les neuromarqueurs collectés durant le traitement par \gls{nfb} pour démontrer que les 
 patients contrôlent effectivement le neuromarqueur, qu'ils apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le temps), et que cet apprentissage conduit 
-à une réogarnisation cérébrale durable. Ce genre d'analyse a été menée pour certaines études et conduit à des résultats favorables mais n'est pas 
+à une réorgarnisation cérébrale durable. Ce genre d'analyse a été menée pour certaines études et conduit à des résultats favorables mais n'est pas 
 systématique \citep{Arns2014}. Si aucune évolution du neuromarqueur n'est observée au cours du traitement alors que les évaluateurs \gls{mprox} notent une amélioration clinique 
 des symptômes, on pourrait conclure que l'effet placebo joue un rôle dans ces résultats.
 
@@ -606,7 +607,7 @@ régulièrement mise à jour.
 \section{Conclusion}
 
 La \gls{saob} a permis d'identifier un facteur lié au matériel d'acquisition de l'\gls{eeg} comme ayant une influence positive sur l'efficacité du \gls{nfb}, 
-ce qui indique fortement qu'elle est liée à un mécanisme d'action basé sur la modulaion de l'\gls{eeg}. Toutefois, la mise à jour de la \gls{saob} a rendu
+ce qui indique fortement qu'elle est liée à un mécanisme d'action basé sur la modulation de l'\gls{eeg}. Toutefois, la mise à jour de la \gls{saob} a rendu
 plus incertain l'impact de ce paramètre dont la définition souffre du peu d'informations fourni par les études à ce sujet. Toutefois, étant donné que la
 communauté du \gls{nfb} appelle à être le plus transparent possible quant au matériel utilisé \citep{Ros2019}, il sera sans doute possible d'étudier plus précisément
 son impact lors de futures analyses.
@@ -621,7 +622,7 @@ recommandé : il serait préférable d'avoir recours au sham-\gls{nfb} et à l'a
 
 Comme l'a montré la mise à jour des résultats de la \gls{saob}, les conclusions de cette analyse peuvent encore évoluer. Au vu du nombre important 
 d'études publiées sur le \gls{nfb} appliqué aux enfants \gls{tdah}, certains facteurs vont pouvoir finir par être inclus dans la \gls{saob}, comme par exemple 
-l'individualisation du protocole de \gls{nfb} qui semble prometteuse. Le chapitre suivant va justement s'intéresser à la distibution d'un marqueur de l'attention, 
+l'individualisation du protocole de \gls{nfb} qui semble prometteuse. Le chapitre suivant va justement s'intéresser à la distribution d'un marqueur de l'attention, 
 le \gls{tbr}, au sein d'une large population afin de déterminer si une personnalisation basée sur ce neuromarqueur est envisageable.
 
 
