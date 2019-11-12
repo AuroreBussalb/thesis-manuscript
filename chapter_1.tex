@@ -1,8 +1,8 @@
 \chapter{Introduction} \label{chapitre-1}
 
 Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}, 
-qui est au centre de ce travail, est présentée, puis ses diverses applications sont listées. Ici, seule l'une d'entre est étudiée : il s'agit du \gls{tdah}
-chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
+qui est au centre de ce travail, est présentée, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre est étudiée : 
+il s'agit du \gls{tdah} chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
 
 Une fois le décor planté, les objectifs de cette thèse sont énoncés et la contribution de chaque chapitre est mise en évidence. Enfin, les analyses présentées 
 ici ont fait l'objet de publications scientifiques et d'une communication orale dont les références sont fournies en fin de partie.  
@@ -29,7 +29,9 @@ aux fréquences entre 12 et 15Hz. Ensuite, le but du Dr. Sterman a été d'entra
 lorsqu'ils réussissaient à l'émettre pendant une demi seconde, ce que les chats ont vite appris à faire. 
 
 Cette modulation a ensuite été employée à des fins cliniques : l'entrainement du \gls{smr} chez les chats améliore leur sommeil \citep{Sterman1970} mais aussi
-réduit la fréquence de leurs crises d'épilepsie après une exposition au kérosène \citep{Sterman1974}. Cependant, le \gls{nfb} ne correspondant pas à ce qui 
+réduit la fréquence de leurs crises d'épilepsie après une exposition au kérosène \citep{Sterman1974}. 
+
+Cependant, le \gls{nfb} ne correspondant pas à ce qui 
 était connu à l'époque quant au fonctionnement du cerveau humain, son utilisation s'est faite en marge de la communauté scientifique \citep{Masterpasqua2003}. 
 Il faut attendre les années 2000 pour que le \gls{nfb} soit réhabilité conduisant à une explosion du nombre d'études scientifiques visant à mieux comprendre 
 ses mécanismes et ses effets, illustrée à la Figure~\ref{Figure:introduction_number_of_nfb_publications}. 
@@ -57,10 +59,23 @@ seul le \gls{nfb} \gls{eeg} est étudié. L'\gls{eeg} est enregistré de façon 
 le bon contact entre la peau et les électrodes est représenté par une faible impédance, qui signifie que le niveau de bruit dans le 
 signal est réduit \citep{Kappenman2010}. Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
 \ref{applications_NFB}. Le signal passe ensuite par un amplificateur, qui peut être conforme à la norme ISO-60601-2-26 \citep{ISO}, avant d'être analysé 
-par le logiciel de \gls{nfb}. 
+par l'application de \gls{nfb}. 
 
-L'application de \gls{nfb} extrait alors le marqueur à moduler, appelé par la suite neuromarqueur : celui-ci, tout comme les électrodes utilisées, 
-dépend de l'application du \gls{nfb}. Le seuil auquel est comparé le neuromarqueur pour octroyer les récompenses visuelles et/ou auditives peut être fixe 
+Cette application extrait alors le marqueur à moduler, appelé par la suite neuromarqueur : celui-ci, tout comme les électrodes utilisées, 
+dépend de l'application du \gls{nfb}. Le neuromarqueur correspond le plus souvent à des ondes cérébrales, isolées au niveau de certaines électrodes,
+qui sont définies sur un intervalle de fréquence donné, qui peut varier selon les études \citep{Marzbani2016} :
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\cdot$}
+\begin{itemize}
+\item les ondes delta (moins de 4Hz),
+\item les ondes theta (4-8Hz),
+\item les ondes alpha (8-12Hz),
+\item les ondes beta (12-30Hz), dont les ondes \gls{smr} entre 12 et 15Hz,
+\item les ondes gamma (30-100Hz)
+\end{itemize}
+Pour certaines applications, le neuromarqueur est un ratio de deux ondes cérébrales \citep{Gevensleben2009}.
+
+Le seuil auquel est comparé le neuromarqueur pour octroyer les récompenses visuelles et/ou auditives peut être fixe 
 au cours de la session et/ou du traitement, ou alors incrémental intra ou inter-sessions. Par ailleurs, sa valeur, dans 
 les deux cas, peut être définie soit par un praticien, soit être calculée automatiquement \citep{Arns2014}. La répétition de cet exercice mène au phénomène de 
 neuroplasticité \citep{VanDoren2017, Ros2010} qui permet une réorganisation neuronale durable.
@@ -84,7 +99,7 @@ généralement sectionnée en blocs d'entrainement de quelques minutes, séparé
 un bloc dit de transfert durant lequel aucun retour n'est donné à l'utilisateur alors que celui-ci doit moduler son activité cérébrale \citep{Bioulac2019,
 Bluschke2016}. Cette phase de transfert a pour but de faciliter la transposition du contrôle appris durant les 
 sessions de \gls{nfb} à la vie de tous les jours \citep{Arns2014}. Dans certains cas, afin d'aider à cette transposition, une carte représentant l'interface du jeu sérieux est 
-fournie au sujet afin qu'il puisse la regarder en modulant son activité cérébrale \citep{Leins2007} en dehors des sessions de \gls{nfb}. 
+fournie au sujet afin qu'il puisse la regarder en modulant son activité cérébrale en dehors des sessions de \gls{nfb} \citep{Leins2007}. 
 
 Une autre différence que peuvent présenter les applications de \gls{nfb} est la personnalisation du \gls{nfb} selon le profil \gls{eeg} du sujet
 \citep{Alkoby2017}. En effet, certaines applications proposent d'adapter les définitions des bandes de fréquences au sujet en utilisant la fréquence de son
@@ -98,10 +113,114 @@ le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet \citep{Bio
   \caption{Spectre d'un signal \gls{eeg} obtenu les yeux fermés au repos. L'\gls{iapf} correspond au point rouge.}
   \label{Figure:introduction_iapf}
 \end{figure}
- 
-% utiliser Marzbani
-% voir lambez B et al. 2019
 
+\section{Les champs d'application du Neurofeedback} \label{applications_NFB}
+
+Le \gls{nfb} présente de nombreuses applications dont les principales sont détaillées ici. Parmi ces applications, l'une d'entre elles est présentée 
+plus précisément car elle est exclusivement étudiée dans la suite : le \gls{tdah} chez l'enfant.
+
+\subsection{De nombreuses applications}
+
+Comme détaillé précédemment, l'\gls{eeg} comporte plusieurs composantes fréquentielles dont chacune correspond à une fonction physiologique différente.
+En effet, par exemple, les ondes delta sont observées lorsque le sujet est endormi, les ondes theta lorsqu'il somnole, les ondes alpha lorsqu'il est relaxé, 
+les ondes beta lorsqu'il est attentif et les ondes gamma lorsqu'il est en plein processus cognitif \citep{Marzbani2016}. 
+
+Par ailleurs, afin d'interpréter la présence de ces ondes sur l'\gls{eeg}, il faut prendre en considération les électrodes sur lesquelles elles sont observées 
+car chaque aire cérébrale a des fonctions spécifiques, comme par exemple \citep{Marzbani2016} :
+\begin{itemize}
+\item la \textbf{zone frontale} est impliquée dans la mémoire et la concentration,
+\item la \textbf{zone temporale} est impliquée dans le langage et la lecture,
+\item la \textbf{zone occipitale} est impliquée dans l'apprentissage visuel,
+\item la \textbf{zone pariétale} est impliquée dans la résolution de problèmes,
+\item la \textbf{zone centrale} est impliquée dans l'attention.
+\end{itemize}
+
+Ces différentes fonctions sont résumées à la Figure~\ref{Figure:introduction_cortical_areas_and_functions} où le système \gls{eeg} 10-20 est représenté ainsi
+que les aires cérébrales qu'il couvre.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction_cortical_areas_and_functions} 
+  \caption{Schématisation du système \gls{eeg} 10-20. Des exemples de fonctions gérées par les différentes aires cérébrales sont données. }
+  \label{Figure:introduction_cortical_areas_and_functions}
+\end{figure}
+
+Ainsi, établir un protocole de \gls{nfb} consiste à identifier les rythmes à moduler, s'il faut diminuer ou augmenter la présence de ce neuromarqueur, et l'aire 
+du cortex à entrainer en se basant sur la littérature existante.
+
+Les applications du \gls{nfb} peuvent donc être assez diverses, les principales sont décrites ici. 
+
+\subsubsection{Trouble du spectre autistique}
+
+Le trouble du spectre autistique est un trouble neurodeveloppemental qui impacte considérablement les intéractions sociales et qui est toujours présent à 
+l'âge adulte. Les \gls{eeg} des enfants autistes présentent des anomalies comparés à ceux des enfants sains, notamment \citep{Coben2010, Kouijzer2010} :
+\begin{itemize}
+\item une activité dans les hautes fréquence de beta liée à l'anxiété,
+\item une forte activité du ratio delta/theta correspondant à un déficit d'attention.
+\end{itemize}
+Lors de la plupart des entrainements par \gls{nfb} pour traiter le trouble du spectre autistique, il est demandé aux enfants de diminuer à la fois leur ratio 
+theta/alpha et d'augmenter la production d'ondes beta \citep{Thompson2010, Othmer2007}. 
+
+\subsubsection{Epilepsie}
+
+La recherche concernant le \gls{nfb} appliqué à l'épilepsie remonte au début de l'utilisation du \gls{nfb} avec \citet{Lubar1976}. Le protocole le plus
+couramment utilisé est l'augmentation du \gls{smr} qui mène à une réduction du taux de crises d'épilepsie graves \citep{Hughes2008, Walker2010}.
+
+\subsubsection{Gestion de la douleur}
+
+Le \gls{nfb} a également été étudié dans la diminution de la douleur en visant directement le traitement de la perception de la douleur Le \gls{nfb} a, par
+exemple, été utilisé dans le cas de lombalgies chroniques en entrainant les ondes alpha de façon à ce qu'elles soient synchrones sur l'ensemble des aires 
+cérébrales \citep{Mayaud2019}.
+
+\subsubsection{Autres applications}
+
+D'autres applications existent comme la diminution de l'anxiété via un protocole de diminution des ondes alpha \citep{Budzynski2009}, le traitement de la dépression
+grâce à l'augmentation des ondes alpha et theta tout en diminuant les ondes beta \citep{Hurt2014}. Une application qui fait l'objet de nombreuses recherches
+est le \gls{tdah}, décrite plus précisément dans la section suivante.
+
+\subsection{Neurofeedback et \gls{tdah}}
+
+\subsubsection{Définition du \gls{tdah}}
+
+Le \gls{tdah} (\textit{Attention Deficit Hyperactivity Disorder} en anglais) est un trouble psychiatrique qui touche environ 5\% d'enfants en âge d'aller à l'école, 
+ce qui représente 2.5 millions d'enfants en Europe \citep{DSM-5}. Ce trouble se caractérise par l'existence de trois groupes de symptômes \citep{HAS} : 
+\begin{itemize}
+\item le déficit attentionnel : l'enfant est dans l'incapacité de mener une tâche jusqu'au bout, il est distrait, il refuse ou évite les tâches qui demandent
+une attention soutenue,
+\item l'hyperactivité motrice : l'enfant ne cesse de s'agiter, il ne peut pas rester assis quand les conditions l'exigent, il fait preuve de peu d'organisation,
+\item l'impulsivité : l'enfant a du mal à patienter, il a besoin d'agir et a tendance à interrompre les activités d'autrui, notamment en leur coupant la parole.
+\end{itemize}
+Pour certains enfants, un seul type de symptômes peut être prédominant, alors que d'autres les presentent tous de façon équivalente. Par ailleurs, de récentes 
+études ont montré que les différents symptômes évoluent tout au long de la vie du patient \citep{CFDCAP, Epstein2013}.
+
+% evolution du tdah
+% tdah chez l'adulte mais non on se concentre sur les enfants 
+
+\subsubsection{Diagnostic du \gls{tdah}}
+
+% dsm4 et dsm5, voir has pour la france
+% nebaheath, dire comment le profil eeg des enfants est différent (utiliser article tbr)
+
+\subsubsection{Traitements existants}
+
+% traitement de première intention
+% définition thérapies comportementales
+% mph (citer des méta-analyses)
+% nfb (parler des neuromarqueurs, utiliser l'intro du papier facteurs)
+
+\subsubsection{Efficacité du \gls{nfb}}
+
+% études et méta-analyses
+% parler des échelles cliniques, (composantes inattention, hypercativité et totale), dire que plus le score est haut plus on est atteint
+% des évaluateurs parents teachers et cliniciens (comme quoi ils sint fiables)
+
+
+% lien vers la partie suivante : efficacité du nfb est au coeur de cette thèse
+
+
+En plus des symptômes du \gls{tdah}, le bien être des enfants est impacté : en effet, ces derniers souffrent d'une faible estime d'eux-mêmes et ont de mauvaises notes à l'école
+
+% voir lambez B et al. 2019
 
 %NFB is a self-paced brain neuromodulation technique that
 %represents brain activity in real-time using auditory or visual
@@ -132,36 +251,13 @@ le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet \citep{Bio
 %considered as a specific neurophysiological marker of selective
 %attention (47).
 
-\section{Les champs d'application du Neurofeedback} \label{applications_NFB}
-
-Le \gls{nfb} présente de nombreuses applications dont les principales sont détaillées ici. Parmi ces applications, l'une d'entre elles est présentée plus précisément :
-le \gls{tdah} chez l'enfant.
-
-\subsection{De nombreuses applications}
-
-
-
-% composantes fréquentielles 
-% placement des électrodes (rôle de chaque zone)
-% les protocoles de traitement
-% finir sur tdah
-
-Epilepsie, diminution de l’anxiété, douleurs chroniques (citer papier de louis et quentin), etc
-% dire quels sont les neuromarqueurs utilisés, à quoi correspondent les rythmes et les zones du cerveau
-
-\subsection{Neurofeedback et \gls{tdah}}
-
-Le \gls{tdah} est un trouble psychiatrique répandu chez les enfants qui se caractérise par des problèmes d'attention couplés parfois à de l'hyperactivité/impulsivité. 
-La prévalence de ce trouble est d'environ 5\% chez les enfants en âge d'aller à l'école, ce qui représente 2.5 millions d'enfants en Europe \citep{DSM-5}. 
-En plus des symptômes du \gls{tdah}, le bien être des enfants est impacté : en effet, ces derniers souffrent d'une faible estime d'eux-mêmes et ont de mauvaises notes à l'école
-
-
 
 % définition du tdah chez l'enfant (symptômes, prévalence)
 % diagnostic du tdah (dsm-4 et dsm 5), essor du tdah chez les adultes (10.1001/jamanetworkopen.2019.14344, Chung et al.) mais ici on ne s'intéresse qu'aux enfants
 % parler des traitements possibles (methylphenidate, thérapies comportementales et finir sur NFB)
+% parler de nebahealht
 % neuromarqueurs couramment utilisés (utiliser intro Bussalb2019clinical
-% efficacité du nfb à travers les méta-analyses, l'efficacité du nfb est souvent donnée à l'aide d'évaluations sur des échelles cliniques
+% efficacité du nfb à travers les méta-analyses, l'efficacité du nfb est souvent donnée à l'aide d'évaluations sur des échelles cliniques, état de la littérature
 % décire les échelles cliniques (composantes inattention, hypercativité et totale)
 % les évaluateurs parents et teachers sont reliable selon lambez B et al. 2019, c'est admis de les utiliser comme évaluateurs
 % dans les méta-analyses on parle de pblind et de mprox
@@ -180,8 +276,6 @@ Malheureusement, aucun consensus n'a encore été clairement atteint, ainsi le t
 de réussite de l'entraînement par \gls{nfb} pour les enfants \gls{tdah} en se basant sur des données cliniques mais aussi physiologiques. 
 
 Les trois sous objectifs de ce travail, chacun développé dans un chapitre, sont les suivants :
-\renewcommand{\labelitemi}{$\bullet$}
-\renewcommand{\labelitemii}{$\cdot$}
 \begin{itemize}
 \item étudier l'efficacité du \gls{nfb} chez les enfants \gls{tdah} à l'aide d'une méthode couramment utilisée : la méta-analyse,
 \item identifier les paramètres méthodologiques et cliniques influençant la performance de ce traitement,
