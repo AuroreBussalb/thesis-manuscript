@@ -44,7 +44,7 @@ ses mécanismes et ses effets, illustrée à la Figure~\ref{Figure:introduction_
   \label{Figure:introduction_number_of_nfb_publications}
 \end{figure}
 
-\subsection{Principe du Neurofeedback}
+\subsection{Principe du Neurofeedback} \label{principe_nfb}
 
 Le \gls{nfb} a pour but d'apprendre à un sujet à auto-réguler son activité cérébrale à l'aide de retours auditifs et/ou visuels en temps réel
 intégrés dans un jeu sérieux \citep{Wang2010}. Ces retours lui permettent de suivre la régulation de son rythme cérébral : si elle est modulée de 
@@ -159,7 +159,7 @@ l'âge adulte. Les \gls{eeg} des enfants autistes présentent des anomalies comp
 \item une forte activité du ratio delta/theta correspondant à un déficit d'attention.
 \end{itemize}
 Lors de la plupart des entrainements par \gls{nfb} pour traiter le trouble du spectre autistique, il est demandé aux enfants de diminuer à la fois leur ratio 
-theta/alpha et d'augmenter la production d'ondes beta \citep{Thompson2010, Othmer2007}. 
+theta/alpha et d'augmenter la production d'ondes beta dans l'aire centrale \citep{Thompson2010} et en pariétal, fontal et temporal \citep{Othmer2007}. 
 
 \subsubsection{Epilepsie}
 
@@ -190,84 +190,110 @@ une attention soutenue,
 \item l'hyperactivité motrice : l'enfant ne cesse de s'agiter, il ne peut pas rester assis quand les conditions l'exigent, il fait preuve de peu d'organisation,
 \item l'impulsivité : l'enfant a du mal à patienter, il a besoin d'agir et a tendance à interrompre les activités d'autrui, notamment en leur coupant la parole.
 \end{itemize}
-Pour certains enfants, un seul type de symptômes peut être prédominant, alors que d'autres les presentent tous de façon équivalente. Par ailleurs, de récentes 
-études ont montré que les différents symptômes évoluent tout au long de la vie du patient \citep{CFDCAP, Epstein2013}.
+Pour certains enfants, un seul type de symptômes peut être prédominant, alors que d'autres les presentent tous de façon équivalente \citep{DSM-5}. Par ailleurs, de récentes 
+études ont montré que les différents symptômes évoluent tout au long de la vie du patient \citep{CFDCAP, Epstein2013}. En effet, les symptômes du \gls{tdah}
+peuvent perdurer jusqu'à l'âge adulte \citep{Faraone2006} : la prévalence des adultes \gls{tdah} augmente \citep{Chung2019}, ce qui en fait une problématique
+en plein essor. Toutefois, dans la suite du manuscrit, seul le \gls{tdah} chez l'enfant est étudié. 
 
-% evolution du tdah
-% tdah chez l'adulte mais non on se concentre sur les enfants 
+En plus des symptômes décrits plus haut, le \gls{tdah} impacte négativement le bien-être des enfants : ceux-ci ont une faible estime d'eux-mêmes \citep{Shaw2005} 
+et ont de mauvais résultats scolaires \citep{Barry2002}. Ainsi, afin d'être pris en charge de façon adaptée, il est important de diagnostiquer le \gls{tdah} 
+au plus tôt. 
 
 \subsubsection{Diagnostic du \gls{tdah}}
 
-% dsm4 et dsm5, voir has pour la france
-% nebaheath, dire comment le profil eeg des enfants est différent (utiliser article tbr)
+Le diagnostic du \gls{tdah} repose dans un premier temps sur des questionnaires cliniques évaluant le comportement de l'enfant, qui peuvent ensuite être
+complétés par des mesures objectives de fonctions executives telles que les \textit{Continuous Performance Task} \citep{Barkley1991} à l'instar du 
+\textit{Test of Variables of Attention} (TOVA) \citep{Forbes1998}.
+
+En France, le diagnostic du \gls{tdah} se base sur trois classifications \citep{HAS} :
+\begin{itemize}
+\item la CIM-10 : Classification Internationale des Maladies proposée par l'Orgnisation Mondiale de la Santé,
+\item le DSM-5 : \textit{Diagnostic and Statistical Manual of Mental Disorders} dans sa 5$^{eme}$ révision de l'Association américaine de
+psychiatrie,
+\item la CFTMEA : Classification Française des Troubles Mentaux de l’Enfant et de l’Adolescent.
+\end{itemize}
+
+L'apparition au cours de l'enfance et le caractère persistant des symptômes s'exprimant dans différents contextes de la vie de l'individu (en privé et 
+en public) sont des critères fondamentaux pour le diagnostic du \gls{tdah} \citep{HAS}. Par ailleurs, il est important de s'assurer que le comportement de
+l'enfant est bien dû au \gls{tdah} et n'est pas naturel : les symptômes doivent porter préjudice au bon développement de l'enfant, aussi bien dans ses
+interactions sociales qu'au cours de son apprentissage. 
+
+Des marqueurs objectifs cérébraux obtenus grâce à l'\gls{eeg} ou par \gls{fmri} ne sont permettent pas d'améliorer le diagnostic pour un individu, mais
+peuvent aider à distinguer différents groupes de patients \citep{Johnstone2005, Zhang2017, Clarke2011}. En effet, certains \gls{eeg} d'enfants \gls{tdah} 
+présentent une augmentation d'ondes theta et/ou une diminution d'ondes beta dans l'aire frontale, ou une diminution du \gls{smr} dans l'aire centrale
+\citep{Monastra2005, Janzen1995, Loo2018}. Un appareil ayant pour but d'aider le diagnostic du \gls{tdah} chez l'enfant en se basant sur leur \gls{eeg} 
+a été approuvé par la \citet{FDA} \citep{NebaHealth}, cependant les nouvelles études remettent en question l'utilsation de cet appareil \citep{Arns2013, 
+Zhang2017}.
 
 \subsubsection{Traitements existants}
 
-% traitement de première intention
-% définition thérapies comportementales
-% mph (citer des méta-analyses)
-% nfb (parler des neuromarqueurs, utiliser l'intro du papier facteurs)
+Un traitement multimodal est recommandé pour le traitement du \gls{tdah} : il peut combiner différents traitements selon le besoin 
+des patients et/ou leurs préférences. Les traitements proposés sont par exemple \citep{HAS} :
+\begin{itemize}
+\item la prise de médicaments : des psychostimulants comme le \gls{mph} ou la lisdexamfetamine, ou des non-physchostimulants comme l'atomoxetine 
+et la guanfacine,
+\item les traitements psychologiques : les thérapies cognitivo comportementales.
+\item la psychoéducation.
+\end{itemize} 
+
+Le traitement médicamenteux est le plus couramment utilisé pour le \gls{tdah} chez l'enfant. Cependant, il occasionne de fréquents effets secondaires,
+notamment la diminution de l'appétit, le retard de croissance et des insomnies \citep{Sousa2012}. Ainsi, malgré son efficacité \citep{Taylor2014,
+Storebo2015, Swanson2017}, certains parents et médecins se tournent vers des alternatives non pharmacologiques, comme par exemple les thérapies cognitivo 
+comportementales.
+
+Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004} mais se révèlent
+moins efficaces que la prise de médicaments \citep{Sonuga-Barke2013}. 
+
+Le \gls{nfb} est une autre approche non médicamenteuse et non-invasive pour réduire les symptômes du \gls{tdah} \citep{Arns2015, Marzbani2016}. Plusieurs
+protocoles d'entrainement ont été proposés et étudiés :
+\begin{itemize}
+\item les protocoles basés sur les oscillations neuronales, qui visent à moduler la puissance dans des bandes fréquences données : augmentation du 
+\gls{smr} \citep{Beauregard2006}, diminution du rythme theta et/ou augmentation du beta \citep{Arns2015, Kropotov2005} ; lorsque ces deux dernières 
+bandes sont contrôlées simultanément on parle du protocole \gls{tbr} \citep{Lubar1976, Arns2013}, 
+\item les protocoles basés sur les \textit{slow cortical potentials}, qui consistent à réguler les seuils d'excitation corticale en se concentrant sur l'activité 
+générée par des siganux extérieurs \citep{Heinrich2004, Banaschewski2007},
+\item les protocoles basés sur les \gls{erp} : l'amplitude de l'onde P300 peut être considérée comme un marqueur neurophysiologique spécifique de l'attention 
+sélective \citep{Fouillen2017}.
+\end{itemize}
+
+Par ailleurs les protocoles peuvent également être individualisés comme décrit en \ref{principe_nfb}.
 
 \subsubsection{Efficacité du \gls{nfb}}
+
+La performance du \gls{nfb} dans le traitement des signaux \gls{eeg} a fait l'objet de plusieurs études cliniques et de méta-analyses \citep{Sonuga-Barke2013,
+Cortese2016, Micoulaud2014}. Dans ces études, l'efficacité du \gls{nfb} est évaluée à l'aide d'échelles cliniques telles que, par exemple, l'ADHD Rating Scale et 
+la Conners qui sont des questionnaires à l'intention des parents, enseignants et médecins. 
+
+Avant le début de l'entrainenemt par \gls{nfb}, les évaluateurs remplissent ces questionnaires dans le but d'obtenir un score rendant compte de 
+la sévérité des symptômes : généralement, plus le score est haut, plus ils sont prononcés. Par ailleurs, certaines échelles permettent de calculer 
+un score pour les composantes inattention, hyperactivité et symptômes totaux.
+
+Les enseignants et les parents sont 
 
 % études et méta-analyses
 % parler des échelles cliniques, (composantes inattention, hypercativité et totale), dire que plus le score est haut plus on est atteint
 % des évaluateurs parents teachers et cliniciens (comme quoi ils sint fiables)
+% groupes de comparaison : sham nfb
+% dire où en est l'efficacité du nfb
 
 
 % lien vers la partie suivante : efficacité du nfb est au coeur de cette thèse
 
 
-En plus des symptômes du \gls{tdah}, le bien être des enfants est impacté : en effet, ces derniers souffrent d'une faible estime d'eux-mêmes et ont de mauvaises notes à l'école
-
 % voir lambez B et al. 2019
 
-%NFB is a self-paced brain neuromodulation technique that
-%represents brain activity in real-time using auditory or visual
-%modulations, on which learning paradigms, such as operant
-%conditioning (37) or voluntary control, can be applied. To deliver
-%this intervention, neurophysiological time series are analyzed
-%online in order to drive feedback applications such as serious
-%games (38). The signal of interest should represent the activity
-%of a population of neurons involved in attentional networks,
-%which is translated into visual or auditory cues. The sensory
-%feedback constitutes the rewardsmechanism, promoting learning
-%using, for instance, operant conditioning protocols (39). Operant
-%conditioning enables neural plasticity, thus supporting the child
-%in the task repetition (40), which is believed to result in longlasting
-%neuronal reorganization (41).
-%Several NFB protocols have been proposed and investigated
-%for decreasing the symptoms of ADHD:
-%• protocols based on neural oscillations, using frequency-band
-%power training: enhancing SMR (42), reducing theta (29)
-%or enhancing beta (43), or a composite protocol such as
-%enhancing beta while suppressing theta, also known as the
-%Theta Beta Ratio (TBR) protocol (33, 44);
-%• protocols based on Slow Cortical Potentials (SCPs) training
-%consisting of the regulation of cortical excitation thresholds by
-%focusing on activity generated by external cues (45, 46);
-%• protocols to enhance Event-Related Potentials (ERPs):
-%in particular, the amplitude of the P300 ERP can be
-%considered as a specific neurophysiological marker of selective
-%attention (47).
 
-
-% définition du tdah chez l'enfant (symptômes, prévalence)
-% diagnostic du tdah (dsm-4 et dsm 5), essor du tdah chez les adultes (10.1001/jamanetworkopen.2019.14344, Chung et al.) mais ici on ne s'intéresse qu'aux enfants
-% parler des traitements possibles (methylphenidate, thérapies comportementales et finir sur NFB)
-% parler de nebahealht
-% neuromarqueurs couramment utilisés (utiliser intro Bussalb2019clinical
 % efficacité du nfb à travers les méta-analyses, l'efficacité du nfb est souvent donnée à l'aide d'évaluations sur des échelles cliniques, état de la littérature
 % décire les échelles cliniques (composantes inattention, hypercativité et totale)
 % les évaluateurs parents et teachers sont reliable selon lambez B et al. 2019, c'est admis de les utiliser comme évaluateurs
 % dans les méta-analyses on parle de pblind et de mprox
 
 
-%Définition TDAH chez l’enfant (parler du dsm-4 et 5) et parler de l’essor de la problématique du TDAH chez l’adulte (10.1001/jamanetworkopen.2019.14344, Chung et al.), parler des études et des méta-analyses
+
 %sham-NFB, parler des échelles cliniques (It is generally accepted that parent and teacher rating scales are reliable and 
 %valid components of ADHD assessments (McGough  Barkley, 2004)), définir pblind et mprox, dire que c'est admis de les utiliser comme évaluateurs lambez B et al. 2019
 %Parler des traitements possibles (bien définir les cognitives therapy)
-%% dire quels sont les neuromarqueurs utilisés et les autre types de nfb
+
 
 \section{Objectifs de la thèse}
 
