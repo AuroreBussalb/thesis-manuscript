@@ -36,6 +36,10 @@ sont analysés.
   \label{Table:tbr_datasets_description}
 \end{table}
 
+Les trois bases de données diffèrent les unes des autres, notamment celle de NEWROFEED dont les \gls{eeg} ont été enregistrés avec moins d'électrodes 
+que ceux issus des bases de données du Child Mind Institute. Ainsi, une fois que chaque base a été décrite, les étapes
+mises en place pour homogénéiser l'ensemble des données sont explicitées.
+
 \subsection{Données NEWROFEED}
 
 Une partie des données utilisées dans cette analyse provient de l'étude NEWROFEED (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019})
@@ -147,7 +151,7 @@ dans le système international 10-20 en projetant les coordonnées sur une sphè
 
 \section{Theta-Beta ratio : un marqueur de l'attention}
 
-Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah}. Il est défini ici, puis les étapes pour l'extraire des
+Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2013}. Il est défini ici, puis les étapes pour l'extraire des
 signaux \gls{eeg} à notre disposition sont décrites. Ces \gls{tbr} sont ensuite partitionnés à l'aide de trois méthodes dont le principe est expliqué dans cette partie. 
 Enfin, la méthode pour identifier le seuil optimal séparant les classes obtenues est détaillée.
 
@@ -184,7 +188,7 @@ L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitemen
 
 \subsubsection{Rejet des artefacts}
 Tout d'abord, les données artefactées sont exclues en utilisant le \gls{rpf} \citep{Barthelemy2019}. Les données \gls{eeg} sont segmentées (durée de 2 secondes avec 
-un chevauchement toutes les 0.125s) et la matrice de covariance de chaque segment est calculée pour un sous-ensemble de canaux. Ensuite, la \gls{rpf} rejette les 
+un chevauchement toutes les 0.125s) et la matrice de covariance de chaque segment est calculée pour un sous-ensemble de canaux. Ensuite, le \gls{rpf} rejette les 
 segments dont la matrice de covariance se retrouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres. 
 
 \subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}}
@@ -238,7 +242,9 @@ les densités (\gls{dbscan}). Les analyses statistiques sont effectuées avec la
 \subsubsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} 
 Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population.
 La distribution des \glspl{srntbr} est ainsi tracée et ajustée par un \gls{bgmm} \citep{Attias2000, Blei2006} puis par 
-un \gls{gmm} pour comparaison. Un \textit{Gaussian Mixture Model} est un modèle qui suppose que toutes les observations proviennent d'un mélange 
+un \gls{gmm} pour comparaison. 
+
+Un \textit{Gaussian Mixture Model} est un modèle qui suppose que toutes les observations proviennent d'un mélange 
 d'un nombre fini de distributions gaussiennes aux paramètres inconnus. 
 Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur la distribution des données pour 
 assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \glspl{tbr} 
@@ -327,7 +333,9 @@ il s'agit de la justesse (\gls{acc} en anglais) :
 
 Enfin, les seuils de \gls{tbr} calculés dans cette étude sont également comparés à ceux utilisés dans la littérature. Les seuils de 5 et de 4.5 sont
 ajoutés à la courbe \gls{roc} car \citet{Kerson2013} ont suggéré l'utilisation d'un seuil de \gls{tbr} à 5, même si lors de leur étude clinique il a été fixé 
-à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov) tout comme le seuil utilisé pendant l'étude NEWROFEED. Le seuil qui sépare 35\% des valeurs de 
+à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov) tout comme le seuil utilisé pendant l'étude NEWROFEED. 
+
+Le seuil qui sépare 35\% des valeurs de 
 \gls{tbr} est également ajouté à la courbe \gls{roc} pour visualiser les résultats de \citet{Zhang2017} basés sur les conclusions de \citet{Clarke2011}.
 De plus, le seuil conduisant à 10\% de \gls{fpr} selon le partitionnement par le \gls{bgmm} à deux composantes est aussi ajouté à la courbe \gls{roc}. 
 En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéalement traiter les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec 
