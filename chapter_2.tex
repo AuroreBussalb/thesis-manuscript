@@ -242,14 +242,15 @@ car plus des études y seront incluses, plus les résultats vont se stabiliser, 
 satisfaisant les critères d'inclusion de \citet{Cortese2016}.
 
 Dans un souci de transparence et pour faciliter la réplication de ce travail, ces deux analyses sont effectuées en utilisant le package Python 
-(version de Python 3.6.1) dont le contenu est décrit en \ref{methods} \citep{Bussalb2019c}. 
+(version de Python 3.6.1) dont le contenu est décrit en \ref{methods} \citep{Bussalb2019c}. Par conséquent, la première étape est d'évaluer la
+fiabilité des résultats obtenus avec ce package.
 
 \subsection{Evaluation des résultats obtenus avec le package Python}
 
-Pour effectuer une méta-analyse, les auteurs utilisent en général le logiciel RevMan \citep{Revman, Cortese2016, Micoulaud2014}. Ici les résultats 
+Pour effectuer une méta-analyse, les auteurs utilisent en général le logiciel RevMan \citep{Revman, Cortese2016, Micoulaud2014}. Ici, les résultats 
 obtenus avec le package Python vont être comparés à ceux donnés par la version 5.1 de RevMan, afin d'évaluer la précision du package. 
 
-La première étape a été d'entrer dans un fichier .csv, pour chaque étude incluse, les scores cliniques à pré-test et post-test avec leur écart-type utilisés 
+La première étape a été d'entrer dans un fichier .csv, pour chaque étude incluse, les moyennes des scores cliniques à pré-test et post-test avec leur écart-type utilisés 
 par \citet{Cortese2016} pour calculer les \gls{es}-inter-groupes. Lorsqu'ils sont disponibles les scores cliniques évaluant l'inattention, l'hyperactivité 
 et la totalité des symptômes sont extraits afin d'obtenir une valeur d'efficacité pour chacune de ces composantes. Par ailleurs, les scores donnés par les
 parents (\gls{mprox}) mais aussi par les enseignants (\gls{pblind}) sont utilisés.
@@ -323,6 +324,10 @@ Table~\ref{Table:table_meta_review_comparison_replication_cortese}).
 \end{itemize}
 
 \subsection{Mise à jour de la méta-analyse de Cortese et al., 2016} \label{selection_studies}
+
+L'étape suivante consiste à mettre à jour la méta-analyse de \citep{Cortese2016} avec les choix faits lors de la réplication décrite en \ref{replication}. 
+Pour ce faire, une recherche sur PubMed a été effectuée puis la performance du \gls{nfb} a été évaluée d'abord sur l'ensemble des études et ensuite sur 
+des sous-groupes comme ce qui a été réalisé dans \citet{Cortese2016}.
 
 \subsubsection{Sélection des études}
 Un soin particulier a été mis en oeuvre par \citet{Cortese2016} pour sélectionner les études bien conduites. Les principaux critères d'inclusion
@@ -422,6 +427,8 @@ Le travail décrit précédemment a pour but d'explorer l'impact de certains cho
 
 \subsection{Discussion sur les résultats obtenus} \label{replication_and_update}
 
+Les résultats obtenus suite à la réplication et à la mise à jour de \citet{Cortese2016} sont analysés et mis en perspective avec la littérature existante ici.
+
 \subsubsection{Réplication}
 
 Un des choix qui a été fait ici est d'utiliser la Conners-3 Teachers \citep{Conners2008} plutôt que la BOSS Classroom \citep{Shapiro2010} 
@@ -436,7 +443,6 @@ obtenus après 12 sessions. Toutefois, ces différences ne changent pas la signi
 
 Par conséquent, bien que ces points aient été débattus, leur impact sur les conclusions de la méta-analyse sont minimes et ne changent la significativité
 d'aucun \gls{est}. 
-
 
 \subsubsection{Mise à jour}
 
@@ -500,7 +506,6 @@ est représentée à la Figure~\ref{Figure:meta_analysis_evolution_pvalue}.
 La plus forte fluctuation correspond à la p-value des \gls{est} obtenues pour les évaluations des enseignants (en bleu sur le graphique \textbf{B} de 
 la Figure~\ref{Figure:meta_analysis_evolution_pvalue}), ce qui laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant 
 à l'efficacité du \gls{nfb} selon les enseignants.
-
 
 \subsection{Hétérogénéité des études} 
 
