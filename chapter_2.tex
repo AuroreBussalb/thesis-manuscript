@@ -73,16 +73,41 @@ Il existe différents \gls{es} \citep{Borenstein2009} :
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\cdot$}
 \begin{itemize}
-\item \gls{es} basés sur des moyennes :
+\item \gls{es} basés sur des \emph{moyennes} :
 \begin{itemize}
-    \item la différence moyenne non standardisée (\textit{unstandardized mean difference} en anglais),
-    \item la différence moyenne standardisée (\textit{standardized mean difference} en anglais).
+    \item la différence moyenne non standardisée (\textit{unstandardized mean difference} en anglais), D :
+		    \begin{equation}
+        \label{eq:metareview_unstandardized_mean_difference}
+        \text{D} = \bar{X}_{1} - \bar{X}_{1},
+        \end{equation} 
+		avec $\bar{X}_{1}$ et $\bar{X}_{2}$ les moyennes de deux groupes indépendants, ou du même groupe à pré- et à post-test,
+    \item la différence moyenne standardisée (\textit{standardized mean difference} en anglais), d :
+		    \begin{equation}
+        \label{eq:metareview_standardized_mean_difference}
+        \text{d} = \frac{\bar{X}_{1} - \bar{X}_{1}}{\sqrt{\frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2} {n_1 + n_2 - 2}}},
+        \end{equation} 
+		avec $n_{1}$ et $n_{2}$ le nombre de sujets dans les groupes 1 et 2, et $S_{1}$ et $S_{2}$ les écarts types des deux groupes. Le dénominateur
+		correspond à l'écart type intra-groupes calculé à travers les deux groupes.
 \end{itemize}
-\item \gls{es} basés sur des données binaires :
+\item \gls{es} basés sur des \emph{données binaires} :
 \begin{itemize}
-    \item le taux de risque (\textit{risk ratio} en anglais),
-    \item le taux de chance (\textit{odds ratio} en anglais),
-		\item la différence de risque (\textit{risk difference} en anglais).
+    \item le taux de risque (\textit{risk ratio} en anglais), RR :
+				\begin{equation}
+        \label{eq:metareview_risk_ratio}
+        \text{RR} = \frac{ \text{A} / n_1 } { \text{C} / n_2 },
+        \end{equation} 
+		avec A et C est le nombre d'évènements observés (par exemple présence d'un effet secondaire) respectivement dans les groupes 1 et 2,
+    \item le taux de chance (\textit{odds ratio} en anglais), OR :
+				\begin{equation}
+        \label{eq:metareview_odds_ratio}
+        \text{OR} = \frac{ \text{AD} } { \text{BC} },
+        \end{equation} 		
+		avec D et B le nombre de non évènements observés (par exemple absence d'un effet secondaire) respectivement dans les groupes 2 et 1,
+		\item la différence de risque (\textit{risk difference} en anglais), RD :
+				\begin{equation}
+        \label{eq:metareview_risk_difference}
+        \text{RD} = \frac{ \text{A} } { n_1 } - \frac{ \text{C} } { n_2 }.
+        \end{equation}
 \end{itemize}
 \end{itemize}
 
@@ -91,7 +116,7 @@ scores cliniques obtenus par les sujets sur des échelles évaluant les symptôm
 après le traitement (post-test) et leur écart-type, nous nous concentrons sur 
 les \gls{es} basés sur des moyennes. Par ailleurs, les échelles cliniques variant 
 d'une étude à l'autre, les moyennes ne sont pas comparables : il faut donc standardiser l'\gls{es}. 
-Ainsi, nous allons utiliser la différence moyenne standardisée \citep{Cortese2016, Micoulaud2014}.
+Ainsi, nous allons utiliser la différence moyenne standardisée d \citep{Cortese2016, Micoulaud2014}.
 
 Enfin, lorsqu'un groupe contrôle est disponible, on peut calculer l'\gls{es}-inter-groupes (\textit{between}-\gls{es}) comme défini par \citet{Morris2008}.
 Cet \gls{es} est utilisé par \citet{Cortese2016, Micoulaud2014} et implémenté dans \citet{Bussalb2019clinical} :
@@ -107,7 +132,7 @@ dans le groupe contrôle ($M_{\text{pre},C}$, $M_{\text{post},C}$), divisée par
 \sigma_{\text{pre}} = \sqrt{\frac{(n_T - 1)\sigma_{\text{pre},T}^2 + (n_C - 1)\sigma_{\text{pre},C}^2} {n_T + n_C - 2}},
 \end{equation}
 où $\sigma_{t,G}$ correspond à l'écart-type du groupe $G$ à pré-test and $n_G$ indique le nombre de sujets dans chaque groupe ; 
-$c_p$ est un bias d'ajustement utilisé pour les petites études :
+$c_p$ est un bias d'ajustement utilisé pour les petites études (c'est à dire pour lesquelles $n_T + n_C - 2 < 10$) : 
 \begin{equation}
 \label{eq:metareview_correction_factor}
 c_p =  1 - \frac{3} {4(n_T + n_C - 2) - 1}.
@@ -216,9 +241,7 @@ lors de la sélection des études et une hétérogénéité parmi elles \citep{S
 taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études soient au sommet et que les plus petites se retrouvent 
 dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
 le graphique est symétrique. Le triangle centré sur \gls{est}, obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté, 
-inclut 95\% des études s'il n'y a pas de biais.
-
-Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant, par exemple, le test d'\citet{Egger1997}. 
+inclut 95\% des études s'il n'y a pas de biais. Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant, par exemple, le test d'\citet{Egger1997}. 
 Il s'agit de régresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
 0 (seuil de signifiance à 0.05), alors le \textit{funnel plot} est asymétrique.
 
@@ -455,7 +478,69 @@ une différence statistiquement significative entre le \gls{nfb} et les groupes 
 de \citet{Baumeister2016} et \citet{Strehl2017} qui apportent 73 sujets supplémentaires, ce qui suggère une relation positive entre les caractéristiques des protocoles standards
 et la performance du \gls{nfb}. 
 
-\subsection{Evolution des résultats avec la nouvelle recherche du \\ 02/09/2019}
+\subsection{Hétérogénéité des études} 
+
+Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exemple, ceux énoncés à \ref{selection_studies}, 
+elles diffèrent tout de même sur de nombreux points, limitant la fiabilité de leurs résultats comme le souligne \citep{Alkoby2017}. Afin de pallier 
+cette hétérogénéité, l'analyse peut cibler une population plus précise, comme ce qui a été effectué lors de l'analyse
+des sous populations. Cependant, ce genre de restriction souffre d'une puissance statistique plus faible et regroupe encore des études fortement hétérogènes.
+En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinsèquement différents et il est probable que leur
+efficacité ne soit pas la même. 
+
+Par ailleurs, le matériel d'acquisition utilisé, ainsi que le traitement du signal varient d'une étude à l'autre, or ces points sont sans doute centraux 
+dans la performance du traitement. 
+
+De plus, aucun consensus n'existe quant au nombre de sessions ou à la durée du traitement, ainsi ces choix sont très variables d'une étude à l'autre et peu
+souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprentissage.
+
+\subsection{Importance de la mise à jour des méta-analyses}
+
+Afin d'éviter de tomber dans le \textit{p-hacking}, il est important de ne pas arrêter la collecte de données et donc de figer les résultats une fois 
+que la p-value du \gls{est} passe sous le seuil de signicativité de 0.05 \citep{Head2015, Coffman2015}. En effet, l'arrêt prématuré des résultats peut
+générer un biais : par exemple la p-value peut être significative à un instant t avec un certain nombre de sujets inclus, puis perdre sa significativité à
+t $+$ 1 et ne plus la retrouver. Mettre à jour les résultats même dans le cas où la p-value est significative est donc préférable, les résultats étant
+davantage fiables une fois que la p-value converge. Ces deux configurations sont représentées à la Figure~\ref{Figure:meta_review_pvalue_example}
+
+% image
+
+Les résultats d'une méta-analyse peuvent donc souffrir de l'arrêt prématuré des résultats lorsque la p-value de l'\gls{est} n'est pas stable, comme 
+illustré à la Figure~\ref{Figure:meta_analysis_evolution_pvalue} où l'évolution des p-values des \gls{est} de la composante totale en fonction des études 
+incluses au fur et à mesure selon leur année de publication est tracée. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value} 
+  \caption{Evolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études pour les évaluations des 
+	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
+	La courbe orange correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
+	Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
+  \label{Figure:meta_analysis_evolution_pvalue}
+\end{figure}
+
+
+A première vue, la plus forte fluctuation correspond à la p-value des \gls{est} obtenues pour les évaluations des enseignants (en bleu sur le graphique \textbf{B} de 
+la Figure~\ref{Figure:meta_analysis_evolution_pvalue}). En effet, en 2013 la p-value atteint un pic à 0.6, cependant depuis 2014 elle diminue et tend de plus 
+en plus vers la significativité, sans converger pour le moment, ce qui laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant 
+à l'efficacité du \gls{nfb} selon les enseignants.
+
+En ce qui concerne les p-values des \gls{est} obtenus grâce aux évaluations des parents, elles varient mais ne dépassent pas le seuil de significativité. L'évolution
+des p-values pour le groupe du protocole \gls{nfb} standard (en orange sur le graphique \textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue}) 
+
+
+% Biais généré par l'arrêt des résultats : arrêter la collecte de données dès que p-value passe sous le seuil désiré (5%) et trouver des refs qui dénonce ce genre
+% p-hacking
+\citep{Head2015} % and stopping data exploration if an analysis yields a significant p-value
+
+% images pour illuster : p-value qui diverge au cours du temps et une p-value qui converge
+% c'est pourquoi on s'intéresse à l'evolution de la p-value au cours du temps, car une méta-aalyse n'est qu'une photo à l'instant t, on ne peut en tirer une
+% conclusion que quand la valeur s'est stabilisée
+% plot evolution des p-values (mettre aussi les mises à jour (faire des points diff)
+% p-value fluctue à chaque mise à jour, pas de conclusion valide
+% on illustre ce fait avec la meta-analyse de frontiers car la recherche date de 1 an et demi
+% Nouveaux résultats
+% et en effet il y a des changements ce qui valide ce qui a été dit précédement
+
+% dire que pour les parents c'est significatif mais ça fluctue
 
 Même si la mise à jour de la méta-analyse de \citet{Cortese2016} présentée précédemment montre une certaine stabilité dans les résultats, il est important de 
 continuer à y ajouter régulièrement de nouvelles études du fait de l'absence de consensus quant à l'efficacité du \gls{nfb}. Par ailleurs, depuis les années 2010, 
@@ -488,39 +573,10 @@ n'est observée.
 Ainsi, les conclusions précédentes sur le protocole standard sont à nuancer a vu de ces nouveaux résultats: l'utilisation de ce type de protocole ne mène 
 peut-être pas nécessairement à une bonne performance. 
 
-Quoiqu'il en soit, il est important de mettre à jour ces analyses jusqu'à obtenir une p-value qui ne varie plus avec les nouveaux ajouts. En effet, les résultats 
-ne sont pas encore figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Afin de mettre en évidence cette 
-fluctuation, l'évolution des p-values des \gls{est} de la composante totale en fonction des études incluses au fur et à mesure selon leur année de publication 
-est représentée à la Figure~\ref{Figure:meta_analysis_evolution_pvalue}. 
 
-\begin{figure}[h!]
-  \centering
-	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value} 
-  \caption{Evolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études pour les évaluations des 
-	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
-	La courbe orange correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
-	Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
-  \label{Figure:meta_analysis_evolution_pvalue}
-\end{figure}
 
-La plus forte fluctuation correspond à la p-value des \gls{est} obtenues pour les évaluations des enseignants (en bleu sur le graphique \textbf{B} de 
-la Figure~\ref{Figure:meta_analysis_evolution_pvalue}), ce qui laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant 
-à l'efficacité du \gls{nfb} selon les enseignants.
 
-\subsection{Hétérogénéité des études} 
 
-Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exemple, ceux énoncés à \ref{selection_studies}, 
-elles diffèrent tout de même sur de nombreux points, limitant la fiabilité de leurs résultats comme le souligne \citep{Alkoby2017}. Afin de pallier 
-cette hétérogénéité, l'analyse peut cibler une population plus précise, comme ce qui a été effectué lors de l'analyse
-des sous populations. Cependant, ce genre de restriction souffre d'une puissance statistique plus faible et regroupe encore des études fortement hétérogènes.
-En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinsèquement différents et il est probable que leur
-efficacité ne soit pas la même. 
-
-Par ailleurs, le matériel d'acquisition utilisé, ainsi que le traitement du signal varient d'une étude à l'autre, or ces points sont sans doute centraux 
-dans la performance du traitement. 
-
-De plus, aucun consensus n'existe quant au nombre de sessions ou à la durée du traitement, ainsi ces choix sont très variables d'une étude à l'autre et peu
-souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprentissage.
 
 \section{Conclusion}
 
