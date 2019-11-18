@@ -287,7 +287,7 @@ avec n le nombre total de points à être partitionnés.
 
 Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le graphique des \textit{k-distance} obtenu par la méthode des k plus proches voisins 
 (\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005}. Le principe de cette méthode
-est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance d'un nouveau point et de prédire la classe de ce dernier. 
+est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance (ici de Minkowski) d'un nouveau point et de prédire la classe de ce dernier. 
 Le graphique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à un des k points classées par ordre décroissant. 
 Ainsi, étant donné que les points bruités sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut 
 s'attendre à observer un coude sur ce tracé : l'ordonnée de ce point correspond à $\epsilon$.
