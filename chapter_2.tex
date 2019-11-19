@@ -84,7 +84,7 @@ Il existe différents \gls{es} \citep{Borenstein2009} :
     \item la différence moyenne standardisée (\textit{standardized mean difference} en anglais), d :
 		    \begin{equation}
         \label{eq:metareview_standardized_mean_difference}
-        \text{d} = \frac{\bar{X}_{1} - \bar{X}_{1}}{\sqrt{\frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2} {n_1 + n_2 - 2}}},
+        \text{d} = \frac{\bar{X}_{1} - \bar{X}_{2}}{\sqrt{\frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2} {n_1 + n_2 - 2}}},
         \end{equation} 
 		avec $n_{1}$ et $n_{2}$ le nombre de sujets dans les groupes 1 et 2, et $S_{1}$ et $S_{2}$ les écarts types des deux groupes. Le dénominateur
 		correspond à l'écart type intra-groupes calculé à travers les deux groupes.
@@ -496,59 +496,60 @@ souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprenti
 \subsection{Importance de la mise à jour des méta-analyses}
 
 Afin d'éviter de tomber dans le \textit{p-hacking}, il est important de ne pas arrêter la collecte de données et donc de figer les résultats une fois 
-que la p-value du \gls{est} passe sous le seuil de signicativité de 0.05 \citep{Head2015, Coffman2015}. En effet, l'arrêt prématuré des résultats peut
+que la p-value de l'\gls{est} passe sous le seuil de signicativité de 0.05 \citep{Head2015, Coffman2015}. En effet, l'arrêt prématuré des résultats peut
 générer un biais : par exemple la p-value peut être significative à un instant t avec un certain nombre de sujets inclus, puis perdre sa significativité à
 t $+$ 1 et ne plus la retrouver. Mettre à jour les résultats même dans le cas où la p-value est significative est donc préférable, les résultats étant
-davantage fiables une fois que la p-value converge. Ces deux configurations sont représentées à la Figure~\ref{Figure:meta_review_pvalue_example}
+davantage fiables une fois que la p-value converge. Ces deux configurations sont représentées à la Figure~\ref{Figure:meta-analysis-evolution-p-value-examples}
 
-% image
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value-examples} 
+  \caption{Exemples d'évolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études sur des fausses données. 
+	En \textbf{A}, la p-value converge suite à l'ajout de nouvelles études ; en \textbf{B} l'évolution de la p-value n'est pas stable. 
+	Le seuil de significativité à 0.05 est représenté en pointillés noirs.}
+  \label{Figure:meta-analysis-evolution-p-value-examples}
+\end{figure}
 
 Les résultats d'une méta-analyse peuvent donc souffrir de l'arrêt prématuré des résultats lorsque la p-value de l'\gls{est} n'est pas stable, comme 
 illustré à la Figure~\ref{Figure:meta_analysis_evolution_pvalue} où l'évolution des p-values des \gls{est} de la composante totale en fonction des études 
-incluses au fur et à mesure selon leur année de publication est tracée. 
+incluses au fur et à mesure selon leur année de publication est tracée. Les écarts types mobiles des p-values sont calculés en prenant les trois plus
+plus récentes p-values (dont celle pour laquelle on calcule cet écart type). Une approche mobile est préférée ici à une approche fixe qui prend en 
+compte l'ensemble des p-values passées qui sont obtenues sur un plus petit nombre d'études.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value} 
   \caption{Evolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études pour les évaluations des 
 	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
-	La courbe orange correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
-	Le seuil de significativité à 0.05 est représenté en pointillés rouges.}
+	La courbe verte correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
+	Le nombre de sujets inclus dans ces deux groupes en fonction des années de publications est donné. Le point rouge correspond aux résultats de \citet{Cortese2016}.
+	Les écarts types mobiles (calculés sur les trois dernières p-values) sont représentés. 
+	Le seuil de significativité à 0.05 est représenté en pointillés noirs.}
   \label{Figure:meta_analysis_evolution_pvalue}
 \end{figure}
 
+A première vue, la plus forte fluctuation correspond à la p-value des \gls{est} obtenues sur la totalité des études pour les évaluations des enseignants 
+(en bleu sur le graphique \textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue}). En effet, en 2013 la p-value atteint un pic à 0.6, cependant 
+depuis 2014 elle diminue de façon stable (sauf entre 2018 et 2019) et tend de plus en plus vers la significativité, sans converger pour le moment, ce qui 
+laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant à l'efficacité du \gls{nfb} selon les enseignants. L'évolution
+de la p-value dans le sous groupe des protocoles standards (en vert sur le graphique \textbf{B}) est stable, comme le montrent notamment les écarts types mobiles. 
 
-A première vue, la plus forte fluctuation correspond à la p-value des \gls{est} obtenues pour les évaluations des enseignants (en bleu sur le graphique \textbf{B} de 
-la Figure~\ref{Figure:meta_analysis_evolution_pvalue}). En effet, en 2013 la p-value atteint un pic à 0.6, cependant depuis 2014 elle diminue et tend de plus 
-en plus vers la significativité, sans converger pour le moment, ce qui laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant 
-à l'efficacité du \gls{nfb} selon les enseignants.
+En ce qui concerne les p-values des \gls{est} obtenus grâce aux évaluations des parents représentées sur le graphique \textbf{A} de la 
+Figure~\ref{Figure:meta_analysis_evolution_pvalue}, elles varient mais ne dépassent pas le seuil de significativité (sauf légèrement
+en 2018). L'évolution des p-values pour le groupe du protocole \gls{nfb} standard (en vert sur le graphique \textbf{A}) fluctue
+depuis 2011, ce qui cause une augmentation de l'écart type mobile : un plus grand nombre d'études à inclure dans ce groupe serait bienvenu afin 
+de stabiliser la p-value. A l'inverse, l'évolution de la p-value calculée pour la totalité des études (en bleu sur le graphique \textbf{A}) est assez stable
+et présente des déviations standards mobiles plus faibles. Cette évolution est la plus stable du fait du nombre d'études incluses (et donc de sujets inclus)
+qui le est le plus important entre les quatre groupes étudiés ici. 
 
-En ce qui concerne les p-values des \gls{est} obtenus grâce aux évaluations des parents, elles varient mais ne dépassent pas le seuil de significativité. L'évolution
-des p-values pour le groupe du protocole \gls{nfb} standard (en orange sur le graphique \textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue}) 
-
-
-% Biais généré par l'arrêt des résultats : arrêter la collecte de données dès que p-value passe sous le seuil désiré (5%) et trouver des refs qui dénonce ce genre
-% p-hacking
-\citep{Head2015} % and stopping data exploration if an analysis yields a significant p-value
-
-% images pour illuster : p-value qui diverge au cours du temps et une p-value qui converge
-% c'est pourquoi on s'intéresse à l'evolution de la p-value au cours du temps, car une méta-aalyse n'est qu'une photo à l'instant t, on ne peut en tirer une
-% conclusion que quand la valeur s'est stabilisée
-% plot evolution des p-values (mettre aussi les mises à jour (faire des points diff)
-% p-value fluctue à chaque mise à jour, pas de conclusion valide
-% on illustre ce fait avec la meta-analyse de frontiers car la recherche date de 1 an et demi
-% Nouveaux résultats
-% et en effet il y a des changements ce qui valide ce qui a été dit précédement
-
-% dire que pour les parents c'est significatif mais ça fluctue
-
-Même si la mise à jour de la méta-analyse de \citet{Cortese2016} présentée précédemment montre une certaine stabilité dans les résultats, il est important de 
-continuer à y ajouter régulièrement de nouvelles études du fait de l'absence de consensus quant à l'efficacité du \gls{nfb}. Par ailleurs, depuis les années 2010, 
-le nombre d'essais cliniques a fortement augmenté permettant aux méta-analyses de regrouper de plus en plus d'études. Cette approche qui consiste à affiner les 
-résultats à l'aide de nouvelles observations est l'une des bases de l'inférence bayésienne.
+Ainsi, depuis la méta-analyse de \citet{Cortese2016}, dont les résultats sont représentés par un point rouge sur chaque courbe de la 
+Figure~\ref{Figure:meta_analysis_evolution_pvalue}, les p-values ont fluctué même si aucun changement de significtaivité n'est observé. 
+Cette absence de stabilité appelle à de nouvelles mises à jour : une a été effectuée et a été décrite en \ref{selection_studies} \citep{Bussalb2019clinical},
+cependant depuis de nouvellles études ont été publiées. 
 
 Ainsi, une nouvelle recherche sur PubMed a été lancée le 2 septembre 2019 en suivant les mêmes étapes que présentées en \ref{selection_studies}, le détail
 des études identifiées est donné à la Table~\ref{Table:table_meta_review_update_september_2019}.
+
 
 \begin{table}[h!]
   \centering
@@ -570,13 +571,10 @@ L'\gls{est} calculé pour la composante totale évaluée par les enseignants est
 n'est observée.
 \end{description}
 
-Ainsi, les conclusions précédentes sur le protocole standard sont à nuancer a vu de ces nouveaux résultats: l'utilisation de ce type de protocole ne mène 
-peut-être pas nécessairement à une bonne performance. 
+Ainsi, ces résultats démontrent que les résultats varient encore avec l'inclusion de nouvelles études, ce qui valide ce qui a été dit précédemment
+sur l'importance de mettre à jour les méta-analyses tant que les résultats fluctuent encore. 
 
-
-
-
-
+Cette approche qui consiste à affiner les résultats à l'aide de nouvelles observations est l'une des bases de l'inférence bayésienne.
 
 \section{Conclusion}
 
