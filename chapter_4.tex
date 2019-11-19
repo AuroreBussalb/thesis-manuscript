@@ -235,19 +235,26 @@ de l'enregistrement. Le maximum sur ces deux électrodes est retenu, il sera enf
 
 \subsection{Méthodes de partitionnement de la distribution des Theta-beta ratios} \label{clustering}
 
-Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement (\textit{clustering} en anglais) 
-sont mises en place : une qui se base sur les distributions (\gls{bgmm}), une sur les distances (la méthode de Ward) et une autre sur 
-les densités (\gls{dbscan}). Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (v0.18.1, \citet{Pedregosa2011}).
+Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois familles de méthodes de partitionnement 
+(\textit{clustering} en anglais) 
+sont mises en place : 
+\begin{itemize}
+\item une qui se base sur les distributions Gaussiennes (\gls{gmm} et \gls{bgmm}), 
+\item une sur les distances (la méthode de Ward),
+\item et une autre sur les densités (\gls{dbscan}). 
+\end{itemize}
 
-\subsubsection{Partitionnement basé sur les distributions : Bayesian Gaussian Mixture Model} 
-Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population.
-La distribution des \glspl{srntbr} est ainsi tracée et ajustée par un \gls{bgmm} \citep{Attias2000, Blei2006} puis par 
-un \gls{gmm} pour comparaison. 
+Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (v0.18.1, \citet{Pedregosa2011}).
+
+\subsubsection{Partitionnement basé sur les distributions : Gaussian Mixture Model et Bayesian Gaussian Mixture Model} 
+Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population. Un \textit{mixture model}
+correspond à une \textit{mixture distribution} qui représente la distribution de probabilités des observations dans la totalité d'une population.
+La distribution des \gls{srntbr} est ainsi tracée et ajustée par un \gls{bgmm} \citep{Attias2000, Blei2006} puis par un \gls{gmm} pour comparaison. 
 
 Un \textit{Gaussian Mixture Model} est un modèle qui suppose que toutes les observations proviennent d'un mélange 
 d'un nombre fini de distributions gaussiennes aux paramètres inconnus. 
 Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur la distribution des données pour 
-assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \glspl{tbr} 
+assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \gls{tbr} 
 extraits de sujets sains de la base de données \gls{cmi-hbn} est disponible, ces valeurs sont donc utilisées pour estimer les \textit{a priori} du \gls{bgmm}. 
 Lorsque les observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes gaussiennes est 
 créé pour modéliser les données. Ici, les valeurs de \gls{srntbr} sont approximées par un \gls{bgmm} avec un nombre de composantes allant de 1 à 3. 
@@ -409,7 +416,7 @@ où un coude est observé à $y$ = 0.048, valeur choisie pour $\epsilon$.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dbscan-knn-plot} 
-  \caption{Graphique des k distances. La ligne en pointillés noirs coupe la courbe où le coude est identifié.}
+  \caption{Graphique des k distances pour la méthode \gls{dbscan}. La ligne en pointillés noirs coupe la courbe où le coude est identifié.}
   \label{Figure:tbr_dbscan_kdistance_plot}
 \end{figure}
 
@@ -624,6 +631,14 @@ composantes = 2e-4) et un seuil \gls{tbr} de 3.84 est trouvé.
 Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge, il serait intéressant d'effectuer cette analyse sur une sous population de jeunes (5 
 à 6 ans) et plus grands (18 à 21) sujets. Cependant, faute d'un nombre suffisant d'informations dans ces extrêmes, cette étude ne peut pas être menée. Les prochaines
 études sur le \gls{tbr} devront corriger les valeurs de \gls{tbr} de façon à ce qu'elles ne soient pas affectées par l'âge des patients.
+
+\subsubsection{Autres facteurs de confusion}
+% trouver des refs
+Les principaux facteurs de confusion ont été explorés, cependant il en existe d'autres qu'il n'est ici pas possible d'étudier faute de manque d'informations.
+En effet, même si tous les enfants inclus dans cette étude sont diagnostiqués \gls{tdah}, ils ne présentent pas tous la même sévérité de symptômes.
+
+% mois de naissance
+% dépendance aux écrans
 
 \section{Conclusion}
 
