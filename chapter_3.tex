@@ -81,9 +81,9 @@ utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. Ces méthodes ont pour
 défini par la suite, à l'aide des facteurs. Les résultats de chaque méthode vont être combinés pour identifier quels paramètres sont susceptibles 
 d'avoir un impact sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah}. 
 
-\subsection{Calcul de la taille d'effet intra-groupe}
+\subsection{Calcul de la taille d'effet intra-groupe} \label{es_within}
 
-L'efficacité du traitement est quantifiée par L'\gls{es}-intra-groupe. Celui-ci est calculé à partir des moyennes et écart-types des scores 
+L'efficacité du traitement est quantifiée par l'\gls{es}-intra-groupe. Celui-ci est calculé à partir des moyennes et écart-types des scores 
 cliniques totaux donnés par les parents et les enseignants (considérés comme \gls{pblind} \citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016}). De plus, 
 lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\gls{es}-intra-groupe est calculé pour chaque échelle :
 \begin{equation}
@@ -93,7 +93,8 @@ lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\g
 \noindent où $M_{\text{t},T}$ est la moyenne sur l'échelle clinique, pour le traitement $T$, au moment t (pré-test ou post-test) et $\sigma_{\text{t},T}$ représente
 son écart-type. Au contraire de l'\gls{es}-inter-groupes défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de se concentrer sur l'effet du 
 traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} a déjà été précédemment utilisée dans la littérature sur le \gls{nfb} 
-appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. 
+appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Plus la valeur absolue de \gls{es}-intra-groupe est élevée, plus
+le traitement étudié est efficace. 
 
 Enfin, afin d'éviter de rompre les hypothèses des méthodes utilisées dans la \gls{saob}, les valeurs non comprises dans l'intervalle 
 $[\mu - 3 \sigma, \mu + 3 \sigma]$ (avec $\mu$ et $\sigma$ respectivement la moyenne et l'écart-type de tous les \gls{es}-intra-groupe calculés \citep{Shewhart1931})
@@ -213,7 +214,7 @@ Les résultats de la \gls{saob} sont présentés ici. Cette méthode, dont les p
 la méta-analyse, se distingue de cette dernière par l'utilisation de méthodes multivariées. Celles-ci tirent avantage de l'hétérogénéité des études
 sur le \gls{nfb} appliqué aux enfants \gls{tdah} pour déterminer les facteurs ayant un impact sur la performance du \gls{nfb}.
 
-\subsection{Sélection des études}
+\subsection{Sélection des études} \label{selection_studies}
 
 Les termes entrés dans Pubmed pour la recherche des articles à inclure dans la \gls{saob} sont :
 (ADHD OR adhd OR attention deficit disorder with hyperactivity OR minimal brain disorders OR syndrome hyperkinetic OR hyperkinetic
@@ -252,7 +253,7 @@ de l'intervalle d'inclusion sont représentées à la Figure~\ref{Figure:distrib
 Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
 celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges 
 (respectivement -3.41 et -3.95). Ces \gls{es} extrêmement surprenants sont même plus éleves que ceux rapportés dans la littérature sur l'efficacité 
-des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \citep{Luan2017}. Ces valeurs invalident nos hypothèses de travail : dans le cas de la 
+des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \citep{Luan2017} comme illustré à la Figure~\ref{Figure:introduction-efficacy-treatments}. Ces valeurs invalident nos hypothèses de travail : dans le cas de la 
 \gls{wls}, les résidus ne sont plus distribués normalement. Ainsi, afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, 
 un rejet des valeurs aberrantes a été implémenté.
 
