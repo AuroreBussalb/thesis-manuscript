@@ -5,7 +5,7 @@ Les méta-analyses ont pour but de combiner les données de plusieurs études vi
 particulièrement intéressante lorsque les études comportent un faible nombre de sujets, comme c'est notamment le cas dans la plupart de celles sur 
 le \gls{nfb} appliqué aux enfants \gls{tdah}. 
 
-Les différentes étapes à suivre pour réaliser une méta-analyse sont détaillées dans ce chapitre et résumées en Figure~\ref{Figure:pipeline_meta_analyse}.
+Les différentes étapes à suivre pour réaliser une méta-analyse sont détaillées précisément dans ce chapitre.
 Ces étapes sont ensuite appliquées à la réplication et à la mise à jour d'une récente méta-analyse sur le \gls{nfb} appliqué aux enfants \gls{tdah} :
 celle de \citet{Cortese2016} dont certains résultats ont été débattus par la communauté scientifique \citep{Micoulaud2016}. Ainsi, cette analyse a pour but
 de relever l'éventuel impact de certains choix méthodologiques de \citet{Cortese2016} sur ses conclusions quant à l'efficacité du \gls{nfb} et de mettre à jour
@@ -18,7 +18,9 @@ qui a été menée a permis de se familiariser avec les études sur l'efficacit�
 
 \section{Principe d'une méta-analyse} \label{methods}
 
-Les différentes étapes pour réaliser une méta-analyse sont décrites dans cette partie. Bien qu'il existe des logiciels permettant de réaliser une
+Les différentes étapes pour réaliser une méta-analyse sont décrites dans cette partie et résumées à la Figure~\ref{Figure:pipeline_meta_analyse}. 
+
+Bien qu'il existe des logiciels permettant de réaliser une
 méta-analyse, ces étapes ont été implémentées en Python par souci de transparence et de reproductibilité dont le code source est disponible sur un 
 dépôt GitHub \citep{Bussalb2019clinical} avec sa documentation associée générée par Sphinx (version 1.5.6.).
 
@@ -26,6 +28,13 @@ dépôt GitHub \citep{Bussalb2019clinical} avec sa documentation associée gén�
 
 Les méta-analyses rassemblent les résultats de plusieurs études, satisfaisant des critères d'inclusion préalablement établis, dans le but d'analyser
 sur un plus grand nombre de sujets provenant de populations différentes, l'efficacité d'un traitement. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-2/pipeline-perform-meta-analysis} 
+  \caption{Résumé des étapes à suivre pour effectuer une méta-analyse dans le cadre d'un modèle à effets aléatoires.}
+  \label{Figure:pipeline_meta_analyse}
+\end{figure}
 
 Alors qu'avant les années 1990 les revues narratives (\textit{narrative reviews} en anglais) étaient le plus couramment utilisées pour cette tâche, elles ont 
 perdu leur popularité au profit des méta-analyses. En effet, les revues narratives souffrent de la subjectivité des auteurs qui choisissent notamment le poids 
@@ -42,9 +51,9 @@ pour un chercheur, à avoir tendance à publier des expériences présentant des
 Réaliser une méta-analyse permet de confronter les résultats de toute étude incluse à ceux des autres études intégrées dans l'analyse.
 L'efficacité du traitement observée pour chaque étude est mesurée à l'aide d'une valeur appelée taille 
 d'effet (ou \gls{es} en anglais) présentée en \ref{definition_es} qui est, le plus souvent, standardisée du fait du regroupement de 
-populations et mesures relativement hétérogènes \citep{Cortese2016}.
+populations et de mesures relativement hétérogènes \citep{Cortese2016}.
 
-\subsection{Choix du modèle}
+\subsection{Choix du modèle} \label{model_choice}
 
 La première étape consiste à choisir le modèle statistique de la méta-analyse. La plupart des méta-analyses sont basées sur l'un des deux modèles 
 suivants qui reposent sur des hypothèses scientifiques différentes \citep{Borenstein2009} :
@@ -57,10 +66,11 @@ suivants qui reposent sur des hypothèses scientifiques différentes \citep{Bore
 Dans le cas du modèle à effet fixe, il est supposé qu'il existe un \gls{es} réel (\textit{true} \gls{es} en anglais), c'est à dire l'\gls{es} qui serait
 observé avec un nombre de sujets infiniment grand, qui serait le même pour l'ensemble des études incluses dans la méta-analyse. Les différences entre
 les \gls{es} observés pour chaque étude sont dues à des erreurs d'échantillonnage. Au contraire, dans le cas du modèle à effets aléatoires, 
-l'\gls{es} réel peut varier entre les études. Cette variabilité s'explique non seulement par des erreurs d'échantillonnage mais aussi par 
+l'\gls{es} réel peut varier entre les études. Cette variabilité s'explique non seulement par des erreurs d'échantillonnage, mais aussi par 
 les différentes conceptions des études et/ou par les différences entre les sujets inclus.
 
-L'hypothèse nulle testée lors de la méta-analyse est différente selon le modèle choisi :
+Les \gls{es} obtenus pour chaque étude sont moyennés pour mener à un \gls{est} (\textit{summary effect} en anglais dont le calcul est
+décrit en \ref{compute_summary_effect}) sur lequel une hypothèse nulle est testée, qui diffère selon le modèle choisi :
 \begin{itemize}
 \item pour le modèle à effet fixe : 
 \textit{$H_{0}$ : le traitement n'a auncun effet dans chaque étude},
@@ -71,7 +81,10 @@ L'hypothèse nulle testée lors de la méta-analyse est différente selon le mod
 Le modèle à effets aléatoires est souvent plus approprié du fait de la variabilité des études. En effet, même si les études incluses dans la méta-analyse 
 répondent toutes aux critères d'inclusion fixés au préalable, rien ne peut généralement permettre de supposer que ces études sont identiques et qu'elles 
 partagent donc toutes le même \gls{es} réel. Le modèle à effet fixe est ainsi rarement utilisé, on peut cependant y avoir recours lorsque le nombre d'études incluses 
-est très petit. Au sein du domaine du \gls{nfb} appliqué aux enfants \gls{tdah}, les méta-analyses suivent le modèle à effets aléatoires 
+est très petit. En effet, le cas du modèle à effet fixe, les poids associés à chaque étude sont moins équilibrés : les études incluant un grand nombre de 
+sujets se voient attribuer un poids plus important que dans le cas du modèle à effets aléatoires, et les études aux petits échantillons un plus faible poids.
+
+Au sein du domaine du \gls{nfb} appliqué aux enfants \gls{tdah}, les méta-analyses suivent le modèle à effets aléatoires 
 \citep{Cortese2016, Micoulaud2014}. Ainsi, étant donné l'hétérogénéité des populations étudiées et des critères d'évaluation, et pour être en accord avec
 la littérature existante, c'est le modèle à effets aléatoires qui est utilisé par la suite.
 
@@ -96,7 +109,7 @@ Il existe différents \gls{es} \citep{Borenstein2009} :
         \text{d} = \frac{\mu_{1} - \mu_{2}}{\sqrt{\frac{(n_1 - 1)\sigma_1^2 + (n_2 - 1)\sigma_2^2} {n_1 + n_2 - 2}}},
         \end{equation} 
 		avec $n_{1}$ et $n_{2}$ le nombre de sujets dans les groupes 1 et 2, et $\sigma_{1}$ et $\sigma_{2}$ les écarts types des deux groupes. Le dénominateur
-		correspond à l'écart type intra-groupes calculé à travers les deux groupes.
+		correspond à l'écart type intra-groupe calculé à travers les deux groupes.
 \end{itemize}
 \item \gls{es} basés sur des \emph{données binaires} :
 \begin{itemize}
@@ -105,7 +118,7 @@ Il existe différents \gls{es} \citep{Borenstein2009} :
         \label{eq:metareview_risk_ratio}
         \text{RR} = \frac{ \text{A} / n_1 } { \text{C} / n_2 },
         \end{equation} 
-		avec A et C est le nombre d'évènements observés (par exemple présence d'un effet secondaire) respectivement dans les groupes 1 et 2,
+		avec A et C le nombre d'évènements observés (par exemple présence d'un effet secondaire) respectivement dans les groupes 1 et 2,
     \item le taux de chance (\textit{odds ratio} en anglais), OR :
 				\begin{equation}
         \label{eq:metareview_odds_ratio}
@@ -133,6 +146,7 @@ Cet \gls{es} est utilisé par \citet{Cortese2016, Micoulaud2014} et implémenté
 \label{eq:metareview_effect_size_between}
 \text{ES-inter-groupes} = c_p \left(\frac{(M_{\text{post},T} - M_{\text{pre},T}) - (M_{\text{post},C} - M_{\text{pre},C}) }{\sigma_{\text{pre}}} \right).
 \end{equation} 
+
 L'\gls{es}-inter-groupes est équivalent au Z-score d'une distribution normale qui est une mesure de combien d'écarts-types un score brut est au-dessus ou en-dessous
 de la moyenne d'une population. 
 
@@ -146,6 +160,10 @@ dans le groupe contrôle ($M_{\text{pre},C}$, $M_{\text{post},C}$), divisée par
 où $\sigma_{\text{pre},G}$ correspond à l'écart-type du groupe $G$ à pré-test and $n_G$ indique le nombre de sujets ayant suivi l'intégralité 
 du traitement dans chaque groupe.
 
+La normalisation de l'\gls{es}-inter-groupes (équation Eq.~(\ref{eq:metareview_effect_size_between})) à l'aide de $\sigma_{\text{pre}}$ 
+(équation Eq.~(\ref{eq:stats_metareview_std_pre})) se fait seulement avec les données obtenues en pré-test pour ne pas y inclure la variabilité 
+induite par le traitement.
+
 Il s'avère que l'\gls{es}-inter-groupes présente un léger biais qui tend à sous-estimer la valeur absolue de la différence moyenne standardisée de la population
 lorsque les études incluent peu de sujets. Cette valeur est obtenue en calculant la différence entre les vraies moyennes de la population de chaque groupe divisée 
 par l'erreur type de la vraie population qui est supposée être identique pour les deux groupes $\delta$ \citep{Borenstein2009}. Ce biais peut être supprimé 
@@ -154,13 +172,13 @@ grâce à un facteur de correction $c_p$ qui est utilisé pour les petites étud
 \label{eq:metareview_correction_factor}
 c_p =  1 - \frac{3} {4(n_T + n_C - 2) - 1},
 \end{equation} 
-avec $n_T + n_C - 2$ qui correspond au dégré de liberté utilisé pour le calcul de $\sigma_{\text{pre}}$ à l'équation Eq.~(\ref{eq:stats_metareview_std_pre}.
+avec $n_T + n_C - 2$ qui correspond au dégré de liberté utilisé pour le calcul de $\sigma_{\text{pre}}$ à l'équation Eq.~(\ref{eq:stats_metareview_std_pre}).
 
 Plus la valeur absolue de l'\gls{es}-inter-groupes est élevée, plus l'efficacité du traitement est importante.
 
 \subsection{Calcul de la précision de chaque taille d'effet}
 
-Le terme précision englobe trois valeurs statistiques liées les unes aux autres : la variance, l'erreur standard, et l'intervalle de confiance.
+Le terme précision englobe trois valeurs statistiques liées les unes aux autres : la variance, l'erreur type, et l'intervalle de confiance.
 Ces trois facteurs de précision définissent un intervalle de valeurs probables pour l'\gls{es} réel. 
 
 Tout d'abord, la variance de chaque \gls{es}-inter-groupes est calculée \citep{Morris2008}:
@@ -175,19 +193,19 @@ Tout d'abord, la variance de chaque \gls{es}-inter-groupes est calculée \citep{
 où \gls{es} désigne l'\gls{es}-inter-groupes et $r$ la \textit{pooled} corrélation de Pearson intra-groupes \citep{James2013} :
 \begin{equation}
 \label{eq:metareview_within_group_pearson_correlation}
-r = \frac{ \sum_{i=1}^{n} (\text{pre}_i - \mu_{\text{pre}})(\text{post}_i - \mu_{\text{post}}) } { \sqrt{ \sum_{i=1}^{n} (\text{pre}_i - 
-\mu_{\text{pre}})^2} \sqrt{\sum_{i=1}^{n} (\text{post}_i - \mu_{\text{post}})^2} }, 
+r = \frac{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - \mu_{\text{pre}})(\text{s}_{\text{post},i} - \mu_{\text{post}}) } { \sqrt{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - 
+\mu_{\text{pre}})^2} \sqrt{\sum_{i=1}^{n} (\text{s}_{\text{post},i} - \mu_{\text{post}})^2} }, 
 \end{equation}
-où $n$ est le nombre de patients inclus dans une étude, $\text{pre}_i$, $\text{post}_i$ les valeurs de scores cliniques pour le sujet $i$ 
+où $n$ est le nombre de patients inclus dans une étude, $\text{s}_{\text{pre},i}$, $\text{s}_{\text{post},i}$ les valeurs de scores cliniques pour le sujet $i$ 
 respectivement à pré- et post-test, et $\mu_{\text{pre}}$, $\mu_{\text{post}}$ les scores moyens calculés sur tous les sujets. 
 Il s'agit d'une mesure de corrélation linéaire entre deux variables : une valeur de 1 signifie une corrélation positive entre ces variables,
 une valeur de -1 une corrélation négative, et une valeur de 0 une absence de corrélation linéaire. 
-Dans notre cas, cette corrélation étant inconnue et les données brutes n'étant pas disponibles, nous approximons la valeur de $r$ 
-en accord avec \citet{Balk2012}, qui a trouvé qu'une valeur de 0.5 conduit à des résultats proches de ceux obtenus avec la véritable
+
+Dans notre cas, cette corrélation étant inconnue et les données brutes n'étant pas disponibles pour la majorité des études cliniques, nous approximons la valeur 
+de $r$ en accord avec \citet{Balk2012}, qui a trouvé qu'une valeur de 0.5 conduit à des résultats proches de ceux obtenus avec la véritable
 valeur de la corrélation.
 
-Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{standard error} en anglais) de l'\gls{es}-inter-groupes 
-\citep{Borenstein2009} :
+Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{standard error} en anglais) de l'\gls{es}-inter-groupes \citep{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_standard_error_effect_size_between}
 \text{ET} = \sqrt{\sigma^2(\text{ES})},
@@ -195,35 +213,50 @@ Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{stand
 où \gls{es} désigne l'\gls{es}-inter-groupes. Alors que la variance est intéressante pour les calculs statistiques, l'\gls{et} est quant à elle 
 un index plus aisé à comprendre car elle est sur la même échelle que l'\gls{es}.
 
-Enfin, si l'\gls{es}-inter-groupes suit une distribution normale, l'intervalle de confiance à 95\% peut être calculé \citep{Borenstein2009}.
+Enfin, si on suppose que l'\gls{es}-inter-groupes suit une distribution normale, son intervalle de confiance à 95\% peut être calculé \citep{Borenstein2009} :
+\begin{equation}
+\label{eq:metareview_es_between_confidence_interval_95_lower_bound}
+\text{LL} = \text{ES-inter-groupes} - 1.96 * \text{ET},
+\end{equation}
+et 
+\begin{equation}
+\label{eq:metareview_es_between_confidence_interval_95_upper_bound}
+\text{UL} = \text{ES-inter-groupes} + 1.96 * \text{ET},
+\end{equation}
+où LL correspond à la limite inférieure de l'intervalle et UL à la limite supérieure. La valeur de 1.96 correspond au Z-score d'une distribution 
+normale standard pour un intervalle de confiance à 95\%. La probabilité de trouver dans cet intervalle
+la vraie valeur de l'\gls{es}-inter-groupes de la population est de 95\%.
 
 La précision est affectée, dans une large mesure, par le nombre de sujets inclus dans l'étude : les échantillons plus grands mènent à des
-estimations de \gls{es}-inter-groupes plus précises, c'est pourquoi un plus grand poids leur est attribué dans la méta-analyse.
+variances plus faibles et donc à des estimations d'\gls{es}-inter-groupes plus précises \citep{Borenstein2009}, c'est pourquoi un plus grand 
+poids leur est attribué dans la méta-analyse.
 
-\subsection{Calcul de l'effet total du traitement}
+\subsection{Calcul de l'effet total du traitement} \label{compute_summary_effect}
 
 Afin d'obtenir l'estimation la plus précise possible de l'effet du traitement sur la population, une moyenne pondérée des \gls{es}-inter-groupes 
 des études incluses est calculée.
 
-Si le modèle à effet fixe est choisi, le poids $w_{\text{fixe}_k}$ assigné à chaque étude $k$ correspond à l'inverse de la variance de son 
+Si le modèle à effet fixe est choisi, le poids $w_{\text{fixe},k}$ assigné à chaque étude $k$ correspond à l'inverse de la variance de son 
 \gls{es}-inter-groupes ($\sigma^2(\text{ES})$, la variance intra-étude) \citep{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_weight_fixed_study}
-w_{\text{fixe}_k} = \frac{1}{\sigma^2(\text{ES}_k)}.
+w_{\text{fixe},k} = \frac{1}{\sigma^2(\text{ES}_k)}.
 \end{equation} 
 
+Cette étape a pour but de minimiser l'importance des études avec une large variabilité intra-étude.
+
 Dans notre cas nous employons le modèle à effets aléatoires, qui inclut également la variance inter-études $\tau^2$ conduisant à des 
-poids ($w_{\text{aléatoires}_k} = w_k$) associés aux études différents.
+poids ($w_{\text{aléatoires},k} = w_k$) associés aux études différents.
 
 Calculer la variance inter-études se fait en trois étapes décrites par les équations Eq.~(\ref{eq:metareview_Q}), Eq.~(\ref{eq:metareview_C}) 
 et Eq.~(\ref{eq:metareview_Tau}) \citep{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_Q}
-Q = \sum_{k=1}^{K} (w_{\text{fixe}_k} \text{ES}_k^2),
+Q = \sum_{k=1}^{K} (w_{\text{fixe},k} \text{ES}_k^2),
 \end{equation}
 \begin{equation}
 \label{eq:metareview_C}
-C = \sum_{k=1}^{K} w_{\text{fixe}_k} - \frac{ \sum_{k=1}^{K} (w_{\text{fixe}_k})^2 } { \sum_{k=1}^{K} w_{\text{fixe}_k} },
+C = \sum_{k=1}^{K} w_{\text{fixe},k} - \frac{ \sum_{k=1}^{K} (w_{\text{fixe},k})^2 } { \sum_{k=1}^{K} w_{\text{fixe},k} },
 \end{equation}
 avec $K$ le nombre total d'études incluses.
 \begin{equation}
@@ -239,17 +272,74 @@ $\sigma^2(\text{ES}_k)$ et la variance inter-études $\tau^2$ \citep{Borenstein2
 w_k = \frac{1}{\sigma^2(\text{ES}_k) + \tau^2}.
 \end{equation} 
 
-Enfin, la moyenne pondérée des $K$ \gls{es}-inter-groupes est calculée pour obtenir l'\gls{est} comme décrit dans l' 
+Enfin, la moyenne pondérée des $K$ \gls{es}-inter-groupes est calculée pour obtenir l'\gls{est} comme décrit dans l'équation
 Eq.~(\ref{eq:metareview_summary_effect}) \citep{Borenstein2009}:
 \begin{equation}
 \label{eq:metareview_summary_effect}
 \text{EST} = \frac{\sum_{k=1}^{K} w_k \text{ES}_k} {\sum_{k=1}^{K} w_k}.
 \end{equation} 
-Une fois l'\gls{est} obtenu, on peut calculer sa variance, son erreur type, son intervalle de confiance à 95\%, sa p-value, 
-et $I^2$ qui estime l'hétérogénéité des \gls{es}-inter-groupes. 
 
-Si la p-value calculée est inférieure à 0.05, alors il y a une différence statistiquement significative entre l'efficacité du traitement étudié 
+\subsection{Calcul de la précision de la taille d'effet totale}
+
+Une fois l'\gls{est} obtenu, on peut calculer ses trois valeurs de précision. Tout d'abord, sa variance $\sigma^2(\text{EST})$ :  
+\begin{equation}
+\label{eq:metareview_variance_summary_effect}
+\sigma^2(\text{EST}) = \frac{1} {\sum_{k=1}^{K} w_k},
+\end{equation} 
+puis son erreur type ET(EST) :
+\begin{equation}
+\label{eq:metareview_standard_error_effect}
+\text{ET(EST)} = \sqrt{\sigma^2(\text{EST})},
+\end{equation} 
+et enfin son intervalle de confiance à 95\% : 
+\begin{equation}
+\label{eq:metareview_confidence_interval_summary_effect_lower_bound}
+\text{LL(EST)} = \text{EST} - 1.96 * \text{ET(EST)},
+\end{equation}
+et 
+\begin{equation}
+\label{eq:metareview_confidence_interval_summary_effect_upper_bound}
+\text{UL(EST)} = \text{EST} + 1.96 * \text{ET(EST)},
+\end{equation}
+avec LL la limite inférieure de cet intervalle de confiance et UL sa limite supérieure.
+
+\subsection{Calcul de la significativité de la taille d'effet totale}
+
+Une Z-value est calculée pour tester l'hypothèse nulle pour le modèle à effets aléatoires énoncée en \ref{model_choice} :
+\begin{equation}
+\label{eq:metareview_confidence_interval_summary_effect_z_value}
+\text{Z} = \frac{\text{EST}} {\text{ET(EST)}}.
+\end{equation}
+
+Pour un test bilatéral, la p-value est ensuite calculée avec :
+\begin{equation}
+\label{eq:metareview_confidence_interval_summary_effect_p_value}
+\text{p} = 2[1 - (\Phi(\abs{Z}))],
+\end{equation} 
+où $\Phi(Z)$ est la \textit{standard normal cumulative distribution}.
+
+Si la p-value obtenue est inférieure à 0.05, alors il y a une différence statistiquement significative entre l'efficacité du traitement étudié 
 et celle du groupe contrôle.
+
+D'autres valeurs peuvent ensuite être calculées pour compléter l'analyse, comme par $I^2$ qui estime l'hétérogénéité des \gls{es}-inter-groupes. 
+
+\subsection{Analyse des biais}
+
+Lors de la sélection des études à intégrer dans l'analyse, un biais de publication peut s'immiscer : les auteurs d'études scientifiques ont tendance à 
+plutôt publier des résultats statistiquement significatifs et en faveur de ce qu'ils veulent démontrer. L'analyse visuelle d'un \textit{funnel plot} 
+est une méthode couramment utilisée pour détecter un éventuel biais de publication lors de la sélection des études et une hétérogénéité parmi elles 
+\citep{Sterne2011}. 
+
+Il s'agit d'un nuage de points de la précision de chaque \gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'inverse de l'\gls{et} est couramment 
+utilisé comme estimation de la précision et de la taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études 
+soient au sommet et que les plus petites se retrouvent 
+dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
+le graphique est symétrique. Le triangle centré sur \gls{est}, obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté, 
+inclut 95\% des études s'il n'y a pas de biais. 
+
+Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant, par exemple, le test d'\citet{Egger1997}. 
+Il s'agit de régresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
+zéro (seuil de signifiance à 5\%), alors le \textit{funnel plot} est asymétrique.
 
 \subsection{Répresentation graphique des résultats d'une méta-analyse}
 
@@ -257,26 +347,8 @@ Afin de faciliter la lecture des résultats d'une méta-analyse, ceux-ci sont r�
 en ordonnées et les \gls{es}-inter-groupes en abscisses. Chaque \gls{es}-inter-groupes est représenté par un carré dont la taille est proportionnelle
 au poids $w_k$ attribué à l'étude $k$. Les intervalles de confiance à 95\% pour chaque \gls{es}-inter-groupes sont représentés. En bas du graphique, l'\gls{est}
 est symbolisé par un diamant avec son intervalle de confiance à à 95\%. Une droite verticale d'équation $x = 0$ est tracée pour délimiter la
-partie du graphique où les \gls{es} sont en faveur du traitement de celle où ils ne le sont pas.
-
-Un autre graphique très utilisé dans la méta-analyse est le \textit{funnel plot} qui a pour but de détecter un éventuel biais de publication
-lors de la sélection des études et une hétérogénéité parmi elles \citep{Sterne2011}. Il s'agit d'un nuage de points de la précision de chaque 
-\gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'inverse de l'\gls{et} est couramment utilisé comme estimation de la précision et de la 
-taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études soient au sommet et que les plus petites se retrouvent 
-dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
-le graphique est symétrique. Le triangle centré sur \gls{est}, obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté, 
-inclut 95\% des études s'il n'y a pas de biais. Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant, par exemple, le test d'\citet{Egger1997}. 
-Il s'agit de régresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
-0 (seuil de signifiance à 0.05), alors le \textit{funnel plot} est asymétrique.
-
-L'ensemble des étapes pour réaliser une méta-analyse en suivant le modèle à effets aléatoires est résumé à la Figure~\ref{Figure:pipeline_meta_analyse}.
-
-\begin{figure}[h!]
-  \centering
-	\includegraphics[width=1.0\linewidth]{figures/chapter-2/pipeline-perform-meta-analysis} 
-  \caption{Résumé des étapes à suivre pour effectuer une méta-analyse dans le cadre d'un modèle à effets aléatoires.}
-  \label{Figure:pipeline_meta_analyse}
-\end{figure}
+partie du graphique où les \gls{es} sont en faveur du traitement de celle où ils ne le sont pas. Dans notre cas, la partie à gauche de cette droite
+est en faveur du \gls{nfb}.
 
 \section{Replication et mise à jour de la méta-analyse de Cortese et al., 2016} 
 
