@@ -303,7 +303,7 @@ et
 \end{equation}
 avec LL la limite inférieure de cet intervalle de confiance et UL sa limite supérieure.
 
-\subsection{Calcul de la significativité de la taille d'effet totale}
+\subsection{Calcul de la signification statistique de la taille d'effet totale}
 
 Une Z-value est calculée pour tester l'hypothèse nulle pour le modèle à effets aléatoires énoncée en \ref{model_choice} :
 \begin{equation}
@@ -321,25 +321,28 @@ où $\Phi(Z)$ est la \textit{standard normal cumulative distribution}.
 Si la p-value obtenue est inférieure à 0.05, alors il y a une différence statistiquement significative entre l'efficacité du traitement étudié 
 et celle du groupe contrôle.
 
-D'autres valeurs peuvent ensuite être calculées pour compléter l'analyse, comme par $I^2$ qui estime l'hétérogénéité des \gls{es}-inter-groupes. 
+D'autres valeurs peuvent ensuite être calculées pour compléter l'analyse, comme par exemple $I^2$ qui estime l'hétérogénéité des \gls{es}-inter-groupes. 
 
 \subsection{Analyse des biais}
 
-Lors de la sélection des études à intégrer dans l'analyse, un biais de publication peut s'immiscer : les auteurs d'études scientifiques ont tendance à 
-plutôt publier des résultats statistiquement significatifs et en faveur de ce qu'ils veulent démontrer. L'analyse visuelle d'un \textit{funnel plot} 
-est une méthode couramment utilisée pour détecter un éventuel biais de publication lors de la sélection des études et une hétérogénéité parmi elles 
-\citep{Sterne2011}. 
+Les résultats d'une méta-analyse peuvent être impactés par des biais, comme par exemple un biais de publication qui consiste en la tendance qu'ont les auteurs 
+d'études scientifiques de plutôt publier des résultats statistiquement significatifs et en faveur de ce qu'ils veulent démontrer. De plus,
+d'autres facteurs peuvent influencer les résultats de la méta-analyse : une faible qualité méthodologique conduisant à des effets faussement gonflés
+dans les petites études, l'hétérogénéité des \gls{es} selon la taille des études, et le hasard. \citep{Sterne2011}.
 
-Il s'agit d'un nuage de points de la précision de chaque \gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'inverse de l'\gls{et} est couramment 
+L'analyse visuelle de la symétrie d'un \textit{funnel plot} est une méthode couramment utilisée pour détecter un éventuel biais de publication et 
+l'influence des facteurs cités précédemment \citep{Sterne2011}.
+
+Il s'agit d'un nuage de points de la précision de chaque \gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'\gls{et} est couramment 
 utilisé comme estimation de la précision et de la taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études 
 soient au sommet et que les plus petites se retrouvent 
 dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
-le graphique est symétrique. Le triangle centré sur \gls{est}, obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté, 
-inclut 95\% des études s'il n'y a pas de biais. 
+le graphique est symétrique. Le triangle centré sur l'\gls{est}, obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté, 
+inclut 95\% des études s'il n'y a pas de biais et si l'hypothèse du modèle à effet fixe est valide.
 
 Déterminer l'asymétrie d'un \textit{funnel plot} peut se faire visuellement mais aussi mathématiquement en utilisant, par exemple, le test d'\citet{Egger1997}. 
 Il s'agit de régresser les \gls{es}-inter-groupes divisés par leur \gls{et} sur l'inverse des \gls{et}. Si l'intercept diffère significativement de 
-zéro (seuil de signifiance à 5\%), alors le \textit{funnel plot} est asymétrique.
+zéro (seuil de signification statistique à 5\%), alors le \textit{funnel plot} est asymétrique.
 
 \subsection{Répresentation graphique des résultats d'une méta-analyse}
 
@@ -353,7 +356,8 @@ est en faveur du \gls{nfb}.
 \section{Replication et mise à jour de la méta-analyse de Cortese et al., 2016} 
 
 La méta-analyse de \citet{Cortese2016} a eu un fort impact dans la communauté du \gls{nfb}, du fait du nombre d'études incluses (13) et 
-du soin apporté à la sélection de ces études. Cependant, quelques choix faits par les auteurs, comme le souligne \citet{Micoulaud2016}, méritent d'être explorés.
+du soin apporté à la sélection de ces études. Cependant, certains choix méthodologiques ont fait l'objet de débats \citep{Micoulaud2016} et
+méritent une attention particulière.
 C'est pourquoi dans un premier temps, la méta-analyse de \citet{Cortese2016} est répliquée en modifiant les points débattus pour évaluer leur impact sur les
 résultats. Ensuite, étant donné que la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est très active, de nouvelles études répondant au 
 critère d'inclusion de \citet{Cortese2016} ont pu être publiées depuis cette méta-analyse. La mise à jour de ce genre d'analyse est importante
@@ -367,15 +371,19 @@ fiabilité des résultats obtenus avec ce package.
 \subsection{Evaluation des résultats obtenus avec le package Python}
 
 Pour effectuer une méta-analyse, les auteurs utilisent en général le logiciel RevMan \citep{Revman, Cortese2016, Micoulaud2014}. Ici, les résultats 
-obtenus avec le package Python vont être comparés à ceux donnés par la version 5.1 de RevMan, afin d'évaluer la précision du package. 
+obtenus avec le package Python vont être comparés à ceux donnés par la version 5.1 de RevMan, afin d'évaluer la précision du package.
 
-La première étape a été d'entrer dans un fichier .csv, pour chaque étude incluse, les moyennes des scores cliniques à pré-test et post-test avec leur écart-type utilisés 
-par \citet{Cortese2016} pour calculer les \gls{es}-inter-groupes. Lorsqu'ils sont disponibles les scores cliniques évaluant l'inattention, l'hyperactivité 
+\subsubsection{Matériel et méthodes}
+La première étape a été d'entrer dans un fichier .csv, pour chaque étude incluse, les moyennes des scores cliniques à pré-test et post-test avec leur écart-type 
+utilisés par \citet{Cortese2016} pour calculer les \gls{es}-inter-groupes. Lorsqu'ils sont disponibles, les scores cliniques évaluant l'inattention, l'hyperactivité 
 et la totalité des symptômes sont extraits afin d'obtenir une valeur d'efficacité pour chacune de ces composantes. Par ailleurs, les scores donnés par les
 parents (\gls{mprox}) mais aussi par les enseignants (\gls{pblind}) sont utilisés.
 
 Une fois cette étape remplie, le package Python lit ce fichier et retourne l'\gls{est} ainsi que sa p-value associée qui permet de conclure quant à l'efficacité
-du \gls{nfb} sur chaque composante. En accord avec les résultats de précédentes méta-analyses \citep{Sonuga-Barke2013, Micoulaud2014}, \citet{Cortese2016}
+du \gls{nfb} sur chaque composante.
+
+\subsubsection{Résultats}
+En accord avec les résultats de précédentes méta-analyses \citep{Sonuga-Barke2013, Micoulaud2014}, \citet{Cortese2016}
 met en évidence un effet significativement favorable du \gls{nfb} lorsque son efficacité est calculée grâce aux évaluations des parents, mais aucune amélioration 
 significative des symptômes n'est reportée par les enseignants. Ces résultats sont retrouvés lorsque l'analyse est effectuée par le programme Python, les valeurs
 d'\gls{est} et leur p-value obtenues sont très proches voire égales à celles de \citet{Cortese2016} comme présenté dans la 
@@ -384,7 +392,7 @@ Table~\ref{Table:table_meta_review_comparison_revman_python}.
 \begin{table}[h!]
   \centering
   \caption{Comparaison entre les résultats de \citet{Cortese2016} obtenus avec RevMan \citep{Revman} et ceux obtenus avec le package Python \citep{Bussalb2019clinical}.
-	Avec le package Python, un \gls{es} négatif est en faveur du \gls{nfb}. Le seuil de significativité est fixé à 0.05.}
+	Avec le package Python, un \gls{es} négatif est en faveur du \gls{nfb}. Le seuil de signification statistique est fixé à 5\%.}
   \input{tables/chapter-2/table_meta_review_comparison_revman_python}
   \label{Table:table_meta_review_comparison_revman_python}
 \end{table}
@@ -396,15 +404,18 @@ par -1 les \gls{es}-inter-groupes calculés avec l'équation Eq.~(\ref{eq:metare
 Les petites différences observées notamment au niveau des p-values sont dues à notre choix d'utiliser systématiquement une \textit{pooled} corrélation de Pearson 
 intra-groupes toujours égale à 0.5 \citep{Balk2012} lors du calcul de la variance de chaque \gls{es}-inter-groupes à l'équation 
 Eq.~(\ref{eq:metareview_variance_effect_size_between}). Une analyse de sensibilité a été menée pour s'assurer de l'impact mineur de la valeur de la \textit{pooled} 
-corrélation de Pearson intra-groupes : lorsqu'elle varie entre 0.2 et 0.8, la significativité de l'\gls{est} ne change pas.
+corrélation de Pearson intra-groupes : lorsqu'elle varie entre 0.2 et 0.8, la signification statistique de l'\gls{est} ne change pas.
 
 Au vu de la faible différence entre ce qui est retourné par RevMan et par le package Python, on peut être confiants quant aux résultats obtenus pour les 
 deux analyses suivantes utilisant ce package. 
 
 \subsection{Réplication de la méta-analyse de Cortese et al., 2016} \label{replication}
 
-Certains choix de la méta-analyse de \citet{Cortese2016} ont été discutés par la communauté scientifique \citep{Micoulaud2016}. Afin d'examiner leur impact sur 
-les conclusions de cette méta-analyse, les changements suivants ont été étudiés :
+Certains choix de la méta-analyse de \citet{Cortese2016} ont été discutés par la communauté scientifique \citep{Micoulaud2016}. Le but de cette section est 
+d'étudier leur impact sur les conclusions de cette méta-analyse.
+
+\subsubsection{Materiel et méthodes}
+Les changements suivants ont été mis en place afin d'être étudiés :
 
 \begin{itemize}
 \item l'\gls{es}-inter-groupes de \citet{Arnold2014} est calculé en utilisant les valeurs cliniques à post-test, c'est à dire obtenues lorsque la totalité 
@@ -417,15 +428,18 @@ cette étude. Ainsi, nous avons utilisé les scores cliniques donnés par les en
 qui a d'ailleurs été utilisée pour calculer l'\gls{es}-inter-groupes basé sur l'évaluation des parents. 
 \end{itemize}
 
-Les résultats obtenus avec ces changements sont résumés dans la Table Table~\ref{Table:table_meta_review_comparison_replication_cortese}.
-La significativité des \gls{est} est inchangée aussi bien pour les parents que pour les enseignants.
+\subsubsection{Résultats}
+
+Les résultats obtenus avec ces changements sont résumés dans la Table~\ref{Table:table_meta_review_comparison_replication_cortese}.
+La signification statistique des \gls{est} est inchangée aussi bien pour les parents que pour les enseignants. Les variations de p-values sont expliquées
+par le fait que les données de départ utilisées sont différentes de celles de \citet{Cortese2016} compte tenu des choix suivis ici.
 
 \begin{table}[h!]
   \centering
   \caption{Comparaison entre les résultats de \citet{Cortese2016} obtenus avec RevMan \citep{Revman} et ceux obtenus avec le package Python \citep{Bussalb2019clinical}
 	avec nos choix de modifications ($^a$ valeurs à post-test de \citet{Arnold2014} sont prises après 40 sessions de \gls{nfb} et l'efficacité du \gls{nfb} évaluée 
 	par les enseignants dans \citet{Steiner2014} se base sur la Conners-3 Teachers).
-	Avec le package Python, un \gls{es} négatif est en faveur du \gls{nfb}. Le seuil de significativité est fixé à 0.05.}
+	Avec le package Python, un \gls{es} négatif est en faveur du \gls{nfb}. Le seuil de signification statistique est fixé à 5\%.}
   \input{tables/chapter-2/table_meta_review_comparison_replication_cortese}
   \label{Table:table_meta_review_comparison_replication_cortese}
 \end{table}
@@ -433,20 +447,22 @@ La significativité des \gls{est} est inchangée aussi bien pour les parents que
 L'influence de ces changements est examinée plus précisément en s'intéressant à leur impact individuel :
 \begin{itemize}
 \item les \gls{es}-inter-groupes obtenus pour l'étude de \citet{Arnold2014} après 40 sessions de \gls{nfb} sont plus faibles que ceux obtenus 
-par \citet{Cortese2016}, ce qui est étonnant car on pourrait s'attendre à ce que l'efficacité clinique du \gls{nfb} augmente avec le nombre de
-sessions de \gls{nfb}. Ces \gls{es}-inter-groupes plus faibles vont légèrement diminuer l'\gls{est} mais sans impacter sa significativité 
+par \citet{Cortese2016}. Ces \gls{es}-inter-groupes plus faibles vont légèrement diminuer l'\gls{est} mais sans impacter sa signification statistique 
 (cf. les trois premières lignes de la Table~\ref{Table:table_meta_review_comparison_replication_cortese}),
 \item le calcul des \gls{es}-inter-groupes basé sur les évaluations des enseignants dans \citet{Steiner2014} avec la Conners-3 Teachers
 conduit à un \gls{es}-inter-groupes plus élevé pour la composante inattention, mais plus faible pour les composantes hyperactivité et totale. Toutefois, ces
-différences n'influencent pas la significativité des \gls{est} (cf. les trois dernières lignes de la 
+différences n'influencent pas la signification statistique des \gls{est} (cf. les trois dernières lignes de la 
 Table~\ref{Table:table_meta_review_comparison_replication_cortese}). 
 \end{itemize}
 
+Par conséquent, bien que ces points aient été débattus, leur impact sur les conclusions de la méta-analyse sont minimes et ne changent la signification statistique 
+d'aucun \gls{est}. 
+
 \subsection{Mise à jour de la méta-analyse de Cortese et al., 2016} \label{selection_studies}
 
-L'étape suivante consiste à mettre à jour la méta-analyse de \citep{Cortese2016} avec les choix faits lors de la réplication décrite en \ref{replication}. 
+L'étape suivante consiste à mettre à jour la méta-analyse de \citet{Cortese2016} avec les choix faits lors de la réplication décrite en \ref{replication}. 
 Pour ce faire, une recherche sur PubMed a été effectuée puis la performance du \gls{nfb} a été évaluée d'abord sur l'ensemble des études et ensuite sur 
-des sous-groupes comme ce qui a été réalisé dans \citet{Cortese2016}.
+des sous-groupes comme ce qui a été réalisé dans \citet{Cortese2016}. Ces analyses sont effectuées avec les choix définis en \ref{replication}.
 
 \subsubsection{Sélection des études}
 Un soin particulier a été mis en oeuvre par \citet{Cortese2016} pour sélectionner les études bien conduites. Les principaux critères d'inclusion
@@ -462,24 +478,64 @@ dont la dose est optimisée sont exclues,
 \end{itemize}
 
 Afin de trouver les études à inclure, \citet{Cortese2016} ont cherché sur plusieurs bases de données (dont la dernière vérification
-date du 30 août 2015), dans notre cas seule PubMed a été questionnée en
-entrant les mêmes termes de recherche que \citet{Cortese2016} (accessibles dans le matériel supplémentaire de leur méta-analyse).
+date du 30 août 2015), dans notre cas seule PubMed a été questionnée en entrant les mêmes termes de recherche que \citet{Cortese2016} 
+(accessibles dans le matériel supplémentaire de leur méta-analyse).
 
-Finalement, 3 études ont été identifiées lors de la recherche menée le 12 février 2018 dont les résultats sont présentés dans \citet{Bussalb2019clinical}  : 
+La mise à jour de \citet{Cortese2016} se fait dans un premier temps avec l'ensemble des études (celles initialement incluses et celles nouvellement
+identifiées), puis sur des sous-groupes.
+
+La première sous-population étudiée correspond aux sujets ayant suivi un entraînement par \gls{nfb} dit \emph{standard}, c'est à dire répondant aux critères 
+établis par \citet{Arns2014} :
 \begin{itemize}
-\item \citep{Bazanova2018} qui donne les évaluations des parents pour les composantes inattention, hyperactivité et totale (pour être cohérent avec 
-la \gls{saob} présentée dans le chapitre \ref{saob}, seul le groupe \gls{nfb} est retenu),
-\item \citep{Baumeister2016} dont seuls les résultats pour les symptômes totaux évalués par les parents sont disponibles,
-\item \citep{Strehl2017} pour qui les évaluations des parents et des enseignants sont données pour toutes les composantes.
+\item le protocole de \gls{nfb} utilisé a fait l'objet de plusieurs études cliniques (diminution du \gls{tbr}, augmentation du \gls{smr} et \gls{scp}),
+\item une phase de transfert doit être proposée durant l'entraînement pour aider la transposition dans la vie de tous les jours,
+\item le lieu où sont effectuées les sessions doit être précisé,
+\item le traitement par \gls{nfb} doit satisfaire les critères de la théorie de l'apprentissage, c'est à dire ne pas utiliser de seuil de récompense automatique.
 \end{itemize}
 
-Une mise à jour de ce travail a été menée et est décrite en \ref{need_to_update_meta_analysis}.
+La deuxième sous-population étudiée comprend les sujets ne prenant aucun traitement médicamenteux durant le traitement par \gls{nfb}.
 
-\subsubsection{Résultats sur toutes les études}
+\subsubsection{Résultats de la sélection des études}
 
-Malgré les résultats favorables de ces études, notamment pour les évaluations des parents, leur ajout dans la méta-analyse ne modifie ni la magnitude
-ni la significativité des \gls{est} quels que soient la composante et l'évaluateur comme l'illustrent les \textit{forest plots} à 
-la Figure~\ref{Figure:meta_analysis_forest_plots}.
+Finalement, 7 études ont été identifiées lors de la recherche menée le 2 septembre 2019, dont le détail est présenté 
+à la Table~\ref{Table:table_meta_review_update_september_2019} : 
+\begin{itemize}
+\item \citep{Baumeister2016} pour qui seuls les résultats pour les symptômes totaux évalués par les parents sont disponibles,
+\item \citep{Strehl2017} pour qui les évaluations des parents et des enseignants sont données pour toutes les composantes,
+\item \citep{Bazanova2018} qui donne les évaluations des parents pour les composantes inattention, hyperactivité et totale (pour être cohérent avec 
+la \gls{saob} présentée dans le chapitre \ref{saob}, seul le groupe \gls{nfb} est retenu),
+\item \citep{Minder2018} pour qui les évaluations des parents et des enseignants sont données pour toutes les composantes ; un groupe \gls{nfb}
+et un groupe contrôle suivent leur traitement à l'école, alors que les autres groupes \gls{nfb} et contrôle,
+\item \citep{Moreno2019} pour qui seuls les résultats pour les symptômes totaux évalués par les parents sont disponibles,
+\item \citep{Shereena2019} pour qui les évaluations des parents et des enseignants sont données pour toutes les composantes,
+\item \citep{Aggensteiner2019} pour qui les évaluations des parents sont disponibles pour la composante totale et inattention. 
+\end{itemize}
+
+\begin{table}[h!]
+  \centering
+  \caption{Détails des études satisfaisant les critères d'inclusion de \citep{Cortese2016} après la recherche PubMed du 2 septembre 2019.}
+  \input{tables/chapter-2/table_meta_review_update_september_2019}
+  \label{Table:table_meta_review_update_september_2019}
+\end{table} 
+
+Avec cette mise à jour, la méta-analyse comprend désormais 20 articles au lieu de 13 initialement.
+
+En ce qui concerne l'étude des sous-groupes :
+\begin{description}
+\item[protocole standard :] quatre études sont ajoutées \citep{Strehl2017, Baumeister2016, Aggensteiner2019, Minder2018} aux 7 initiales \citep{Bakhshayesh2011,
+Christiansen2014, Gevensleben2009, Beauregard2006, Holtmann2009, Heinrich2004, Linden1996},
+\item[pas de traitement médicamenteux en simultané :] deux études sont ajoutées \citep{Bazanova2018, Moreno2019} aux 7 initiales \citep{Beauregard2006, 
+Gevensleben2009, Bakhshayesh2011, Arnold2014, Linden1996, Christiansen2014, Maurizio2014}.
+\end{description}
+
+\subsubsection{Résultats de la mise à jour sur toutes les études}
+
+Parmi les nouvelles études ajoutées, certaines telles que \citet{Shereena2019, Strehl2017} concluent à des résultats favorables du \gls{nfb},
+contrairement à d'autres \citep{Moreno2019, Minder2018}.
+
+Les résultats de la mise à jour sont illustrés par les \textit{forest plots} à la Figure~\ref{Figure:meta_analysis_forest_plots} : les évalutions
+des parents mènent à des résultats statistiqument significatifs et en faveur de l'efficacité du \gls{nfb}, à l'inverse des enseignants pour qui
+aucun \gls{est} n'est significatif.
 
 \begin{figure}[h!]
   \centering
@@ -490,54 +546,39 @@ la Figure~\ref{Figure:meta_analysis_forest_plots}.
   \label{Figure:meta_analysis_forest_plots}
 \end{figure}
 
-Afin de détecter un biais de publication parmi les études incluses, 2 \textit{funnel plot} basés sur les \gls{es}-inter-groupes calculés sur les évaluations
-des symptômes totaux par les parents et les enseignants sont tracés à la Figure~\ref{Figure:meta_analysis_funnel_plots}. 
+Afin de détecter un biais de publication, une hétérogénéité parmi les études incluses ou la faible qualité méthodologique de certaines études, 
+deux \textit{funnel plot} basés sur les \gls{es}-inter-groupes calculés sur les évaluations des symptômes totaux par les parents et les enseignants sont 
+tracés à la Figure~\ref{Figure:meta_analysis_funnel_plots}. 
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-funnel-plots} 
-  \caption{Funnel plots obtenus pour les \gls{es}-inter-groupes calculés sur les évaluations des symptômes totaux par les parents (en \textbf{A)}) et 
-	les enseignants (en \textbf{B)}) avec un intervalle de confiance à 95\%.}
+  \caption{Funnel plots obtenus pour les \gls{es}-inter-groupes calculés sur les évaluations des symptômes totaux par les parents (en \textbf{A}) et 
+	les enseignants (en \textbf{B}) avec un intervalle de confiance à 95\%.}
   \label{Figure:meta_analysis_funnel_plots}
 \end{figure}
 
-Visuellement, alors que le \textit{funnel plot} correspondant aux \gls{est} des enseignants semble symétrique, celui des parents parait asymétrique, 
-toutefois pour plus de précision le test d'Egger a également été utilisé pour déterminer statistiquement si un biais s'est glissé dans l'analyse :
+Visuellement, alors que le \textit{funnel plot} correspondant aux \gls{est} des enseignants semble plutôt symétrique, celui des parents parait asymétrique. 
+Pour plus de précision, le test d'Egger a également été utilisé pour déterminer statistiquement si un biais s'est glissé dans l'analyse \citep{Egger1997} :
 \begin{description}
-\item[pour les parents :] contrairement à ce qui est observé, le \textit{funnel plot} n'est pas asymétrique selon le test d'Egger, l'intercept ne diffère pas 
-significativement de 0 (p-value = 0.281). \citet{Cortese2016}
-avait également trouvé ce résultat (p-value = 0.133),
-\item[pour les enseignants :]  le \textit{funnel plot} n'est pas non plus asymétrique (p-value = 0.235) alors que \citet{Cortese2016} avait trouvé un biais
-(p-value = 0.042).
+\item[pour les parents :] contrairement à ce qui est observé, le \textit{funnel plot} n'est pas asymétrique, l'intercept ne diffère pas 
+significativement de 0 (p-value = 0.264),
+\item[pour les enseignants :]  le \textit{funnel plot} n'est pas non plus asymétrique (p-value = 0.543).
 \end{description}
 
-\subsubsection{Résultats sur les sous-groupes}
+Le fait que des études se retrouvent à l'extérieur de l'intervalle de confiance à 95\% ne signifie pas qu'un biais est présent.
 
-L'efficacité du \gls{nfb} a également été évaluée au sein de sous populations \citep{Cortese2016} avec les choix définis en \ref{replication} et en ajoutant
-les nouvelles études. 
+\subsubsection{Résultats de la mise à jour sur les sous-groupes}
+ 
+En ce qui concerne le sous-groupe \emph{protocole standard}, seul l'\gls{est} de la composante totale évauluée par les parents est significatif (p-value = 0.047). 
+L'\gls{est} calculé pour la composante totale évaluée par les enseignants est limite significatif (p-value = 0.053).
 
-La première sous population étudiée correspond aux sujets ayant suivi un entraînement par \gls{nfb} \emph{standard}, c'est à dire répondant aux critères établis
-par \citet{Arns2014} :
-\begin{itemize}
-\item le protocole de \gls{nfb} utilisé a fait l'objet de plusieurs études cliniques (diminution du \gls{tbr}, augmentation du \gls{smr} et \gls{scp}),
-\item une phase de transfert doit être proposée durant l'entraînement pour aider la transposition dans la vie de tous les jours,
-\item le lieu où sont effectuées les sessions doit être précisé,
-\item le traitement par \gls{nfb} doit satisfaire les critères de la théorie de l'apprentissage, c'est à dire ne pas utiliser de seuil de récompense automatique.
-\end{itemize}
-
-Parmi les 13 études initialement incluses, \citet{Cortese2016} en a identifié 7 mettant en place un protocole de \gls{nfb} standard \citep{Bakhshayesh2011,
-Christiansen2014, Gevensleben2009, Beauregard2006, Holtmann2009, Heinrich2004, Linden1996}. 
-Les \gls{est} calculés sont tous significativement en faveur du \gls{nfb}, sauf pour la composante hyperactivité évaluée par les enseignants (p-value = 0.11). 
-L'ajout des 2 études correspondant à cette définition \citep{Strehl2017, Baumeister2016} conduit aux mêmes résultats. 
-
-La deuxième sous population étudiée comprend les sujets ne prenant aucun traitement médicamenteux durant le traitement par \gls{nfb}. A l'origine, 7 études
-sont incluses dans cette analyse \citep{Beauregard2006, Gevensleben2009, Bakhshayesh2011, Arnold2014, Linden1996, Christiansen2014, Maurizio2014} et la 
-mise à jour conduit à l'ajout de \citep{Bazanova2018}. Pour ce sous-groupe, seul l'\gls{est} de la composante inattention évaluée par les parents est significatif
-(p-value = 0.017). En effet, les différences dans les valeurs à post-test de \citet{Arnold2014} et l'inclusion de \citet{Bazanova2018} a conduit à la perte de 
-significativité de l'\gls{est} de la composante hyperactivité évaluée par les parents (p-value = 0.062) par rapport au résultat de \citet{Cortese2016} (p-value 
-= 0.016).
+Le sous-groupe \emph{pas de traitement médicamenteux en simultané} ne présente que l'\gls{est} de la composante inattention évaluée par les parents de 
+significatif (p-value = 0.017).
 
 \section{Discussion} 
+
+% commencer par les limitations
 
 Les méta-analyses doivent être menées rigoureusement, ainsi pour guider les auteurs des recommandations existent comme celles de PRISMA \citep{Moher2009}.
 La réplication et la mise à jour présentées ici remplissent la majorité des points de la checklist, sauf notamment l'évaluation du risque de biais dans chaque étude.
@@ -554,27 +595,50 @@ Les résultats obtenus suite à la réplication et à la mise à jour de \citet{
 
 Un des choix qui a été fait ici est d'utiliser la Conners-3 Teachers \citep{Conners2008} plutôt que la BOSS Classroom \citep{Shapiro2010} 
 pour calculer les \gls{es}-inter-groupes obtenus par les évaluations des enseignants du fait de son utilisation plus commune \citep{Christiansen2014, Bluschke2016}.
-Toutefois, l'utilisation de l'une ou l'autre de ces échelles ne change pas la significativité des \gls{est} calculés pour les enseignants. 
+Toutefois, l'utilisation de l'une ou l'autre de ces échelles ne change pas la signification statistique des \gls{est} calculés pour les enseignants. 
 
 La seconde différence entre \citep{Cortese2016} et la réplication effectuée ici est que le calcul des \gls{es}-inter-groupes de \citet{Arnold2014} se base 
 sur les valeurs à post-test obtenues après 40 sessions de \gls{nfb} au lieu de valeurs temporaires obtenues après 12 sessions. Des études montrent
 que le nombre de sessions est corrélé positivement avec les changements observés sur l'\gls{eeg} \citep{Vernon2004}, ainsi un faible nombre de sessions mènerait
-à des \gls{es}-inter-groupes plus petits. Or, ici les \gls{es}-inter-groupes calculés après la réalisation de toutes les sessions sont plus faibles que ceux 
-obtenus après 12 sessions. Toutefois, ces différences ne changent pas la significativité des \gls{est}. 
+à des \gls{es}-inter-groupes plus petits. Or, ici étonnament les \gls{es}-inter-groupes calculés après la réalisation de toutes les sessions sont plus faibles que ceux 
+obtenus après 12 sessions. Toutefois, ces différences ne changent pas la signification statistique des \gls{est}. 
 
-Par conséquent, bien que ces points aient été débattus, leur impact sur les conclusions de la méta-analyse sont minimes et ne changent la significativité
-d'aucun \gls{est}. 
+En conclusion, sur la base de cette étude de sensibilité, nous suggérons que les points de débat soulevés par \citep{Micoulaud2016} ne sont pas majeurs 
+quant à l'analyse et l'interprétation des résultats obtenus.
 
 \subsubsection{Mise à jour}
 
+% Discussion
+%Cette mise à jour conduit à des \gls{est} plus faibles en valeur absolue que ceux obtenus par \citet{Cortese2016} comme l'illustrent les \textit{forest plots} à 
+%la Figure~\ref{Figure:meta_analysis_forest_plots} : par exemple l'\gls{est} calculé pour la composante totale évaluée par les parents est de -0.23 alors
+%que la réplication de \citet{Cortese2016} résumée à la Table Table~\ref{Table:table_meta_review_comparison_replication_cortese} menait à un \gls{est} de -0.32.
+
+%Par ailleurs, l'\gls{est} pour la composante hyperactivité évaluée par les parents n'est plus significatif (p-value = 0.069). Les \gls{est} 
+%évalués par les enseignants sont, quant à eux, toujours non significatifs (p-value pour la composante totale =  0.09).
+
+La méta-analyse de \citep{Cortese2016} a déjà fait l'objet d'une mise à jour présentée dans \citet{Bussalb2019clinical} qui a intégré les études de 
+\citep{Bazanova2018, Baumeister2016} et \citet{Strehl2017}. 
+
+les résultats sont globalement les mêmes qu'après la première mise à jour, la seule
+différence importante est la perte de la signification statistique de l'\gls{est} pour la composante hyperactivité évaluée par les parents (p-value = 0.069).
+Les \gls{est} évalués par les enseignants sont, quant à eux, toujours non significatifs (p-value pour la composante totale =  0.09).
+
 L'ajout des trois nouvelles études \citep{Baumeister2016, Strehl2017, Bazanova2018} confirment les résultats obtenus par \citep{Cortese2016}. En effet,
-la significativité des \gls{est} n'est pas modifiée : ils restent significatifs pour les parents mais non significatifs pour les enseignants. 
+la signification statistique des \gls{est} n'est pas modifiée : ils restent significatifs pour les parents mais non significatifs pour les enseignants. 
 
 Ces trois nouvelles études apportent plus de puissance statistique aux résultats, notamment pour l'analyse des sous-groupes menée par \citet{Cortese2016}.
 En effet, pour la sous population suivant un protocole \gls{nfb} standard \citep{Arns2014}, \citet{Cortese2016} avait noté que les \gls{pblind} observaient
 une différence statistiquement significative entre le \gls{nfb} et les groupes contrôles en faveur du \gls{nfb}. Cette tendance a été confirmée avec l'ajout 
 de \citet{Baumeister2016} et \citet{Strehl2017} qui apportent 73 sujets supplémentaires, ce qui suggère une relation positive entre les caractéristiques des protocoles standards
 et la performance du \gls{nfb}. 
+
+% Discussions sous groupe medicament
+%. En effet, les différences dans les valeurs à post-test de \citet{Arnold2014} et l'inclusion de \citet{Bazanova2018} a conduit à la perte de 
+%signification statistique de l'\gls{est} de la composante hyperactivité évaluée par les parents (p-value = 0.062) par rapport au résultat de \citet{Cortese2016} (p-value 
+%= 0.016).
+
+% sous groupe std
+%la mise à jour rend tous les \gls{est} à l'origine significatifs non significatifs
 
 \subsection{Hétérogénéité des études} 
 
@@ -595,7 +659,7 @@ souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprenti
 
 Afin d'éviter de tomber dans le \textit{p-hacking}, il est important de ne pas arrêter la collecte de données et donc de figer les résultats une fois 
 que la p-value de l'\gls{est} passe sous le seuil de signicativité de 0.05 \citep{Head2015, Coffman2015}. En effet, l'arrêt prématuré des résultats peut
-générer un biais : par exemple la p-value peut être significative à un instant t avec un certain nombre de sujets inclus, puis perdre sa significativité à
+générer un biais : par exemple la p-value peut être significative à un instant t avec un certain nombre de sujets inclus, puis perdre sa signification statistique à
 t $+$ 1 et ne plus la retrouver. Mettre à jour les résultats même dans le cas où la p-value est significative est donc préférable, les résultats étant
 davantage fiables une fois que la p-value converge. Ces deux configurations sont représentées à la Figure~\ref{Figure:meta-analysis-evolution-p-value-examples}
 
@@ -603,9 +667,9 @@ davantage fiables une fois que la p-value converge. Ces deux configurations sont
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value-examples} 
   \caption{Exemples d'évolution de la p-value des \gls{est} au fur et à mesure que la taille de l'échantillon augmente. 
-	En \textbf{A}, la p-value se stabilise sous le seuil de significativité suite à l'ajout de nouveaux sujets ; en \textbf{B}, la p-value 
+	En \textbf{A}, la p-value se stabilise sous le seuil de signification statistique suite à l'ajout de nouveaux sujets ; en \textbf{B}, la p-value 
 	passe temprorairement sous le seuil de significativité puis s'en éloigne suite à l'ajout de nouveaux sujets. 
-	Le seuil de significativité à 0.05 est représenté en pointillés noirs.}
+	Le seuil de signification statistique à 5\% est représenté en pointillés noirs.}
   \label{Figure:meta-analysis-evolution-p-value-examples}
 \end{figure}
 
@@ -624,18 +688,18 @@ ici à une approche fixe qui prend en compte l'ensemble des p-values passées qu
 	Le nombre de sujets inclus dans ces deux groupes en fonction des années de publications est donné. Le point rouge correspond aux résultats de de la réplication
 	de la méta-analyse de \citet{Cortese2016} présentée dans \citet{Bussalb2019clinical}.
 	Les écarts types mobiles (calculés sur les p-values des trois dernières années) sont représentés. 
-	Le seuil de significativité à 0.05 est représenté en pointillés noirs.}
+	Le seuil de signification statistique à 5\% est représenté en pointillés noirs.}
   \label{Figure:meta_analysis_evolution_pvalue}
 \end{figure}
 
 A première vue, la plus forte fluctuation correspond à la p-value des \gls{est} obtenues sur la totalité des études pour les évaluations des enseignants 
 (en bleu sur le graphique \textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue}). En effet, en 2013 la p-value atteint un pic à 0.6, cependant 
-depuis 2014 elle diminue de façon stable (sauf entre 2018 et 2019) et tend de plus en plus vers la significativité, sans converger pour le moment, ce qui 
+depuis 2014 elle diminue de façon stable (sauf entre 2018 et 2019) et tend de plus en plus vers la signification statistique, sans converger pour le moment, ce qui 
 laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant à l'efficacité du \gls{nfb} selon les enseignants. L'évolution
 de la p-value dans le sous groupe des protocoles standards (en vert sur le graphique \textbf{B}) est stable, comme le montrent notamment les écarts types mobiles. 
 
 En ce qui concerne les p-values des \gls{est} obtenus grâce aux évaluations des parents représentées sur le graphique \textbf{A} de la 
-Figure~\ref{Figure:meta_analysis_evolution_pvalue}, elles varient mais ne dépassent pas le seuil de significativité (sauf légèrement
+Figure~\ref{Figure:meta_analysis_evolution_pvalue}, elles varient mais ne dépassent pas le seuil de signification statistique (sauf légèrement
 en 2018). L'évolution des p-values pour le groupe du protocole \gls{nfb} standard (en vert sur le graphique \textbf{A}) fluctue
 depuis 2011, ce qui cause une augmentation de l'écart type mobile : un plus grand nombre d'études à inclure dans ce groupe serait bienvenu afin 
 de stabiliser la p-value. A l'inverse, l'évolution de la p-value calculée pour la totalité des études (en bleu sur le graphique \textbf{A}) est assez stable
@@ -647,27 +711,14 @@ Figure~\ref{Figure:meta_analysis_evolution_pvalue}, les p-values ont fluctué m�
 Cette absence de stabilité appelle à de nouvelles mises à jour : une a été effectuée et a été décrite en \ref{selection_studies} \citep{Bussalb2019clinical},
 cependant depuis de nouvellles études ont été publiées. 
 
-Ainsi, une nouvelle recherche sur PubMed a été lancée le 2 septembre 2019 en suivant les mêmes étapes que présentées en \ref{selection_studies}, le détail
-des études identifiées est donné à la Table~\ref{Table:table_meta_review_update_september_2019}.
-
-
-\begin{table}[h!]
-  \centering
-  \caption{Détails des études satisfaisant les critères d'inclusion de \citep{Cortese2016} après la recherche PubMed du 2 septembre 2019.}
-  \input{tables/chapter-2/table_meta_review_update_september_2019}
-  \label{Table:table_meta_review_update_september_2019}
-\end{table} 
-
-Avec cette mise à jour, la méta-analyse comprend désormais 20 articles : les résultats sont globalement les mêmes qu'après la première mise à jour, la seule
-différence importante est la perte de la significativité de l'\gls{est} pour la composante hyperactivité évaluée par les parents (p-value = 0.069).
-Les \gls{est} évalués par les enseignants sont, quant à eux, toujours non significatifs (p-value pour la composante totale =  0.09).
+Ainsi, une nouvelle recherche sur PubMed a été lancée le 2 septembre 2019 en suivant les mêmes étapes que présentées en \ref{selection_studies}
 
 En ce qui concerne les résultats dans les sous-groupes :
 \begin{description}
 \item[protocole standard :] 2 études ont été ajoutées \citep{Aggensteiner2019, Minder2018} et rendent tous les \gls{est} initialement significatifs 
 non significatifs ; désormais seul l'\gls{est} de la composante totale évaluée par les parents est encore significatif (p-value = 0.047). 
 L'\gls{est} calculé pour la composante totale évaluée par les enseignants est limite significatif (p-value = 0.053),
-\item [pas de traitement médicamenteux en simultané :] seule une étude a été ajoutée \citep{Moreno2019} et aucune modification de significativité
+\item [pas de traitement médicamenteux en simultané :] seule une étude a été ajoutée \citep{Moreno2019} et aucune modification de signification statistique
 n'est observée.
 \end{description}
 
