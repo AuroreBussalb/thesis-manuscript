@@ -199,7 +199,11 @@ r = \frac{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - \mu_{\text{pre}})(\text{s}_
 où $n$ est le nombre de patients inclus dans une étude, $\text{s}_{\text{pre},i}$, $\text{s}_{\text{post},i}$ les valeurs de scores cliniques pour le sujet $i$ 
 respectivement à pré- et post-test, et $\mu_{\text{pre}}$, $\mu_{\text{post}}$ les scores moyens calculés sur tous les sujets. 
 Il s'agit d'une mesure de corrélation linéaire entre deux variables : une valeur de 1 signifie une corrélation positive entre ces variables,
-une valeur de -1 une corrélation négative, et une valeur de 0 une absence de corrélation linéaire. 
+une valeur de -1 une corrélation négative, et une valeur de 0 une absence de corrélation linéaire. Ainsi, si le traitement n'a aucun effet, 
+que l'état des sujets n'évolue pas naturellement, et en l'absence de bruit, $r$ sera égal à 1. On peut en déduire alors qu'une étude 
+composée d'enfants plus jeunes qui sont davantage susceptibles de changer naturellement va présenter une valeur de $r$ plus faible, il en va 
+de même si le traitement est efficace. Enfin la présence de bruit va également avoir un impact sur cette valeur. Par conséquent, une valeur 
+de $r$ doit être calculée pour chaque étude.
 
 Dans notre cas, cette corrélation étant inconnue et les données brutes n'étant pas disponibles pour la majorité des études cliniques, nous approximons la valeur 
 de $r$ en accord avec \citet{Balk2012}, qui a trouvé qu'une valeur de 0.5 conduit à des résultats proches de ceux obtenus avec la véritable
@@ -368,7 +372,7 @@ Dans un souci de transparence et pour faciliter la réplication de ce travail, c
 (version de Python 3.6.1) dont le contenu est décrit en \ref{methods} \citep{Bussalb2019c}. Par conséquent, la première étape est d'évaluer la
 fiabilité des résultats obtenus avec ce package.
 
-\subsection{Evaluation des résultats obtenus avec le package Python}
+\subsection{Evaluation des résultats obtenus avec le package Python} 
 
 Pour effectuer une méta-analyse, les auteurs utilisent en général le logiciel RevMan \citep{Revman, Cortese2016, Micoulaud2014}. Ici, les résultats 
 obtenus avec le package Python vont être comparés à ceux donnés par la version 5.1 de RevMan, afin d'évaluer la précision du package.
@@ -692,7 +696,7 @@ de stabiliser la p-value. A l'inverse, l'évolution de la p-value calculée pour
 et présente des déviations standards mobiles plus faibles. Cette évolution est la plus stable du fait du nombre d'études incluses (et donc de sujets inclus)
 qui le est le plus important entre les quatre groupes étudiés ici. 
 
-Ainsi, depuis lade réplication de la méta-analyse de \citet{Cortese2016} \citep{Bussalb2019clinical}, dont les résultats sont représentés par un point rouge sur chaque courbe de la 
+Ainsi, depuis la réplication de la méta-analyse de \citet{Cortese2016} \citep{Bussalb2019clinical}, dont les résultats sont représentés par un point rouge sur chaque courbe de la 
 Figure~\ref{Figure:meta_analysis_evolution_pvalue}, les p-values ont fluctué même si aucun changement de significtaivité n'est observé. 
 Cette absence de stabilité appelle à de nouvelles mises à jour : une a été effectuée et a été décrite en \ref{selection_studies} \citep{Bussalb2019clinical},
 cependant depuis de nouvellles études ont été publiées. 
