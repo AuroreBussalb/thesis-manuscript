@@ -650,8 +650,7 @@ signification statistique de l'\gls{est} de la composante hyperactivité évalu�
 Afin d'éviter de tomber dans le \textit{p-hacking}, il est important de ne pas arrêter la collecte de données et donc de figer les résultats une fois 
 que la p-value de l'\gls{est} passe sous le seuil de signicativité de 0.05 \citep{Head2015, Coffman2015}. En effet, l'arrêt prématuré des résultats peut
 générer un biais : par exemple la p-value peut être significative à un instant $t$ avec un certain nombre de sujets inclus, puis perdre sa signification statistique à
-$t + 1$ et ne plus la retrouver. Mettre à jour les résultats même dans le cas où la p-value est significative est donc préférable, les résultats étant
-davantage fiables une fois que la p-value converge. Ces deux configurations sont représentées avec des données factices à la Figure~\ref{Figure:meta-analysis-evolution-p-value-examples}.
+$t + 1$ et ne plus la retrouver. Ces deux configurations sont représentées avec des données factices à la Figure~\ref{Figure:meta-analysis-evolution-p-value-examples}.
 
 \begin{figure}[h!]
   \centering
@@ -663,59 +662,119 @@ davantage fiables une fois que la p-value converge. Ces deux configurations sont
   \label{Figure:meta-analysis-evolution-p-value-examples}
 \end{figure}
 
-Les résultats d'une méta-analyse peuvent donc souffrir de l'arrêt prématuré des résultats lorsque la p-value de l'\gls{est} n'est pas stable, comme 
-illustré à la Figure~\ref{Figure:meta_analysis_evolution_pvalue} où l'évolution des p-values des \gls{est} de la composante totale en fonction des études 
-incluses au fur et à mesure selon leur année de publication est tracée. Les écarts types mobiles des p-values sont calculés en prenant les trois plus
-plus récentes p-values obtenues pour les trois dernières années (dont celle pour laquelle on calcule cet écart type). Une approche mobile est préférée 
-ici à une approche fixe qui prend en compte l'ensemble des p-values passées qui sont obtenues sur un plus petit nombre d'études.
+Les conclusions d'une méta-analyse pourraient donc souffrir de l'arrêt prématuré des analyses lorsque la p-value de l'\gls{est} n'est pas stable. 
+Ainsi, la méta-analyse de \citet{Cortese2016} a déjà fait l'objet de deux mises à jour, dont les différences vont être comparées par la suite : la première a été publiée 
+en 2019 \citep{Bussalb2019clinical} et la deuxième a été présentée en \ref{selection_studies}. 
+
+Afin de mettre en évidence l'importace de mettre à jour les méta-analyses, l'évolution de l'\gls{est} en fonction des études incluses est étudiée d'une part, ainsi que celle de la p-value
+des \gls{est} d'autre part. 
+
+La Figure~\ref{Figure:meta_analysis_evolution_est_total} représente l'évolution de l'\gls{est} calculé grâce aux évaluations des parents (en \textbf{A 1)}) et des 
+enseignants (en \textbf{B 1)}) sur la composante totale en fonction de l'année de publication des études satisfaisant le critère d'inclusion établi par \citep{Cortese2016} et énoncé en 
+\ref{selection_studies}. L'intervalle de confiance à 95\% de chaque \gls{est} est également tracé. 
+
+Par ailleurs, la méta-analyse de \citet{Cortese2016} ainsi que ses mises
+à jour sont symbolisées sur la Figure~\ref{Figure:meta_analysis_evolution_est_total} par une étoile si l'\gls{est} est statistiquement significatif ou par un carreau sinon : les symboles
+rouges correspondent aux résulats de \citet{Cortese2016}, les verts à ceux de \citet{Bussalb2019clinical} et les violets à ceux de la mise à jour décrite en \ref{selection_studies}. Les méta-analyses
+étant généralemnt publiées quelque temps après la fin de sélection des études, leur année de publication est représentée grâce à un point de la couleur d'intérêt relié au résultat de la méta-analyse
+par une droite en pointillés. Enfin, le nombre de sujets inclus dans chaque étude est précisé grâce à l'axe supérieur des abscisses. Le nombre cumulatif de sujets inclus est visible en 
+\textbf{A 2)} pour les parents et en (en \textbf{B 2)} pour les enseignants. 
+
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value} 
-  \caption{Evolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études pour les évaluations des 
-	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
-	La courbe verte correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
-	Le nombre de sujets inclus dans ces deux groupes en fonction des années de publications est donné. Le point rouge correspond aux résultats de de la réplication
-	de la méta-analyse de \citet{Cortese2016} présentée dans \citet{Bussalb2019clinical}.
-	Les écarts types mobiles (calculés sur les p-values des trois dernières années) sont représentés. 
-	Le seuil de signification statistique à 5\% est représenté en pointillés noirs.}
-  \label{Figure:meta_analysis_evolution_pvalue}
+	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-summary-effect-total} 
+  \caption{Evolution des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études satisfaisant le critère d'inclusion de \citet{Cortese2016} pour les évaluations des 
+	parents en \textbf{A 1)} et des enseignants en \textbf{B 1)} sur la composante totale.
+  Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2016clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
+	indiquent un \gls{est} statistiquement significatif, un losange un \gls{est} non statistiquement significatif. L'année de publication de ces méta-analyses est représentée grâce à un point de la couleur 
+	d'intérêt relié au résultat de la méta-analyse par une droite en pointillés.
+	Plus la valeur absolue de l'\gls{est} est élevée plus le traitement est efficace.
+	Le nombre cumulatif de sujets inclus est indiqué en \textbf{A 2)} pour les parents et en (en \textbf{B 2)} pour les enseignants.}
+  \label{Figure:meta_analysis_evolution_est_total}
 \end{figure}
 
-A première vue, la plus forte fluctuation correspond à la p-value des \gls{est} obtenues sur la totalité des études pour les évaluations des enseignants 
-(en bleu sur le graphique \textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue}). En effet, en 2013 la p-value atteint un pic à 0.6, cependant 
-depuis 2014 elle diminue de façon stable (sauf entre 2018 et 2019) et tend de plus en plus vers la signification statistique, sans converger pour le moment, ce qui 
-laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant à l'efficacité du \gls{nfb} selon les enseignants. L'évolution
-de la p-value dans le sous groupe des protocoles standards (en vert sur le graphique \textbf{B}) est stable, comme le montrent notamment les écarts types mobiles. 
+Les \gls{est} obtenus grâce aux évaluations des parents (\textbf{A 1)} varient de façon importante lorsque peu d'études sont incluses notamment entre 2006 et 2009, puis commencent à se stabiliser à partir de 2015, 
+même si la valeur absolue des \gls{est} continue à diminuer. Les intervalles de confiance soulignent également cette stabilisation : ils dimunuent avec l'augmentation du nombre d'études incluses. 
 
-En ce qui concerne les p-values des \gls{est} obtenus grâce aux évaluations des parents représentées sur le graphique \textbf{A} de la 
-Figure~\ref{Figure:meta_analysis_evolution_pvalue}, elles varient mais ne dépassent pas le seuil de signification statistique (sauf légèrement
-en 2018). L'évolution des p-values pour le groupe du protocole \gls{nfb} standard (en vert sur le graphique \textbf{A}) fluctue
-depuis 2011, ce qui cause une augmentation de l'écart type mobile : un plus grand nombre d'études à inclure dans ce groupe serait bienvenu afin 
-de stabiliser la p-value. A l'inverse, l'évolution de la p-value calculée pour la totalité des études (en bleu sur le graphique \textbf{A}) est assez stable
-et présente des déviations standards mobiles plus faibles. Cette évolution est la plus stable du fait du nombre d'études incluses (et donc de sujets inclus)
-qui le est le plus important entre les quatre groupes étudiés ici. 
+Cette tendance est également visible du côté des enseignants \textbf{B 1)}. Toutefois, à partir de fin 2018 les \gls{est} augmentent.
 
-Ainsi, depuis la réplication de la méta-analyse de \citet{Cortese2016} \citep{Bussalb2019clinical}, dont les résultats sont représentés par un point rouge sur chaque courbe de la 
-Figure~\ref{Figure:meta_analysis_evolution_pvalue}, les p-values ont fluctué même si aucun changement de significtaivité n'est observé. 
-Cette absence de stabilité appelle à de nouvelles mises à jour : une a été effectuée et a été décrite en \ref{selection_studies} \citep{Bussalb2019clinical},
-cependant depuis de nouvellles études ont été publiées. 
+Les mêmes graphiques sont tracés à la Figure~\ref{Figure:meta_analysis_evolution_est_std} mais cette fois en incluant seulement les études suivant un protocole standard \citep{Arns2014}.
 
-Ainsi, une nouvelle recherche sur PubMed a été lancée le 2 septembre 2019 en suivant les mêmes étapes que présentées en \ref{selection_studies}
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-summary-effect-std} 
+  \caption{Evolution des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études suivant un protocole standard pour les évaluations des 
+	parents en \textbf{A 1)} et des enseignants en \textbf{B 1)} sur la composante totale.
+  Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2019clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
+	indiquent un \gls{est} statistiquement significatif, un losange un \gls{est} non statistiquement significatif. L'année de publication de ces méta-analyses est représentée grâce à un point de la couleur 
+	d'intérêt relié au résultat de la méta-analyse par une droite en pointillés.
+	Plus la valeur absolue de l'\gls{est} est élevée plus le traitement est efficace.
+	Le nombre cumulatif de sujets inclus est indiqué en \textbf{A 2)} pour les parents et en (en \textbf{B 2)} pour les enseignants.}
+  \label{Figure:meta_analysis_evolution_est_std}
+\end{figure}
 
-En ce qui concerne les résultats dans les sous-groupes :
-\begin{description}
-\item[protocole standard :] 2 études ont été ajoutées \citep{Aggensteiner2019, Minder2018} et rendent tous les \gls{est} initialement significatifs 
-non significatifs ; désormais seul l'\gls{est} de la composante totale évaluée par les parents est encore significatif (p-value = 0.047). 
-L'\gls{est} calculé pour la composante totale évaluée par les enseignants est limite significatif (p-value = 0.053),
-\item [pas de traitement médicamenteux en simultané :] seule une étude a été ajoutée \citep{Moreno2019} et aucune modification de signification statistique
-n'est observée.
-\end{description}
+Ici aussi, les \gls{est} calculés à partir des évaluations des parents (\textbf{A 1)} diminuent avec le temps, tout comme leur intervalle de confiance à 95\%. 
+En ce qui concerne les \gls{est} obtenus grâce aux enseignants (\textbf{B 1)}, un faible nombre d'études est inclus et alors que dans les cas précédents la diminution de l'\gls{est}
+ne menait pas à une perte de signification statistique parmi les méta-analyses, ici la mise à jour de \citet{Cortese2016} présentée en \ref{selection_studies} conduit à un \gls{est}
+non significativement en faveur du \gls{nfb}. 
 
-Ainsi, ces résultats démontrent que les résultats varient encore avec l'inclusion de nouvelles études, ce qui valide ce qui a été dit précédemment
-sur l'importance de mettre à jour les méta-analyses tant que les résultats fluctuent encore. 
+L'évolution des p-value est alors étudiée et présentée à la Figure
 
-Cette approche qui consiste à affiner les résultats à l'aide de nouvelles observations est l'une des bases de l'inférence bayésienne.
+
+ %comme 
+%illustré à la Figure~\ref{Figure:meta_analysis_evolution_pvalue} où l'évolution des p-values des \gls{est} de la composante totale en fonction des études 
+%incluses au fur et à mesure selon leur année de publication est tracée. Les écarts types mobiles des p-values sont calculés en prenant les trois plus
+%plus récentes p-values obtenues pour les trois dernières années (dont celle pour laquelle on calcule cet écart type). Une approche mobile est préférée 
+%ici à une approche fixe qui prend en compte l'ensemble des p-values passées qui sont obtenues sur un plus petit nombre d'études.
+%
+%\begin{figure}[h!]
+  %\centering
+	%\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value} 
+  %\caption{Evolution de la p-value des \gls{est} au fur et à mesure de l'ajout des études pour les évaluations des 
+	%parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
+	%La courbe verte correspond aux études incluses dans la sous population du protocole \gls{nfb} standard et la courbe bleue à la totalité des études.
+	%Le nombre de sujets inclus dans ces deux groupes en fonction des années de publications est donné. Le point rouge correspond aux résultats de de la réplication
+	%de la méta-analyse de \citet{Cortese2016} présentée dans \citet{Bussalb2019clinical}.
+	%Les écarts types mobiles (calculés sur les p-values des trois dernières années) sont représentés. 
+	%Le seuil de signification statistique à 5\% est représenté en pointillés noirs.}
+  %\label{Figure:meta_analysis_evolution_pvalue}
+%\end{figure}
+%
+%A première vue, la plus forte fluctuation correspond à la p-value des \gls{est} obtenues sur la totalité des études pour les évaluations des enseignants 
+%(en bleu sur le graphique \textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue}). En effet, en 2013 la p-value atteint un pic à 0.6, cependant 
+%depuis 2014 elle diminue de façon stable (sauf entre 2018 et 2019) et tend de plus en plus vers la signification statistique, sans converger pour le moment, ce qui 
+%laisse penser que plus d'études sont nécessaires afin de vraiment pouvoir conclure quant à l'efficacité du \gls{nfb} selon les enseignants. L'évolution
+%de la p-value dans le sous groupe des protocoles standards (en vert sur le graphique \textbf{B}) est stable, comme le montrent notamment les écarts types mobiles. 
+%
+%En ce qui concerne les p-values des \gls{est} obtenus grâce aux évaluations des parents représentées sur le graphique \textbf{A} de la 
+%Figure~\ref{Figure:meta_analysis_evolution_pvalue}, elles varient mais ne dépassent pas le seuil de signification statistique (sauf légèrement
+%en 2018). L'évolution des p-values pour le groupe du protocole \gls{nfb} standard (en vert sur le graphique \textbf{A}) fluctue
+%depuis 2011, ce qui cause une augmentation de l'écart type mobile : un plus grand nombre d'études à inclure dans ce groupe serait bienvenu afin 
+%de stabiliser la p-value. A l'inverse, l'évolution de la p-value calculée pour la totalité des études (en bleu sur le graphique \textbf{A}) est assez stable
+%et présente des déviations standards mobiles plus faibles. Cette évolution est la plus stable du fait du nombre d'études incluses (et donc de sujets inclus)
+%qui le est le plus important entre les quatre groupes étudiés ici. 
+%
+%Ainsi, depuis la réplication de la méta-analyse de \citet{Cortese2016} \citep{Bussalb2019clinical}, dont les résultats sont représentés par un point rouge sur chaque courbe de la 
+%Figure~\ref{Figure:meta_analysis_evolution_pvalue}, les p-values ont fluctué même si aucun changement de significtaivité n'est observé. 
+%Cette absence de stabilité appelle à de nouvelles mises à jour : une a été effectuée et a été décrite en \ref{selection_studies} \citep{Bussalb2019clinical},
+%cependant depuis de nouvellles études ont été publiées. 
+%
+%Ainsi, une nouvelle recherche sur PubMed a été lancée le 2 septembre 2019 en suivant les mêmes étapes que présentées en \ref{selection_studies}
+%
+%En ce qui concerne les résultats dans les sous-groupes :
+%\begin{description}
+%\item[protocole standard :] 2 études ont été ajoutées \citep{Aggensteiner2019, Minder2018} et rendent tous les \gls{est} initialement significatifs 
+%non significatifs ; désormais seul l'\gls{est} de la composante totale évaluée par les parents est encore significatif (p-value = 0.047). 
+%L'\gls{est} calculé pour la composante totale évaluée par les enseignants est limite significatif (p-value = 0.053),
+%\item [pas de traitement médicamenteux en simultané :] seule une étude a été ajoutée \citep{Moreno2019} et aucune modification de signification statistique
+%n'est observée.
+%\end{description}
+%
+%Ainsi, ces résultats démontrent que les résultats varient encore avec l'inclusion de nouvelles études, ce qui valide ce qui a été dit précédemment
+%sur l'importance de mettre à jour les méta-analyses tant que les résultats fluctuent encore. 
+%
+%Cette approche qui consiste à affiner les résultats à l'aide de nouvelles observations est l'une des bases de l'inférence bayésienne.
 
 \subsection{Hétérogénéité des études} 
 
@@ -734,8 +793,24 @@ souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprenti
 
 \section{Conclusion}
 
-Le but de ce travail était d'explorer les choix effectués par \citet{Cortese2016} dans leur méta-analyse et de rendre cette méthode plus transparente grâce
-à l'élaboration d'un package Python. Il se trouve que les choix effectués par \citet{Cortese2016} n'influencent pas les conclusions finales. Ces conclusions
+Cette parie s'est concentrée sur un outil couramment utilisé pour évaluer l'efficacité du \gls{nfb} : la méta-analyse. Ce travail a été l'occasion de mettre au point un logiciel 
+\textsl{open-source} pour effectuer une méta-analyse en toute transparence et aider à la réplication ou la mise à jour de ses résultats.
+
+Ce logiciel a justement été utilisé pour répliquer la méta-analyse de \citet{Cortese2016} dont certains points ont été discutés par la communauté scientifique. 
+Il se trouve que les choix effectués par \citet{Cortese2016} n'influencent pas les conclusions finales mais illustrent la complexité de l'émergence de la preuve
+clinique.
+
+Cette réplication a également mis en évidence l'importance de la disponibilité des données cliniques afin d'effectuer des calculs précis et de conclure de façon
+plus fiable quant à l'efficacité d'un traitement. 
+
+Une méta-analyse ne rend compte de l'efficacité d'un traitement qu'à un moment donné : étant donné le nombre important d'études évaluant l'efficacité du \gls{nfb} 
+sur les enfants \gls{tdah}, il est nécessaire de mettre à jour les méta-analyses, travail qui a été mené ici. 
+
+  
+
+
+
+. Ces conclusions
 restent par ailleurs inchangées après la mise à jour de cette méta-analyse. Mettre à jour ce type d'analyse est nécessaire pour obtenir des résultats de plus
 en plus fiables du fait du nombre toujours croissant d'études sur le \gls{nfb} appliqué au \gls{tdah}. 
 
