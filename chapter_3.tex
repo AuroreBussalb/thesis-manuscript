@@ -123,9 +123,8 @@ traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} 
 appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Plus la valeur absolue de \gls{es}-intra-groupe est élevée, plus
 le traitement étudié est efficace. 
 
-Enfin, afin d'éviter de rompre les hypothèses des méthodes utilisées dans la \gls{saob}, les valeurs non comprises dans l'intervalle 
-$[\mu - 3 \sigma, \mu + 3 \sigma]$ (avec $\mu$ et $\sigma$ respectivement la moyenne et l'écart-type de tous les \gls{es}-intra-groupe calculés \citep{Shewhart1931})
-sont considérées comme aberrantes et sont donc rejetées.
+Afin de limiter l'influence d'observations extrêmes parmi les valeurs des \gls{es}-intra-groupe, celles se trouvant à plus de 3 écart-types de la moyenne
+de tous les \gls{es}-intra-groupe calculés ont été retirées de l'analyse \citep{Shewhart1931}.
 
 Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la variable dépendante que les variables indépendantes (les facteurs) vont expliquer. 
 
@@ -147,10 +146,10 @@ prendre en compte le fait que, pour certaines études, plusieurs échelles clini
 Le poids $w_{i}$ associé à chaque observation $i$ est défini comme suit : 
 \begin{equation}
 \label{eq:weight_WLS}
-w_{i} = \frac{\text{N}_{k,T}}{\text{NScales}_{k,T}},
+w_{i} = \frac{\text{N}_{k}}{\text{NS}_{k}},
 \end{equation} 
-avec $\text{N}_{k,T}$ le nombre de sujets dans l'étude $k$ dans le groupe suivant le traitement $T$ et $\text{NScales}_{k,T}$ le nombre 
-d'échelles cliniques disponibles dans l'étude $k$ évaluant l'efficacité du traitement $T$.
+avec $\text{N}_{k}$  le nombre de sujets dans l'étude $k$ dans le groupe suivant le traitement et $\text{NS}_{k}$  le nombre 
+d'échelles cliniques disponibles dans l'étude $k$ évaluant l'efficacité du traitement.
 
 Mathématiquement, la \gls{wls} se traduit ainsi : 
 \begin{equation}
@@ -245,8 +244,8 @@ sur le \gls{nfb} appliqué aux enfants \gls{tdah} pour déterminer les facteurs 
 
 Les termes entrés dans Pubmed pour la recherche des articles à inclure dans la \gls{saob} sont :
 (ADHD OR adhd OR attention deficit disorder with hyperactivity OR minimal brain disorders OR syndrome hyperkinetic OR hyperkinetic
- syndrome OR hyperactivity disorder OR hyperactive child syndrome OR childhood hyperkinetic syndrome OR attention deficit hyperactivity disorders
- OR attention deficit hyperactivity disorder OR adhd attention deficit hyperactivity disorder OR addh OR overactive child syndrome OR attention deficit 
+syndrome OR hyperactivity disorder OR hyperactive child syndrome OR childhood hyperkinetic syndrome OR attention deficit hyperactivity disorders
+OR attention deficit hyperactivity disorder OR adhd attention deficit hyperactivity disorder OR addh OR overactive child syndrome OR attention deficit 
 hyperkinetic disorder OR hyperkinetic disorder OR attention deficit disorder hyperactivity OR attention deficit disorders hyperactivity OR child 
 attention deficit disorder OR hyperkinetic syndromes OR syndromes hyperkinetic OR hyperkinetic syndrome childhood) AND 
 (randomized control trial OR RCT OR randomized control study OR Pilot Study OR Study OR Trial OR randomized trial) AND 
@@ -266,25 +265,32 @@ Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 33 étude
   \label{Figure:factors_pipeline_selection_studies}
 \end{figure}
 
-Les \gls{es}-intra-groupe sont calculés pour chaque étude puis les valeurs aberrantes sont rejetées. La distribution des \gls{es}-intra-groupe ainsi que les bornes 
-de l'intervalle d'inclusion sont représentées à la Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs sont en faveur du \gls{nfb}.
+Les \gls{es}-intra-groupe sont calculés pour chaque étude puis les valeurs aberrantes sont rejetées comme expliqué en \ref{es_within}. 
+La distribution des \gls{es}-intra-groupe ainsi que les bornes de l'intervalle d'inclusion sont représentées à la 
+Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs sont en faveur du \gls{nfb}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.5\linewidth]{figures/chapter-3/distribution-ES-within} 
-  \caption{Distribution des tailles d'effet (\gls{es}) intra-groupe, une valeur négative est en faveur du Neurofeedback. Les lignes verticales noires correspondent aux bornes supérieure et 
+  \caption{Distribution des tailles d'effet (\gls{es}) intra-groupe, une valeur négative est en faveur du Neurofeedback. Les lignes 
+	verticales noires correspondent aux bornes supérieure et 
 	inférieure de l'intervalle dans lequel les observations sont acceptées.}
   \label{Figure:distribution_ES_within}
 \end{figure}
 
-Deux observations sont à l'extérieur de l'intervalle d'inclusion : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
-celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback). En effet, ces deux groupes présentent des \gls{es}-intra-groupe très larges 
-(respectivement -3.41 et -3.95). Ces \gls{es} extrêmement surprenants sont même plus éleves que ceux rapportés dans la littérature sur l'efficacité 
-des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \citep{Luan2017} comme illustré à la Figure~\ref{Figure:introduction-efficacy-treatments}. Ces valeurs invalident nos hypothèses de travail : dans le cas de la 
+Sur la base de notre critère d'exclusion défini, $i = 3$ observations (3.40\%) issues de deux études (4.87\%): deux groupes de sujets de 
+\citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
+celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback) et les résultats obtenus avec les évaluations des 
+parents de \citet{Rejabi2019}. 
+
+En effet, ces trois observations présentent des \gls{es}-intra-groupe très larges, notamment les groupes de \citet{Bazanova2018} 
+(respectivement -3.41 et -3.95). Ces \gls{es} extrêmement surprenants sont même plus élevés que ceux rapportés dans la littérature sur l'efficacité 
+des psychostimulants sur les symptômes du \gls{tdah} chez les enfants \citep{Luan2017} comme illustré à la Figure~\ref{Figure:introduction-efficacy-treatments}. 
+Ces valeurs invalident nos hypothèses de travail : dans le cas de la 
 \gls{wls}, les résidus ne sont plus distribués normalement. Ainsi, afin de pouvoir conclure sur les résultats obtenus par la \gls{saob}, 
 un rejet des valeurs aberrantes a été implémenté.
 
-La \gls{saob} est donc effectuée sur 33 études (qui correspondent à 67 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et 
+La \gls{saob} est donc effectuée sur 41 études (qui correspondent à 85 observations) évaluant l'efficacité du \gls{nfb} sur les enfants \gls{tdah} et 
 qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 33 études sélectionnées rassemblent 
 846 enfants \gls{tdah} effectuant du \gls{nfb}.
 
@@ -314,7 +320,6 @@ homogènes ou présentaient trop d'observations manquantes :
 	\item la sévérité des symptômes du \gls{tdah},
 	\item le degré d'engagement dans l'entraînement par \gls{nfb}.
 \end{itemize} 
-
 
 Afin de comparer la variabilité des valeurs au sein des facteurs non catégoriels sélectionnés, les boxplots des valeurs standardisées ont 
 été obtenus et représentés à la Figure~\ref{Figure:factors-boxplots} :
