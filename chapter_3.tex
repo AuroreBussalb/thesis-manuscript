@@ -23,8 +23,8 @@ suivant les étapes décrites en \ref{preprocessing}.
 \subsection{Choix des facteurs} \label{choix_des_facteurs}
 
 Tout d'abord, une revue de littérature et des discussions avec des experts du \gls{nfb} appliqué aux enfants \gls{tdah}, en particulier le Dr. Jean-Arthur Micoulaud Franchi
-et le Dr. Louis Mayaud, ont permis de déterminer les facteurs dont il serait intéressant d'étudier l'influence \citep{Vernon2004, Arns2009, Arns2014, Cortese2016, Enriquez2017}. Ces facteurs sont, pour
-la plupart, spécifiques à l'entrainement par \gls{nfb} et sont définis avec plus de précision en \ref{principe_nfb}.
+et le Dr. Louis Mayaud, ont permis de déterminer les facteurs dont il serait intéressant d'étudier l'influence \citep{Vernon2004, Arns2009, Arns2014, Cortese2016, Enriquez2017}. Les facteurs 
+spécifiques à l'entrainement par \gls{nfb} sont définis avec plus de précision en \ref{principe_nfb}.
 
 Les paramètres ayant une possible influence sur l'efficacité perçue du \gls{nfb} ont été répartis en cinq catégories :
 \renewcommand{\labelitemi}{$\bullet$}
@@ -38,6 +38,8 @@ Les paramètres ayant une possible influence sur l'efficacité perçue du \gls{n
     \end{itemize}
 Ces paramètres ne sont pas spécifiques de l'entrainenement par \gls{nfb} mais pourraient avoir une influence sur les résultats.
 En effet, \citet{Ros2019} appellent notamment à employer un groupe contrôle et à avoir recours à des évaluateurs aveugles afin d'améliorer la qualité des études.
+Le fait qu'une étude soit validée par un \gls{irb} rend compte de la qualité de l'implémentation méthodologique : les études dépourvues d'un \gls{irb} sont
+condidérées d'une qualité moindre et donc plus sujettes aux divers biais d'implémentation.  
 \item \emph{la population :} 
     \begin{itemize}
     \item la prise de psychostimulants durant le traitement par \gls{nfb}, 
@@ -45,8 +47,8 @@ En effet, \citet{Ros2019} appellent notamment à employer un groupe contrôle et
 		\item la sévérité des symptômes du TDAH à pré-test (score clinique à pré-test divisé par le score maximal à atteindre sur l'échelle clinique), 
 		\item le degré d'engagement dans l'entrainement par \gls{nfb} (observance thérapeutique et ressenti vis à vis du traitement).
     \end{itemize}
-Certaines de ses caractéristiques ont déjà été étudiées, en particulier l'impact de la prise de psychostimulants durant l'entrainement par \gls{nfb} dans
-\citet{Cortese2016} et ses mises à jour (\citep{Bussalb2019clinical} et celle en \ref{selection_studies}) et également discuté par \citet{VanDoren2017}.
+Certaines de ses caractéristiques ont déjà été indivividuellement étudiées, en particulier l'impact de la prise de psychostimulants durant l'entrainement par \gls{nfb} dans
+\citet{Cortese2016} et ses mises à jour (\citep{Bussalb2019clinical} et celle en \ref{selection_studies}) et également discutées par \citet{VanDoren2017}.
 \item \emph{l'implémentation du \gls{nfb} :} 
     \begin{itemize}
     \item le protocole utilisé (\gls{scp}, \gls{smr}, l'augmentation du rythme theta, l'augmentation du rythme beta dans les aires centrale ou frontale 
@@ -104,7 +106,7 @@ comme valide notamment au niveau de la normalisation des variables et de la vali
 Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. 
 Afin que les paramètres pour lesquels peu d'observations sont disponibles ne faussent l'analyse, il est apparu raisonnable de considérer qu'au-delà de 20\%
 d'observations manquantes ce paramètre est exclu. Les observations manquantes dans les facteurs comportant des valeurs numériques sont 
-imputées et remplacées par -1.
+imputées et remplacées par -1 pour la méthode du \gls{dt} et par la moyenne des valeurs du facteur pour la \gls{wls} et le \gls{lasso} décrits en \ref{saob_method}. 
 
 Par ailleurs, comme cette analyse tire avantage de l'hétérogénéité des études, si un facteur a plus de 80\% d'observations identiques, 
 celui-ci est également rejeté. 
@@ -149,17 +151,29 @@ de tous les \gls{es}-intra-groupe calculés ont été retirées de l'analyse \ci
 
 Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la variable dépendante que les variables indépendantes (les facteurs) vont expliquer. 
 
-\subsection{L'analyse systématique des biais}
+\subsection{L'analyse systématique des biais} \label{saob_method}
 
 La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide des bibliothèques Python Scikit-Learn \citep[version 0.18.1]{Pedregosa2011} et Statsmodels \citep[version 0.8.0]{Seabold2010} : 
 \begin{itemize}
-  \item une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
-	\item une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
-	\item un arbre de décision de régression (\gls{dt} en anglais) \citep{Quinlan1986}.
+    \item une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
+	  \item une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
+	  \item un arbre de décision de régression (\gls{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
+
+La \gls{wls} a été choisie car son équivalent non pondéré (l'\gls{ols}) est très connue car couramment utilisée. Par ailleurs, cette méthode est très proche de la méta-régression qui est 
+parfois mise en place dans les méta-analyses pour quantifier la relation entre une variable indépendante et une variable dépendante \citep{Cortese2016, Borenstein2009}. 
+
+Le \gls{lasso} est également une régression mais permet de sélectionner clairement les variables indépendantes ayant une influence sur la variable dépendante. 
+
+Enfin, une méthode non linéaire, le \gls{dt} de regression, est employée car elle permet d'ordonner les variables indépendantes selon leur influence sur la variable dépendante. 
+Par ailleurs, un seuil de décsion est calculé, ce qui permet d'avoir une idée de la valeur à partir de laquelle le facteur a une influence positive sur l'efficacité du \gls{nfb}.
 
 Les résultats de ces trois méthodes intrinsèquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
 \gls{nfb} est plus probable que si une seule méthode l'identifie. 
+
+Il a été décidé d'utiliser trois méthodes car celles choisies sont suffisammment différentes pour mener à des conclusions intéressantes : si malgré leurs dissimilitudes 
+elles sont d'accord sur l'influence d'un facteur alors on peut raisonnablement conclure que cette influence est fortement probable. Il aurait été possible
+d'avoir recours à plus de méthodes mais étant donné l'aspect novateur de cette approche, il semblait préférable de ne pas complexifier le message en utilisant trop de méthodes.
 
 \subsubsection{La régression linéaire multiple et pondérée}
 La régression linéaire a pour but d'estimer les coefficients de régression qui lient les facteurs aux \gls{es}-intra-groupe. Ici, la régression est pondérée pour, d'une part, 
@@ -177,37 +191,111 @@ Mathématiquement, la \gls{wls} se traduit ainsi :
 \label{eq:factors_model_WLS}
 \textbf{W}y = \textbf{WX}\beta + \epsilon.
 \end{equation}
-$\textbf{X}$ est une matrice inversible $(n \times p)$ et représente $n$ observations sur chaque $p-1$ variable indépendante et l'intercept, 
-$\beta$ est un vecteur $(p \times 1)$ des coefficients de régression associés, $\textbf{W}$ est une matrice diagonale $(n \times n)$  
+$\textbf{X}$ est une matrice inversible $(n \times q)$ et représente $n$ observations sur chaque $p$ variable indépendante et l'intercept ($q = p + 1$), 
+$\beta$ est un vecteur $(q \times 1)$ des coefficients de régression associés et l'intercept, $\textbf{W}$ est une matrice diagonale $(n \times n)$  
 des poids $w_{i}$, $y$ est un vecteur $(n \times 1)$ des variables dépendantes et $\epsilon$ est un vecteur $(n \times 1)$ d'erreurs.
 
 Le but de la \gls{wls} est d'estimer le vecteur de coefficients $\beta$ en minimisant la somme pondérée des carrés des résidus (\gls{wrss} en anglais) :
 \begin{equation}
 \label{eq:factors_WRSS}
-\text{WRSS} = \sum_{i=1}^{n} w_i \Big(y_i - \beta_{0} - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2.
+\text{WRSS} = \sum_{i=1}^{n} w_i \Big(y_i - \hat{y}_i\Big)^2, 
 \end{equation}
+avec $\hat{y}_i = \beta_{0} + \sum_{j=1}^{p}\beta_{j}x_{ij}$, les valeurs prédites.
 
 Une fois le vecteur $\beta$ estimé, on cherche à savoir si les hypothèses du modèle sont vérifiées : 
 \begin{itemize}
-	\item la matrice ${\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX}$ est régulière,
-  \item aucune corrélation apparente n'est trouvée entre les variables indépendantes non catégorielles, 
-  \item la tendance linéaire estimée est trouvée significative en se basant sur la statistique F,
-  \item les résidus sont distribués normalement en se basant sur le kurtosis et le test Omnibus.
+    \item la matrice ${\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX}$ est régulière (c'est à dire qu'elle est inversible : il existe une matrice \textbf{B} appelée matrice inverse de 
+		${\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX}$ telle que B = $({\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX})^{-1}$),
+    \item la tendance linéaire estimée est trouvée significative en se basant sur la statistique F,
+    \item les résidus sont distribués normalement en se basant sur l'asymétrie (\textit{skewness} en anglais), le Kurtosis et le test Omnibus.
 \end{itemize} 
 
+La statistique F est le résultat du test statistique où l'hypothèse nulle est que tous les coefficients de régression sont égaux à 0. Ce test est effectué en calculant 
+la statistique F \citep{James2013} :
+
+\begin{equation}
+\label{eq:factors_statistic_F}
+\text{F} = \frac{ (\text{WTSS} - \text{WRSS}) / p }{ \text{WRSS} /(n - p - 1) }, 
+\end{equation}
+avec $\text{WTSS} = \sum_{i=1}^{n} w_i(y_i - \bar{y})^2$, la somme totale des carrés des résidus (\gls{wtss} en anglais) et $\bar{y}$ la moyenne 
+pondérée par les $w_i$ des $y_i$. 
+
+La p-value associée à la statistique F est calculée à partir de la F-distribution, qui est une distribution de probabilités de la statistique F, obtenue si $H_{0}$ 
+est vraie et si les résidus sont distribués normalement.
+
+Afin de déterminer si les résidus sont distribués normalement, la \textit{skewness}, le Kurtosis et le test Omnibus sont utilisés \citep{dagostino1973, dagostino1971, Bowman1975}.
+
+La \textit{skewness} $\gamma$ rend compte d'à quel point la forme générale d'une distribution diffère de celle d'une distribution normale : 
+\begin{equation}
+\label{eq:factors_skewness}
+\kappa = E \Big[ \Big(\frac{ Y - \mu }{ \sigma }\Big)^{3} \Big], 
+\end{equation}
+avec $E$ la valeur attendue, $Y$ la variable aléatoire, $\mu$ la moyenne de la population et $\sigma$ l'écart-type de la population.
+
+La \textit{skewness} d'une distribution normale vaut 0.
+
+En pratique, la \textit{skewness} est estimée dans la population en calculant la \textit{skewness} pour un échantillon. On suppose alors
+que la variable aléatoire est distribuée uniformément :
+
+\begin{equation}
+\label{eq:factors_skewness_estimation}
+g_{1} = \frac{ \mu_{3} } {s^3},
+\end{equation}
+avec $\mu_{3}$ le troisième moment central de l'échantillon et $s$ l'écart-type de l'échantillon.
+
+Le Kurtosis $\kappa$ quantifie à quel point les formes des queues de la distribution diffèrent par rapport à une distribution normale :
+\begin{equation}
+\label{eq:factors_kurtosis}
+\kappa = E \Big[ \Big(\frac{ Y - \mu }{ \sigma }\Big)^{4} \Big], 
+\end{equation}
+avec $E$ la valeur attendue, $Y$ la variable aléatoire, $\mu$ la moyenne de la population et $\sigma$ l'écart-type de la population.
+
+Le Kurtosis d'une distribution normale est de 3, cependant le Kurtosis est parfois exprimé en tant qu'excès de Kurtosis :
+\begin{equation}
+\label{eq:factors_kurtosis_excess}
+g_{2} = \frac{ \mu_{4} } {s^4}, 
+\end{equation}
+avec $\mu_{4}$ le troisième moment central de l'échantillon et $s$ l'écart-type de l'échantillon.
+
+Ainsi, avec les valeurs de kurtosis et de skewness on peut quantifier d'à quel point la distribution des résidus diffère 
+d'une distribution normale. Afin de savoir si cette différence est significative, le test Omnibus peut être utilisé. 
+
+Ce test se base sur les valeurs de la \textit{skewness} et le Kurtosis pour tester l'hypothèse $H_{0}$ qui est que les résidus sont distribués normalement.
+Pour ce faire, il regroupe les variables aléatoires pour la \textit{skewness} et le Kurtosis en un seul test statistique :
+\begin{equation}
+\label{eq:factors_omnibus_statistic}
+K = Z_{1}(g_{1})^2 + Z_{2}(g_{2})^2, 
+\end{equation}
+avec $K$ la statistique du test Omnibus, $g_{1}$ la variable aléatoire de la \textit{skewness} et
+$g_{2}$ la variable aléatoire de l'excès de Kurtosis, et $Z_{1}$ et $Z_{2}$ des fonctions de transformation qui ont pour but de rendre 
+les distributions de $g_{1}$ et $g_{2}$ normales.
+
 Si toutes ces hypothèses sont satisfaites, alors les résultats de la \gls{wls} peuvent être interprétés. A l'aide d'un t-test, on détermine  
-parmi les coefficients $\beta_{j}$ où $1<j<p$, ceux qui sont significativement différent de 0 (avec un seuil de significativité égal à 0.05) : 
+parmi les coefficients $\beta_{j}$ où $1<j<p$, ceux qui sont significativement différent de 0 (avec un seuil de signifiance de 5\%) : 
 pour ces coefficients, le facteur qui leur est associé est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, 
 le signe du coefficient indique si cette influence est positive ou négative. 
 
 Etant donné le nombre important de variables indépendantes, le pourcentage de variance estimée par la \gls{wls} est quantifié par le coefficient de 
-détermination ajusté (\textit{adjusted R-Squared} en anglais) plutôt que par le coefficient de détermination simple (\textit{R-Squared} en anglais).
+détermination ajusté, $R^2_{adjusted}$ (\textit{adjusted R-Squared} en anglais) plutôt que par le coefficient de détermination simple $R^2$ (\textit{R-Squared} en anglais)
+définis respectivement aux équations Eq.~(\ref{eq:factors_R_squared}) et Eq.~(\ref{eq:factors_adjusted_R_squared}) du fait du nombre important de variables indépedantes \citep{James2013}.
+\begin{equation}
+\label{eq:factors_R_squared}
+R^2 = \frac{ \text{WTSS} - \text{WRSS} }{ \text{WTSS} }, 
+\end{equation}
+
+\begin{equation}
+\label{eq:factors_adjusted_R_squared}
+R^2_{adjusted} = 1 - \frac{ (1 - R^2) (n - 1) }{ n - p - 1 }, 
+\end{equation}
+avec $n$ le nombre d'observations et $p$ le nombre de variables indépendantes.
+
 
 Une régression linéaire ordinaire (\gls{ols} en anglais) est aussi mise en place pour observer l'impact des poids sur les résultats. 
 
 \subsubsection{La régression linéaire régularisée}
 
 La deuxième méthode appliquée lors de la \gls{saob} est le \gls{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce à la norme $\ell_1$ appliquée aux coefficients.
+La norme $\ell_1$ est préférable ici à la norme $\ell_2$ utilisée dans la régression de Ridge \citep{James2013} car elle peut mettre des coefficients à 0. 
 Les coefficients $\hat{\beta}_{j}$ ($1<j<p$) sont obtenus en minimisant le coût :
 \begin{equation}
 \label{eq:factors_lasso-minimization}
@@ -216,11 +304,22 @@ Les coefficients $\hat{\beta}_{j}$ ($1<j<p$) sont obtenus en minimisant le coût
 où $\lambda$ est le paramètre de régularisation qui, en augmentant, met de plus en plus de coefficients à 0. 
 
 Le paramètre de régularisation optimal est déterminé par une validation croisée \textit{leave-one-out}. Cette méthode prend une seule observation 
-comme donnée de test pour la validation, laissant $n-1$ observations pour les données d'entraînement. Le processus de la validation croisée est ensuite répété $n$ fois pour que chaque observation 
-soit utilisée exactement une fois comme donnée de test. Pour chaque itération, appelée \textit{fold} en anglais, l'erreur quadratique moyenne (\gls{mse} en anglais) est calculée sur les données de test
+comme donnée de test pour la validation, laissant $n - 1$ observations pour les données d'entraînement. Le processus de la validation croisée est ensuite répété $n$ fois pour que chaque observation 
+soit utilisée exactement une fois comme donnée de test. 
+
+Pour chaque itération, appelée \textit{fold} en anglais, l'erreur quadratique moyenne (\gls{mse} en anglais) définie à l'équation Eq.
+~(\ref{eq:factors_mse}) est calculée sur les données de test
 puis les $n$ résultats sont moyennés pour mener à une seule observation qui permet de trouver le $\lambda$ optimal. Celui-ci correspond à l'abscisse du minimum de la \gls{mse} 
-du \textit{fold} moyen calculée sur un large intervalle de $\lambda$ \citep{James2013}.
-Un coefficient non mis à 0 signifie que le facteur associé pourrait avoir une influence sur l'efficacité du \gls{nfb} et, ici aussi, le signe du coefficient indique la direction de l'effet. 
+du \textit{fold} moyen calculée sur un large intervalle de $\lambda$ \citep{James2013}. 
+
+\begin{equation}
+\label{eq:factors_mse}
+\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} \Big(\hat{y}_i - {y}_i\Big)^2,
+\end{equation}
+avec $\hat{y}$ les valeurs prédites.
+
+Un coefficient non mis à 0 signifie que le facteur associé pourrait avoir une influence sur l'efficacité du \gls{nfb} et, ici aussi, 
+le signe du coefficient indique la direction de l'effet.
 
 \subsubsection{L'arbre de décision de régression}
 
@@ -228,18 +327,13 @@ La troisième et dernière méthode utilisée est le \gls{dt} de régression qui
 linéaire \citep{Quinlan1986}. Elle divise l'ensemble des observations en sous-ensembles de plus en plus petits en se basant sur la présence 
 d'une variable qualitative ou sur la comparaison à un seuil appliqué à une variable quantitative. La position de la variable indépendante utilisée (et le
 choix du seuil de comparaison dans le cas d'une variable quantitative) pour subdiviser l'ensemble des données est déterminée de façon à minimiser la
-\gls{mse} définie comme suit :
-
-\begin{equation}
-\label{eq:factors_decision_tree_mse}
-\text{MSE} = \frac{1}{n}\sum_{i=1}^{n} \Big(\hat{y}_i - {y}_i\Big)^2,
-\end{equation}
-avec $\hat{y}$ les valeurs prédites.
+\gls{mse} définie à l'équation Eq.~(\ref{eq:factors_mse}) :
 
 La première variable utilisée pour diviser l'ensemble des données se situe dans le noeud racine (\textit{root node} en anglais), les autres
 variables qui mènent à une nouvelle subdivision sont dans des noeuds, et les noeuds où la division s'arrête sont appelés
 feuilles (\textit{leaf nodes}) de l'arbre. La profondeur de l'arbre peut être définie par le nombre d'observations minimal nécessaire
-pour diviser un sous ensemble. Un arbre exemple est schématisé à la Figure~\ref{Figure:factors_decision_tree_example}.
+pour diviser un sous-ensemble. Ce critère a été utilisé ici de façon arbitraire : un noeud comportant moins de 10\% d'observations devient une feuille. 
+Un arbre exemple est schématisé à la Figure~\ref{Figure:factors_decision_tree_example}.
 
 \begin{figure}[h!]
   \centering
@@ -255,13 +349,15 @@ les facteurs se retrouvent dans les noeuds : leur influence sur l'efficacité du
 obtenue après chaque division mais aussi par leur place dans l'arbre. En effet, plus un facteur est en haut de l'arbre plus les divisions se font sur un grand nombre
 d'observations, ainsi son impact sur l'efficacité est davantage probable.
 
-\section{Analyse des facteurs influençant le Neurofeedback} %update avec dernière analyse
+\section{Analyse des facteurs influençant le Neurofeedback} 
 
 Les résultats de la \gls{saob} sont présentés ici. Cette méthode, dont les premières étapes (i.e. la sélection des études et le calcul des \gls{es}) rappellent
 la méta-analyse, se distingue de cette dernière par l'utilisation de méthodes multivariées. Celles-ci tirent avantage de l'hétérogénéité des études
 sur le \gls{nfb} appliqué aux enfants \gls{tdah} pour déterminer les facteurs ayant un impact sur la performance du \gls{nfb}.
 
 \subsection{Sélection des études} \label{selection_studies}
+
+\subsubsection{Méthode de sélection}
 
 Les termes entrés dans Pubmed pour la recherche des articles à inclure dans la \gls{saob} sont :
 (ADHD OR adhd OR attention deficit disorder with hyperactivity OR minimal brain disorders OR syndrome hyperkinetic OR hyperkinetic
@@ -272,17 +368,29 @@ attention deficit disorder OR hyperkinetic syndromes OR syndromes hyperkinetic O
 (randomized control trial OR RCT OR randomized control study OR Pilot Study OR Study OR Trial OR randomized trial) AND 
 (neurofeedback OR “EEG biofeedback” OR neurotherapy OR SCP OR “slow cortical potentials” OR Theta Beta Ratio OR “TBR”). 
 
-La dernière recherche effectuée le 12 février 2018 avec ces termes a retourné 155 résultats, auxquels se sont ajoutés 22 articles inclus dans les précédentes 
-méta-analyses sur le \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2009, Sonuga-Barke2013, Micoulaud2014, Cortese2016, Catala2017}. Afin de sélectionner
-les études à inclure dans la \gls{saob}, les 177 résultats ont été filtrés à l'aide du pipeline représenté à la 
-Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 33 études ont été retenues, qui correspondent par ailleurs au critère d'inclusion de
+Cette recherche est proche de celle conduite dans le \ref{chapitre-2} lors de la mise à jour de la méta-analyse de \citet{Cortese2016} à la différence
+qu'ici aucun terme ne porte sur les groupes contrôles. En effet, alors que \citet{Cortese2016} n'incluait que des \gls{rct} avec des exigences précises
+sur les groupes contrôles énoncées en \ref{selection_studies}, la \gls{saob} inclut les études sur le \gls{nfb} appliqué aux enfants 
+\gls{tdah} sans tenir compte de la présence d'un groupe contrôle et du type de contrôle. 
+
+Ainsi, le critère d'inclusion de \citet{Cortese2016} a été élargi : la \gls{saob} se concentrant sur l'efficacité du \gls{nfb} au sein du 
+groupe suivant le traitement grâce à l'\gls{es}-intra-groupes défini en \label{es_within}, les pré-requis concernant les groupes contrôles 
+ne sont pas nécessaires.
+
+\subsubsection{Résultats de la sélection}
+
+La dernière recherche effectuée le 2 septembre 2019 avec ces termes a retourné 192 résultats, auxquels se sont ajoutés 28 articles inclus dans les précédentes 
+méta-analyses sur le \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2009, Sonuga-Barke2013, Micoulaud2014, 
+Cortese2016, Catala2017, VanDoren2019, Riesco2019, Bussalb2019clinical}. 
+Afin de sélectionner les études à inclure dans la \gls{saob}, les 220 résultats ont été filtrés à l'aide du pipeline représenté à la 
+Figure~\ref{Figure:factors_pipeline_selection_studies}. Au final $k$ = 41 études ont été retenues, qui correspondent par ailleurs au critère d'inclusion de
 \citet{Cortese2016} sans les exigences sur les groupes contrôles. 
 
 \newpage\
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/factors-selection-studies} 
-  \caption{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 12 fevrier 2018).} 
+  \caption{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 2 septembre 2020).} 
   \label{Figure:factors_pipeline_selection_studies}
 \end{figure}
 
@@ -381,7 +489,6 @@ Table~\ref{Table:table_factors_analysis_results_summary}.
 Les hypothèses de ce modèle sont respectées, les résultats sont interprétables :
 \begin{itemize}
 	\item la matrice ${\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX}$ est bien régulière,
-  \item aucune corrélation apparente n'est effectivement trouvée entre les variables indépendantes non catégorielles, 
   \item la tendance linéaire estimée est trouvée significative (Prob(F-statistic) = 7.58e-08),
   \item les résidus sont distribués normalement (kurtosis = 3.154 et Prob(Omnibus) = 0.392).
 \end{itemize}
@@ -463,6 +570,8 @@ Jeunet2018, Arns2009, Cortese2016, Alkoby2017}. Cependant, à notre connaissance
 multivariée pour associer les facteurs aux résultats cliniques. La rigueur et la transparence lors de la conduite d'essais cliniques sur l'efficacité
 du \gls{nfb} est essentielle pour comprendre son effet sur les fonctions cérébrales et le comportement comme le soulignent \citet{Ros2019} lors de l'élaboration
 de leur liste de bonnes pratiques. 
+
+% limitations : seulement trois méthodes mais utiliser plus de méthodes dans une nouvelle analyse aurait pu rendre le message plus confus. 
 
 \subsection{Facteurs et efficacité du \gls{nfb}}
 
