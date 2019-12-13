@@ -24,7 +24,7 @@ suivant les étapes décrites en \ref{preprocessing}.
 
 Tout d'abord, une revue de littérature et des discussions avec des experts du \gls{nfb} appliqué aux enfants \gls{tdah}, en particulier le Dr. Jean-Arthur Micoulaud Franchi
 et le Dr. Louis Mayaud, ont permis de déterminer les facteurs dont il serait intéressant d'étudier l'influence \citep{Vernon2004, Arns2009, Arns2014, 
-*Cortese2016, Enriquez2017, Strehl2014}. Les facteurs 
+Cortese2016, Enriquez2017, Strehl2014}. Les facteurs 
 spécifiques à l'entrainement par \gls{nfb} sont définis avec plus de précision en \ref{principe_nfb}.
 
 Les paramètres ayant une possible influence sur l'efficacité perçue du \gls{nfb} ont été répartis en cinq catégories :
@@ -39,7 +39,8 @@ Les paramètres ayant une possible influence sur l'efficacité perçue du \gls{n
     \end{itemize}
 Ces paramètres ne sont pas spécifiques de l'entrainenement par \gls{nfb} mais pourraient avoir une influence sur les résultats.
 En effet, \citet{Ros2019} appellent notamment à employer un groupe contrôle et à avoir recours à des évaluateurs aveugles afin d'améliorer la qualité des études.
-Le fait qu'une étude soit validée par un \gls{irb} rend compte de la qualité de l'implémentation méthodologique : les études dépourvues d'un \gls{irb} sont
+
+Le fait qu'une étude soit validée par un \gls{irb} rend compte de la qualité de l'implémentation méthodologique : les études qui en sont dépourvues sont
 condidérées d'une qualité moindre et donc plus sujettes aux divers biais d'implémentation.  
 \item \emph{la population :} 
     \begin{itemize}
@@ -72,12 +73,16 @@ Par ailleurs, l'influence de ces facteurs sur le \gls{nfb} est étudiée à trav
 \citep{Arns2014}.
 
 La question du seuil est également déterminante comme soulignée par \citet{Arns2014, Strehl2014} tout comme l'importance d'aider au transfert de l'auto-régulation cérébrale
-apprise durant les séances de \gls{nfb} à la vie de tous les jours. En ce qui concerne le nombre de sessions, ce paramètre a fait l'objet de plusieurs analyses \citep{Cortese2016, Arns2009,
-Arns2014, Enriquez2017} afin de déterminer sa valeur optimale. La durée du traitement et des sessions ainsi que leur fréquence étant variables d'une étude à l'autre, il parait important
-de les étudier. 
+apprise durant les séances de \gls{nfb} à la vie de tous les jours. 
+
+En ce qui concerne le nombre de sessions, ce paramètre a fait l'objet de plusieurs analyses \citep{Cortese2016, Arns2009,
+Arns2014, Enriquez2017} afin de déterminer sa valeur optimale. 
+
+La durée du traitement et des sessions ainsi que leur fréquence étant variables d'une étude à l'autre, il parait important
+de les étudier \citep{Enriquez2017}. 
 
 Enfin l'individualisation des bandes de fréquences et le couplage entre le \gls{nfb} et l'\gls{emg}-Biofeedback font l'objet de plus en plus d'études \citep{Bioulac2019, Bazanova2018, Bink2014,
-Duric2012, Enriquez2017}, ainsi leur influence serait intéressante à explorer.
+Duric2012, Enriquez2017, Klimesch1999}, ainsi leur influence serait intéressante à explorer. 
 \item \emph{la qualité de l'acquisition :} 
     \begin{itemize}
     \item la présence de plus d'une électrode d'enregistrement de l'\gls{eeg} (c'est à dire les électrodes qui enregistrent l'\gls{eeg} et d'où 
@@ -90,7 +95,9 @@ Duric2012, Enriquez2017}, ainsi leur influence serait intéressante à explorer.
         \end{description}
     Un score de qualité de 3 est donné si tous les critères ci-dessus sont remplis. Si au moins l'un d'eux est satisfait, le score est de 2, sinon il est mis à 1.
 		\end{itemize}
-Le matériel utilisé semble intuitivement être central quant à l'efficacité du \gls{nfb} d'où notre idée d'étudier son impact de plus près.
+Le matériel utilisé semble intuitivement être central quant à l'efficacité du \gls{nfb} d'où notre idée d'étudier son impact de plus près. En particulier,
+il a été montré que les études sur le \gls{nfb} sont très hétérogènes quant au nombre et au placement des électrodes enregistrant le signal \gls{eeg} sur 
+lequel est calculé le \textit{feedback} \citep{Enriquez2017, Rogala2016}.
 \item \emph{la qualité du signal} : 
     \begin{itemize}
     \item le rejet en temps réel (l'époque est exclue, pas de retour ou \emph{feedback} calculé) ou la correction (retour calculé sur l'époque débruitée) des 
@@ -563,61 +570,99 @@ Ces résultats sont résumés à la Table~\ref{Table:table_factors_analysis_resu
 \section{Discussion}
 
 La description et l'analyse des différents types d'implémentation de \gls{nfb} ont fait l'objet de plusieurs études \citep{Arns2014, 
-Jeunet2018, Arns2009, Cortese2016, Alkoby2017}. Cependant, à notre connaissance, aucune de ces études n'a implémenté une approche systématique et 
+Jeunet2018, Arns2009, Cortese2016, Alkoby2017, Rogala2016, Enriquez2017}. Cependant, à notre connaissance, aucune de ces études n'a implémenté une approche systématique et 
 multivariée pour associer les facteurs aux résultats cliniques. 
 
 Toutefois, cette méthode souffre de quelques limitations, comme 
 l'utilisation de seulement trois méthodes et le choix de critères arbitraires pour exclure des facteurs et des observations. Par ailleurs, le fait que pour une étude il peut y 
-avoir plusieurs observations n'est capturé que par la \gls{wls}. 
+avoir plusieurs observations n'est capturé que par la \gls{wls}. Ensuite, la \gls{saob} ne permet pas de donner de chiffres précis quant à la durée du traitement ou au 
+nombre de sessions par exemple : elle permet seulement de conseiller une direction mais sans qauntification.
 
 La rigueur et la transparence lors de la conduite d'essais cliniques sur l'efficacité
 du \gls{nfb} est essentielle pour comprendre son effet sur les fonctions cérébrales et le comportement comme le soulignent \citet{Ros2019} lors de l'élaboration
-de leur liste de bonnes pratiques. 
-. 
+de leur liste de bonnes pratiques. Ce point a également été souligné par \citet{Rogala2016} : les méthodologie suivies dans la recherche sur l'efficacité du
+\gls{nfb} sont rarement fiables et trop souvent contradictoires.
 
 \subsection{Facteurs et efficacité du \gls{nfb}}
 
-La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence sur l'efficacité du \gls{nfb}. Certains facteurs ont été trouvés par les trois méthodes,
-d'autres par deux ou une et certains par aucune. Ces résultats sont discutés ici, en s'intéressant à la fois aux paramètres pour lesquels l'influence sur la performance
-clinique est fortement probable et à ceux pour lesquels l'impact s'avère moins certain. 
+La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence sur l'efficacité du \gls{nfb}. Ces facteurs ont été choisis sur la base d'avis d'experts
+du \gls{nfb} et de la littérature scientifique sur le sujet. Les résultats trouvés par la \gls{saob} sont discutés ici et mis en perspective avec cette littérature, en s'intéressant à la fois 
+aux paramètres pour lesquels l'influence sur la performance clinique est fortement probable et à ceux pour lesquels l'impact s'avère moins certain. 
+  
+Un des paramètres souvent étudié est le nombre de sessions qu'il faut effectuer durant le traitement par \gls{nfb}. Dans la plupart des cas, le nombre 
+de sessions est fixe et donc défini à l'avance grâce aux résultats obtenus par des études d'efficacité similaires \citep{Enriquez2017}. Cependant malgré le soin apporté
+au choix du nombre de sessions, celui-ci n'aurait pas d'influence sur l'efficacité du \gls{nfb} selon la \gls{saob} : il est identifié seulement par la \gls{wls} pour laquelle effectuer 
+plus de sessions serait favorable. 
 
-% nombre de sessions, à changer
-De manière surprenante, le nombre de sessions s'avère n'être identifié que par une seule méthode ce qui n'est pas en accord certains résultats de la littérature existante. 
-En effet, grâce à plusieurs régressions linéaires 
-simples sans correction pour tests multiples \citep{Arns2009}, \citet{Arns2014} affirme qu'effectuer moins de 20 sessions de \gls{nfb} conduit à une moins bonne efficacité. De même,
-\citet{Vernon2004} a observé que des changements positifs, aussi bien sur l'\gls{eeg} qu'au niveau comportemental, apparaissent après au moins 20 sessions. Toutefois, \citep{Enriquez2017}
-souligne le fait que le nombre de sessions doit être choisi avec précaution afin d'éviter "l'\textit{overtraining}". 
+\citet{Vernon2004} suggèrent qu'au moins 20 sessions sont nécessaires pour observer un effet thérapeutique, 
+ce qui a été confirmé par \citet{Arns2014, Wang2014} 
+\citet{Wang2014} a montré sur des enfants sains une amélioration significative de la mémoire de travail suite à 20 sessions d'entrainement cognitif.
+Quant à \citet{Arns2009}, plusieurs régressions linéaires sans correction pour tests multiples ont montré une
+corrélation entre le nombre de sessions et les \gls{es}-inter-groupes calculés sur la composante inattention seulement. 
+Le fait que le nombre de sessions n'a pas été identifié par la \gls{wls}
+pourrait s'expliquer par la présence de seulement neuf observations de 20 sessions ou moins (ce qui correspond à 7.65\% du nombre total d'observations). 
+Ainsi, étant donné que le seuil minimal pour obtenir des résultats avec l'entrainement par \gls{nfb} semble dépassé pour la très grande majorité des observations, 
+il est peu probable que ce facteur puisse être retrouvé par les trois méthodes sur cet ensemble de données. 
 
+\citet{Cortese2016} a conduit une méta-régression pour estimer l'influence du nombre de sessions
+sur l'\gls{es}-inter-groupes calculé sur la composante totale d'une part sur les évaluations des parents et d'autre part sur celles des ensiagnants : 
+dans chacun de ces cas la p-value associée à la variable indépendante "nombre de sessions" n'était pas significativement différente de 0, ce qui va dans le sens 
+du résultat de la \gls{saob}. Ainsi, il semblerait que d'autres analyses soient nécessaires pour pouvoir trancher sur la réelle influence du nombre de sessions 
+et sur son nombre optimal pour favoriser l'efficacité du \gls{nfb}.
 
-Le fait que le nombre de sessions n'a pas été identifié par le \gls{lasso}
-pourrait s'expliquer par la présence de seulement deux observations de 20 sessions ou moins. Ainsi, étant donné que le seuil minimal pour obtenir des résultats avec l'entrainement
-par \gls{nfb} semble dépassé pour la très grande majorité des observations, il est peu probable que ce facteur puisse être retrouvé par les trois méthodes sur cet ensemble de données. 
-Toutefois, les deux méthodes qui ont identifié ce facteur s'accordent toutes deux sur la direction de l'effet : comme attendu plus le nombre de sessions effectué est important, 
-plus le \gls{nfb} semble être efficace. 
+Cette notion du nombre de sessions comprend plusieurs aspects comme le soulignent \citet{Strehl2014} parmi lesquels la durée du traitement et la fréquence des 
+sessions. Afin de se rendre compte du lien entre ces trois paramètres un \textit{pairplot} a été tracé à la Figure~\ref{Figure:factors_pairplot}.
 
-Le type de protocole \gls{nfb} n'a été identifié par aucune méthode à l'exception de l'augmentation du rythme beta en central qui l'a été par une méthode. Ainsi, quel que serait 
-le protocole d'entrainement, il n'influencerait pas l'efficacité du \gls{nfb}, son effet serait non-spécifique. Cette importance minime octroyée par la \gls{saob} à ces facteurs
-est contre-intuitive étant donné le rôle central du protocole choisi sur le mode d'action neurophysiologique et donc sur l'impact sur l'efficacité thérapeutique \citep{Vernon2004}. Une probable 
-explication pour ce résultat est que tous ces protocoles ont une efficacité équivalente sur les populations étudiées et donc ne représentent pas un facteur explicatif significatif. 
-Toutefois, ce résultat n'exclut pas une stratégie personnalisée basée sur les phénotypes pour augmenter les performances, comme précédemment suggéré par \citet{Alkoby2017}.
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-pairplot} 
+  \caption{\textit{Pairplot} obtenu sur les variables indépendantes non standardisées "fréquence des sessions", "nombre de sessions" et "durée du traitement" 
+	comprenant les 85 observations retenues suite au prétraitement des données expliqué en \ref{preprocessing}. La fréquence des sessions 
+	est donnée en nombre de sessions par semaine et la durée du traitement en semaines.}
+  \label{Figure:factors_pairplot}
+\end{figure}
 
-Trois facteurs ont été identifiés par les trois méthodes avec, de plus, la même direction d'influence : la présence d'une phase de transfert, la durée du traitement, et les évaluateurs 
-probablement aveugles au traitement. 
+Sur ce \textit{pairplot} on peut observer que le nombre de sessions a tendance à augmenter avec la durée du traitement. Par contre, 
+la fréquence des sessions reste globalement stable avec l'augmentation du nombre de sessions et la durée du traitement. 
 
-Ensuite, il semblerait que plus le traitement par \gls{nfb} est long, moins il devient efficace. Ce résultat semble contradictoire, à première vue, à la direction de l'effet donné
-aux critères "nombre de sessions" et "fréquence des sessions". Le degré d'engagement dans l'intervention pourrait expliquer ce
-résultat : être engagé dans un traitement long est plus compliqué. Cependant, il est difficile de quantifier ce degré car, soit aucun questionnaire n'est rempli 
-par les enfants à ce sujet, soit cette information n'est pas mentionnée. 
+Le facteur "durée du traitement" a justement été identifié par les trois méthodes intégrées dans la \gls{saob} : il semblerait que plus le traitement par 
+\gls{nfb} est long, moins il devient efficace. Le degré d'engagement 
+dans l'intervention pourrait expliquer ce résultat : être engagé dans un traitement long est plus compliqué. Cependant, il est difficile de quantifier ce degré car, 
+soit aucun questionnaire n'est rempli par les enfants à ce sujet, soit cette information n'est pas mentionnée. 
 
-Par ailleurs, la durée du traitement est étroitement liée à son intensité, ainsi on peut supposer qu'une période de traitement plus courte est préférable 
-du fait de la fréquence plus élevée des sessions. Cette hypothèse est étayée par 
-le fait que la variable "fréquence des sessions" (nombre de sessions par semaine) est aussi associée à de plus grands \gls{es}-intra-groupe selon le
+Par ailleurs, la durée du traitement est liée à son intensité : le \textit{paiplot} présenté à la Figure~\ref{factors_pairplot} montre que même si
+la fréquence des sessions est assez stable avec la durée du traitement, dans le cas de traitements courts, la fréquence
+des sessions est soutenue pour certaines observations ce qui n'est pas le cas pour les traitement longs. Ainsi on peut 
+supposer qu'une période de traitement plus courte est préférable du fait de la fréquence plus élevée des sessions. 
+
+Cette hypothèse est étayée par le fait que la variable "fréquence des sessions" est aussi associée à de plus grands \gls{es}-intra-groupe selon le
 \gls{lasso} et le \gls{dt}. L'impact de l'intensité du traitement par \gls{nfb} a été exploré par \citet{Rogala2016} sur des sujets adultes sains : il est
-observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Par ailleurs, un autre facteur permet de soutenir
-qu'un traitement intensif est favorable : le nombre de sessions lequel, selon la \gls{wls} et le \gls{dt}, semble plus favorable lorsqu'il 
-est important. Ainsi, ces résultats indiquent qu'adopter une fréquence élevée de sessions est préférable, ce qui est peu connu dans le domaine du \gls{nfb}.
+observé que les études proposant au moins 4 sessions de \gls{nfb} sur des jours consécutifs sont toutes bénéfiques. Toutefois,
+\citet{Arnold2013} ne notent aucune différence d'amélioration thérapeutique entre les enfants effectuant 2 sessions par semaine
+et ceux en effectuant 3. 
 
-Tout comme la fréquence des sessions, deux autres paramètres sont retournés par deux méthodes et donc pourraient influencer l'efficacité du \gls{nfb} : la qualité de l'\gls{eeg}
+Les résultats de la \gls{saob} indiquent qu'adopter une fréquence élevée de sessions est préférable, ce qui est peu connu dans le domaine du \gls{nfb}. 
+En effet sur la question de l'intensité du traitement, \citet{Strehl2014} s'appuie sur les résultats de l'entrainement cognitif d'enfants 
+sains pour lesquels il a observé que des sessions dispersées conduisent à une meilleure efficacité \citep{Wang2014}. \citet{Enriquez2017} soulignent
+également que dans le milieu de l'éducation, les leçons dispersées sont plus efficaces mais rappellent qu'en ce qui concerne le \gls{nfb},
+trop peu d'éléments sont disponibles pour conclure quant au bénéfice de l'espacement des sessions.
+
+Le type de protocole \gls{nfb} n'a été identifié par aucune méthode à l'exception de l'augmentation du rythme beta en central qui l'a été par une méthode. 
+Ainsi, quel que serait le protocole d'entrainement, il n'influencerait pas l'efficacité du \gls{nfb}, son effet serait non-spécifique. Cette importance 
+minime octroyée par la \gls{saob} à ces facteurs est contre-intuitive étant donné le rôle central du protocole choisi sur le mode d'action neurophysiologique 
+et donc sur l'impact sur l'efficacité thérapeutique \citep{Vernon2004}. Une probable 
+explication pour ce résultat est que tous ces protocoles ont une efficacité équivalente sur les populations étudiées et donc ne représentent 
+pas un facteur explicatif significatif.
+
+Trois facteurs ont été identifiés par les trois méthodes avec, de plus, la même direction d'influence : la présence d'une phase de transfert, 
+la durée du traitement, et les évaluateurs probablement aveugles au traitement. 
+
+ 
+
+
+
+Tout comme la fréquence des sessions, deux autres paramètres sont retournés par deux méthodes et donc pourraient influencer 
+l'efficacité du \gls{nfb} : la qualité de l'\gls{eeg}
 égale à 2 et la correction ou rejet des artefacts oculaires.
 
 En effet, selon deux méthodes, enregistrer l'\gls{eeg} dans de bonnes conditions mènerait à de meilleurs résultats. Cette observation peut s'expliquer par le fait qu'un signal
@@ -631,13 +676,14 @@ Deux méthodes s'accordent également sur le fait que corriger ou rejeter les ar
 s'expliquer par le fait qu'un signal \gls{eeg} non contaminé par des artefacts permet d'extraire plus précisément les neuromarqueurs \citep{Barthelemy2019}. % à mieux discuter
 
 
-
 \subsection{Perspectives pour de futures analyses}
 
-L'influence d'autres facteurs sur l'efficacité du \gls{nfb} aurait été intéressante à analyser, comme la personnalisation des protocoles d'entrainement basée sur l'\gls{iapf},
-dont les résultats paraissent prometteurs selon \citet{Bazanova2018} et \citet{Escolano2014}. Cependant elle n'a pas pu être incluse dans la \gls{saob} faute d'un 
-nombre suffisant d'études proposant un protocole personnalisé. Ce manque d'études est aussi la raison pour laquelle le couplage entre l'\gls{emg}-Biofeedback et le 
-\gls{nfb} n'a pas pu être étudié dans la \gls{saob}. 
+L'influence d'autres facteurs sur l'efficacité du \gls{nfb} aurait été intéressante à analyser, comme la personnalisation des 
+protocoles d'entrainement basée sur l'\gls{iapf}. En effet, \citet{Vernon2004} et \citet{Klimesch1999} soulignent que les limites des bandes 
+de fréquence varient d'individu à l'autre et sont aussi dépendantes de l'âge. Par ailleurs, les résultats paraissent prometteurs selon 
+\citet{Bazanova2018} et \citet{Escolano2014}. Cependant, elle n'a pas pu être incluse dans la \gls{saob} faute d'un 
+nombre suffisant d'études proposant un protocole personnalisé. Ce manque d'études est aussi la raison pour laquelle le couplage entre l'\gls{emg}-Biofeedback 
+et le \gls{nfb} n'a pas pu être étudié dans la \gls{saob}. 
 
 Un autre facteur intéressant, qui aurait pu aider à expliquer les résultats sur la durée du traitement, a 
 également été exclu de l'analyse : la sévérité des symptômes à pré-test. Bien que les scores à pré-test soient disponibles pour chaque étude, ils ne sont pas
@@ -645,11 +691,22 @@ comparables car différentes échelles sont utilisées. Afin de résoudre ce pro
 sur chaque échelle. Toutefois, cette valeur n'a pas pu être trouvée pour plusieurs échelles cliniques : trop d'observations manquantes ont mené au rejet de facteur.
 
 Enfin, il serait intéressant de s'intéresser au lieu où les sessions de \gls{nfb} sont effectuées. En effet, \citet{Minder2018} souligne le fait que le lieu
-d'entrainement pourrait aussi être un facteur contribuant à l'efficacité du \gls{nfb}. Toutefois, dans son étude aucune différence significative n'est trouvée entre
-les résultats des performances à la clinique et à l'école. Dans la grande majorité des études sur le \gls{nfb} appliqué aux enfants
-\gls{tdah}, les sessions ont lieu en clinique, rendant impossible à la \gls{saob} d'étudier ce facteur. Cependant, à l'instar de \citet{Minder2018}, d'autres 
-études effectuent leurs séances en dehors du milieu hospitalier \citep{Bioulac2019}, ainsi l'influence du lieu d'entrainement pourra finir par être étudiée
-plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tôt et qui ont dû être exclus de la \gls{saob}.
+d'entrainement pourrait aussi être un facteur contribuant à l'efficacité du \gls{nfb}. Toutefois, dans son étude aucune différence significative 
+n'est trouvée entre les résultats des performances à la clinique et à l'école. \citet{Vernon2004} avance qu'effectuer les séance de \gls{nfb} à l'école
+pourrait faciliter le transfert de ce qui a été appris lors des sessions de \gls{nfb} à la vie de tous les jours.
+
+Dans la grande majorité des études sur le \gls{nfb} appliqué aux enfants
+\gls{tdah}, les sessions ont lieu en clinique, rendant impossible à la \gls{saob} d'étudier ce facteur. Cependant, à l'instar de \citet{Steiner2014, Minder2018}, 
+d'autres études demandent à leurs sujets d'effectuer leurs séances en dehors du milieu hospitalier \citep{Bioulac2019}, ainsi l'influence du lieu d'entrainement 
+pourra finir par être étudiée plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tôt et qui ont dû être exclus de la \gls{saob}.
+
+Un paramètre central dans l'entrainement par \gls{nfb} a été exclu de la \gls{saob} faut d'un nombre suffisant d'études, il s'agit du type de seuillage 
+grâce auquel les récompenses sont retournées au sujet.  
+
+% paeler des types de feeback vernon2004, rogala2016
+% threshold
+
+
 
 \subsection{Analyse approfondie des évaluateurs probablement aveugles}
 
