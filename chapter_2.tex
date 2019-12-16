@@ -80,7 +80,7 @@ décrit en \ref{compute_summary_effect}) sur lequel une hypothèse nulle est tes
 Le modèle à effets aléatoires est souvent plus approprié du fait de la variabilité des études. En effet, même si les études incluses dans la méta-analyse 
 répondent toutes aux critères d'inclusion fixés au préalable, rien ne peut généralement permettre de supposer que ces études sont identiques et qu'elles 
 partagent donc toutes le même \gls{es} réel. Le modèle à effet fixe est ainsi rarement utilisé, on peut cependant y avoir recours lorsque le nombre d'études incluses 
-est très petit. En effet, le cas du modèle à effet fixe, les poids associés à chaque étude sont moins équilibrés : les études incluant un grand nombre de 
+est très petit. En effet, dans le cas du modèle à effet fixe, les poids associés à chaque étude sont moins équilibrés : les études incluant un grand nombre de 
 sujets se voient attribuer un poids plus important que dans le cas du modèle à effets aléatoires, et les études aux petits échantillons un plus faible poids.
 
 Au sein du domaine du \gls{nfb} appliqué aux enfants \gls{tdah}, les méta-analyses suivent le modèle à effets aléatoires 
@@ -107,7 +107,7 @@ Il existe différents \gls{es} \citep{Borenstein2009} :
         \label{eq:metareview_standardized_mean_difference}
         \text{d} = \frac{\mu_{1} - \mu_{2}}{\sqrt{\frac{(n_1 - 1)\sigma_1^2 + (n_2 - 1)\sigma_2^2} {n_1 + n_2 - 2}}},
         \end{equation} 
-		avec $n_{1}$ et $n_{2}$ le nombre de sujets dans les groupes 1 et 2, et $\sigma_{1}$ et $\sigma_{2}$ les écarts types des deux groupes. Le dénominateur
+		avec $n_{1}$ et $n_{2}$ le nombre de sujets dans les groupes 1 et 2, et $\sigma_{1}$ et $\sigma_{2}$ les écarts-types des deux groupes. Le dénominateur
 		correspond à l'écart type intra-groupe calculé à travers les deux groupes.
 \end{itemize}
 \item \gls{es} basés sur des \emph{données binaires} :
@@ -409,7 +409,7 @@ intra-groupes toujours égale à 0.5 \citep{Balk2012} lors du calcul de la varia
 Eq.~(\ref{eq:metareview_variance_effect_size_between}). Une analyse de sensibilité a été menée pour s'assurer de l'impact mineur de la valeur de la \textit{pooled} 
 corrélation de Pearson intra-groupes : lorsqu'elle varie entre 0.2 et 0.8, la signifiance statistique de l'\gls{est} ne change pas.
 
-Au vu de la faible différence entre ce qui est retourné par RevMan et par le package Python confirme la validité de ce dernier : il sera donc utilisé pour mener
+Au vu de la faible différence entre ce qui est retourné par RevMan et par le package Python, la validité de ce dernier est confirmée : il sera donc utilisé pour mener
 les analyses suivantes.
 
 \subsection{Réplication de la méta-analyse de Cortese et al., 2016} \label{replication}
@@ -428,7 +428,7 @@ finales n'étaient pas encore disponibles,
 la BOSS Classroom Observation \citep{Shapiro2010}. Ce choix interpelle car il s'agit d'une échelle peu commune pour quantifier les symptômes du \gls{tdah}, d'autant qu'une échelle clinique 
 plus connue et bien définie \citep{Collett2003, Epstein2012, Bluschke2016}, la Conners-3 Teachers \citep{Conners1998, Conners2008}, est disponible dans 
 cette étude. Ainsi, nous avons utilisé les scores cliniques donnés par les enseignants sur la Conners-3, échelle 
-qui a d'ailleurs été utilisée pour calculer l'\gls{es}-inter-groupes basé sur l'évaluation des parents. 
+qui a d'ailleurs été utilisée pour calculer l'\gls{es}-inter-groupes basé sur l'évaluation des parents de cette étude. 
 \end{itemize}
 
 \subsubsection{Résultats}
@@ -483,7 +483,7 @@ dont la dose est optimisée sont exclues,
 
 Afin de trouver les études à inclure, \citet{Cortese2016} ont cherché sur plusieurs bases de données (dont la dernière vérification
 date du 30 août 2015) telles qu'ERIC, OVID et PubMed. Dans notre cas seule PubMed, qui est la principale base de données, a été questionnée en entrant 
-les mêmes termes de recherche que \citet{Cortese2016} (accessibles dans le matériel supplémentaire de leur méta-analyse) 
+les mêmes termes de recherche que \citet{Cortese2016} (disponibles dans le matériel supplémentaire de leur méta-analyse) 
 
 La mise à jour de \citet{Cortese2016} se fait dans un premier temps avec l'ensemble des études (celles initialement incluses et celles nouvellement
 identifiées), puis sur des sous-groupes.
@@ -507,7 +507,7 @@ Finalement, 7 études ont été identifiées lors de la recherche menée le 2 se
 \item \citep{Baumeister2016} pour qui seuls les résultats pour les symptômes totaux évalués par les parents sont disponibles,
 \item \citep{Strehl2017} pour qui les évaluations des parents et des enseignants sont données pour toutes les composantes,
 \item \citep{Bazanova2018} qui donne les évaluations des parents pour les composantes inattention, hyperactivité et totale (pour être cohérent avec 
-la \gls{saob} présentée dans le chapitre \ref{saob}, seul le groupe \gls{nfb} est retenu),
+la \gls{saob} présentée dans le chapitre \ref{ch-saob}, seul le groupe \gls{nfb} est retenu),
 \item \citep{Minder2018} pour qui les évaluations des parents et des enseignants sont données pour toutes les composantes ; un groupe \gls{nfb}
 et un groupe contrôle suivent leur traitement à l'école, alors que les autres groupes \gls{nfb} et contrôle,
 \item \citep{Moreno2019} pour qui seuls les résultats pour les symptômes totaux évalués par les parents sont disponibles,
@@ -587,12 +587,12 @@ significatif (p-value = 0.017).
 \section{Discussion} 
 
 Les méta-analyses doivent être menées rigoureusement, ainsi pour guider les auteurs des recommandations existent comme celles de PRISMA \citep{Moher2009}.
-La réplication et la mise à jour présentées ici remplissent la majorité des points de la checklist, sauf notamment l'évaluation du risque de biais dans chaque étude.
+La réplication et la mise à jour présentées ici remplissent la majorité des points de cette checklist, sauf notamment l'évaluation du risque de biais dans chaque étude.
 Par ailleurs, elles ont été effectuées avec le package Python dont la fiabilité n'a été testée que sur une méta-analyse.
  
 Le travail décrit précédemment a pour but d'explorer l'impact de certains choix de \citet{Cortese2016} qui ont été débattus dans la communauté scientifique 
 \citep{Micoulaud2016}. Nous résumons ici la liste des changements, leur justification et leurs conséquences sur les résultats. Par ailleurs, l'importance de mettre 
-à jour ces analyses est soulignée.
+à jour ces analyses est étudiée.
 
 \subsection{Discussion sur les résultats obtenus} \label{replication_and_update}
 
@@ -610,10 +610,10 @@ que le nombre de sessions est corrélé positivement avec les changements observ
 à des \gls{es}-inter-groupes plus petits. Or, ici étonnament les \gls{es}-inter-groupes calculés après la réalisation de toutes les sessions sont plus faibles que ceux 
 obtenus après 12 sessions, ce qui n'est pas favorable à l'efficacité du \gls{nfb}. Toutefois, ces différences ne changent pas la signifiance statistique des \gls{est}. 
 
-En conclusion, sur la base de cette étude de sensibilité, nous suggérons que les points de débat soulevés par \citep{Micoulaud2016} ne sont pas majeurs 
+En conclusion, sur la base de cette étude de sensibilité, nous suggérons que les points de débat soulevés par \citet{Micoulaud2016} ne sont pas majeurs 
 quant à l'analyse et l'interprétation des résultats obtenus.
 
-\subsubsection{Mise à jour}
+\subsubsection{Mise à jour} \label{meta_analysis_update}
 
 La méta-analyse de \citep{Cortese2016} a déjà fait l'objet d'une mise à jour présentée dans \citet{Bussalb2019clinical} qui a intégré les études de 
 \citep{Bazanova2018, Baumeister2016} et \citet{Strehl2017}. Cette mise à jour confirmait les résultats de \citep{Cortese2016} : les \gls{est} calculés 
@@ -640,7 +640,7 @@ Enfin, l'ajout de ces sept nouvelles études donne plus de puissance statistique
 
 En effet, pour la sous population suivant un protocole \gls{nfb} standard \citep{Arns2014}, \citet{Cortese2016} avait noté que les \gls{pblind} observaient
 une différence statistiquement significative entre le \gls{nfb} et les groupes contrôles en faveur du \gls{nfb}. Alors que cette tendance a été confirmée avec l'ajout 
-de \citet{Baumeister2016} et \citet{Strehl2017} dans \citet{Bussalb2019clinical}, la mise à jour présentée ici rend tous les \gls{est} initialement significatifs 
+de \citet{Baumeister2016} et \citet{Strehl2017} dans \citet{Bussalb2019clinical}, la mise à jour présentée ici rend presque tous les \gls{est} initialement significatifs 
 non significatifs ; désormais seul l'\gls{est} de la composante totale évaluée par les parents l'est encore (p-value = 0.047). 
 L'\gls{est} calculé pour la composante totale évaluée par les enseignants est limite significatif (p-value = 0.053). Ces résultats remettent en question l'efficacité
 supérieure des protocoles standards.
