@@ -4,28 +4,28 @@
 \toprule
 \multicolumn{2}{c}{ \shortstack{Variables \\ indépendantes (facteurs)} } & \shortstack{ Coefficients \\ trouvés par \gls{wls} \\ (p-value) } & \shortstack{ Coefficients \\ trouvés par \\ \gls{lasso} } & \shortstack{Place \\ sur le \\ \gls{dt}} \\
 \midrule
-\multirow{ 3}{*}{ \textit{Méthodologiques} } & \gls{pblind} & \hskip 0.12in\textbf{0.16 (0.023)} & \hskip 0.12in\textbf{0.045} & \textbf{\textit{root node}} \\ 
-& randomisation & \hskip 0.12in0.057 (0.42) & \hskip 0.12in\textcolor{red}{0.00} & / \\  
+\multirow{ 3}{*}{ \textit{Méthodologiques} } & \gls{pblind} & \hskip 0.12in\textbf{0.15 (0.015)} & \hskip 0.12in\textbf{0.086} & \textbf{\textit{root node}} \\ 
+& randomisation & \hskip 0.12in0.013 (0.840) & \hskip 0.12in\textcolor{red}{0.00} & / \\   
 \midrule
-\multirow{ 3}{*}{ \textit{Population} } & age max & \hskip 0.08in-0.0032 (0.97) & \hskip 0.12in0.00 & / \\
-& age min & \hskip 0.08in-0.044 (0.59) & \hskip 0.12in0.00 & / \\
-& prise de médicaments & \hskip 0.12in0.025 (0.75) & \hskip 0.12in0.00 & / \\
+\multirow{ 3}{*}{ \textit{Population} } & age max & \hskip 0.08in-0.10 (0.106) & \hskip 0.12in0.00 & / \\
+& age min & \hskip 0.12in0.056 (0.43) & \hskip 0.12in0.00 & / \\
+& prise de médicaments & \hskip 0.08in-0.026 (0.72) & \hskip 0.12in0.00 & / \\
 \midrule
-\multirow{ 9}{*}{ \textit{ \shortstack{Implementation \\ du \gls{nfb}} } } & nombre de sessions & \hskip 0.08in-0.14 (0.11) & \hskip 0.12in0.00 & \textcolor{red}{/} \\
-& durée de la session & \hskip 0.08in-0.17 (0.12) & \hskip 0.12in0.00 & \textcolor{green}{\textbf{2$^{eme}$ noeud}} \\
-& durée du traitement & \hskip 0.12in\textbf{0.17 (0.054)} & \hskip 0.12in\textcolor{red}{0.00} & \textbf{2$^{eme}$ et 3$^{eme}$ noeuds} \\
-& fréquence des sessions & \hskip 0.08in-0.081 (0.20) & \hskip 0.12in\textcolor{red}{0.00} & \textbf{2$^{eme}$ noeud} \\ 
-& \gls{smr} & \hskip 0.12in0.070 (0.32) & \hskip 0.12in0.00 & / \\
-& augmentation de beta en central & \hskip 0.12in0.18 (0.11) & \hskip 0.12in0.00 & / \\ 
-& diminution de theta & \hskip 0.08in-0.13 (0.27) & \hskip 0.12in0.00 & / \\ 
-& \gls{scp} & \hskip 0.08in-0.084 (0.60) & \hskip 0.12in0.00 & / \\ 
-& phase de transfert & \hskip 0.12in\textbf{0.22 (0.036)} & \hskip 0.12in0.00 & \textcolor{green}{\textbf{1$^{er}$ noeud} }\\
+\multirow{ 9}{*}{ \textit{ \shortstack{Implementation \\ du \gls{nfb}} } } & nombre de sessions & \hskip 0.08in\textbf{-0.19 (0.025)} & \hskip 0.12in0.00 & \textcolor{red}{/} \\
+& durée de la session & \hskip 0.08in\textcolor{red}{-0.13 (0.16)} & \hskip 0.12in0.00 & \textcolor{green}{\textbf{2$^{eme}$ noeud}} \\
+& durée du traitement & \hskip 0.12in\textbf{0.39 (0.00)} & \hskip 0.12in\textbf{0.098} & \textbf{2$^{eme}$ et 3$^{eme}$ noeuds} \\
+& fréquence des sessions & \hskip 0.12in0.027 (0.690) & \hskip 0.08in\textbf{-0.055} & \textbf{2$^{eme}$ noeud} \\ 
+& \gls{smr} & \hskip 0.12in0.12 (0.067) & \hskip 0.12in0.00 & / \\
+& augmentation de beta en central & \hskip 0.12in0.087 (0.32) & \hskip 0.12in\textcolor{green}{\textbf{0.026}} & / \\  
+& diminution de theta & \hskip 0.08in-0.095 (0.39) & \hskip 0.12in0.00 & / \\
+& \gls{scp} & \hskip 0.08in-0.14 (0.30) & \hskip 0.12in0.00 & / \\ 
+& phase de transfert & \hskip 0.12in\textbf{0.33 (0.001)} & \hskip 0.12in\textcolor{green}{\textbf{0.079}} & \textcolor{green}{\textbf{1$^{er}$ noeud}} \\
 \midrule
-\multirow{ 2}{*}{ \textit{ \shortstack{Qualité de \\ l'acquisition} } } & plus d'une électrode active & \hskip 0.08in\textbf{-0.17 (0.018)} & \hskip 0.12in\textcolor{red}{0.00} & / \\ 
-& \gls{eeg} qualité 2 & \hskip 0.08in\textbf{-0.26 (0.002)} & \hskip 0.12in\textcolor{red}{0.00} & \textcolor{red}{/} \\  
+\multirow{ 2}{*}{ \textit{ \shortstack{Qualité de \\ l'acquisition} } } & plus d'une électrode d'enregistrement & \hskip 0.08in\textcolor{red}{-0.083 (0.20)} & \hskip 0.08in\textbf{-0.030} & / \\ 
+& \gls{eeg} qualité 2 & \hskip 0.08in\textbf{-0.28 (0.00)} & \hskip 0.08in\textbf{-0.037} & \textcolor{red}{/} \\ 
 \midrule
-\multirow{ 2}{*}{ \textit{Qualité du signal} } & \gls{eog} rejet ou correction & \hskip 0.08in\textcolor{red}{-0.12 (0.12)} & \hskip 0.12in0.00 & \textcolor{green}{\textbf{1$^{er}$ noeud}} \\
-& Rejet des artefacts basé sur l'amplitude & \hskip 0.12in0.13 (0.12) & \hskip 0.12in0.00 & / \\   
+\multirow{ 2}{*}{ \textit{Qualité du signal} } & \gls{eog} rejet ou correction & \hskip 0.08in\textcolor{red}{-0.10 (0.164)} & \hskip 0.08in\textcolor{green}{\textbf{-0.0046}} & \textcolor{green}{\textbf{1$^{er}$ noeud}} \\ 
+& Rejet des artefacts basé sur l'amplitude & \hskip 0.12in0.14 (0.058) & \hskip 0.12in0.00 & / \\   
 \bottomrule
 \end{tabular}
 \end{center}
