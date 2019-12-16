@@ -5,14 +5,16 @@
 % aller dans les détails
 % dopamine
 % Enriqure 2017 et Strehl 2014 (-> threshold)
-%voir Rogala2016
+% voir Rogala2016
+% placement des électrodes
+% plasticité cérébrale
 
-Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}, 
-qui est au centre de ce travail, est présentée, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre est étudiée : 
+Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}-\gls{eeg}, 
+qui est au centre de ce travail, est présentée en détail, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre est étudiée : 
 il s'agit du \gls{tdah} chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
 
 Une fois ces concepts décrits, les objectifs de cette thèse sont énoncés et la contribution de chaque chapitre est mise en évidence. Enfin, les analyses 
-présentées dans ce manuscrit ont fait l'objet de publications scientifiques et d'une communication orale dont les références sont fournies à la fin de ce chapitre. 
+présentées dans ce manuscrit ont fait l'objet de publications scientifiques et d'une communication orale dont les références sont fournies à la fin de ce chapitre. , 
 
 \clearpage 
 
@@ -25,20 +27,36 @@ La découverte et l'évolution de cette méthode sont retracées ici, puis son p
 \subsection{Historique}
 
 Les prémices du \gls{nfb} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain par Hans Berger en 1929 \citep{Berger1929}.
-En effet, \citet{Durup1935} et \citet{Loomis1936} ont observé que les ondes alpha, oscillant entre 8 et 12Hz, pouvaient être contrôlées grâce au 
-conditionnement classique. 
+En effet, \citet{Durup1935} et \citet{Loomis1936} ont observé que les ondes alpha de l'\gls{eeg}, oscillant entre 8 et 12Hz, pouvaient être contrôlées grâce au 
+conditionnement classique \citep{Pavlov1929}. Ce conditionnement, également appelé conditionnement répondant ou pavlovien, consiste à apprendre un comportement en associant un stimuli
+de l'environnement à des réactions automatiques de l'organisme.
 
-Plus tard, ce qui peut être considéré comme le premier entrainement par \gls{nfb} a été mené par le Dr. Kamiya qui a demandé aux sujets de son étude 
-de contrôler le rythme alpha et qui a obtenu des résultats prometteurs \citep{Kamiya1969}. 
+Plus tard, ce qui peut être considéré comme le premier entrainement par \gls{nfb} a été mené par le Dr. Kamiya qui, en se basant sur les travaux de \citet{Durup1935}, 
+a demandé aux sujets de son étude de contrôler le rythme alpha à l'aide d'un retour auditif \citep{Kamiya1969}, ce qu'ils ont réussi à faire. 
 
-Une preuve solide de la modulation de l'\gls{eeg} a été rapportée dans les années 1960 par le Dr. Sterman : l'expérience 
+Une preuve solide de la modulation de l'\gls{eeg} a été rapportée dans les années 1960 par le Dr. Sterman et son équipe \citep{Sterman1969} : l'expérience 
 originelle consistait à entrainer le cerveau des chats en leur apprenant quoi faire pour obtenir de 
-la nourriture. Durant cette expérience, le Dr. Sterman a extrait un rythme particulier au niveau du cortex sensorimoteur : le \gls{smr}, qui correspond 
-aux fréquences entre 12 et 15Hz. Ensuite, le but du Dr. Sterman a été d'entrainer les chats à produire ce rythme en leur donnant de la nourriture 
-lorsqu'ils réussissaient à l'émettre pendant une demi seconde, ce que les chats ont vite appris à faire. 
+la nourriture. En effet, les chats devaient dans un premier temps actionner un levier pour remplir leur bol de nourriture. Ensuite, une fois cette étape maitrisée, 
+l'expérience s'est complexifiée avec l'ajout d'un son, qui lorsqu'il retentissait, empêchait les chats d'obtenir leur nourriture lorsqu'ils appuyaient sur le levier.
+Une fois le silence revenu, le chat pouvait à nouveau recevoir de la nourriture en actionnant le levier.  
 
-Cette modulation a ensuite été employée à des fins cliniques : l'entrainement du \gls{smr} chez les chats améliore leur sommeil \citep{Sterman1970} mais aussi
-réduit la fréquence de leurs crises d'épilepsie après une exposition au kérosène \citep{Sterman1974}. 
+C'est durant cette phase de son expérience, au moment où le chat attend la fin du son, que le Dr. Sterman a extrait un rythme particulier au niveau de leur cortex sensorimoteur : 
+le \gls{smr}, qui correspond aux fréquences entre 12 et 15Hz. Ensuite, le but du Dr. Sterman a été d'entrainer les chats à produire ce rythme en leur donnant de la nourriture, non plus grâce 
+au levier, mais lorsqu'ils réussissaient à l'émettre pendant une demi seconde, ce que les chats ont vite appris à faire. Cette expérience a été la première à montrer que le comportement
+du cerveau pouvait être affecter par la modulation de l'\gls{eeg}. 
+
+Peu de temps après, le Dr. Sterman a été approché par la NASA car les astronautes supportaient difficilement le carburant toxique, connu pour son risque de causer de violentes crises
+d'épilepsie, utilisé pour les fusées. Afin d'évaluer sa toxicité et son effet épileptogène, ce carburant a été testé sur des chats parmi lesquels ceux qui avaient précédemment appris 
+à moduler leur \gls{smr}. Comme attendu, au contact de ce carburant, les chats
+ont souffert de convulsions, mais les chats ayant participer à l'expérience du \gls{smr} présentent moins de crises ou ont une meilleure tolérance aux effets du carburant \citep{Sterman1974}.  
+Cette expérience a permis de démontrer que le contrôle de l'activité cérébrale pouvait être associé à des bénéfices cliniques, ouvrant ainsi la voie aux expériences sur les humains.
+
+En 1972, une patiente épileptique a entrainé son \gls{smr} grâce à la technique du \gls{nfb} : elle a réussi à moduler son \gls{smr}, conduisant à la quasi-disparition de ses crises 
+d'épilepsie durant les séances \citep{Sterman1974}. 
+
+Alors que l'épilepsie est le premier champ d'application du \gls{nfb}, une autre application possible commence à être étudiée dans la foulée : le \gls{tdah} chez l'enfant \citet{Lubar1976}. 
+Dans cette étude, les chercheurs vont  
+
 
 Cependant, le \gls{nfb} ne correspondant pas à ce qui 
 était connu à l'époque quant au fonctionnement du cerveau humain, son utilisation s'est faite en marge de la communauté scientifique \citep{Masterpasqua2003}. 
@@ -53,6 +71,9 @@ ses mécanismes et ses effets, illustrée à la Figure~\ref{Figure:introduction_
   \label{Figure:introduction_number_of_nfb_publications}
 \end{figure}
 
+% étude ros 2014 cité par Pouch
+% mieux décrire les évènements, utiliser thèse Pouch
+
 \subsection{Principe du Neurofeedback} \label{principe_nfb}
 
 % scp, lens, heg, types d'électrodes
@@ -66,9 +87,20 @@ l'organisme mais à l'influence de l'environnement, qui renforce positivement ou
 
 L'activité cérébrale enregistrée lors du \gls{nfb} est couramment l'\gls{eeg}, cependant d'autres modalités telles que l'imagerie par résonance 
 magnétique fonctionnelle (\gls{fmri} en anglais) \citep{Sulzer2013} ou le couplage entre l'\gls{eeg} et la \gls{fmri} \citep{Perronnet2017} existent ; ici,
-seul le \gls{nfb} \gls{eeg} est étudié. L'\gls{eeg} est enregistré de façon non-invasive au moyen d'électrodes placées sur le scalp, 
+seul le \gls{nfb} \gls{eeg} est étudié. 
+
+% couplage eeg et emg
+
+% définition rapide eeg, neurones pyramidaux qui se synchronisent
+
+L'\gls{eeg} est enregistré de façon non-invasive au moyen d'électrodes placées sur le scalp, 
 le bon contact entre la peau et les électrodes est représenté par une faible impédance, qui signifie que le niveau de bruit dans le 
-signal est réduit \citep{Kappenman2010}. Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
+signal est réduit \citep{Kappenman2010}. 
+
+% types d'électrodes
+
+
+Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
 \ref{applications_NFB}. Le signal passe ensuite par un amplificateur, qui peut être conforme à la norme ISO-60601-2-26 \citep{ISO}, avant d'être analysé 
 par l'application de \gls{nfb}. 
 
@@ -160,6 +192,8 @@ que les aires cérébrales qu'il couvre.
   \label{Figure:introduction_cortical_areas_and_functions}
 \end{figure}
 
+% définition système 10-20, ce que signifient, C, P, ... nombres impairs à gauche (àvérifier)
+
 Ainsi, établir un protocole de \gls{nfb} consiste à identifier les rythmes à moduler et l'aire 
 du cortex à entrainer, et à déterminer s'il faut diminuer ou augmenter la présence de ce neuromarqueur, en se basant sur la littérature 
 existante \citep{Micoulaud2019}.
@@ -197,6 +231,8 @@ est le \gls{tdah}, décrite plus précisément dans la section suivante.
 \subsection{Neurofeedback et \gls{tdah}}
 
 \subsubsection{Définition du \gls{tdah}}
+
+% thèse pouch
 
 Le \gls{tdah} (\textit{Attention Deficit Hyperactivity Disorder} en anglais) est un trouble psychiatrique qui touche environ 5\% d'enfants en âge d'aller à l'école, 
 ce qui représente 2.5 millions d'enfants en Europe \citep{DSM-5}. Ce trouble se caractérise par l'existence de trois groupes de symptômes \citep{HAS} : 
@@ -359,7 +395,7 @@ l'entrainement par \gls{nfb}.
 
 \section{Contribution et résumé des chapitres}
 
-Ce manuscrit est divisé en 5 parties, dont les trois centrales (les chapitres \ref{chapitre-2}, \ref{chapitre-3} et \ref{chapitre-4}) ont chacune pour but de remplir 
+Ce manuscrit est divisé en cinq parties, dont les trois centrales (les chapitres \ref{chapitre-2}, \ref{chapitre-3} et \ref{chapitre-4}) ont chacune pour but de remplir 
 un des objectifs précédemment énoncés.
 
 Avant de chercher à déterminer les facteurs de réussite de l'entrainement par \gls{nfb}, son efficacité sur les enfants \gls{tdah} est évaluée à l'aide 
