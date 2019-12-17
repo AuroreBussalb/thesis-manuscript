@@ -6,11 +6,10 @@
 % dopamine
 % Enriqure 2017 et Strehl 2014 (-> threshold)
 % voir Rogala2016
-% placement des électrodes
 % plasticité cérébrale
 
 Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}-\gls{eeg}, 
-qui est au centre de ce travail, est présentée en détail, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre est étudiée : 
+qui est au centre de ce travail, est présentée en détail, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre elles est étudiée : 
 il s'agit du \gls{tdah} chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
 
 Une fois ces concepts décrits, les objectifs de cette thèse sont énoncés et la contribution de chaque chapitre est mise en évidence. Enfin, les analyses 
@@ -21,8 +20,89 @@ présentées dans ce manuscrit ont fait l'objet de publications scientifiques et
 \section{Définition du Neurofeedback}
 
 Le \gls{nfb} est une technique d’apprentissage à visée thérapeutique permettant de modifier un paramètre d’activité cérébrale au moyen d’une 
-information en temps réel associée à une récompense \citep{Arns2014}. 
-La découverte et l'évolution de cette méthode sont retracées ici, puis son principe est décrit précisément.
+information en temps réel associée à une récompense \citep{Arns2014}. L'activité cérébrale qui nous intéresse ici est l'\gls{eeg}, dont les caractéristiques sont tout d'abord
+rappelées ici. Ensuite, la découverte et l'évolution de la méthode du \gls{nfb}-\gls{eeg} sont retracées, puis son principe est décrit précisément.
+
+\subsection{Acquisition de l'électroencéphalogramme}
+
+L'\gls{eeg} est un examen électrophysiologique du cerveau, non invasif, permettant d’enregistrer de manière amplifiée l'activité électrique du cerveau \citep{Nunez2006}. 
+
+Cette activité est enregistrée grâce à des électrodes placées sur le scalp qui détectent la sommation de l'activité électrique d'un grand nombre de neurones actifs de manière synchrone.
+Cette activité électrique est générée par les potentiels post-synaptiques dans les dendrites apicaux des cellules pyramidales du cortex \citep{Hallez2007}. Le cortex désigne 
+la substance grise périphérique des hémisphères cérébraux, il se compose de six souches qui comportent différents types de neurones : les cellules pyramidales à l'origine de l'\gls{eeg} 
+se situent dans les couches III et V (la sixième étant la plus profonde). Ces cellules sont d'excellents dipôles électriques grâce à leur longue dendrite apicale perpendiculaire 
+à la surface corticale \citep{Bekkers2011}. 
+
+L'\gls{eeg} est un signal de très faible amplitude (de l'ordre de 50$\mu$V), elle est d'ailleurs proportionnelle au degré de synchronisation des neurones pyramidaux \citep{Hallez2007}. 
+Ainsi, en fonction de l'activité de ces neurones, différents rythmes cérébraux vont être présents sur l'\gls{eeg}. 
+
+Les rythmes cérébraux correspondent à des oscillations électromagnétiques dans une bande de fréquence donnée, dont les bornes peuvent varier selon les études et sont présents sur l'\gls{eeg}
+selon l'état psychologique d'un sujet \citep{Marzbani2016} :  
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\cdot$}
+\begin{itemize}
+\item \emph{les ondes delta} (moins de 4Hz) : observées lorsqu'un grand nombre de groupes de neurones est synchrone, c'est à dire pendant le sommeil profond,
+\item \emph{les ondes theta} (4-8Hz) : observées durant un état de somnolence, sous hypnose ou lors de la mémorisation d'informations par exemple,
+\item \emph{les ondes alpha} (8-12Hz) : observées notamment durant un état de relaxation les yeux fermés,
+\item \emph{les ondes beta} (12-30Hz), dont les ondes \gls{smr} entre 12 et 15Hz : observées durant un état d'attention et de vigilance mentale par exemple,
+\item \emph{les ondes gamma} (30-100Hz) : observées en particulier durant l'apprentissage.
+\end{itemize}
+
+L'\gls{eeg}, constitué de ces différets rythmes, est enregistré sur le cuir chevelu à l'aide d'électrodes dont le nombre et le placement varient en fonction de ce qu'on cherche à enregistrer via l'\gls{eeg}.
+Le placement des électrodes suit généralement le système international 10-20 qui a été mis en place en 1948 afin d'harmoniser les enregistrements à travers le monde 
+\citep{Jasper1949, Sharbrough1991} et qui est représenté à la Figure~\ref{Figure:introduction_system_10_20}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-system-10-20} 
+  \caption{Placement des électrodes enregistrant l'\gls{eeg} suivant le système international 10-20. Les pourcentages sont calculés par rapport à la distance totale entre le nasion
+	et l'inion, et par rapport à la distance totale entre les mastoïdes gauche et droit (A1 et A2). Les électrodes les plus couramment utilisées 
+	sont cerclées de noir sur fond beige \citep{Marzbani2016}.}
+  \label{Figure:introduction_system_10_20}
+\end{figure}
+
+Le système 10-20 couvre l'ensemble des aires cérébrales du cortex, en répartissant les électodes de manière régulière entre les points de repère de la tête : le nasion, le vertex et l'inion. 
+En effet, afin d'interpréter la présence des rythmes cérébraux
+précédemment listés sur l'\gls{eeg}, il faut prendre en considération les électrodes sur lesquelles ils sont observés 
+car chaque aire cérébrale a des fonctions spécifiques, comme par exemple \citep{Marzbani2016} :
+\begin{itemize}
+\item \emph{la zone frontale} est impliquée dans la mémoire et la concentration,
+\item \emph{la zone temporale} est impliquée dans le langage et la lecture,
+\item \emph{la zone occipitale }est impliquée dans l'apprentissage visuel,
+\item \emph{la zone pariétale} est impliquée dans la résolution de problèmes,
+\item \emph{la zone centrale} est impliquée dans l'attention.
+\end{itemize}
+
+Ces différentes fonctions sont résumées à la Figure~\ref{Figure:introduction_cortical_areas_and_functions} où le système \gls{eeg} 10-20 est représenté ainsi
+que les aires cérébrales qu'il couvre. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction_cortical_areas_and_functions} 
+  \caption{Aires cérébrales et placement des électrodes suivant système \gls{eeg} 10-20. Des exemples de fonctions gérées par les différentes aires cérébrales sont données. }
+  \label{Figure:introduction_cortical_areas_and_functions}
+\end{figure}
+
+Comme on peut le voir sur les Figures~\ref{Figure:introduction_system_10_20} et ~\ref{Figure:introduction_cortical_areas_and_functions}, le nom des électrodes est 
+constitué d'une lettre et d'un chiffre ou de la lettre z, cette nomenclature est définie par \citet{Jasper1949} :
+\begin{itemize}
+\item la lettre renseigne la position de l'électrode sur le scalp : F, T, C, P et O correspondent respectivement aux régions Frontale, Temporale, Centrale, Pariétale et Occipitale,
+\item le chiffre indique quant à lui si l'électrode est placée sur l'hémisphère droit (chiffre pair) ou sur l'hémiphère gauche (chiffre impaire),
+\item la lettre z est associée aux électrodes qui se trouvent sur la ligne médiane du crâne,
+\item les électrodes Fp sont situées en pré-frontal,
+\item les électrodes A1 et A2 sont généralement des électrodes de référence.
+\end{itemize}
+  
+Les électrodes d'enregistrement peuvent être de différents types : sèches, à gel ou humides % trouver des ref
+
+le bon contact entre la peau et les électrodes est représenté par une faible impédance, qui signifie que le niveau de bruit dans le 
+signal est réduit \citep{Kappenman2010}. % comment est calculée l'impédance
+
+Le choix du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, comme détaillé en 
+\ref{applications_NFB}. Le signal passe ensuite par un amplificateur, qui peut être conforme à la norme ISO-60601-2-26 \citep{ISO}. 
+
+Finalement on obtient les signaux EEG dont un exemple est donné à la figure.. 
+ 
 
 \subsection{Historique}
 
@@ -37,31 +117,32 @@ a demandé aux sujets de son étude de contrôler le rythme alpha à l'aide d'un
 Une preuve solide de la modulation de l'\gls{eeg} a été rapportée dans les années 1960 par le Dr. Sterman et son équipe \citep{Sterman1969} : l'expérience 
 originelle consistait à entrainer le cerveau des chats en leur apprenant quoi faire pour obtenir de 
 la nourriture. En effet, les chats devaient dans un premier temps actionner un levier pour remplir leur bol de nourriture. Ensuite, une fois cette étape maitrisée, 
-l'expérience s'est complexifiée avec l'ajout d'un son, qui lorsqu'il retentissait, empêchait les chats d'obtenir leur nourriture lorsqu'ils appuyaient sur le levier.
+l'expérience s'est complexifiée avec l'ajout d'un son qui, lorsqu'il retentissait, empêchait les chats d'obtenir leur nourriture lorsqu'ils appuyaient sur le levier.
 Une fois le silence revenu, le chat pouvait à nouveau recevoir de la nourriture en actionnant le levier.  
 
 C'est durant cette phase de son expérience, au moment où le chat attend la fin du son, que le Dr. Sterman a extrait un rythme particulier au niveau de leur cortex sensorimoteur : 
 le \gls{smr}, qui correspond aux fréquences entre 12 et 15Hz. Ensuite, le but du Dr. Sterman a été d'entrainer les chats à produire ce rythme en leur donnant de la nourriture, non plus grâce 
 au levier, mais lorsqu'ils réussissaient à l'émettre pendant une demi seconde, ce que les chats ont vite appris à faire. Cette expérience a été la première à montrer que le comportement
-du cerveau pouvait être affecter par la modulation de l'\gls{eeg}. 
+du cerveau pouvait être affecté par la modulation de l'\gls{eeg}. 
 
-Peu de temps après, le Dr. Sterman a été approché par la NASA car les astronautes supportaient difficilement le carburant toxique, connu pour son risque de causer de violentes crises
-d'épilepsie, utilisé pour les fusées. Afin d'évaluer sa toxicité et son effet épileptogène, ce carburant a été testé sur des chats parmi lesquels ceux qui avaient précédemment appris 
+Peu de temps après, le Dr. Sterman a été approché par la NASA pour évaluer la toxicité du carburant utilisé pour les fusées, connu pour son risque de provoquer de violentes crises
+d'épilepsie, sur les astronautes. Afin de mettre en évidence son effet épileptogène, ce carburant a été testé sur des chats parmi lesquels ceux qui avaient précédemment appris 
 à moduler leur \gls{smr}. Comme attendu, au contact de ce carburant, les chats
-ont souffert de convulsions, mais les chats ayant participer à l'expérience du \gls{smr} présentent moins de crises ou ont une meilleure tolérance aux effets du carburant \citep{Sterman1974}.  
-Cette expérience a permis de démontrer que le contrôle de l'activité cérébrale pouvait être associé à des bénéfices cliniques, ouvrant ainsi la voie aux expériences sur les humains.
+ont souffert de convulsions, mais les chats ayant participer à l'expérience du \gls{smr} ont présenté moins de crises ou ont eu une meilleure tolérance aux effets nocifs du carburant \citep{Sterman1974}.  
+Cette expérience a permis de démontrer que le contrôle de l'activité cérébrale pouvait être associé à des bénéfices cliniques, ouvrant ainsi la voie aux expériences incluant les humains.
 
 En 1972, une patiente épileptique a entrainé son \gls{smr} grâce à la technique du \gls{nfb} : elle a réussi à moduler son \gls{smr}, conduisant à la quasi-disparition de ses crises 
 d'épilepsie durant les séances \citep{Sterman1974}. 
 
-Alors que l'épilepsie est le premier champ d'application du \gls{nfb}, une autre application possible commence à être étudiée dans la foulée : le \gls{tdah} chez l'enfant \citet{Lubar1976}. 
-Dans cette étude, les chercheurs vont  
+Alors que l'épilepsie a été la première application du \gls{nfb}, un autre usage thérapeutique possible commence à être étudié dans la foulée : le \gls{tdah} chez l'enfant \citet{Lubar1976ADHD}. 
+Cette étude est divisée en trois phases : tout d'abord, l'enfant module les ondes cérébrales d'intérêt dans le bon sens, puis ensuite dans le sens inverse et enfin à nouveau dans le bon sens.
+Des résultats encourageants sont observés.
 
-
-Cependant, le \gls{nfb} ne correspondant pas à ce qui 
-était connu à l'époque quant au fonctionnement du cerveau humain, son utilisation s'est faite en marge de la communauté scientifique \citep{Masterpasqua2003}. 
-Il faut attendre les années 2000 pour que le \gls{nfb} soit réhabilité conduisant à une explosion du nombre d'études scientifiques visant à mieux comprendre 
-ses mécanismes et ses effets, illustrée à la Figure~\ref{Figure:introduction_number_of_nfb_publications}. 
+A la suite de ces observations prometteuses, d'autres chercheurs se sont penchés sur cette technique, cependant, faute d'une technologie suffisamment puissante, il leur était impossible
+d'obtenir des preuves cliniques plus solides. C'est pourquoi, après les années 80, le \gls{nfb} est tombé en désuétude \citep{Masterpasqua2003}.
+ 
+Il faut attendre les années 2000 pour que la communauté scientifique et médicale s'intéresse de nouveau sérieusement au \gls{nfb}, conduisant à une explosion du nombre d'articles scientifiques publiés 
+visant à mieux comprendre ses effets, illustrée à la Figure~\ref{Figure:introduction_number_of_nfb_publications}. 
 
 \begin{figure}[h!]
   \centering
@@ -71,8 +152,16 @@ ses mécanismes et ses effets, illustrée à la Figure~\ref{Figure:introduction_
   \label{Figure:introduction_number_of_nfb_publications}
 \end{figure}
 
+Les dates clés de l'histoire du \gls{nfb} sont résumées à la frise présentée à la FigureFigure~\ref{Figure:introduction_nfb_history}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-nfb-history} 
+  \caption{Dates clés de l'histoire du \gls{nfb}.}
+  \label{Figure:introduction_nfb_history}
+\end{figure}
+
 % étude ros 2014 cité par Pouch
-% mieux décrire les évènements, utiliser thèse Pouch
 
 \subsection{Principe du Neurofeedback} \label{principe_nfb}
 
@@ -107,8 +196,6 @@ par l'application de \gls{nfb}.
 Cette application extrait alors le marqueur à moduler, appelé par la suite neuromarqueur : celui-ci, tout comme les électrodes utilisées, 
 dépend de l'application du \gls{nfb}. Le neuromarqueur correspond le plus souvent à des ondes cérébrales, isolées au niveau de certaines électrodes,
 qui sont définies sur un intervalle de fréquence donné, qui peut varier selon les études \citep{Marzbani2016} :
-\renewcommand{\labelitemi}{$\bullet$}
-\renewcommand{\labelitemii}{$\cdot$}
 \begin{itemize}
 \item les ondes delta (moins de 4Hz),
 \item les ondes theta (4-8Hz),
@@ -192,7 +279,6 @@ que les aires cérébrales qu'il couvre.
   \label{Figure:introduction_cortical_areas_and_functions}
 \end{figure}
 
-% définition système 10-20, ce que signifient, C, P, ... nombres impairs à gauche (àvérifier)
 
 Ainsi, établir un protocole de \gls{nfb} consiste à identifier les rythmes à moduler et l'aire 
 du cortex à entrainer, et à déterminer s'il faut diminuer ou augmenter la présence de ce neuromarqueur, en se basant sur la littérature 
@@ -278,6 +364,7 @@ Zhang2017}. Ainsi, des marqueurs objectifs cérébraux obtenus grâce à l'\gls{
 peuvent aider à distinguer différents groupes de patients \citep{Johnstone2005, Zhang2017, Clarke2011}. En effet, certains enfants \gls{tdah} 
 présentent une augmentation d'ondes theta et/ou une diminution d'ondes beta dans l'aire frontale, ou une diminution du \gls{smr} dans l'aire centrale
 \citep{Monastra2005, Janzen1995, Loo2018}. 
+% parler de lubar 1991 et 1995, voir thèse pouch
 
 Le diagnostic du \gls{tdah} repose donc principalement sur les observations du comportement de l'enfant par leurs parents et leurs enseignants, qui souffrent de
 subjectivité et pourraient mener à des diagnostics erronés \citep{Lambez2019}.
