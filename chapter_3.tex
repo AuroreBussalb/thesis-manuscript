@@ -303,10 +303,15 @@ avec $n$ le nombre d'observations et $p$ le nombre de variables indépendantes.
 
 Une régression linéaire ordinaire (\gls{ols} en anglais) est aussi mise en place pour observer l'impact des poids sur les résultats. 
 
-\subsubsection{La régression linéaire régularisée}
+\subsubsection{La régression linéaire avec régularisation parcimonieuse $\ell_1$}
 
-La deuxième méthode appliquée lors de la \gls{saob} est le \gls{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce à la norme $\ell_1$ appliquée aux coefficients.
-La norme $\ell_1$ est préférable ici à la norme $\ell_2$ utilisée dans la régression de Ridge \citep{James2013} car elle peut mettre des coefficients à 0. 
+La deuxième méthode appliquée lors de la \gls{saob} est le \gls{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce 
+grâce à un a priori de parcimonie des variables/coefficients, obtenue via une régularisation par la norme $\ell_1$.
+
+La régression régularisée par la norme $\ell_1$ est préférable ici à la régression \textit{ridge} \citep{James2013} régularisée par 
+la norme $\ell_2$: en effet, la norme $\ell_2$ donne des coefficients lissés, alors que la norme $\ell_1$ donne des coefficients parcimonieux 
+(ie, les coefficients utiles sont sélectionnés alors que les autres sont mis à 0). 
+
 Les coefficients $\hat{\beta}_{j}$ ($1<j<p$) sont obtenus en minimisant le coût :
 \begin{equation}
 \label{eq:factors_lasso-minimization}
@@ -415,10 +420,11 @@ Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs 
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.5\linewidth]{figures/chapter-3/distribution-ES-within} 
+	\includegraphics[width=0.7\linewidth]{figures/chapter-3/distribution-ES-within} 
   \caption{Distribution des tailles d'effet (\gls{es}) intra-groupe, une valeur négative est en faveur du Neurofeedback. Les lignes 
 	verticales noires correspondent aux bornes supérieure et 
-	inférieure de l'intervalle dans lequel les observations sont acceptées.}
+	inférieure de l'intervalle dans lequel les observations sont acceptées. La courbe verte est la gaussiene ayant pour paramètres $\mu =$ la moyenne
+	de tous les \gls{es} intra-groupe et $\sigma =$ l'écart-type calculé sur tous les \gls{es} intra-groupe}
   \label{Figure:distribution_ES_within}
 \end{figure}
 
