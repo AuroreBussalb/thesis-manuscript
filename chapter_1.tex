@@ -268,7 +268,7 @@ le principe de la séparation aveugle de sources (la \gls{bss} en anglais). Les 
 de la \gls{bss} est d'estimer ces sources à partir des signaux et d'identifier la source qui correspond à l'artefact oculaire pour la supprimer.
 % équatiosn ? plus de précisions ?
 
-En ce qui concerne les artefacts électriques, ils sont corrigés à l'aide d'un filtre coupe-bande qui supprime le 50 ou 60Hz \citep{Bioulac20119}.
+En ce qui concerne les artefacts électriques, ils sont corrigés à l'aide d'un filtre coupe-bande qui supprime le 50 ou 60Hz \citep{Bioulac2019}.
 
 Ensuite, la troisième étape consiste à \emph{extraire le marqueur à moduler} lors de la session de \gls{nfb}, appelé par la suite neuromarqueur : 
 celui-ci, tout comme les électrodes utilisées, dépend de l'application du \gls{nfb}. 
@@ -328,9 +328,8 @@ sessions de \gls{nfb} à la vie de tous les jours \citep{Arns2014}. Dans certain
 fournie au sujet afin qu'il puisse la regarder en modulant son activité cérébrale en dehors des sessions de \gls{nfb} \citep{Leins2007}.
 
 L'entrainement par \gls{nfb} se compose de plusieurs sessions dont le nombre et la fréquence par semaine est variable, même lorsque le \gls{nfb} est appliqué au même trouble 
-\citep{Enriquez2017}. 
-La répétition de cet exercice de modulation cérébrale mène au phénomène de 
-neuroplasticité \citep{VanDoren2017, Ros2010} qui permet une réorganisation neuronale durable.
+\citep{Enriquez2017}. La répétition de cet exercice de modulation cérébrale mène au phénomène de 
+neuroplasticité \citep{VanDoren2017, Ros2010} qui est la capacité du cerveau de se modifier lors d'un apprentissage. Ce phénoème permet une réorganisation neuronale durable.
 % parler de la dopamine ? 
 
 \section{Les champs d'application du Neurofeedback} \label{applications_NFB}
@@ -389,6 +388,7 @@ est le \gls{tdah}, décrite plus précisément dans la section suivante.
 % thèse pouch
 % citer Lubar, voir thèse Pouch
 % origine du tdah, facteurs environnementaux et/ou cliniques
+% comorbidités
 
 Le \gls{tdah} (\textit{Attention Deficit Hyperactivity Disorder} en anglais) est un trouble psychiatrique chronique qui touche environ 5\% d'enfants en âge d'aller à l'école, 
 ce qui représente 2.5 millions d'enfants en Europe \citep{DSM-5}. En France, ce nombre se situe entre 3.5 et 5.6\% pour les enfants âges de 6 à 12 ans \citep{Lecendreux2011}. 
@@ -412,21 +412,27 @@ En plus des symptômes décrits plus haut, le \gls{tdah} impacte négativement l
 le \gls{tdah} au plus tôt. 
 
 Ce trouble est majoritairement dû à un déséquilibre de certains neurotransmitteurs du cerveau, notamment du circuit dopaminergique, 
-dit circuit de la récompense \citep{Daley2010}.
-% plus de précisions ?
+dit circuit de la récompense \citep{Daley2010, Punja2016}.Toutefois, les causes du \gls{tdah} ne sont pas encore claires et font l'objet de discussions
+dans les différentes communautés scientifiques \citep{Galera2014}. En effet, des facteurs génétiques et environnementaux entrent en jeu comme par exemple le tabagisme durant la grossesse 
+et l'exposition à des pesticides durant la première année de vie \citep{Galera2014}.
+
+En ce qui concerne le phénotype \gls{eeg} des enfants \gls{tdah}, \citet{Lubar1991} concluent que les enfants souffrant du \gls{tdah} présentent un excès d'ondes theta et un déficit d'ondes 
+beta par rapport aux enfants du même âge. 
+%In particular, different phenotypes of ADHD patients present with an increase in the EEG theta wave power (4–8Hz) and/or 
+%a decrease of EEG beta wave power (12–32Hz) in frontal areas, or a decrease in the EEG Sensorimotor Rhythm (SMR) power (13–15Hz) in the central area (12–15)
 
 \subsubsection{Diagnostic du \gls{tdah}}
 
 Le diagnostic du \gls{tdah} repose dans un premier temps sur des questionnaires cliniques évaluant le comportement de l'enfant, qui peuvent ensuite être
-complétés par des mesures objectives de fonctions executives telles que les \textit{Continuous Performance Task} \citep{Barkley1991} à l'instar du 
+complétés par des mesures objectives de fonctions exécutives telles que les \textit{Continuous Performance Task} \citep{Barkley1991} à l'instar du 
 \textit{Test of Variables of Attention} (TOVA) \citep{Forbes1998}.
 
-En France, le diagnostic du \gls{tdah} est établi par un spécialiste (neuropédiatre, pédopsychiatre ou neurologue en général) se base sur trois classifications \citep{HAS} :
+En France, le diagnostic du \gls{tdah} est établi par un spécialiste (neuropédiatre, pédopsychiatre ou neurologue en général) qui se base sur trois classifications \citep{HAS} :
 \begin{itemize}
 \item la CIM-10 : Classification Internationale des Maladies proposée par l'Orgnisation Mondiale de la Santé,
 \item le DSM-5 : \textit{Diagnostic and Statistical Manual of Mental Disorders} dans sa 5$^{eme}$ révision de l'Association américaine de
 psychiatrie,
-\item la CFTMEA : Classification Française des Troubles Mentaux de l’Enfant et de l’Adolescent.
+\item la CFTMEA : Classification Française des Troubles Mentaux de l'Enfant et de l'Adolescent.
 \end{itemize}
 
 L'apparition au cours de l'enfance et le caractère persistant des symptômes s'exprimant dans différents contextes de la vie de l'individu (en privé et 
@@ -453,12 +459,13 @@ subjectivité et pourraient mener à des diagnostics erronés \citep{Lambez2019}
 La HAS recommande en première intention une prise en charge non-médicamenteuse durant 3 mois à l'instar des thérapies cognitivo-comportementale \citep{HAS}. 
 Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004}.
 Cependant, si ces approches se révèlent peu efficaces, un traitement médicamenteux peut être envisagé. En France seul le \gls{mph}
-peut être prescrit en suivant des règles très strictes. Dans d'autres pays, d'autres molécules sont autorisées comme la lisdexamfetamine et les non-stimulantes
-telles que l'atomoxetine et la guanfacine
+peut être prescrit en suivant des règles très strictes \citep{HAS}. Dans d'autres pays, d'autres molécules sont autorisées comme la lisdexamfetamine et les non-stimulantes
+telles que l'atomoxetine et la guanfacine \citep{Luan2017}.
 
-La \citet{HAS} recommande une approche multimodale combinant la prise de médicaments et des thérapies comportementales pour traiter le \gls{tdah} chez l'enfant.
+Même si le traitement médicamenteux est prescrit, la \citet{HAS} recommande de poursuivre les thérapies comportementales : un tel traitement multimodal 
+est fortement conseillé dans le cadre du \gls{tdah} chez l'enfant.
 
-Bien que très couramment utilisé,  la prise de \gls{mph} occasionne de fréquents effets secondaires,
+Bien que très couramment utilisée,  la prise de \gls{mph} occasionne de fréquents effets secondaires,
 notamment la diminution de l'appétit, le retard de croissance et des insomnies \citep{Sousa2012}. Ainsi, malgré son efficacité \citep{Taylor2014,
 Storebo2015, Swanson2017}, certains parents et médecins se tournent vers des alternatives non-pharmacologiques, comme par exemple les thérapies cognitivo 
 comportementales \citep{Berger2008}.
@@ -466,12 +473,8 @@ comportementales \citep{Berger2008}.
 Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004} mais se révèlent
 moins efficaces que la prise de médicaments \citep{Sonuga-Barke2013}. 
 
-
-% parler de lubar 1991 et 1995, voir thèse pouch
-Le \gls{nfb} est une autre approche non-médicamenteuse et non-invasive pour réduire les symptômes du \gls{tdah} \citep{Arns2015, Marzbani2016}. 
-En effet, il a été montré que les enfants souffrant du \gls{tdah} présentent 
-Plusieurs
-protocoles d'entrainement ont été proposés et étudiés :
+Le \gls{nfb} est une autre approche non-médicamenteuse et non-invasive pour réduire les symptômes du \gls{tdah} \citep{Arns2015, Marzbani2016}.  
+Plusieurs protocoles d'entrainement ont été proposés et étudiés :
 \begin{itemize}
 \item les protocoles basés sur les oscillations neuronales, qui visent à moduler la puissance dans des bandes fréquences données : augmentation du 
 \gls{smr} \citep{Beauregard2006}, diminution du rythme theta et/ou augmentation du beta \citep{Arns2015, Kropotov2005} ; lorsque ces deux dernières 
@@ -485,10 +488,6 @@ sélective \citep{Fouillen2017}.
 Par ailleurs les protocoles peuvent également être individualisés comme décrit en \ref{principe_nfb}.
 
 \subsubsection{Efficacité du \gls{nfb}}
-
-
-
-% effets indésirables du NFB
 
 La performance du \gls{nfb} dans le traitement du \gls{tdah} a fait l'objet de plusieurs études cliniques \citep{Escolano2014, Maurizio2014, Strehl2017} 
 et de méta-analyses \citep{Arns2009, Micoulaud2014, Sonuga-Barke2013, Cortese2016, Catala2017, Lambez2019}. Dans ces études, l'efficacité du \gls{nfb} est 
@@ -550,6 +549,9 @@ L'efficacité du \gls{nfb} sur le long terme a fait l'objet de quelques études,
 que l'entrainement par \gls{nfb} des enfants \gls{tdah} conduit à une amélioration de la mémoire de travail encore présente un an après la fin du traitement
 \citep{Dobrakowski2019}. Par ailleurs, la diminution des symptômes du \gls{tdah} chez les enfants ayant effectué du \gls{nfb} reste stable 6 mois après 
 l'intervention contrairement aux enfants ayant pris du méthylphénidate \citep{Gelade2018}. 
+
+Comme tout traitement, le \gls{nfb} peut provoquer des effets secondaires notamment de la fatigue, des maux de tête, de l'anxiété, des pertubations du sommeil et de l'irritabilité qui
+sont généralement observés dans  24 à 48h suivant la séance et se dissipent au-delà \citep{Hammond2007}. 
 
 
 \section{Objectifs de la thèse}
@@ -621,8 +623,8 @@ un faible taux de faux positifs et un taux de vrais positifs élevé.
 Le travail décrit dans ce manuscrit a donné lieu aux publications avec comité de lecture suivantes :
 
 \begin{description}
-\item \citet{Bussalb2019tbr} : A. Bussalb, S. Collin, Q. Barthélemy, D. Ojeda, E. Acquaviva, S. Bioulac, H. Blasco-Fontecilla,
-D. Brandeis, R. Delorme, D. P. Ouakil, T. Ros, and L. Mayaud. Is there a cluster of high
+\item \citet{Bussalb2019tbr} : A. Bussalb, S. Collin, Q. Barthélemy, D. Ojeda, S. Bioulac, H. Blasco-Fontecilla,
+D. Brandeis, D. P. Ouakil, T. Ros, and L. Mayaud. Is there a cluster of high
 theta-beta ratio patients in attention deficit hyperactivity disorder ? \textit{Clinical Neurophysiology}, 2019a.
 \item \citet{Bussalb2019clinical} : A. Bussalb, M. Congedo, Q. Barthélemy, D. Ojeda, E. Acquaviva, R. Delorme,
 and L. Mayaud. Clinical and experimental factors influencing the efficacy of
