@@ -1,13 +1,5 @@
 \chapter{Introduction} \label{chapitre-1}
 
-% voir thèse d'alexandre pouch
-% composante totale
-% aller dans les détails
-% dopamine
-% Enriqure 2017 et Strehl 2014 (-> threshold)
-% voir Rogala2016
-% plasticité cérébrale
-
 Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}-\gls{eeg}, 
 qui est au centre de ce travail, est présentée en détail, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre elles est étudiée : 
 il s'agit du \gls{tdah} chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
@@ -157,7 +149,7 @@ du cerveau pouvait être affecté par la modulation de l'\gls{eeg}.
 Peu de temps après, le Dr. Sterman a été approché par la NASA pour évaluer la toxicité du carburant utilisé pour les fusées, connu pour son risque de provoquer de violentes crises
 d'épilepsie, sur les astronautes. Afin de mettre en évidence son effet épileptogène, ce carburant a été testé sur des chats parmi lesquels ceux qui avaient précédemment appris 
 à moduler leur \gls{smr}. Comme attendu, au contact de ce carburant, les chats
-ont souffert de convulsions, mais les chats ayant participer à l'expérience du \gls{smr} ont présenté moins de crises ou ont eu une meilleure tolérance aux effets nocifs du carburant \citep{Sterman1974}.  
+ont souffert de convulsions, mais ceux ayant participer à l'expérience du \gls{smr} ont présenté moins de crises ou ont eu une meilleure tolérance aux effets nocifs du carburant \citep{Sterman1974}.  
 Cette expérience a permis de démontrer que le contrôle de l'activité cérébrale pouvait être associé à des bénéfices cliniques, ouvrant ainsi la voie aux expériences incluant les humains.
 
 En 1972, une patiente épileptique a entrainé son \gls{smr} grâce à la technique du \gls{nfb} : elle a réussi à moduler son \gls{smr}, conduisant à la quasi-disparition de ses crises 
@@ -251,8 +243,8 @@ les époques à garder, certaines études définissent un seuil sur l'amplitude 
 différer ou non selon les canaux. 
 
 D'autres études se basent sur la géométrie Riemannienne pour rejeter les époques artefactés \citep{Barthelemy2019, Bioulac2019}. 
-la matrice de covariance de chaque segment, dont l'équation est donnée en équation Eq.~(\ref{eq:introduction_covariance_matrix}), est calculée pour un sous-ensemble de canaux : les 
-segments dont la matrice de covariance se retrouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres sont alors rejetés.
+la matrice de covariance de chaque segment, dont l'équation est donnée en équation Eq.~(\ref{eq:introduction_covariance_matrix}), est calculée pour un sous-ensemble de canaux (par exemple les canaux
+centraux) : les segments dont la matrice de covariance se retrouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres sont alors rejetés.
 
 \begin{equation}
 \label{eq:introduction_covariance_matrix}
@@ -329,8 +321,9 @@ fournie au sujet afin qu'il puisse la regarder en modulant son activité céréb
 
 L'entrainement par \gls{nfb} se compose de plusieurs sessions dont le nombre et la fréquence par semaine est variable, même lorsque le \gls{nfb} est appliqué au même trouble 
 \citep{Enriquez2017}. La répétition de cet exercice de modulation cérébrale mène au phénomène de 
-neuroplasticité \citep{VanDoren2017, Ros2010} qui est la capacité du cerveau de se modifier lors d'un apprentissage. Ce phénoème permet une réorganisation neuronale durable.
-% parler de la dopamine ? 
+neuroplasticité \citep{VanDoren2017, Ros2010} qui est la capacité du cerveau de se modifier lors d'un apprentissage. Ce phénoème 
+permet une réorganisation neuronale durable \citep{VanDoren2017}. 
+%parler de la dopamine ? 
 
 \section{Les champs d'application du Neurofeedback} \label{applications_NFB}
 
@@ -385,11 +378,6 @@ est le \gls{tdah}, décrite plus précisément dans la section suivante.
 
 \subsubsection{Définition du \gls{tdah}}
 
-% thèse pouch
-% citer Lubar, voir thèse Pouch
-% origine du tdah, facteurs environnementaux et/ou cliniques
-% comorbidités
-
 Le \gls{tdah} (\textit{Attention Deficit Hyperactivity Disorder} en anglais) est un trouble psychiatrique chronique qui touche environ 5\% d'enfants en âge d'aller à l'école, 
 ce qui représente 2.5 millions d'enfants en Europe \citep{DSM-5}. En France, ce nombre se situe entre 3.5 et 5.6\% pour les enfants âges de 6 à 12 ans \citep{Lecendreux2011}. 
 Au niveau mondial, environ 3 à 7\% des enfants d'âge scolaire sont concernés par ce trouble. Le plus forte prévalence se retouve aux Etats-Unis où 12\% des enfants et adolescents
@@ -408,7 +396,8 @@ peuvent perdurer jusqu'à l'âge adulte \citep{Faraone2006} : la prévalence des
 en plein essor. Toutefois, dans la suite du manuscrit, seul le \gls{tdah} chez l'enfant est étudié. 
 
 En plus des symptômes décrits plus haut, le \gls{tdah} impacte négativement le bien-être des enfants : ceux-ci ont, pour la plupart, une faible estime d'eux-mêmes 
-\citep{Shaw2005} et de mauvais résultats scolaires \citep{Barry2002}. Ainsi, afin d'être pris en charge de façon adaptée, il est important de diagnostiquer 
+\citep{Shaw2005} et de mauvais résultats scolaires \citep{Barry2002}. Par ailleurs, ce trouble s'accompagne souvent de comorbidités telles que par exemple 
+des troubles de l'humeur et des troubles du comportement \citep{Monastra2005}. Ainsi, afin d'être pris en charge de façon adaptée, il est important de diagnostiquer 
 le \gls{tdah} au plus tôt. 
 
 Ce trouble est majoritairement dû à un déséquilibre de certains neurotransmitteurs du cerveau, notamment du circuit dopaminergique, 
@@ -416,10 +405,15 @@ dit circuit de la récompense \citep{Daley2010, Punja2016}.Toutefois, les causes
 dans les différentes communautés scientifiques \citep{Galera2014}. En effet, des facteurs génétiques et environnementaux entrent en jeu comme par exemple le tabagisme durant la grossesse 
 et l'exposition à des pesticides durant la première année de vie \citep{Galera2014}.
 
-En ce qui concerne le phénotype \gls{eeg} des enfants \gls{tdah}, \citet{Lubar1991} concluent que les enfants souffrant du \gls{tdah} présentent un excès d'ondes theta et un déficit d'ondes 
-beta par rapport aux enfants du même âge. 
-%In particular, different phenotypes of ADHD patients present with an increase in the EEG theta wave power (4–8Hz) and/or 
-%a decrease of EEG beta wave power (12–32Hz) in frontal areas, or a decrease in the EEG Sensorimotor Rhythm (SMR) power (13–15Hz) in the central area (12–15)
+En ce qui concerne les facteurs génétiques, des études montrent que le \gls{tdah} est fortement transmissible d'une génération à l'autre :
+dans les familles où un enfant a été diagnostiqué \gls{tdah}, plus de 30\% de frères et soeurs sont aussi \gls{tdah} \citep{Monastra2005}.
+
+Des études \gls{fmri} et \gls{mri} ont montré des différences significatives au niveau de la taille et de la symétrie de régions cérébrales impliquées
+dans l'attention entre les patients \gls{tdah} et sains au même âge, notamment au niveau du lobe frontal \citep{Monastra2005}.  
+
+En ce qui concerne le phénotype \gls{eeg} des enfants \gls{tdah}, \citet{Lubar1991} concluent que les enfants souffrant du \gls{tdah} présentent un excès 
+d'ondes theta et un déficit d'ondes beta par rapport aux enfants sains du même âge, toutefois cette observation a été nuancé par \citep{Arns2012} qui précisent
+que seuls certains enfants \gls{tdah} présenteraient ce phéntotype. 
 
 \subsubsection{Diagnostic du \gls{tdah}}
 
@@ -452,15 +446,11 @@ subjectivité et pourraient mener à des diagnostics erronés \citep{Lambez2019}
 
 \subsubsection{Traitements existants} \label{traitements_existants}
 
-% définition précises des approches non médicamenteuses
-% discuter de l'efficacité de chaque approche
-% introduire le NFB avec les études de Lubar
-
 La HAS recommande en première intention une prise en charge non-médicamenteuse durant 3 mois à l'instar des thérapies cognitivo-comportementale \citep{HAS}. 
 Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004}.
 Cependant, si ces approches se révèlent peu efficaces, un traitement médicamenteux peut être envisagé. En France seul le \gls{mph}
-peut être prescrit en suivant des règles très strictes \citep{HAS}. Dans d'autres pays, d'autres molécules sont autorisées comme la lisdexamfetamine et les non-stimulantes
-telles que l'atomoxetine et la guanfacine \citep{Luan2017}.
+peut être prescrit en suivant des règles très strictes \citep{HAS}. Dans d'autres pays, d'autres molécules sont autorisées comme la lisdexamfetamine et 
+les non-stimulantes telles que l'atomoxetine et la guanfacine \citep{Luan2017}.
 
 Même si le traitement médicamenteux est prescrit, la \citet{HAS} recommande de poursuivre les thérapies comportementales : un tel traitement multimodal 
 est fortement conseillé dans le cadre du \gls{tdah} chez l'enfant.
@@ -468,9 +458,7 @@ est fortement conseillé dans le cadre du \gls{tdah} chez l'enfant.
 Bien que très couramment utilisée,  la prise de \gls{mph} occasionne de fréquents effets secondaires,
 notamment la diminution de l'appétit, le retard de croissance et des insomnies \citep{Sousa2012}. Ainsi, malgré son efficacité \citep{Taylor2014,
 Storebo2015, Swanson2017}, certains parents et médecins se tournent vers des alternatives non-pharmacologiques, comme par exemple les thérapies cognitivo 
-comportementales \citep{Berger2008}.
-
-Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004} mais se révèlent
+comportementales \citep{Berger2008} qui se révèlent néanmoins
 moins efficaces que la prise de médicaments \citep{Sonuga-Barke2013}. 
 
 Le \gls{nfb} est une autre approche non-médicamenteuse et non-invasive pour réduire les symptômes du \gls{tdah} \citep{Arns2015, Marzbani2016}.  
@@ -480,9 +468,9 @@ Plusieurs protocoles d'entrainement ont été proposés et étudiés :
 \gls{smr} \citep{Beauregard2006}, diminution du rythme theta et/ou augmentation du beta \citep{Arns2015, Kropotov2005} ; lorsque ces deux dernières 
 bandes sont contrôlées simultanément on parle du protocole \gls{tbr} \citep{Lubar1976, Arns2013}, 
 \item les protocoles basés sur les \textit{slow cortical potentials}, qui consistent à réguler les seuils d'excitation corticale en se concentrant sur l'activité 
-générée par des siganux extérieurs \citep{Heinrich2004, Banaschewski2007},
+générée par des signaux extérieurs \citep{Heinrich2004, Banaschewski2007},
 \item les protocoles basés sur les \gls{erp} : l'amplitude de l'onde P300 peut être considérée comme un marqueur neurophysiologique spécifique de l'attention 
-sélective \citep{Fouillen2017}.
+sélective \citep{Fouillen2017}. L'onde P300 est un \gls{erp} endogène c'est à dire qu'il est lié à la réaction de la personne au stimulus et non aux caractéristiques de ce dernier.
 \end{itemize}
 
 Par ailleurs les protocoles peuvent également être individualisés comme décrit en \ref{principe_nfb}.
@@ -497,7 +485,7 @@ des questionnaires destinés aux parents, enseignants et médecins évaluant le 
 Avant le début de l'entrainenemt par \gls{nfb}, les évaluateurs remplissent ces questionnaires dans le but d'obtenir un score rendant compte de 
 la sévérité des symptômes : généralement, plus le score est haut, plus ils sont prononcés \citep{Pappas2006, Conners2008}. Par ailleurs, certaines échelles 
 permettent de calculer un score pour les composantes inattention, hyperactivité et pour les symptômes totaux \citep{Pappas2006} conduisant ainsi à une caractérisation 
-plus précise du trouble. Ces questionnaires sont également remplis à l'issue de l'entrainement par les mêmes personnes afin de quantifier l'évolution 
+plus précise du trouble. Ces questionnaires sont ensuite remplis à l'issue de l'entrainement par les mêmes personnes afin de quantifier l'évolution 
 des symptômes. 
 
 Les évaluations des enseignants et des parents sont le plus souvent utilisées : bien que subjectives elles sont tout de même considérées comme fiables 
@@ -515,7 +503,7 @@ un groupe contrôle qui permettrait de démontrer la présence d'un éventuel ef
 
 En effet, dans les études d'efficacité, le \gls{nfb} peut être comparé à différents types de contrôles \citep{Arns2014} :
 \begin{itemize}
-\item des contrôles aux conditions semi-actives qui visent à analyser les effets non spécifiques du \gls{nfb} tels que l'importance de l'intéraction entre le sujet et le thérapeute ; 
+\item des contrôles aux conditions semi-actives qui visent à analyser les effets non-spécifiques du \gls{nfb} tels que l'importance de l'intéraction entre le sujet et le thérapeute ; 
 ces contrôles ne sont pas censés avoir un effet clinique sur le \gls{tdah}. Parmi ces contrôles, on trouve les thérapies cognitives ou l'\gls{emg}-Biofeedback qui renvoie un \textit{feedback} basé
 sur l'activité d'un muscle donné \citep{Bakhshayesh2011},
 \item des contrôles aux conditions actives qui, eux, sont connus pour avoir un effet clinique sur les symptômes du \gls{tdah} à l'instar d'un autre protocole de \gls{nfb} \citep{Leins2007} ou
@@ -551,7 +539,7 @@ que l'entrainement par \gls{nfb} des enfants \gls{tdah} conduit à une améliora
 l'intervention contrairement aux enfants ayant pris du méthylphénidate \citep{Gelade2018}. 
 
 Comme tout traitement, le \gls{nfb} peut provoquer des effets secondaires notamment de la fatigue, des maux de tête, de l'anxiété, des pertubations du sommeil et de l'irritabilité qui
-sont généralement observés dans  24 à 48h suivant la séance et se dissipent au-delà \citep{Hammond2007}. 
+sont généralement observés dans les 24 à 48h suivant la séance et se dissipent au-delà \citep{Hammond2007}. 
 
 
 \section{Objectifs de la thèse}
@@ -580,7 +568,7 @@ Les résultats de ce type d'analyse ont un impact important sur la communauté s
 
 Ainsi, dans ce chapitre la méta-analyse de \citet{Cortese2016} qui, au moment où ce travail a été mené était la plus récente sur le sujet, est répliquée en modifiant 
 les points soulignés par \citet{Micoulaud2016} afin de jauger leur impact sur les conclusions émises dans la méta-analyse. Ensuite, étant donné que de nouvelles études 
-satisfaisant les critères d'inclusion établis par \citet{Cortese2016} sont disponibles, cette méta-analyse est mise à jour : en plus des 13 études originellement incluses, 3
+satisfaisant les critères d'inclusion établis par \citet{Cortese2016} sont disponibles, cette méta-analyse est mise à jour : en plus des 13 études originellement incluses, 7
 sont ajoutées, ce qui apporte une plus grande puissance statistique aux résultats. La réplication et la mise à jour sont effectuées, non pas avec les logiciels 
 habituellement utilisés tels que Revman \citep{Revman}, mais à l'aide d'un package Python développé pour cette occasion et disponible en ligne afin de favoriser 
 la réplication et/ou la mise à jour de ce travail. 
@@ -589,6 +577,8 @@ La réplication de la méta-analyse conduisant aux mêmes résultats que \citet{
 important pour changer ses conclusions : le \gls{nfb} est jugé efficace par les parents alors que les enseignants, considérés comme \gls{pblind}, ne notent aucune
 amélioration significative. Par ailleurs, la mise à jour confirme les résultats qui semblent commencer à se stabiliser pour les évaluations des parents.
 
+% parler evolution pvalue et est
+
 Ce chapitre a été l'occasion de mener une revue de littérature des études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah} 
 qui a permis de mettre en évidence la forte hétérogénéité d'un point de vue clinique et méthodologique de ces études. 
 
@@ -596,7 +586,7 @@ Alors que la fiabilité des résultats des méta-analyses souffre de ces différ
 à l'efficacité du \gls{nfb} \citep{Alkoby2017}, une analyse en tirant avantage est implémentée : la \gls{saob} décrite dans le chapitre \ref{saob}. 
 
 Les facteurs méthodologiques et/ou cliniques fortement variables entre les études tels que, par exemple, la durée du traitement, le nombre de sessions et le type 
-de protocole de \gls{nfb} suivi, sont extraits de 33 études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah}, dans le but de déterminer lesquels 
+de protocole de \gls{nfb} suivi, sont extraits de 41 études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah}, dans le but de déterminer lesquels 
 ont un impact sur l'efficacité du \gls{nfb}. Pour ce faire, trois méthodes multivariées sont utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. 
 
 La \gls{saob} identifie trois facteurs qui semblent avoir un impact sur l'efficacité du \gls{nfb} : tout d'abord, utiliser un matériel d'acquisition de bonne 
@@ -631,10 +621,9 @@ and L. Mayaud. Clinical and experimental factors influencing the efficacy of
 neurofeedback in ADHD: a meta-analysis. \textit{Frontiers in psychiatry}, 10 :35, 2019b.
 \end{description}
 
+Les résultats de \citet{Bussalb2019clinical} ont été mis à jour dans ce manuscrit.
+
 Une partie des travaux de \citet{Bussalb2019clinical} ont fait l'objet d'une communication orale :
 
 \noindent A. Bussalb, M. Congedo, R. Delorme, E. Acquaviva, Q. Barthelemy, D. Ojeda, J.A. Micoulaud-Franchi, L. Mayaud. Neurofeedback 
 appliqué aux enfants TDAH : quels facteurs influencent son efficacité ? 6ème Congrès de la SOFTAL, mai 2018. 
-
-
-% définir epoque
