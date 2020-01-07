@@ -163,11 +163,12 @@ Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la vari
 
 \subsection{L'analyse systématique des biais} \label{saob_method}
 
-La \gls{saob} comporte trois méthodes qui ont été implémentées à l'aide des bibliothèques Python Scikit-Learn \citep[version 0.18.1]{Pedregosa2011} et Statsmodels \citep[version 0.8.0]{Seabold2010} : 
+La \gls{saob} a pour but d'identifier les facteurs ayant une influence sur l'efficacité du \gls{nfb} appliquée aux enfants \gls{tdah}. 
+Cette analyse comporte trois méthodes qui ont été implémentées à l'aide des bibliothèques Python Scikit-Learn \citep[version 0.18.1]{Pedregosa2011} et Statsmodels \citep[version 0.8.0]{Seabold2010} : 
 \begin{itemize}
-    \item une régression linéaire multiple et pondérée (\gls{wls} en anglais) \citep{Montgomery2012},
-	  \item une régression linéaire régularisée (\gls{lasso} en anglais) \citep{Tibshirani1996},
-	  \item un arbre de décision de régression (\gls{dt} en anglais) \citep{Quinlan1986}.
+    \item une régression linéaire multiple et pondérée (\glsfirst{wls} en anglais) \citep{Montgomery2012},
+	  \item une régression linéaire régularisée (\glsfirst{lasso} en anglais) \citep{Tibshirani1996},
+	  \item un arbre de décision de régression (\glsfirst{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
 
 La \gls{wls} a été choisie car son équivalent non pondéré (l'\gls{ols}) est très connue car couramment utilisée. Par ailleurs, cette méthode est très proche de la méta-régression qui est 
@@ -176,7 +177,7 @@ parfois mise en place dans les méta-analyses pour quantifier la relation entre 
 Le \gls{lasso} est également une régression mais permet de sélectionner clairement les variables indépendantes ayant une influence sur la variable dépendante. 
 
 Enfin, une méthode non linéaire, le \gls{dt} de regression, est employée car elle permet d'ordonner les variables indépendantes selon leur influence sur la variable dépendante. 
-Par ailleurs, un seuil de décsion est calculé, ce qui permet d'avoir une idée de la valeur à partir de laquelle le facteur a une influence positive sur l'efficacité du \gls{nfb}.
+Par ailleurs, un seuil de décision est calculé, ce qui permet d'avoir une idée de la valeur à partir de laquelle le facteur a une influence positive sur l'efficacité du \gls{nfb}.
 
 Les résultats de ces trois méthodes intrinsèquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
 \gls{nfb} est plus probable que si une seule méthode l'identifie. 
@@ -186,15 +187,17 @@ elles sont d'accord sur l'influence d'un facteur alors on peut raisonnablement c
 d'avoir recours à plus de méthodes mais étant donné l'aspect novateur de cette approche, il semblait préférable de ne pas complexifier le message en utilisant trop de méthodes.
 
 \subsubsection{La régression linéaire multiple et pondérée} \label{wls_part}
-La régression linéaire a pour but d'estimer les coefficients de régression qui lient les facteurs aux \gls{es}-intra-groupe \citep{Montgomery2012}. Ici, la régression est pondérée pour, d'une part, 
-prendre en compte le fait que, pour certaines études, plusieurs échelles cliniques sont disponibles, et d'autre part pour capturer les différentes tailles d'échantillon parmi les études.
+La régression linéaire a pour but d'estimer les coefficients de régression qui lient linéairement les facteurs aux \gls{es}-intra-groupe \citep{Montgomery2012}. Ici, nous préférerons 
+utiliser une régression linéaire pondérée (en anglais, \glsfirst{wls}) afin d'être sensible au fait que toutes les études ne contribuent pas de la même manière. 
+En effet, cela permet de prendre en compte que, d'une part, pour certaines études, plusieurs échelles cliniques sont disponibles, et d'autre part, les études ont des 
+tailles d'échantillon très différente
 
 Les coefficients $\hat{\beta}_{j}$, $0 \leq j \leq p$ sont obtenus en minimisant la somme pondérée des carrés :
 \begin{equation}
-\label{eq:factors_lasso-minimization}
-\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} w_{i} \abs{ y_i - \sum_{j=0}^{p}\beta_{j}x_{ij} }^2,
+\label{eq:factors_wls-minimization}
+\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} w_{i} \Big(y_i - \sum_{j=0}^{p}\beta_{j}x_{ij}\Big)^2,
 \end{equation} 
-avec $n$ le nombre d'observations et p le nombre de variables indépendantes. Le poids $w_{i}$ associé à chaque observation $i$ est défini comme suit : 
+avec $n$ le nombre d'observations et $p$ le nombre de variables indépendantes. Le poids $w_{i}$ associé à chaque observation $i$ est défini comme suit : 
 \begin{equation}
 \label{eq:weight_WLS}
 w_{i} = \frac{\text{N}_{k}}{\text{NS}_{k}},
@@ -207,8 +210,9 @@ d'une régression simple à la Figure~\ref{Figure:factors_comparison_ols_wls}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/factors-comparison-ols-wls} 
-  \caption{Comparaison des régressions non pondérée (\gls{ols}) en \textbf{A} et pondérée (\gls{wls}) en \textbf{B} sur des données factices. La droite rouge correspond à la droite de régression
-	estimée : en \textbf{A} elle a pour équation $y = 0.30x + 3.46$ et en \textbf{B} $y = 0.39x + 1.87$.}
+  \caption{Comparaison des régressions simples non pondérée (\gls{ols}) en \textbf{A} et pondérée (\gls{wls}) en \textbf{B} sur des données factices. Les points bleus correspondent aux observations
+	dont la taille dans le cas de la \gls{wls} est proportionnelle au poids qui leur est attribué. Les droites rouges correspondent aux droites de régression : dans le cas de la \gls{wls} elle
+	est plus proche des points ayant un fort poids. Dans notre cas la variable dépendante sera l'\gls{es}-intra-groupe et la variable indépendante un facteur.}
   \label{Figure:factors_comparison_ols_wls}
 \end{figure}
 
@@ -331,19 +335,19 @@ la norme $\ell_2$ (aussi appelée régularisation de Tikhonov) : en effet, la no
 Les coefficients $\hat{\beta}_{j}$, $0 \leq j \leq p$ sont obtenus en minimisant le coût :
 \begin{equation}
 \label{eq:factors_lasso-minimization}
-\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} \Big(y_i - \beta_{0} - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2 + \lambda \sum_{j=1}^{p}\abs{\beta_{j}},
+\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} \Big(y_i - \beta_{0} - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2 + \lambda \sum_{j=0}^{p}\abs{\beta_{j}},
 \end{equation} 
 où $\lambda$ est le paramètre de régularisation qui, en augmentant, met de plus en plus de coefficients à 0. Ce phénomène est illustré à la 
 Figure~\ref{Figure:factors_comparison_lasso_ridge_ols_lasso} où est représentée l'évolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ en fonction de
-la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et \textit{Ridge} (en \textbf{B}) sur des données factices. Lorsque $\lambda = 0$, on se retrouve
-dans le cas de l'\gls{ols} évoqué en \ref{wls_part}.
+la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et \textit{Ridge} (en \textbf{B}) sur des données factices. Lorsque $\lambda = 0$, on retombe
+sur la solution de l'\gls{ols} évoqué en \ref{wls_part}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/comparison-lasso-ridge-ols-lasso} 
   \caption{Evolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ (en vert, rouge, jaune, violet et bleu) en fonction de
   la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et \textit{Ridge} (en \textbf{B}) sur des données factices. Pour $\lambda = 0$, on se retrouve
-  dans le cas de l'\gls{ols}.}
+  dans le cas de l'\gls{ols}. Le \gls{lasso} effectue bien une sélection de variables en mettant à zéro les coefficients les plus faibles.}
   \label{Figure:factors_comparison_lasso_ridge_ols_lasso}
 \end{figure}
 
