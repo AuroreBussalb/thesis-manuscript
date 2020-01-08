@@ -192,12 +192,14 @@ utiliser une régression linéaire pondérée (en anglais, \glsfirst{wls}) afin 
 En effet, cela permet de prendre en compte que, d'une part, pour certaines études, plusieurs échelles cliniques sont disponibles, et d'autre part, les études ont des 
 tailles d'échantillon très différente
 
-Les coefficients $\hat{\beta}_{j}$, $0 \leq j \leq p$ sont obtenus en minimisant la somme pondérée des carrés :
+Les coefficients $\hat{\beta}_{j}$, $0 \leq j \leq p$, sont obtenus en minimisant la somme pondérée des erreurs quadratiques :
 \begin{equation}
 \label{eq:factors_wls-minimization}
-\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} w_{i} \Big(y_i - \sum_{j=0}^{p}\beta_{j}x_{ij}\Big)^2,
+\hat{\beta} = \argmin_\beta \sum_{i=1}^{n} w_{i} \Big(y_i - \beta_0 - \sum_{j=1}^{p}\beta_{j}x_{ij}\Big)^2,
 \end{equation} 
-avec $n$ le nombre d'observations et $p$ le nombre de variables indépendantes. Le poids $w_{i}$ associé à chaque observation $i$ est défini comme suit : 
+avec $x_{ij}$ la valeur de l'observation $i$, $1 \leq i \leq n$ sur la variable indépendante $j$, $1 \leq j \leq p$,
+$\beta_j$ est un coefficient de régression et $y_i$ la variable dépendante.
+Le poids $w_{i}$ associé à chaque observation $i$ est défini comme suit : 
 \begin{equation}
 \label{eq:weight_WLS}
 w_{i} = \frac{\text{N}_{k}}{\text{NS}_{k}},
