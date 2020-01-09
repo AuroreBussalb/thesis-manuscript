@@ -12,7 +12,10 @@ présentées dans ce manuscrit ont fait l'objet de publications scientifiques et
 \section{Définition du Neurofeedback}
 
 Le \gls{nfb} est une technique d’apprentissage à visée thérapeutique permettant de modifier un paramètre d’activité cérébrale au moyen d’une 
-information en temps réel associée à une récompense \citep{Arns2014}. L'activité cérébrale qui nous intéresse ici est l'\gls{eeg}, dont les caractéristiques sont tout d'abord
+information en temps réel, c'est à dire délivrée instantanément, associée à une récompense visuelle ou auditive \citep{Arns2014}. 
+
+L'activité cérébrale peut être obtenue grâce à différents modes d'acquisition (\gls{fmri}, \gls{nirs}, \gls{ecog}, ...) comme expliqué par la suite, 
+cependant celui qui nous intéresse ici est l'\gls{eeg}, dont les caractéristiques sont tout d'abord
 rappelées. Ensuite, la découverte et l'évolution de la méthode du \gls{nfb}-\gls{eeg} sont retracées, puis son principe est décrit précisément.
 
 \subsection{Acquisition de l'électroencéphalogramme} \label{eeg_definition}
@@ -43,6 +46,15 @@ selon l'état psychologique d'un sujet \citep{Marzbani2016} :
 \item \emph{les ondes beta} (12-30Hz), dont les ondes \gls{smr} entre 12 et 15Hz : observées durant un état d'attention et de vigilance mentale par exemple,
 \item \emph{les ondes gamma} (30-100Hz) : observées en particulier durant l'apprentissage.
 \end{itemize}
+
+Ces rythmes sont représentés à la Figure~\ref{Figure:introduction_EEG_waves}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.5\linewidth]{figures/chapter-1/introduction-EEG-waves} 
+  \caption{Rythmes cérébraux sur 1s d'\gls{eeg} réel. L'axe des ordonnées est entre -10 et 10$\mu$V }
+  \label{Figure:introduction_EEG_waves}
+\end{figure}
 
 \subsubsection{Aires cérébrales}
 
@@ -113,8 +125,8 @@ Enfin, afin d'obtenir le tracé des signaux \gls{eeg} présenté à la Figure~\r
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.5\linewidth]{figures/chapter-1/introduction-eeg-example} 
-  \caption{Exemple d'\gls{eeg} réel enregistré sur 5 secondes. }
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-eeg-example} 
+  \caption{Exemple d'\gls{eeg} réel enregistré sur 9 secondes. L'axe des ordonnées est entre -40 et 40$\mu$V }
   \label{Figure:introduction_eeg_example}
 \end{figure}
 
@@ -332,6 +344,18 @@ neuroplasticité \citep{VanDoren2017, Ros2010} qui est la capacité du cerveau d
 permet une réorganisation neuronale durable \citep{VanDoren2017}. 
 %parler de la dopamine ? 
 
+Un exemple de répartition des sessions sur une semaine d'entrainement ainsi qu'un exemple de déroulement d'une session de \gls{nfb} est représenté à la
+Figure~\ref{Figure:introduction_timeline_session}. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-timeline-session} 
+  \caption{Exemples de répartition des séances sur une semaine lors d'un entrainement par \gls{nfb} (en \textbf{A}) et du déroulement d'une session (en \textbf{B}). 
+	En \textbf{A} Les croix jaunes correspondent aux jours où une session de \gls{nfb} est effectuée. En \textbf{B} les points verts représentent les blocs d'entrainement où un \textit{feedback}
+	est délivré à l'utilisateur et le point orange au bloc de transfert (où l'utilisateur n'a aucun \textit{feedback}.}
+  \label{Figure:introduction_timeline_session}
+\end{figure}
+
 \section{Les champs d'application du Neurofeedback} \label{applications_NFB}
 
 Le \gls{nfb} peut être utilisé dans différents cas dont les principaux sont détaillés ici. Parmi ces applications, l'une d'entre elles est présentée 
@@ -375,11 +399,25 @@ Le \gls{nfb} a également été étudié dans la diminution de la douleur en vis
 exemple, été utilisé dans le cas de lombalgies chroniques en entrainant les ondes alpha de façon à ce qu'elles soient synchrones sur l'ensemble des aires 
 cérébrales \citep{Mcknight2001, Thapa2018, Mayaud2019}.
 
+\subsubsection{Troubles du sommeil}
+Le \gls{nfb} peut aussi être employé dans le cas de l'insomnie qui touche de nombreuses personnes \citep{Marzbani2006}. Plusieurs études se sont penchées sur ce traitement
+basé sur l'augmentation du rythme \gls{smr} \citep{Shabus2014, Schabus2017}, cependant afin de conclure clairement quant à l'efficacité du \gls{nfb} davantage 
+d'études contrôlées et en double aveugle sont nécessaires \citep{Micoulaud2019sommeil}. 
+
 \subsubsection{Autres applications}
 
-D'autres applications existent comme la diminution de l'anxiété via un protocole de diminution des ondes alpha \citep{Budzynski2009} et le traitement de la dépression
-grâce à l'augmentation des ondes alpha et theta tout en diminuant les ondes beta \citep{Hurt2014}. Une application qui fait l'objet de nombreuses recherches
-est le \gls{tdah}, décrite plus précisément dans la section suivante.
+D'autres applications existent comme la diminution de l'anxiété via un protocole de diminution des ondes alpha \citep{Budzynski2009}, le traitement de la dépression
+grâce à l'augmentation des ondes alpha et theta tout en diminuant les ondes beta \citep{Hurt2014}, l'augmentation de la concentration par le contrôle des ondes
+alpha \citep{Babiloni2008, Berka2010}. Par ailleurs, le \gls{nfb} a également été appliqué dans le cadre de la rééducation suite à un accident vasculaire cérébral \citep{Biasiucci2018,
+Cervera2018}. 
+
+\subsubsection{Efficacité du \gls{nfb}}
+ 
+Le \gls{nfb} est donc utilisé dans de nombreux cas mais son efficacité fait encore débat. 
+
+
+Dans la suite de ce manuscrit seule l'une d'entre elles sera développée : 
+le \glsfirst{tdah} qui fait l'objet de nombreuses recherches et qui est décrit précisément dans la section suivante.
 
 \subsection{Neurofeedback et \gls{tdah}} \label{nfb_and_adhd}
 
