@@ -12,7 +12,8 @@ présentées dans ce manuscrit ont fait l'objet de publications scientifiques et
 \section{Définition du Neurofeedback}
 
 Le \gls{nfb} est une technique d’apprentissage à visée thérapeutique permettant de modifier un paramètre d’activité cérébrale au moyen d’une 
-information en temps réel, c'est à dire délivrée instantanément, associée à une récompense visuelle ou auditive \citep{Arns2014}. 
+information en temps réel, c'est à dire analysée instantanément, associée à une récompense visuelle ou auditive \citep{Arns2014} qui peut être délivrée
+dans le cadre d'un jeu sérieux \citep{Wang2010}. 
 
 L'activité cérébrale peut être obtenue grâce à différents modes d'acquisition (\gls{fmri}, \gls{nirs}, \gls{ecog}, ...) comme expliqué par la suite, 
 cependant celui qui nous intéresse ici est l'\gls{eeg}, dont les caractéristiques sont tout d'abord
@@ -201,7 +202,7 @@ Les dates clés de l'histoire du \gls{nfb} sont résumées à la frise présent�
 \subsubsection{Définition du \gls{nfb}}
 
 Le \gls{nfb} a pour but d'apprendre à un sujet à auto-réguler son activité cérébrale à l'aide de retours auditifs et/ou visuels en temps réel
-intégrés dans un jeu sérieux \citep{Wang2010}. Ces retours lui permettent de suivre la régulation de son rythme cérébral : s'il est modulé de 
+intégrés dans un jeu sérieux \citep{Wang2010}. Ces retours lui permettent de suivre la régulation de son rythme cérébral instantanément : s'il est modulé de 
 la manière souhaitée, une récompense auditive et/ou visuelle est attribuée, sinon le sujet doit prendre une action corrective. 
 
 Le \gls{nfb} est basé sur le conditionnement opérant \citep{Reynolds1975} où le conditionnement n'est pas lié à 
@@ -209,8 +210,21 @@ des réponses réflexes de l'organisme, comme c'est le cas pour le conditionneme
 renforce positivement ou négativement le conditionnement \citep{Skinner1948}. 
 
 L'activité cérébrale enregistrée lors du \gls{nfb} est couramment l'\gls{eeg} dont les caractéristiques sont décrites en \ref{eeg_definition}.
-Cependant d'autres modalités telles que l'imagerie par résonance magnétique fonctionnelle (\gls{fmri} en anglais) sont parfois utilisées \citep{Sulzer2013}. 
+Cependant d'autres modalités telles que, par exemple, 
+l'\gls{ecog} \citep{Khanna2016, Gharabaghi2014}, la spectroscopie dans l'infrarouge proche (\glsfirst{nirs} en anglais) \citep{Marx2015} et 
+l'Imagerie par Résonance Magnétique fonctionnelle (\gls{fmri} en anglais) \citep{Sulzer2013}.
+sont parfois utilisées. 
 
+\paragraph{Electrocorticographie} 
+L'\gls{ecog} enregistre l'activité cérébrale à l'aide d'électrodes implantées en profondeur dans la boîte crânienne. Tout comme l'\gls{eeg}, 
+elle les varaitions de potentiel électriques dues à l'activité neuronale est mesurée \citep{Leuthardt2006}. 
+
+\paragraph{\textit{Near-Infrared Spectroscopy}} 
+Le \gls{nirs} mesure la corrélation entre l'hémodynamique et l'activité neuronale : la lumière dans l'infrarouge proche est absorbée par de
+façon différente selon la quantité d'hémoglobine oxygénée et déoxygénée ce qui permet de déterminer les changements de concentration relative
+sur la surface corticale. Une forte activité cérébrale correspond par une concentration importante d'hémoglobine oxygénée \citep{Fallgatter1997, Marx2015}. 
+
+\paragraph{\textit{functional Magnetic Resonance Imaging}} 
 Le \gls{fmri} mesure la réponse \gls{bold}, c'est à dire les différences du signal dues à des changements locaux de la concentration d'hémoglobine désoxygénée 
 dans le tissu cérébral qui est dépendante de l'activité neuronale \citep{Dewiputri2013}. Dans le cas du \gls{fmri}-\gls{nfb}, c'est à partir du signal 
 \gls{bold} que le \textit{feedback} est calculé \citep{Dewiputri2013}. 
@@ -223,7 +237,11 @@ Cependant, bien que prometteur ce couplage est difficile à mettre en place, not
 Un couplage plus souvent observé est celui entre l'\gls{eeg} et l'\gls{emg} : cette fois-ci le sujet doit réguler son activité cérébrale en même temps que son
 activité musculaire et est donc récompensé sur les deux \citep{Bink2014}.
 
-Dans la suite de cete thèse, seul le \gls{nfb}-\gls{eeg}, simplement noté \gls{nfb}, est étudié. 
+Le fait que l'\gls{eeg} soit le plus couramment utilisé pour l'entrainement par \gls{nfb} s'explique par sa bonne résolution temporelle, son caractère non-invasif
+ainsi que sa facilité de mise en place et son coût modéré \citep{Fovet2016}. Toutefois, comme évoqué plus haut, il souffre d'une mauvaise résolution 
+spatiale et est sensible aux artefacts (mouvements physiologiques et bruits environnementaux) \citep{Iwasaki2005, Goncharova2003}. 
+
+Dans la suite de ce manuscrit, seul le \gls{nfb}-\gls{eeg}, simplement noté \gls{nfb}, est étudié. 
 
 \subsubsection{Etapes de l'entrainement par \gls{nfb}}
 
@@ -250,11 +268,11 @@ dus aux lignes électriques (50Hz en Europe et 60Hz aux Etats-Unis).
 
 \paragraph{Pré-traitement en temps réel du signal \gls{eeg}}
 Ces artefacts se superposent à l'activité électrique du cerveau pouvant fausser l'extraction du marqueur d'intérêt et donc rendre
-incorrect le \textit{feedback} délivré \citep{Enriquez2017}. C'est pourquoi des \emph{méthodes de rejet ou de correction d'artefacts} en temps 
+incorrect le \textit{feedback} délivré \citep{Enriquez2017, Montgomery2001, Sherlin2011, Paluch2017}. C'est pourquoi des \emph{méthodes de rejet ou de correction d'artefacts} en temps 
 réel sont implémentées pour s'assurer que les récompenses sont bien calculées à partir du signal \gls{eeg} et non sur du bruit. 
 
-Les méthodes de rejet consistent à ne pas extraire de marqueur d'intérêt d'un segment artefacté d'une durée donnée de l'\gls{eeg} (appelée époque). Pour sélectionner
-les époques à garder, certaines études définissent un seuil sur l'amplitude du signal : si l'amplitude du signal d'une époque est supérieure
+Les méthodes de rejet consistent à ne pas extraire de marqueur d'intérêt d'un segment artefacté d'une durée donnée de l'\gls{eeg} (appelée époque). 
+Pour sélectionner les époques à garder, certaines études définissent un seuil sur l'amplitude du signal : si l'amplitude du signal d'une époque est supérieure
 à ce seuil, cette époque est rejetée \citep{Gevensleben2009, Heinrich2004}. La valeur de ce seuil peut être fixe ou adaptative et peut 
 différer ou non selon les canaux. 
 
@@ -277,6 +295,16 @@ de la \gls{bss} est d'estimer ces sources à partir des signaux et d'identifier 
 % équations ? plus de précisions ?
 
 En ce qui concerne les artefacts électriques, ils sont corrigés à l'aide d'un filtre coupe-bande qui supprime le 50 ou 60Hz \citep{Bioulac2019}.
+
+En résumé, trois approches sont envisageables pour traiter les artefacts :
+\begin{itemize}
+\item la détection/rejet des artefacts : seuil sur amplitude des signaux et géométrie Riemanienne,
+\item la correction des artefacts : \gls{bss}, mais qui est difficile à implémenter en temps réel \citep{Barthelemy2017},
+\item la correction des artefacts inévitables (les clignements d'yeux) et la détection/rejet des artefacts évitables (mouvements).
+\end{itemize}
+
+Traiter les artefacts est une étape essentielle du pré-traitement de l'\gls{eeg} : elle permet de délivrer à l'utilisateur un \textit{feedback} 
+spécifique du marqueur \gls{eeg} à moduler lors de sa session de \gls{nfb} \citep{Barthelemy2019}. 
 
 \paragraph{Extraction du marqueur d'intérêt}
 Ensuite, la troisième étape consiste à \emph{extraire le marqueur à moduler} lors de la session de \gls{nfb}, appelé par la suite neuromarqueur : 
@@ -308,7 +336,7 @@ qui peut être fixe ou adaptatif, défini manuellement ou automatiquement \citep
 
 En effet, le seuil peut être fixe tout au long de la session \citep{Kropotov2005, Monastra2002}, ou bien évoluer entre les sessions ou au sein même d'une session \citep{ 
 Christiansen2014}. Utiliser un seuil incrémental a pour but d'adapter les récompenses octroyées au sujet en fonction de ses performances et 
-de le garder motivé \citep{Bauer2016, Lansbergen2011}. 
+de le garder motivé \citep{Bauer2016, Lansbergen2011}. La valeur du seuil peut être définie manuellement par un spécialiste ou bien automatiquement \citep{Arns2014}
 
 Le \textit{feedback} présenté au sujet dépend donc du résultat de la comparaison entre la valeur du neuromarqueur et celle du seuil. Par ailleurs, en fonction du temps durant lequel
 le neuromarqueur est modulé comme souhaité, les récompenses peuvent varier \citep{Bioulac2019}. 
@@ -391,7 +419,8 @@ theta/alpha et d'augmenter la production d'ondes beta dans l'aire centrale \cite
 \subsubsection{Epilepsie}
 
 La recherche concernant le \gls{nfb} appliqué à l'épilepsie remonte au début de l'utilisation du \gls{nfb} avec \citet{Sterman1974}. Le protocole le plus
-couramment utilisé est l'augmentation du \gls{smr} dans les zones centrales qui mène à une réduction du taux de crises d'épilepsie graves \citep{Hughes2008, Walker2010}.
+couramment utilisé est l'augmentation du \gls{smr} dans les zones centrales qui mène à une réduction du taux de crises 
+d'épilepsie graves \citep{Hughes2008, Walker2010, Tan2009, Sterman2010}.
 
 \subsubsection{Gestion de la douleur}
 
@@ -400,8 +429,8 @@ exemple, été utilisé dans le cas de lombalgies chroniques en entrainant les o
 cérébrales \citep{Mcknight2001, Thapa2018, Mayaud2019}.
 
 \subsubsection{Troubles du sommeil}
-Le \gls{nfb} peut aussi être employé dans le cas de l'insomnie qui touche de nombreuses personnes \citep{Marzbani2006}. Plusieurs études se sont penchées sur ce traitement
-basé sur l'augmentation du rythme \gls{smr} \citep{Shabus2014, Schabus2017}, cependant afin de conclure clairement quant à l'efficacité du \gls{nfb} davantage 
+Le \gls{nfb} peut aussi être employé dans le cas de l'insomnie qui touche de nombreuses personnes \citep{Marzbani2016}. Plusieurs études se sont penchées sur ce traitement
+basé sur l'augmentation du rythme \gls{smr} \citep{Schabus2014, Schabus2017}, cependant afin de conclure clairement quant à l'efficacité du \gls{nfb} davantage 
 d'études contrôlées et en double aveugle sont nécessaires \citep{Micoulaud2019sommeil}. 
 
 \subsubsection{Autres applications}
@@ -413,11 +442,18 @@ Cervera2018}.
 
 \subsubsection{Efficacité du \gls{nfb}}
  
-Le \gls{nfb} est donc utilisé dans de nombreux cas mais son efficacité fait encore débat. 
+Le \gls{nfb} est donc utilisé dans de nombreux cas mais son efficacité fait encore débat. Dans le cas de l'épilepsie, la méta-analyse de \citet{Tan2009}
+montre que le \gls{nfb} conduit à une réduction significative de la fréquence des crises, cependant davantage d'essais cliniques
+rigoureusement menés sont nécessaires avant de pouvoir conclure. 
 
+Il en va de même dans le cas des douleurs chroniques où les résultats semblent prometteurs \citep{Mayaud2019} mais le manque d'études rigoureuses empêche de
+trancher sur l'efficacité du \gls{nfb}.
 
-Dans la suite de ce manuscrit seule l'une d'entre elles sera développée : 
-le \glsfirst{tdah} qui fait l'objet de nombreuses recherches et qui est décrit précisément dans la section suivante.
+Ainsi, un des problèmes majeurs des études évaluant l'efficacité du \gls{nfb} est l'absence d'un groupe contrôle adéquat et le fait que les évaluateurs et sujets
+ne soient pas aveugles \citep{Thibault2017, Thibault2017climate} empêchant ainsi de conclure quant à la spécificité du traitement pas \gls{nfb}.
+
+L'application du \gls{nfb} qui fait l'objet du plus de recherches est le \glsfirst{tdah} chez l'enfant. Dans la suite de ce manuscrit seule 
+celle-ci sera développée : elle est décrite précisément dans la section suivante.
 
 \subsection{Neurofeedback et \gls{tdah}} \label{nfb_and_adhd}
 
@@ -491,7 +527,7 @@ subjectivité et pourraient mener à des diagnostics erronés \citep{Lambez2019}
 
 \subsubsection{Traitements existants} \label{traitements_existants}
 
-La HAS recommande en première intention une prise en charge non-médicamenteuse durant 3 mois à l'instar des thérapies cognitivo-comportementale \citep{HAS}. 
+En France, la HAS recommande en première intention une prise en charge non-médicamenteuse durant 3 mois à l'instar des thérapies cognitivo-comportementale \citep{HAS}. 
 Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004}.
 Cependant, si ces approches se révèlent peu efficaces, un traitement médicamenteux peut être envisagé. En France seul le \gls{mph}
 peut être prescrit en suivant des règles très strictes \citep{HAS}. Dans d'autres pays, d'autres molécules sont autorisées comme la lisdexamfetamine et 
@@ -516,7 +552,7 @@ bandes sont contrôlées simultanément on parle du protocole \gls{tbr} \citep{L
 générée par des signaux extérieurs \citep{Heinrich2004, Banaschewski2007},
 \item les protocoles basés sur les \glsfirst{erp} : l'amplitude de l'onde P300 peut être considérée comme un marqueur neurophysiologique spécifique de l'attention 
 sélective \citep{Desain2012, Fouillen2017}. L'onde P300 est un \gls{erp} endogène c'est à dire qu'il est lié à la réaction de la personne au stimulus et non aux 
-caractéristiques de ce dernier.
+caractéristiques de ce dernier. D'autres \gls{erp} peuvent être utilisés comme résumé par \citet{Johnstone2013} et \citet{Barry2003erp}
 \end{itemize}
 
 Par ailleurs les protocoles peuvent également être individualisés comme décrit en \ref{principe_nfb}.
@@ -559,12 +595,13 @@ où tout est identique, sauf le \textit{feedback} qui n'est pas calculé sur l'a
 que le sujet et tous les évaluateurs soient aveugles au traitement, évitant ainsi tout effet placebo.
 \end{itemize}
 
-Afin de confronter la performance du \gls{nfb} appliqué au \gls{tdah} aux autre traitements décrits en \ref{traitements_existants}, des histogrammes
+Afin de confronter la performance du \gls{nfb} appliqué au \gls{tdah} aux autres traitements décrits en \ref{traitements_existants}, des histogrammes
 représentant la distribution de l'efficacité de chaque traitement (quantifiée par une taille d'effet définie en \ref{es_within}) obtenue dans des études cliniques
 sont tracés à la Figure~\ref{Figure:introduction-efficacy-treatments}.
+
 Les études incluses pour le \gls{nfb} correspondent à celles sélectionnées suivant les critères d'inclusion présentés en \ref{selection_studies}, celles pour les
 trois autres traitements (médicaments psychostimulants, médicaments non psychostimulants et thérapie comportementale) proviennent des plus récentes méta-analyses 
-sur le sujet à disposition au moment où ce travail a été effectué \citep{Luan2017, Catala2017}.
+référencées sur PubMed sur le sujet à disposition au moment où ce travail a été effectué \citep{Luan2017, Catala2017}.
 
 \begin{figure}[h!]
   \centering
