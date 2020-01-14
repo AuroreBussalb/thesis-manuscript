@@ -399,7 +399,7 @@ les facteurs se retrouvent dans les noeuds : leur influence sur l'efficacité du
 obtenue après chaque division mais aussi par leur place dans l'arbre. En effet, plus un facteur est en haut de l'arbre plus les divisions se font sur un grand nombre
 d'observations, ainsi son impact sur l'efficacité est davantage probable.
 
-\section{Analyse des facteurs influençant le Neurofeedback} 
+\section{Analyse des facteurs influençant le Neurofeedback} \label{saob_results}
 
 Les résultats de la \gls{saob} sont présentés ici. Cette méthode, dont les premières étapes (i.e. la sélection des études et le calcul des \gls{es}) rappellent
 la méta-analyse, se distingue de cette dernière par l'utilisation de méthodes multivariées. Celles-ci tirent avantage de l'hétérogénéité des études
@@ -625,7 +625,7 @@ du \gls{nfb} est essentielle pour comprendre son effet sur les fonctions céréb
 de leur liste de bonnes pratiques. Ce point a également été souligné par \citet{Rogala2016} : les méthodologies suivies dans la recherche sur l'efficacité du
 \gls{nfb} sont rarement fiables et trop souvent contradictoires.
 
-\subsection{Facteurs et efficacité du \gls{nfb}}
+\subsection{Facteurs et efficacité du \gls{nfb}} \label{discussion_factors}
 
 La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence sur l'efficacité du \gls{nfb}. Ces facteurs ont été choisis sur la base d'avis d'experts
 du \gls{nfb} et de la littérature scientifique sur le sujet. Les résultats trouvés par la \gls{saob} sont discutés ici et mis en perspective avec cette littérature, en s'intéressant à la fois 
@@ -821,6 +821,7 @@ L'analyse présentée dans ce chapitre est la mise à jour des résultats prése
 d'efficacité est disponible sur le \gls{nfb} appliqué aux enfants \gls{tdah}, les analyses telles que les méta-analyses et la \gls{saob} doivent être régulièrement mises
 à jour afin d'obtenir des résultats stables comme discuté en \ref{meta_analysis_update}.
 
+\subsubsection{Différences avec les résultats de Bussalb et al., 2019b}
 \citet{Bussalb2019clinical} présente des résultats obtenus sur des études publiées avant le 12 février 2018, ce qui correspond à 33 études (67 observations). La mise 
 à jour décrite dans ce chapitre porte ce nombre à 41, augmentant ainsi la robustesse des
 résultats. Malheureusement, tous les facteurs exclus dans l'analyse antérieure le sont également avec cette mise à jour et la validation par
@@ -854,16 +855,41 @@ davantage d'informations.
 
 A l'inverse la présence d'une phase de transfert est désormais sélectionnée par les trois méthodes.
 
-% Ajouter graphe du nombre de méthodes en fonction de l'année de publication, choisir le nombre d'étude de départ en fonction de si les hypothèses de
-% travail sont satisfaites ou non (autre critère ?)
-% étudier SMR, eeg quality2, nombre de session et durée du traitement
-% car on veut 1 facteur par nombre de méthode (résultats de Bussalb2020), durée du traitement a aussi été identifiée par 3 méthodes dans Bussalb2019
-% nombre de sessions très discuté dans la littérature
-% EEG quality 2 car retourné par 3 méthodes dans Bussalb2019 et facteur intéressant
-% SMR protocole couramment utilisé
+\subsubsection{Etude de l'évolution du nombre de méthodes sélectionnant un facteur entre les résultats de \citet{Bussalb2019clinical} et ceux de sa mise à jour}
+Afin de mettre évidence la fluctuation des résultats, la même approche que celle décrite en \ref{chapitre-2} est suivie ici : l'évolution du nombre de méthodes de régression pour 
+lesquelles un facteur est sélectionnné au fur et à mesure de l'ajout,
+selon leur année de publication, des nouvelles études mettant à jour \citet{Bussalb2019clinical} est étudiée. 
 
-Ainsi, la mise à jour montre que les résultats ne sont pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. Ce constat est illustré dans 
-le cadre de la méta-analyse présentée au chapitre \ref{chapitre-2}.
+Les facteurs dont l'évolution est illustrée en 
+Figure~\ref{Figure:factors_evolution_with_update} ont été choisis d'une part, car chacun a été sélectionné par un nombre de méthodes différent suite à l'analyse décrite en \ref{saob_results}
+et dont les résultats sont résumés à la Table~\ref{Table:table_factors_analysis_results_summary_number_of_factors} et, d'autre part, pour les raisons suivantes :
+\begin{itemize}
+\item \textsl{la durée du traitement :} sélectionné par trois méthodes dans \citet{Bussalb2019clinical}, ce facteur l'est également suite à la mise à jour présentée en \ref{saob_results},
+il est donc intéressant de savoir si le nombre de méthodes a changé au cours de l'ajout des nouvelles études,
+\item \textsl{la qualié de l'\gls{eeg} égale à 2 :} sélectionné par trois méthodes dans \citet{Bussalb2019clinical}, seules deux méthodes l'identifient suite à la mise à jour.
+L'analyse de son évolution au cours du temps permettra de déterminer si elle a oscillé ou non,
+\item \textsl{le nombre de sessions :} ce paramètre a été identifié par deux méthodes dans \citet{Bussalb2019clinical}, mais ce nombre est de un suite à la mise à jour des résultats.
+Etant donné que la valeur de ce facteur est très discutée dans la littérature comme rappelé en \ref{discussion_factors}, il semble judicieux d'étudier ce facteur plus précisément,
+\item \textsl{le protocole \gls{smr} :} ce facteur n'est sélectionné par aucune méthode, aussi bien dans \citet{Bussalb2019clinical} que dans sa mise à jour. Il a été choisi arbitrairement
+parmi les protocoles d'entrainenemt retourné par aucune méthode pour mettre en évidence une éventuelle fluctuation au cours du temps de ce type de facteur qui parait intuivement central comme
+discuté en \ref{discussion_factors}.
+\end{itemize}
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-evolution-with-update} 
+  \caption{Evolution du nombre de méthodes de régression pour lesquelles les facteurs sont sélectionnés au fur et à mesure de l'ajout des études mettant à jour \citet{Bussalb2019clinical}.
+	La courbe rouge correspond au facteur "durée du traitement", la magenta à "la qualité de \gls{eeg} égale à 2", la bleue au "nombre de sessions", la verte au "protocole \gls{smr}". 
+	Le nombre de sujets inclus dans chaque nouvelle étude ajoutée ainsi que le nombrre cumulatif de sujets sont donnés sur les axes des abscisses supérieurs.}
+  \label{Figure:factors_evolution_with_update}
+\end{figure}
+
+Au cours de l'ajout des huit études représenté en Figure~\ref{Figure:factors_evolution_with_update}, aucune variation du nombre de méthodes sélectionnant la durée du traitement (en rouge) 
+et le protocole \gls{smr} (en vert) n'est observée ce qui montre que ces résultats 
+extrêmes semblent s'être stabilisés. Par contre, le nombre de méthodes identifiant le nombre de sessions (en bleu) et la qualité de l'\gls{eeg} égale à 2 (en magenta) oscille, rendant plus 
+compliqué de conclurequant à l'influence de ces facteurs sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah}.
+
+Ainsi, la mise à jour de \citet{Bussalb2019clinical} montre que certains résultats ne sont pas figés : ils vont fluctuer jusqu'à se stabiliser quand un grand nombre d'observations sera disponible. 
 
 Ainsi, pour que la \gls{saob} puisse apporter des indications fiables quant au design d'une étude évaluant l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah}, elle doit être 
 régulièrement mise à jour. 
