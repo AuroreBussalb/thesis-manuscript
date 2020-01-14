@@ -2,8 +2,8 @@
 
 \section*{Introduction}
 Les méta-analyses ont pour but de combiner les données de plusieurs études visant à démontrer l'efficacité d'un traitement. Cette méthode est
-particulièrement intéressante lorsque les études comportent un faible nombre de sujets ou que les résultats des études se contredisent, comme c'est notamment le cas
-pour le \gls{nfb} appliqué aux enfants \gls{tdah}. 
+particulièrement intéressante lorsque les études comportent un faible nombre de sujets ou que les résultats des études se contredisent, 
+comme c'est notamment le cas pour le \gls{nfb} appliqué aux enfants \gls{tdah}, qui est l'un des principaux usages du \gls{nfb}. 
 
 Les différentes étapes à suivre pour réaliser une méta-analyse sont détaillées précisément dans ce chapitre.
 Ces étapes sont ensuite appliquées à la réplication et à la mise à jour d'une récente méta-analyse sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah} :
@@ -40,7 +40,7 @@ perdu leur popularité au profit des méta-analyses. En effet, les revues narrat
 à donner à telle ou telle étude : alors que certains
 vont donner plus d'importance aux études incluant de nombreux sujets, d'autres vont favoriser les études qu'ils jugent de bonne qualité. La méta-analyse permet 
 de réduire cette subjectivité en utilisant par exemple des critères mathématiques définis à l'avance pour calculer le poids à attribuer à chaque étude incluse
-\citep{Borenstein2009}. 
+\citep[Chapitre~1]{Borenstein2009}. 
 
 Par ailleurs, des recommandations précises quant à la conduite d'une méta-analyse existent \citep{Moher2009, Cochrane}. Ces recommandations
 appelent notamment à apporter un soin particulier à la sélection des études qui doivent répondre à des critères d'inclusion fixés 
@@ -55,7 +55,7 @@ populations et de mesures relativement hétérogènes \citep{Cortese2016}.
 \subsection{Choix du modèle} \label{model_choice}
 
 La première étape consiste à choisir le modèle statistique de la méta-analyse. La plupart des méta-analyses sont basées sur l'un des deux modèles 
-suivants qui reposent sur des hypothèses scientifiques différentes \citep{Borenstein2009} :
+suivants qui reposent sur des hypothèses scientifiques différentes \citep[Chapitre~10]{Borenstein2009} :
 \renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 \item le modèle à effet fixe (\textit{fixed-effect model} en anglais),
@@ -90,7 +90,7 @@ la littérature existante, c'est le modèle à effets aléatoires qui est utilis
 \subsection{Calcul de la taille d'effet} \label{definition_es}
 
 Une fois le modèle choisi, l'étape suivante est de quantifier l'efficacité de chaque étude incluse dans la méta-analyse en calculant son \gls{es}. 
-Il existe différents \gls{es} \citep{Borenstein2009} :
+Il existe différents \gls{es} \citep[Chapitre~3]{Borenstein2009} :
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\cdot$}
 \begin{itemize}
@@ -165,7 +165,7 @@ induite par le traitement.
 
 Il s'avère que l'\gls{es}-inter-groupes présente un léger biais qui tend à sous-estimer la valeur absolue de la différence moyenne standardisée de la population
 lorsque les études incluent peu de sujets. Cette valeur est obtenue en calculant la différence entre les vraies moyennes de la population de chaque groupe divisée 
-par l'erreur type de la vraie population qui est supposée être identique pour les deux groupes $\delta$ \citep{Borenstein2009}. Ce biais peut être supprimé 
+par l'erreur type de la vraie population qui est supposée être identique pour les deux groupes $\delta$ \citep[Chapitre~4]{Borenstein2009}. Ce biais peut être supprimé 
 grâce à un facteur de correction $c_p$ qui est utilisé pour les petites études (c'est à dire pour lesquelles $n_T + n_C - 2 < 10$) : 
 \begin{equation}
 \label{eq:metareview_correction_factor}
@@ -189,7 +189,7 @@ Tout d'abord, la variance de chaque \gls{es}-inter-groupes est calculée \citep{
 		\frac{2(1-r)(n_T + n_C)} {n_Tn_C} + \text{ES}^2 
 \right) - \text{ES}^2,
 \end{equation}
-où \gls{es} désigne l'\gls{es}-inter-groupes et $r$ la \textit{pooled} corrélation de Pearson intra-groupes \citep{James2013} :
+où \gls{es} désigne l'\gls{es}-inter-groupes et $r$ la corrélation de Pearson groupée intra-groupes \citep{James2013} :
 \begin{equation}
 \label{eq:metareview_within_group_pearson_correlation}
 r = \frac{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - \mu_{\text{pre}})(\text{s}_{\text{post},i} - \mu_{\text{post}}) } { \sqrt{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - 
@@ -208,7 +208,7 @@ Dans notre cas, cette corrélation étant inconnue et les données brutes n'éta
 de $r$ en accord avec \citet{Balk2012}, qui a trouvé qu'une valeur de 0.5 conduit à des résultats proches de ceux obtenus avec la véritable
 valeur de la corrélation.
 
-Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{standard error} en anglais) de l'\gls{es}-inter-groupes \citep{Borenstein2009} :
+Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{standard error} en anglais) de l'\gls{es}-inter-groupes \citep[Chapitre~8]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_standard_error_effect_size_between}
 \text{ET} = \sqrt{\sigma^2(\text{ES})},
@@ -216,7 +216,7 @@ Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{stand
 où \gls{es} désigne l'\gls{es}-inter-groupes. Alors que la variance est intéressante pour les calculs statistiques, l'\gls{et} est quant à elle 
 un index plus aisé à comprendre car elle est sur la même échelle que l'\gls{es}.
 
-Enfin, si on suppose que l'\gls{es}-inter-groupes suit une distribution normale, son intervalle de confiance à 95\% peut être calculé \citep{Borenstein2009} :
+Enfin, si on suppose que l'\gls{es}-inter-groupes suit une distribution normale, son intervalle de confiance à 95\% peut être calculé \citep[Chapitre~8]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_es_between_confidence_interval_95_lower_bound}
 \text{LL} = \text{ES-inter-groupes} - 1.96 * \text{ET},
@@ -231,7 +231,7 @@ normale standard pour un intervalle de confiance à 95\%. La probabilité de tro
 la vraie valeur de l'\gls{es}-inter-groupes de la population est de 95\%.
 
 La précision est affectée, dans une large mesure, par le nombre de sujets inclus dans l'étude : les échantillons plus grands mènent à des
-variances plus faibles et donc à des estimations d'\gls{es}-inter-groupes plus précises \citep{Borenstein2009}, c'est pourquoi un plus grand 
+variances plus faibles et donc à des estimations d'\gls{es}-inter-groupes plus précises \citep[Chapitre~8]{Borenstein2009}, c'est pourquoi un plus grand 
 poids leur est attribué dans la méta-analyse.
 
 \subsection{Calcul de l'effet total du traitement} \label{compute_summary_effect}
@@ -240,7 +240,7 @@ Afin d'obtenir l'estimation la plus précise possible de l'effet du traitement s
 des études incluses est calculée.
 
 Si le modèle à effet fixe est choisi, le poids $w_{\text{fixe},k}$ assigné à chaque étude $k$ correspond à l'inverse de la variance de son 
-\gls{es}-inter-groupes ($\sigma^2(\text{ES})$, la variance intra-étude) \citep{Borenstein2009} :
+\gls{es}-inter-groupes ($\sigma^2(\text{ES})$, la variance intra-étude) \citep[Chapitre~12]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_weight_fixed_study}
 w_{\text{fixe},k} = \frac{1}{\sigma^2(\text{ES}_k)}.
@@ -252,7 +252,7 @@ Dans notre cas nous employons le modèle à effets aléatoires, qui inclut égal
 poids ($w_{\text{aléatoires},k} = w_k$) associés aux études différents.
 
 Calculer la variance inter-études se fait en trois étapes décrites par les équations Eq.~(\ref{eq:metareview_Q}), Eq.~(\ref{eq:metareview_C}) 
-et Eq.~(\ref{eq:metareview_Tau}) \citep{Borenstein2009} :
+et Eq.~(\ref{eq:metareview_Tau}) \citep[Chapitre~12]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_Q}
 Q = \sum_{k=1}^{K} (w_{\text{fixe},k} \text{ES}_k^2),
@@ -269,14 +269,14 @@ avec $K$ le nombre total d'études incluses.
 avec $\text{df} = K - 1$ le degré de liberté.
 
 Le modèle à effets aléatoires prenant en compte les différences entre les études, les poids sont égaux à l'inverse de la somme entre la variance intra-étude
-$\sigma^2(\text{ES}_k)$ et la variance inter-études $\tau^2$ \citep{Borenstein2009} :
+$\sigma^2(\text{ES}_k)$ et la variance inter-études $\tau^2$ \citep[Chapitre~12]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_weight_study}
 w_k = \frac{1}{\sigma^2(\text{ES}_k) + \tau^2}.
 \end{equation} 
 
 Enfin, la moyenne pondérée des $K$ \gls{es}-inter-groupes est calculée pour obtenir l'\gls{est} comme décrit dans l'équation
-Eq.~(\ref{eq:metareview_summary_effect}) \citep{Borenstein2009}:
+Eq.~(\ref{eq:metareview_summary_effect}) \citep[Chapitre~12]{Borenstein2009}:
 \begin{equation}
 \label{eq:metareview_summary_effect}
 \text{EST} = \frac{\sum_{k=1}^{K} w_k \text{ES}_k} {\sum_{k=1}^{K} w_k}.
@@ -314,7 +314,7 @@ Une $Z$-value est calculée pour tester l'hypothèse nulle pour le modèle à ef
 Z = \frac{\text{EST}} {\text{ET(EST)}}.
 \end{equation}
 
-Pour un test bilatéral, la $p$-value est ensuite calculée avec :
+Pour un test bilatéral (utilisé par \citet{Micoulaud2014, Cortese2016}, la $p$-value est ensuite calculée avec :
 \begin{equation}
 \label{eq:metareview_confidence_interval_summary_effect_p_value}
 p = 2(1 - \Phi(\abs{Z})),
@@ -349,7 +349,7 @@ zéro (seuil de signifiance statistique à 5\%), alors le \textit{funnel plot} e
 
 \subsection{Répresentation graphique des résultats d'une méta-analyse}
 
-Afin de faciliter la lecture des résultats d'une méta-analyse, ceux-ci sont résumés dans un \textit{forest plot} \citep{Borenstein2009}. Les études incluses sont
+Afin de faciliter la lecture des résultats d'une méta-analyse, ceux-ci sont résumés dans un \textit{forest plot} \citep[Chapitre~1]{Borenstein2009}. Les études incluses sont
 en ordonnées et les \gls{es}-inter-groupes en abscisses. Chaque \gls{es}-inter-groupes est représenté par un carré dont la taille est proportionnelle
 au poids $w_k$ attribué à l'étude $k$. Les intervalles de confiance à 95\% pour chaque \gls{es}-inter-groupes sont représentés. En bas du graphique, l'\gls{est}
 est symbolisé par un diamant avec son intervalle de confiance à à 95\%. Une droite verticale d'équation $x = 0$ est tracée pour délimiter la
@@ -591,8 +591,7 @@ La réplication et la mise à jour présentées ici remplissent la majorité des
 Par ailleurs, elles ont été effectuées avec le package Python dont la fiabilité n'a été testée que sur une méta-analyse.
  
 Le travail décrit précédemment a pour but d'explorer l'impact de certains choix de \citet{Cortese2016} qui ont été débattus dans la communauté scientifique 
-\citep{Micoulaud2016}. Nous résumons ici la liste des changements, leur justification et leurs conséquences sur les résultats. Par ailleurs, l'importance de mettre 
-à jour ces analyses est étudiée.
+\citep{Micoulaud2016}. Nous résumons ici la liste des changements, leur justification et leurs conséquences sur les résultats. 
 
 \subsection{Discussion sur les résultats obtenus} \label{replication_and_update}
 
@@ -648,7 +647,24 @@ supérieure des protocoles standards.
 En ce qui concerne le sous-groupe constitué d'études qui interdisent la prise de médicaments, la seule différence avec \citep{Cortese2016} est la perte de   
 signifiance statistique de l'\gls{est} de la composante hyperactivité évaluée par les parents ($p$-value = 0.062).
 
-\subsection{Importance de la mise à jour des méta-analyses} \label{need_to_update_meta_analysis}
+\subsection{Hétérogénéité des études} 
+
+Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exemple, ceux énoncés à \ref{selection_studies}, 
+elles diffèrent tout de même sur de nombreux points, comme le nombre de sessions et la durée du traitement, limitant la fiabilité de leurs résultats 
+comme le souligne \citep{Alkoby2017}. Afin de pallier 
+cette hétérogénéité, l'analyse peut cibler une population plus précise, comme ce qui a été effectué lors de l'analyse
+des sous populations. Cependant, ce genre de restriction souffre d'une puissance statistique plus faible et regroupe encore des études fortement hétérogènes.
+En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinsèquement différents et il est probable que leur
+efficacité ne soit pas la même. 
+
+Par ailleurs, le matériel d'acquisition utilisé, ainsi que le traitement du signal varient d'une étude à l'autre, or ces points sont sans doute centraux 
+dans la performance du traitement. 
+
+De plus, aucun consensus n'existe quant au nombre de sessions ou à la durée du traitement, ainsi ces choix sont très variables d'une étude à l'autre et peu
+souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprentissage.
+
+
+\section{Importance de la mise à jour des méta-analyses} \label{need_to_update_meta_analysis}
 
 Afin d'éviter de tomber dans le \textit{p-hacking}, c'est à dire faire en sorte d'obtenir un résultat significatif, il est important de ne pas arrêter la collecte de données 
 et donc de figer les résultats une fois que la $p$-value de l'\gls{est} passe sous le seuil de signicativité de 0.05 \citep{Head2015, Coffman2015}. En effet, l'arrêt prématuré des résultats peut
@@ -809,22 +825,6 @@ sont déjà disponibles comme illustré aux figures~\ref{Figure:meta_analysis_ev
 méta-analyse sont déjà obsolètes, ce qui appelle à leur mise à jour. 
 
 Cette approche qui consiste à affiner les résultats à l'aide de nouvelles observations est l'une des bases de l'inférence bayésienne.
-
-\subsection{Hétérogénéité des études} 
-
-Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exemple, ceux énoncés à \ref{selection_studies}, 
-elles diffèrent tout de même sur de nombreux points, comme le nombre de sessions et la durée du traitement, limitant la fiabilité de leurs résultats 
-comme le souligne \citep{Alkoby2017}. Afin de pallier 
-cette hétérogénéité, l'analyse peut cibler une population plus précise, comme ce qui a été effectué lors de l'analyse
-des sous populations. Cependant, ce genre de restriction souffre d'une puissance statistique plus faible et regroupe encore des études fortement hétérogènes.
-En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinsèquement différents et il est probable que leur
-efficacité ne soit pas la même. 
-
-Par ailleurs, le matériel d'acquisition utilisé, ainsi que le traitement du signal varient d'une étude à l'autre, or ces points sont sans doute centraux 
-dans la performance du traitement. 
-
-De plus, aucun consensus n'existe quant au nombre de sessions ou à la durée du traitement, ainsi ces choix sont très variables d'une étude à l'autre et peu
-souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprentissage.
 
 \section{Conclusion}
 
