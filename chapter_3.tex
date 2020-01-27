@@ -457,7 +457,7 @@ Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs 
 	\includegraphics[width=0.7\linewidth]{figures/chapter-3/distribution-ES-within} 
   \caption{Distribution des tailles d'effet (\gls{es}) intra-groupe, une valeur négative est en faveur du Neurofeedback. Les lignes 
 	verticales noires correspondent aux bornes supérieure et 
-	inférieure de l'intervalle dans lequel les observations sont acceptées. La courbe verte est la Gaussiene ayant pour paramètres $\mu =$ la moyenne
+	inférieure de l'intervalle dans lequel les observations sont acceptées. La courbe verte est la Gaussienne ayant pour paramètres $\mu =$ la moyenne
 	de tous les \gls{es} intra-groupe et $\sigma =$ l'écart-type calculé sur tous les \gls{es} intra-groupe}
   \label{Figure:distribution_ES_within}
 \end{figure}
@@ -884,7 +884,8 @@ discuté en \ref{discussion_factors}.
   \caption{Evolution du nombre de méthodes de régression pour lesquelles les facteurs sont sélectionnés au fur et à mesure de l'ajout des études mettant à jour \citet{Bussalb2019clinical}.
 	La courbe rouge correspond au facteur "durée du traitement", la grise à "la qualité de \gls{eeg} égale à 2", la bleue au "nombre de sessions", la orange au "protocole \gls{smr}". 
 	Les carrés verts représentent les résultats de \citet{Bussalb2019clinical} et les violets ceux de la mise à jour de cet article présentée en \ref{saob_results}.
-	Le nombre de sujets inclus dans chaque nouvelle étude ajoutée ainsi que le nombrre cumulatif de sujets sont donnés sur les axes des abscisses supérieurs.}
+	Le nombre d'observations incluses dans chaque nouvelle étude ajoutée (NO) ainsi que le nombre cumulatif d'observations (NOC) sont donnés sur les axes des abscisses supérieurs.
+	et sont obtenus de la façon suivante : $\text{NOC}(n) = \text{NOC}(n - 1) + \text{NS}(n)$, avec n, allant de 1 à N, l'indice de l'étude incluse.}
   \label{Figure:factors_evolution_with_update}
 \end{figure}
 
