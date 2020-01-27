@@ -231,7 +231,7 @@ La dernière étape consiste à obtenir le \gls{tbr}, dont la méthode de calcul
 
 En effet, la façon dont est calculé le \gls{tbr} est très variable dans la littérature, ce qui conduit à des valeurs variant entre 2 et 8 pour les sujets contrôles \citep{Arns2012,
 Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses définitions du \gls{tbr} : le \gls{tbr} peut faire référence au ratio
-des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz). 
+des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz).  
 
 Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquences pour calculer le \gls{tbr} peuvent aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
 de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. 
@@ -289,8 +289,8 @@ Les \gls{tbr} sont donc normalisés suivant l'équation suivante :
 
 \subsection{Méthodes de partitionnement de la distribution des Theta-beta ratios} \label{clustering}
 
-Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois familles de méthodes de partitionnement 
-(\textit{clustering} en anglais) sont mises en place : 
+Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement, issues de familles différentes,
+(\textit{clustering} en anglais) sont appliquées aux \gls{srntbr} : 
 \begin{itemize}
 \item une qui se base sur les distributions Gaussiennes (\glsfirst{gmm} et \glsfirst{bgmm}), 
 \item une sur les distances (la méthode de Ward),
@@ -314,15 +314,16 @@ Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur
 assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \gls{tbr} 
 extraits de sujets sains de la base de données \gls{cmi-hbn} étant disponible, ces valeurs sont donc utilisées pour estimer les \textit{a priori} du \gls{bgmm}. 
 Lorsque les observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes Gaussiennes est 
-créé pour modéliser les données. Ici, les valeurs de \gls{srntbr} sont approximées par un \gls{bgmm} avec un nombre de composantes allant de 1 à 3. 
+créé pour modéliser les données. Ici, la distribution multi-modale des valeurs de \gls{srntbr} est modélisée par un \gls{bgmm} avec un nombre 
+de modes/composantes allant de 1 à 3. 
 Il en va de même pour l'algorithme du \gls{gmm}. 
 
-Il a été décidé d'avoir recours à un nombre de composantes allant de 1 à 3 pour pouvoir valider ou infirmer l'hypothèse qu'il existe deux groupes d'enfants \gls{tdah}.
+Il a été décidé d'avoir recours à un nombre de composantes variant entre 1 et 3 pour pouvoir valider ou infirmer l'hypothèse qu'il existe deux groupes d'enfants \gls{tdah}.
 En effet, le modèle à une composante va être comparé à celui à deux composantes, et celui à deux le sera à celui à trois composantes afin de déterminer quel modèle 
 représene le mieux la distribution des \gls{srntbr}. 
 
 Pour un \gls{gmm} avec $K$ composantes, la $k^{th}$ composante a une moyenne de $\mu_k$ et une variance de $\sigma_k$ dans le cas univarié. Les poids associés $\Phi_k$ aux composantes
-$C_k$ sont définis tels que $\sum_{i=1}^{K} \Phi_i = 1$ pour que la distribution de probabilité totale soit égale à 1. Mathématiquement un \gls{gmm} se traduit ainsi :
+$C_k$ sont définis tels que $\sum_{i=1}^{K} \Phi_i = 1$ pour que la distribution de probabilité totale soit égale à 1. Mathématiquement un \gls{gmm} se traduit ainsi \citep{Santosh2013} :
 \begin{equation}
 \label{eq:tbr_gmm_univariate}
 p(x) = \sum_{i=1}^{K} \Phi_i\mathcal{N}( x | \mu_i, \sigma_i),
@@ -334,7 +335,20 @@ avec :
 \label{eq:tbr_gaussian}
 \mathcal{N}( x | \mu_i, \sigma_i) = \frac{1}{\sigma_i\sqrt{2\pi}} \text{exp}\Big(-\frac{(x - \mu_i)^2}{2\sigma_i^2}\Big).
 \end{equation}
- 
+
+Si le nombre de composantes $K$ est connu, la technique d'\gls{em} est la plus couramment utilisée pour estimer les paramètres du \textit{mixture model}. L'algorithme d'\gls{em}
+cherche à maximiser la probabilité, ou \textit{likelihood}, des données observéees étant donné les paramètres du modèle. Dans le cas des \textit{mixture models}, \gls{em}
+consiste en deux étapes :
+\begin{enumerate}
+\item L'étape d'\textit{expectation} : calcul de l'\textit{expectation} de la composante $C_k$ pour chaque point $x_i \in X$ étant donné les paramètres du modèle $\Phi_k$, $\sigma_k$,
+et $\mu_k$. L'\textit{expectation} correspond à la probabilité qu'$x_i$ soit généré par la composante $C_k$,
+\item L'étape de \textit{maximization} : maximisation des \textit{expectations} calculées à la première étape afin de mettre à jour les valeurs $\Phi_k$, $\sigma_k$,
+et $\mu_k$. 
+\end{enumerate}
+
+Ce processus est répété jusqu'à ce que l'algorithme converge, menant à l'estimation de la \textit{maximum likelihood}. La même approche est suivie pour le \gls{bgmm} pour lequel 
+les informations des \textit{a priori} sont intégrées. 
+
 Afin de déterminer le nombre de composantes qui décrit le mieux la distribution des \gls{srntbr}, la significativité de la différence entre chaque 
 modèle est testée grâce à un test $\chi^2$ sur la déviance \citep{James2013}. Etant donné que dans le cas du \textit{Gaussian Mixture Model} les modèles
 sont imbriqués, c'est à dire que le deuxième modèle peut être obtenu en imposant des contraintes sur le premier modèle, le test de 
@@ -350,13 +364,33 @@ La multiplication par -2 est une étape nécessaire pour convertir la \textit{lo
 l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le seuil de significativité est fixé à $\alpha = 0.01$.
 
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
-La méthode de Ward fait partie des algorithmes de partitionnement hiérarchique \citep{Ward1963}. 
-Cet algorithme est un type d'\textit{agglomerative clustering} qui, de façon récursive, fusionne une paire de groupes 
-en minimisant la variance de ces \textit{clusters} jusqu'à obtenir un grand \textit{cluster} comprenant toutes les données.
+La méthode de Ward est un critère utilisé pour rassembler deux \textit{clusters} lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
+en anglais) \citep{Ward1963}. Ce type d'algorithme de \textit{clustering} fusionne de façon récursive deux groupes similaires, qui initiallement ne comporte qu'une seule observation, jusqu'à obtenir un
+un grand \textit{cluster} comprenant l'ensemble des données \citep{James2013}.
 
-Le nombre de clusters estimé ici par Ward varie de 1 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. Les \textit{clusters}
-identifiés par la méthode Ward sont notamment représentés sur un dendrogramme où les traits verticaux correspondent à la distance de Ward entre 
-deux \textit{clusters} : plus ces traits sont grands, plus les clusters son différents
+Un exemple schématique de ce type de partitionnement est représenté à la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example} avec six observations (A, B, C, D, E, F) :
+\begin{enumerate}
+\item \emph{Première étape :} calcul de la proximité des points individuels qui sont considérés comme des \textit{clusters},
+\item \emph{Deuxième étape :} fusion des \textit{clusters} similaires pour en former de nouveaux. Sur la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example}, B et C d'une part et D et E
+d'autre part sont des \textit{clusters} similaires et sont donc fusionnés. Il reste désormais quatre groupes : A, BC, DE et F,
+\item \emph{Troisième étape :} nouveau calcul de la proximité entre les \textit{clusters} restants et fusion de ceux qui sont similaires pour en obtenir de nouveaux : A, BC, DEF,
+\item \emph{Quatrième étape :} nouveau calcul de la proximité entre les nouveaux \textit{clusters} et fusion de ceux qui sont similaires ce qui conduit à deux groupes : A, BCDEF,
+\item \emph{Cinquième étape :} les deux clusters sont fusionnés pour en former un unique.
+\end{enumerate}
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-hierarchical-agglomerative-clustering-example} 
+  \caption{Exemple schématique des étapes de \textit{hierarchical agglomerative clustering} sur six observations : A, B, C, D, E, F.} 
+	\label{Figure:tbr_hierarchical_agglomerative_clustering_example} 
+\end{figure}
+
+Plusieurs méthodes existent pour quantifier la proximité de deux \textit{clusters}, ici on se base sur la méthode de Ward qui minimise la variance des deux groupes qui sont en train
+d'être fusionnés.
+
+Le nombre de clusters estimé par cette méthode varie de 1 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. Les \textit{clusters}
+identifiés par la méthode de Ward sont notamment représentés par dendrogramme où les traits verticaux correspondent à la distance de Ward entre 
+deux \textit{clusters} : plus ces traits sont grands, plus les clusters son différents.
 
 \subsubsection{Partitionnement basé sur les densités : DBSCAN}
 \gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. 
@@ -659,7 +693,12 @@ Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car ell
 \subsection{Variabilité du calcul des Theta-Beta ratios} 
 
 Comme souligné en \ref{tbr_computation}, la façon dont est calculé le \gls{tbr} est très variable dans la littérature. En effet diverses définitions du \gls{tbr} existent :
-il peut être un ratio des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz) \citep{Leichti2012, Schuttle2017}. 
+il peut être un ratio des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz) 
+\citep{Leichti2012, Schuttle2017}. 
+
+De plus, pour une même définition, différents algorithmes de calcul peuvent être utilisés ce qui mène à des écarts entre les valeurs de \gls{tbr}. En 
+effet, \citet{Kerson2019} ont montré que la façon dont est gérée la fuite spectrale (\textit{spectral leakage} en anglais), c'est à dire que la puissance
+sur une fréquence donnée se disperse sur d'autres fréquences, est une des principales raisons de l'écart entre deux valeurs de \gls{tbr}. 
 
 Par ailleurs, la définition des bandes de fréquences pour calculer le \gls{tbr} peuvent aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
 de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. Ainsi, pour pouvoir comparer les valeurs de \gls{tbr} provenant de différentes
