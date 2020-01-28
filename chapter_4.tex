@@ -340,9 +340,9 @@ Si le nombre de composantes $K$ est connu, la technique d'\gls{em} est la plus c
 cherche à maximiser la probabilité, ou \textit{likelihood}, des données observéees étant donné les paramètres du modèle. Dans le cas des \textit{mixture models}, \gls{em}
 consiste en deux étapes :
 \begin{enumerate}
-\item L'étape d'\textit{expectation} : calcul de l'\textit{expectation} de la composante $C_k$ pour chaque point $x_i \in X$ étant donné les paramètres du modèle $\Phi_k$, $\sigma_k$,
+\item Etape d'\textit{expectation} : calcul de l'\textit{expectation} de la composante $C_k$ pour chaque point $x_i \in X$ étant donné les paramètres du modèle $\Phi_k$, $\sigma_k$,
 et $\mu_k$. L'\textit{expectation} correspond à la probabilité qu'$x_i$ soit généré par la composante $C_k$,
-\item L'étape de \textit{maximization} : maximisation des \textit{expectations} calculées à la première étape afin de mettre à jour les valeurs $\Phi_k$, $\sigma_k$,
+\item Etape de \textit{maximization} : maximisation des \textit{expectations} calculées à la première étape afin de mettre à jour les valeurs $\Phi_k$, $\sigma_k$,
 et $\mu_k$. 
 \end{enumerate}
 
@@ -385,18 +385,28 @@ d'autre part sont des \textit{clusters} similaires et sont donc fusionnés. Il r
 	\label{Figure:tbr_hierarchical_agglomerative_clustering_example} 
 \end{figure}
 
-Plusieurs méthodes existent pour quantifier la proximité de deux \textit{clusters}, ici on se base sur la méthode de Ward qui minimise la variance des deux groupes qui sont en train
-d'être fusionnés.
+Plusieurs méthodes existent pour quantifier la proximité de deux \textit{clusters}, ici on se base sur la méthode de Ward qui minimise 
+la variance des deux groupes qui sont fusionnés fusionnés \citep{Ward1963}.
 
 Le nombre de clusters estimé par cette méthode varie de 1 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. Les \textit{clusters}
 identifiés par la méthode de Ward sont notamment représentés par dendrogramme où les traits verticaux correspondent à la distance de Ward entre 
-deux \textit{clusters} : plus ces traits sont grands, plus les clusters son différents.
+deux \textit{clusters} : plus ces traits sont grands, plus les clusters sont différents.
 
 \subsubsection{Partitionnement basé sur les densités : DBSCAN}
 \gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. 
 Deux paramètres sont nécessaires pour permettre à l'algorithme de partitionner la donnée : la distance $\epsilon$ et le nombre minimum de points 
-$MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un \textit{cluster}. 
-Le choix du $MinPts$ peut se faire grâce une méthode heuristique :
+$MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un \textit{cluster}.
+ 
+Pour un point donné, l'algorithme récupère son voisinage dans un rayon $\epsilon$ et vérifie qu'il contient bien au moins $MinPt$s points, auquel cas, 
+ce point est alors considéré comme faisant partie d'un \textit{cluster}. On parcourt ensuite le voisinage 
+dans un rayon $\epsilon$ de proche en proche afin de trouver l'ensemble des points du \textit{cluster}.
+
+Afin de choisir les valeurs des paramètres $\epsilon$ et $MinPts$, la topologie de l'espace à partitionner est à prendre en compte. En effet, une 
+trop faible valeur de $\epsilon$  et/ou une trop grande valeur de$MinPts$ peuvent empêcher 
+l'algorithme de propager les clusters. A l'inverse, une trop grande valeur pour $\epsilon$  
+et/ou une trop faible valeur pour $MinPts$ peuvent conduire l'algorithme à ne renvoyer que du bruit. 
+ 
+Ici, $MinPts$ est déterminé grâce une méthode heuristique \citep{Birant2007} :
 \begin{equation}
 \label{eq:tbr_dbscan}
 MinPts = ln(\text{n}),
@@ -404,11 +414,22 @@ MinPts = ln(\text{n}),
 avec n le nombre total de points à être partitionnés.
 
 Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le graphique des \textit{k-distance} obtenu par la méthode des k plus proches voisins 
-(\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005}. Le principe de cette méthode
+(\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005, Ester1996}. Le principe de cette méthode
 est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance (ici de Minkowski) d'un nouveau point et de prédire la classe de ce dernier. 
-Le graphique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à un des k points classées par ordre décroissant. 
+
+Le graphique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à son voisin le plus éloigné 
+lors du partitionnement par \gls{knn}. Les distances obtenues sont ensuite classées par ordre décroissant. 
 Ainsi, étant donné que les points bruités sont censés avoir une \textit{k-distance} bien plus élevée que celle des autres points, on peut 
-s'attendre à observer un coude sur ce tracé : l'ordonnée de ce point correspond à $\epsilon$.
+s'attendre à observer un changement de pente, un "coude", sur ce tracé : l'ordonnée de ce point correspond à $\epsilon$. Un \textit{k-distance plot}
+obtenu sur des données factices est présenté à la Figure~\ref{Figure:tbr_k_distance_plot_example} pour illustrer comment est déterminé $\epsilon$. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-k-distance-plot-example} 
+  \caption{Exemple de \textit{k-distance plot} sur des données factices. Les observations ayant une \textit{k-distance} élevée sont potentiellement
+	des outliers. L'observation représentée par une croix rouge correspond au "coude" dont l'abscisse correspond à $\epsilon$.} 
+	\label{Figure:tbr_k_distance_plot_example} 
+\end{figure}
 
 Le \textit{silhouette coefficient} est utilisé pour rendre compte de la qualité du partitionnement : -1 est la pire valeur, 1 la meilleure et 0
 correspond à des \textit{clusters} qui se superposent.
@@ -506,7 +527,7 @@ Les résultats des \gls{bgmm} avec un nombre de composantes allant de 1 à 3 son
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-bgmm} 
   \caption{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec \textbf{A)} 1-mode, \textbf{B)} 2-modes et \textbf{C)} 3-modes du \gls{bgmm} superposés. $P$-value (1-2) correspond
 	à la $p$-value du test de déviance comparant les \gls{bgmm} à 1 mode et 2 modes ; $p$-value (2-3) correspond à la $p$-value du test de déviance comparant les \gls{bgmm}
-	à 2 modes et 3 modes. Significativité symbolisée par ** (seuil fixé à 0.01). Le seuil \gls{srntbr} est précisé pour le modèle à 2 composantes et représenté par un cercle rouge.}
+	à 2 modes et 3 modes. Significativité symbolisée par ** (seuil fixé à 0.01). Le seuil \gls{srntbr} est précisé pour le modèle à 2 composantes et représenté par un cercle bleu.}
   \label{Figure:tbr_bgmm} 
 \end{figure}
 
@@ -520,37 +541,38 @@ entre le modèle à 1 mode (modèle nul) et à 2 modes = 0.002). Ainsi, les \tex
 représenter la donnée. 
 
 \subsubsection{Méthode de Ward}
-Tout d'abord, les résultats d'un partitionnement suivant la méthode de Ward sont représentés sur le dendrogramme présenté à la 
+Tout d'abord, les résultats d'un partitionnement hiérarchique agglomérant basé sur la distance de Ward sont représentés sur le dendrogramme présenté à la 
 Figure~\ref{Figure:tbr_ward_dendrogram}. 
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.5\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
+	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
   \caption{Dendrogramme représentant le partitionnement obtenu suivant la méthode de Ward. Tous les liens connectant des noeuds avec des distances plus 
-	grandes ou égales à un seuil fixé à 6 sont colorés en bleu. Les deux clusters définis par les deux noeuds en dessous de ce seuil de 6 sont colorés différemment.}
+	grandes ou égales à un seuil fixé arbitrairement à 6 sont colorés en bleu. Les deux clusters définis par les deux noeuds en dessous de ce seuil de 6 sont colorés différemment.}
   \label{Figure:tbr_ward_dendrogram}
 \end{figure}
 
 Cette représentation permet de supposer que les données pourraient être séparées en 2 \textit{clusters} (en rouge et vert) 
-mais aussi en 3 (2 verts et 1 rouge). Les résultats d'un partitionnement en 2 et 3 \textit{clusters} sont représentés à la Figure~\ref{Figure:tbr_ward_histograms}.
+mais aussi en 3 (2 verts et 1 rouge). Les résultats d'un partitionnement en 2 et 3 \textit{clusters} sont représentés 
+à la Figure~\ref{Figure:tbr_ward_histograms}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-histogram-ward} 
-  \caption{Distribution des \gls{srntbr} répartis en \textbf{A)} : 2 \textit{clusters} (rouge et jaune) et \textbf{B)} : 3 \textit{clusters} 
-	(vert, rouge et jaune). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointillés rouges sur la 
+  \caption{Distribution des \gls{srntbr} répartis en \textbf{A)} : 2 \textit{clusters} (vert et rouge) et \textbf{B)} : 3 \textit{clusters} 
+	(vert, rouge et orange). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointillés bleus sur la 
 	figure \textbf{A}.}
   \label{Figure:tbr_ward_histograms}
 \end{figure}
 
-Dans le cas du partitionnement en 3 groupes, le groupe des \gls{srntbr} élevés est toujours identifié (en jaune), le troisième groupe est formé dans 
+Dans le cas du partitionnement en 3 groupes, le groupe des \gls{srntbr} élevés est toujours identifié (en rouge), le troisième groupe est formé dans 
 la sous population des \gls{srntbr} plus faibles. 
 
 \subsubsection{DBSCAN}
 
 Les paramètres $MinPts$ et $\epsilon$ de l'algorithme \gls{dbscan} sont tout d'abord calculés. Etant donné qu'ici $MinPts = 6$, 
-l'algorithme des \gls{knn} prend $k = 6$, on obtient alors le graphique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
-où un coude est observé à $y = 0.048$, valeur choisie pour $\epsilon$.
+l'algorithme des \gls{knn} prend $k = 6$ : on obtient alors le graphique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
+où un coude est observé à $y = 0.048$ (valeur déterminée visuellemennt), valeur choisie pour $\epsilon$.
 
 \begin{figure}[h!]
   \centering
@@ -561,7 +583,7 @@ où un coude est observé à $y = 0.048$, valeur choisie pour $\epsilon$.
 
 Le partitionnement par \gls{dbscan} est représenté à Figure~\ref{Figure:tbr_dbscan_clustering_plot} : deux groupes (en rouge et jaune) et 13 
 points considérés comme du bruit et donc attribués à aucun groupe (en noir) sont identifiés. Le \textit{silhouette coefficient} de $\text{s} = 0.388$
-indique un partitionnement convenable mais dont les groupes sont proches l'un de l'autre. 
+indique un partitionnement convenable, car plus grande que 0, mais dont les groupes sont proches l'un de l'autre. 
 
 \begin{figure}[h!]
   \centering
