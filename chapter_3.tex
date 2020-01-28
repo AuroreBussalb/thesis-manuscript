@@ -855,7 +855,7 @@ davantage d'informations.
 
 A l'inverse la présence d'une phase de transfert est désormais sélectionnée par les trois méthodes.
 
-\subsubsection{Etude de l'évolution du nombre de méthodes sélectionnant un facteur entre les résultats de \citet{Bussalb2019clinical} et ceux de sa mise à jour}
+\subsubsection{Etude de l'évolution du nombre de méthodes sélectionnant un facteur entre les résultats de \citet{Bussalb2019clinical} et ceux de sa mise à jour} \label{evolution_methods}
 Afin de mettre évidence la fluctuation des résultats, la même approche que celle décrite en \ref{chapitre-2} est suivie ici : l'évolution du nombre de méthodes de régression pour 
 lesquelles un facteur est sélectionnné au fur et à mesure de l'ajout,
 selon leur année de publication, des nouvelles études mettant à jour \citet{Bussalb2019clinical} est étudiée. 
@@ -878,14 +878,18 @@ parmi les protocoles d'entrainenemt retourné par aucune méthode pour mettre en
 discuté en \ref{discussion_factors}.
 \end{itemize}
 
+Afin de mettre en évidence le nombre croissant d'observations avec l'ajout de nouvelles études dans la \gls{saob}, le nombre d'observations 
+incluses dans chaque nouvelle étude ajoutée (NO) ainsi que le nombre cumulatif d'observations (NOC) sont donnés sur les axes des abscisses supérieurs.
+Ils sont obtenus de la façon suivante : $\text{NOC}(n) = \text{NOC}(n - 1) + \text{NS}(n)$, avec n, allant de 1 à N, l'indice de l'étude incluse.
+
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-evolution-with-update} 
   \caption{Evolution du nombre de méthodes de régression pour lesquelles les facteurs sont sélectionnés au fur et à mesure de l'ajout des études mettant à jour \citet{Bussalb2019clinical}.
 	La courbe rouge correspond au facteur "durée du traitement", la grise à "la qualité de \gls{eeg} égale à 2", la bleue au "nombre de sessions", la orange au "protocole \gls{smr}". 
 	Les carrés verts représentent les résultats de \citet{Bussalb2019clinical} et les violets ceux de la mise à jour de cet article présentée en \ref{saob_results}.
-	Le nombre d'observations incluses dans chaque nouvelle étude ajoutée (NO) ainsi que le nombre cumulatif d'observations (NOC) sont donnés sur les axes des abscisses supérieurs.
-	et sont obtenus de la façon suivante : $\text{NOC}(n) = \text{NOC}(n - 1) + \text{NS}(n)$, avec n, allant de 1 à N, l'indice de l'étude incluse.}
+	Le nombre d'observations incluses dans chaque nouvelle étude ajoutée ainsi que le nombre cumulatif d'observations sont donnés sur les axes des abscisses supérieurs.
+	La façon dont est calculé le nombre cumulatif d'observations incluses est décrite en \ref{evolution_methods}.}
   \label{Figure:factors_evolution_with_update}
 \end{figure}
 
@@ -911,7 +915,7 @@ souffre du peu d'informations fourni par les études à ce sujet, mais étant do
 communauté du \gls{nfb} à être le plus transparent possible quant au matériel utilisé \citep{Ros2019}, il sera sans doute possible d'étudier plus précisément
 son impact lors de futures analyses.
 
-Alors que les trois facteuts précédents sont en faveur de l'efficacité du \gls{nfb}, l'influence négative de la présence d'une phase de transfert sur laquelle sont d'accord les trois méthodes, 
+Alors que les trois facteurs précédents sont en faveur de l'efficacité du \gls{nfb}, l'influence négative de la présence d'une phase de transfert sur laquelle sont d'accord les trois méthodes, 
 démontre plutôt un effet placebo. 
 
 Alors que ces résultats contribuent certainement au débat, ce travail montre également que l'ultime démonstration de la preuve de l'efficacité du \gls{nfb}
@@ -919,8 +923,13 @@ appliqué aux enfants \gls{tdah} n'est pas encore atteinte, étant donné que le
 l'effet placebo. Par conséquent, se référer aux résultats des évaluateurs \gls{pblind} pour mettre en évidence la spécificité de l'efficacité clinique n'est pas 
 recommandé : il serait préférable d'avoir recours au sham-\gls{nfb} et à l'analyse des changements de l'\gls{eeg} en fonction des neuromarqueurs entrainés.
 
-Comme l'a montré la mise à jour des résultats de la \gls{saob}, les conclusions de cette analyse peuvent encore évoluer. Au vu du nombre important 
-d'études publiées sur le \gls{nfb} appliqué aux enfants \gls{tdah}, certains facteurs vont pouvoir finir par être inclus dans la \gls{saob}, comme par exemple 
+Comme l'a montré la mise à jour des résultats de la \gls{saob}, les conclusions de cette analyse peuvent encore évoluer. Pour qu'elles se stabilisent, 
+davantage d'observations sont nécessaires : une façon de résoudre ce problème serait d'inclure dans la \gls{saob} tous les articles sur l'efficacité du 
+\gls{nfb} sans tenir compte de son application. Une telle \gls{saob} n'aurait pas pour but de déterminer les facteurs ayant une influence sur 
+l'efficacité du \gls{nfb} sur les enfants \gls{tdah} comme c'est le cas dans ce chapitre, mais ceux ayant une influence en général sur 
+l'efficacité du \gls{nfb}, quelle que soit son application. 
+
+Au vu du nombre important d'études publiées sur le \gls{nfb} appliqué aux enfants \gls{tdah}, certains facteurs vont pouvoir finir par être inclus dans la \gls{saob}, comme par exemple 
 l'individualisation du protocole de \gls{nfb} qui semble prometteuse. Le chapitre suivant va justement s'intéresser à la distribution d'un marqueur de l'attention, 
 le \gls{tbr}, au sein d'une large population afin de déterminer si une personnalisation basée sur ce neuromarqueur est envisageable.
 
