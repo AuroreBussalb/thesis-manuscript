@@ -123,7 +123,7 @@ Le seul pré-traitement que nécessitent les signaux de la base de données NEWR
 \item un filtre Butterworth coupe-bande d'ordre 3 de 47 à 53Hz afin d'enlever l'artefact causé par les lignes électriques.
 \end{itemize}
 
-\subsubsection{Bases de données CMI}
+\subsubsection{Bases de données CMI} \label{treatment_cmi_databases}
 
 Le pré-traitement des bases de données \gls{cmi-mipdb} et \gls{cmi-hbn} demande plus d'étapes : filtrage temporel, suppression et 
 interpolation des canaux bruités et/ou déconnectés, et une interpolation spatiale afin de passer d'un espace à 128 électrodes \gls{egi},
@@ -337,7 +337,7 @@ avec :
 \end{equation}
 
 Si le nombre de composantes $K$ est connu, la technique d'\gls{em} est la plus couramment utilisée pour estimer les paramètres du \textit{mixture model}. L'algorithme d'\gls{em}
-cherche à maximiser la probabilité, ou \textit{likelihood}, des données observéees étant donné les paramètres du modèle. Dans le cas des \textit{mixture models}, \gls{em}
+cherche à maximiser la probabilité, ou \textit{likelihood}, des données observéees étant donné les paramètres du modèle. Dans le cas des \textit{mixture models}, l'\gls{em}
 consiste en deux étapes :
 \begin{enumerate}
 \item Etape d'\textit{expectation} : calcul de l'\textit{expectation} de la composante $C_k$ pour chaque point $x_i \in X$ étant donné les paramètres du modèle $\Phi_k$, $\sigma_k$,
@@ -366,7 +366,7 @@ l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
 La méthode de Ward est un critère utilisé pour rassembler deux \textit{clusters} lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
 en anglais) \citep{Ward1963}. Ce type d'algorithme de \textit{clustering} fusionne de façon récursive deux groupes similaires, qui initiallement ne comporte qu'une seule observation, jusqu'à obtenir un
-un grand \textit{cluster} comprenant l'ensemble des données \citep{James2013}.
+grand \textit{cluster} comprenant l'ensemble des données \citep{James2013}.
 
 Un exemple schématique de ce type de partitionnement est représenté à la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example} avec six observations (A, B, C, D, E, F) :
 \begin{enumerate}
@@ -386,11 +386,31 @@ d'autre part sont des \textit{clusters} similaires et sont donc fusionnés. Il r
 \end{figure}
 
 Plusieurs méthodes existent pour quantifier la proximité de deux \textit{clusters}, ici on se base sur la méthode de Ward qui minimise 
-la variance des deux groupes qui sont fusionnés fusionnés \citep{Ward1963}.
+la variance des deux groupes qui sont fusionnés \citep{Ward1963}.
 
-Le nombre de clusters estimé par cette méthode varie de 1 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. Les \textit{clusters}
-identifiés par la méthode de Ward sont notamment représentés par dendrogramme où les traits verticaux correspondent à la distance de Ward entre 
-deux \textit{clusters} : plus ces traits sont grands, plus les clusters sont différents.
+Le nombre de clusters estimé par cette méthode varie de 1 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. 
+
+Ce partionnement hierarchique agglomérant est représenté par un dendrogramme, dont un exemple est donné à la 
+Figure~\ref{Figure:tbr_dendrogram_example}. Il s'agit d'un arbre souvent renversé dont l'analyse visuelle 
+peut aider à choisir le nombre de \textit{clusters} à identifier \citep{James2013}.
+Chaque feuille de l'arbre correspond à une observation et, plus on remonte dans l'arbre, plus les feuilles se regroupent en branches lorsque elles 
+sont similaires. Ensuite, les branches fusionnent avec d'autres branches ou feuilles similaires. Plus la fusion entre deux groupes a lieu tôt, c'est à dire en bas de
+l'arbre, plus ceux-ci se ressemblent. La similitude entre deux groupes est mise en évidence par l'axe des ordonnées de l'arbre :
+plus le trait vertical d'un dendrogramme est grand, plus les groupes fusionnés sont différents. Ici l'axe des ordonnées correspond à la distance de Ward.
+
+Afin de se donner une idée du nombre de \textit{clusters} à identifier, des lignes horizontales coupant les lignes verticales du dendrogramme peuvent être
+tracées : le nombre de ligne verticales coupées correspond au nombre de \textit{clusters} comme illustré à la Figure~\ref{Figure:tbr_dendrogram_example}.
+Le plus souvent, il est choisi de tracer les lignes horizontales de façon à ce qu'elles coupent les plus longs traits verticaux du dendrogramme, 
+toutefois un tel choix peut manquer de précision \citep{James2013}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-example} 
+  \caption{Exemples de dendrogramme issus de \citet{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A} le dendrogramme est coupé
+	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux \textit{clusters} (un rose et un vert). En \textbf{B} le dendrogramme
+	est coupé à une hauteur de 5 menant cette fois-ci à trois \textit{clusters} (en rose, jaune et vert).} 
+	\label{Figure:tbr_dendrogram_example} 
+\end{figure}
 
 \subsubsection{Partitionnement basé sur les densités : DBSCAN}
 \gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. 
@@ -546,15 +566,16 @@ Figure~\ref{Figure:tbr_ward_dendrogram}.
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
-  \caption{Dendrogramme représentant le partitionnement obtenu suivant la méthode de Ward. Tous les liens connectant des noeuds avec des distances plus 
-	grandes ou égales à un seuil fixé arbitrairement à 6 sont colorés en bleu. Les deux clusters définis par les deux noeuds en dessous de ce seuil de 6 sont colorés différemment.}
+	\includegraphics[width=1\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
+  \caption{Dendrogrammes représentant le partitionnement obtenu suivant la méthode de Ward. En \textbf{A}, tous les liens connectant des noeuds 
+	avec des distances plus grandes ou égales à un seuil fixé à 6 (représenté en pointillés noirs) sont colorés en bleu, ce qui mène à deux \textit{clusters}	
+	(un vert et un rouge). En \textbf{B}, le seuil est fixé à 4, conduisant à trois \textit{clusters}.}
   \label{Figure:tbr_ward_dendrogram}
 \end{figure}
 
 Cette représentation permet de supposer que les données pourraient être séparées en 2 \textit{clusters} (en rouge et vert) 
-mais aussi en 3 (2 verts et 1 rouge). Les résultats d'un partitionnement en 2 et 3 \textit{clusters} sont représentés 
-à la Figure~\ref{Figure:tbr_ward_histograms}.
+mais aussi en 3 (en vert, rouge et orange). Les résultats d'un partitionnement en 2 et 3 \textit{clusters} sont représentés 
+à la Figure~\ref{Figure:tbr_ward_histograms} sous forme d'histogrammes.
 
 \begin{figure}[h!]
   \centering
@@ -570,9 +591,9 @@ la sous population des \gls{srntbr} plus faibles.
 
 \subsubsection{DBSCAN}
 
-Les paramètres $MinPts$ et $\epsilon$ de l'algorithme \gls{dbscan} sont tout d'abord calculés. Etant donné qu'ici $MinPts = 6$, 
+Les paramètres $MinPts$ et $\epsilon$ de l'algorithme \gls{dbscan} sont tout d'abord déterminés. Etant donné qu'ici $MinPts = 6$, 
 l'algorithme des \gls{knn} prend $k = 6$ : on obtient alors le graphique des distances k présenté à la Figure~\ref{Figure:tbr_dbscan_kdistance_plot}, 
-où un coude est observé à $y = 0.048$ (valeur déterminée visuellemennt), valeur choisie pour $\epsilon$.
+où un coude est observé à $y = 0.048$. Cette valeur, identifiée visuellement, est choisie pour $\epsilon$.
 
 \begin{figure}[h!]
   \centering
@@ -581,20 +602,21 @@ où un coude est observé à $y = 0.048$ (valeur déterminée visuellemennt), va
   \label{Figure:tbr_dbscan_kdistance_plot}
 \end{figure}
 
-Le partitionnement par \gls{dbscan} est représenté à Figure~\ref{Figure:tbr_dbscan_clustering_plot} : deux groupes (en rouge et jaune) et 13 
+Le partitionnement par \gls{dbscan} est représenté à Figure~\ref{Figure:tbr_dbscan_clustering_plot} : deux groupes (en rouge et vert) et 13 
 points considérés comme du bruit et donc attribués à aucun groupe (en noir) sont identifiés. Le \textit{silhouette coefficient} de $\text{s} = 0.388$
-indique un partitionnement convenable, car plus grande que 0, mais dont les groupes sont proches l'un de l'autre. 
+indique un partitionnement convenable, car beaucoup plus grand que -1, mais dont les groupes sont proches l'un de l'autre. 
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dbscan-clustering-plot} 
-  \caption{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en jaune et rouge) et 13 points sont considérés comme du bruit (en noir).
-	En \textbf{A)} le partitionnement est représenté par un nuage de points et en \textbf{B)} sous forme d'histogramme. Le seuil \gls{srntbr} est représenté par 
-	la droite verticale en pointillés rouges en \textbf{B)}.}
+  \caption{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en vert et rouge) et 13 points sont considérés comme du bruit (en noir).
+	En \textbf{A} le partitionnement est représenté par un nuage de points et en \textbf{B} sous forme d'histogramme. Le seuil \gls{srntbr} est représenté par 
+	la droite verticale en pointillés bleus en \textbf{B}. En \textbf{A} les observations ont été ordonnées de façon à ce que toutes celles du \textit{cluster} des \gls{tbr} élevés 
+	soient regroupées.}
   \label{Figure:tbr_dbscan_clustering_plot}
 \end{figure}
 
-Le groupe de \gls{srntbr} élevés (en jaune) contient peu d'observations et est très dense : ces valeurs varient peu d'un sujet à l'autre.
+Le groupe de \gls{srntbr} élevés (en rouge) contient peu d'observations et est très dense : ces valeurs varient peu d'un sujet à l'autre.
 
 
 \subsection{Seuils identifiés}
@@ -647,6 +669,13 @@ Trois méthodes de partitionnement différentes ont été utilisées afin de dé
 le seuil à partir duquel le \gls{tbr} est considéré comme élevé est calculé. Ces résultats sont discutés ici puis les limites de cette analyse sont 
 explorées.
 
+\subsection{Pré-traitement des données \gls{eeg}}
+
+Les 363 sujets \gls{tdah} inclus dans cette étude proviennent de différentes bases de données, leurs signaux \gls{eeg} ont donc dû être homogénéisés 
+en suivant les étapes décrites en \ref{pré-traitement TBR}. Lors du traitement des signaux issus des bases de données du \gls{cmi}, des canaux ont 
+été rejetés et interpolés : il aurait été intéressant de rapporter le nombre de ces canaux ainsi que d'évaluer la qualité de l'interpolation, notamment 
+en comparant dans les spectres en fréquence des signaux gardés et de ceux qui ont été rejetés. 
+
 \subsection{Groupes et seuils identifiés}
 
 \subsubsection{Groupes d'enfants \gls{tdah}}
@@ -662,18 +691,36 @@ des valeurs de \gls{tbr}, ce qui indique qu'il existerait deux groupes distincts
 Cette conclusion obtenue avec le partitionnement par \gls{bgmm} est confirmée par les résultats du \gls{gmm} qui, par ailleurs, valident le choix de 
 l'\textit{a priori} du \gls{bgmm}. 
 
+Il est important de rappeler qu'ici il a été choisi d'estimer la distribution des données par des Gaussiennes suite à la vérification que la distribution des 
+\gls{srntbr} est bien normale.
+
 L'\textit{agglomerative clustering} basé sur la distance de Ward montre que l'ensemble des données peut être réparti 
 en deux ou trois groupes. Lors du partitionnement en deux groupes, un \textit{cluster} correspondant aux \gls{tbr} élevés et comprenant 29\% de la donnée
 est identifié. Ce \textit{cluster} est toujours identifié lorsque le partitionnement se fait en trois groupes : le nouveau groupe est formé dans la sous-population
-des \gls{tbr} plus faibles. La méthode de Ward a déjà été utilisée lors de recherches 
-précédentes sur l'identification de sous-groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. 
+des \gls{tbr} plus faibles. 
+
+La méthode de Ward a déjà été utilisée lors de recherches 
+précédentes sur l'identification de sous-groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. Dans cette étude le partitionnement
+se basait sur les puissances totales et relatives dans les bandes de fréquence delta (1.5 - 3.5 Hz), thêta (3.5 - 7.5 Hz), alpha (7.5 - 12.5 Hz) et bêta 
+(12.5 - 25 Hz) isolées dans les zones frontales, temporales et centrales et aussi sur l'âge des sujets. Quatre groupes ont été ientifiés : 
+\begin{itemize}
+\item \emph{Premier groupe :} activité bêta élevée,
+\item \emph{Deuxième groupe :} activité thêta élevée avec peu d'alpha et bêta,
+\item \emph{Troisième groupe :} activité des ondes lentes élevées et faible activité des ondes rapides,
+\item \emph{Quatrième groupe :} activité alpha élevée,
+\end{itemize}
+
+Ainsi, un groupe d'enfants \gls{tdah} au \gls{tbr} élevé a également été identifié par \citet{Clarke2011}.
 
 L'algorithme \gls{dbscan} conduit également à deux \textit{clusters}, dont l'un correspond aux \gls{tbr} élevés avec un \textit{silhouette score} de 0.388 
 qui permet d'être assez confiant dans le partitionnement retourné. Parmi les 13 points attribués à 
 aucune classe, 9 correspondent à des sujets ayant un \gls{tbr} élevé. La possibilité qu'a cet algorithme de considérer certains points comme bruités, conduit à
 une classe de \gls{tbr} élevés très dense. 
 
-Par conséquent ces deux dernières méthodes semblent confirmer les résultats du \gls{bgmm} quant à l'existence d'un groupe de \gls{tbr} élevés, ce qui permet 
+Toutefois, il faut garder à l'esprit que le paramètre $\epsilon$ du \gls{dbscan} a été déterminé visuellement : cette valeur peut donc facilement varier et conduire à
+un nombre différent de \textit{clusters} identifiés. 
+
+En conclusion, ces deux dernières méthodes semblent confirmer les résultats du \gls{bgmm} quant à l'existence d'un groupe de \gls{tbr} élevés, ce qui permet 
 d'apporter de nouvelles preuves à l'hétérogénéité du \gls{tdah} déjà évoquée dans la littérature \citep{Arns2008, Arns2012, Barry2003, Clarke2011, 
 Liechti2013, Loo2013, Loo2018}.
 
@@ -706,7 +753,10 @@ Au moment de choisir un seuil pour attribuer le protocole d'entrainement par \gl
 En effet, optimiser l'\gls{acc} revient à utilser le seuil du \gls{bgmm} de 3.7. Cependant, si on suppose que le protocole de diminution du \gls{tbr} est plus 
 efficace pour les patients dans le groupe des \gls{tbr} élevés tandis que le protocole alternatif est efficace de la même façon pour tous les patients, il 
 serait préférable de minimiser le \gls{fpr} plutôt que de maximiser l'\gls{acc}. Si on fixe raisonnablement un seuil menant à 10\% de \gls{fpr}, un seuil de 4.1
-est obtenu, résultant en un \gls{tpr} de 67\% et une \gls{acc} de 78\%. Ainsi, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
+est obtenu, résultant en un \gls{tpr} de 67\% et une \gls{acc} de 78\%. Cette valeur de seuil a été choisie car un faible \gls{fpr} est intéressant pour traiter 
+les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec un protocole adapté à leur profil \gls{eeg}, comme la diminution du \gls{tbr}.
+
+Au vu de ces réultats, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
 les protocoles d'entrainement du fait de son bon équilibre entre un faible \gls{fpr} et une \gls{acc} et un \gls{tpr} élevés. 
 
 Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car elles n'ont pas été obtenues à l'aide d'un \textit{gold standard} mais grâce au \gls{bgmm}
@@ -716,7 +766,7 @@ Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car ell
 
 Comme souligné en \ref{tbr_computation}, la façon dont est calculé le \gls{tbr} est très variable dans la littérature. En effet diverses définitions du \gls{tbr} existent :
 il peut être un ratio des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz) 
-\citep{Leichti2012, Schuttle2017}. 
+\citep{Liechti2013}. 
 
 De plus, pour une même définition, différents algorithmes de calcul peuvent être utilisés ce qui mène à des écarts entre les valeurs de \gls{tbr}. En 
 effet, \citet{Kerson2019} ont montré que la façon dont est gérée la fuite spectrale (\textit{spectral leakage} en anglais), c'est à dire que la puissance
@@ -730,7 +780,8 @@ et une bande beta à [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz]. Ces intervalles ont
 
 Il est important de souligner que les résultats de cette étude sont comparés à ceux où les \gls{tbr} sont calculés à partir de bandes de fréquence standards
 les yeux fermés \citep{Zhang2017, Clarke2011}. Ces valeurs de \gls{tbr} sont donc différentes, mais nous supposons que les tendances dans la distribution et le
-partitionnement obtenues ici doivent y être observées.
+partitionnement obtenues ici doivent y être observées. Le choix d'effectuer nos analyses sur des données \gls{eeg} enregistrées les yeux ouverts est dû à l'indisponibilté
+de telles données obtenues les yeux fermés.
 
 \subsection{Analyse des facteurs de confusion}
 
@@ -759,14 +810,14 @@ avec l'âge des enfants \citep{Liechti2013, Snyder2015, Perone2018}. De plus, le
 qu'il existe une différence significative entre l'âge des enfants du groupe de \gls{tbr} plus faibles et celui des enfants au \gls{tbr} élevé définis avec 
 le seuil de 3.7 du \gls{bgmm} à deux composantes
 ($p\text{-value} = 2.30e-15$\text{,} $U = 22 104$, avec les âges médians $\pm$ l'ecart absolu médian de chaque groupe : 8.0$\pm$1.57 et 10.1$\pm$2.43). Par ailleurs, lorsqu'on trace
-la distribution des âges dans chaque groupe représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que plus les sujets sont âgés, plus leur 
-\gls{tbr} semble faible.
+la distribution des âges dans chaque groupe représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que le groupe de \gls{tbr} plus faibles (en vert) comportent 
+davantage de sujets âges que le groupe de \gls{tbr} élevé (en rouge). 
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.5\linewidth]{figures/chapter-4/tbr-age-distribution} 
+	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-age-distribution} 
   \caption{Comparaison des distributions normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes. La distribution
-	en rouge correspond aux sujets inclus dans le groupe des valeurs de \gls{tbr} normales et celle en jaune au groupe dont les valeurs sont élevées.}
+	en rouge correspond aux sujets inclus dans le groupe des valeurs de \gls{tbr} élevées et celle en vert au groupe dont les valeurs sont normales.}
   \label{Figure:tbr_age_distribution}
 \end{figure}
 
@@ -780,13 +831,11 @@ Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge
 études sur le \gls{tbr} devront corriger les valeurs de \gls{tbr} de façon à ce qu'elles ne soient pas affectées par l'âge des patients.
 
 \subsubsection{Autres facteurs de confusion}
-% trouver des refs
-Les principaux facteurs de confusion ont été explorés, cependant il en existe d'autres qu'il n'est ici pas possible d'étudier faute de disponibilité des données.
+
+Deux facteurs de confusion ont été explorés, cependant il en existe d'autres qu'il n'est ici pas possible d'étudier faute de disponibilité des données.
 En particulier même si tous les enfants inclus dans cette étude sont diagnostiqués \gls{tdah}, ils ne présentent pas tous la même sévérité de symptômes : il serait
 intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent significativement au niveau clinique. % trouver des refs
 
-% mois de naissance
-% dépendance aux écrans
 
 \section{Conclusion}
 
