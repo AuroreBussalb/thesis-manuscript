@@ -149,7 +149,7 @@ empiriquement en se basant sur la distribution des variances mais n'ont pas ét�
 
 Les données sont re-référéncées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
 de données NEWROFEED. Les signaux \gls{eeg} des 128 électrodes de l'espace \gls{egi} sont ensuite spatialement reconstruits dans l'espace à 8 électrodes 
-dans le système international 10-20 en projetant les coordonnées sur une sphère unitaire.
+dans le système international 10-20 en projetant les coordonnées sur une sphère unitaire \citep{Perrin1989}.
 
 
 \section{Theta-Beta ratio : un marqueur de l'attention}
@@ -350,7 +350,7 @@ Ce processus est répété jusqu'à ce que l'algorithme converge, menant à l'es
 les informations des \textit{a priori} sont intégrées. 
 
 Afin de déterminer le nombre de composantes qui décrit le mieux la distribution des \gls{srntbr}, la significativité de la différence entre chaque 
-modèle est testée grâce à un test $\chi^2$ sur la déviance \citep{James2013}. Etant donné que dans le cas du \textit{Gaussian Mixture Model} les modèles
+modèle est testée grâce à un test $\chi^2$ sur la déviance \citep[Chapitre~6]{James2013}. Etant donné que dans le cas du \textit{Gaussian Mixture Model} les modèles
 sont imbriqués, c'est à dire que le deuxième modèle peut être obtenu en imposant des contraintes sur le premier modèle, le test de 
 deviance est adapté. La déviance est une mesure de la qualité de l'ajustement (\textit{goodness-of-fit} 
 en anglais) d'un modèle statistique et est définie comme suit :
@@ -366,7 +366,7 @@ l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
 La méthode de Ward est un critère utilisé pour rassembler deux \textit{clusters} lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
 en anglais) \citep{Ward1963}. Ce type d'algorithme de \textit{clustering} fusionne de façon récursive deux groupes similaires, qui initiallement ne comporte qu'une seule observation, jusqu'à obtenir un
-grand \textit{cluster} comprenant l'ensemble des données \citep{James2013}.
+grand \textit{cluster} comprenant l'ensemble des données \citep[Chapitre~10]{James2013}.
 
 Un exemple schématique de ce type de partitionnement est représenté à la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example} avec six observations (A, B, C, D, E, F) :
 \begin{enumerate}
@@ -392,7 +392,7 @@ Le nombre de clusters estimé par cette méthode varie de 1 à 3 pour comparer l
 
 Ce partionnement hierarchique agglomérant est représenté par un dendrogramme, dont un exemple est donné à la 
 Figure~\ref{Figure:tbr_dendrogram_example}. Il s'agit d'un arbre souvent renversé dont l'analyse visuelle 
-peut aider à choisir le nombre de \textit{clusters} à identifier \citep{James2013}.
+peut aider à choisir le nombre de \textit{clusters} à identifier \citep[Chapitre~10]{James2013}.
 Chaque feuille de l'arbre correspond à une observation et, plus on remonte dans l'arbre, plus les feuilles se regroupent en branches lorsque elles 
 sont similaires. Ensuite, les branches fusionnent avec d'autres branches ou feuilles similaires. Plus la fusion entre deux groupes a lieu tôt, c'est à dire en bas de
 l'arbre, plus ceux-ci se ressemblent. La similitude entre deux groupes est mise en évidence par l'axe des ordonnées de l'arbre :
@@ -401,12 +401,12 @@ plus le trait vertical d'un dendrogramme est grand, plus les groupes fusionnés 
 Afin de se donner une idée du nombre de \textit{clusters} à identifier, des lignes horizontales coupant les lignes verticales du dendrogramme peuvent être
 tracées : le nombre de ligne verticales coupées correspond au nombre de \textit{clusters} comme illustré à la Figure~\ref{Figure:tbr_dendrogram_example}.
 Le plus souvent, il est choisi de tracer les lignes horizontales de façon à ce qu'elles coupent les plus longs traits verticaux du dendrogramme, 
-toutefois un tel choix peut manquer de précision \citep{James2013}.
+toutefois un tel choix peut manquer de précision \citep[Chapitre~10]{James2013}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-example} 
-  \caption{Exemples de dendrogramme issus de \citet{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A} le dendrogramme est coupé
+  \caption{Exemples de dendrogramme issus de \citet[Chapitre~10]{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A} le dendrogramme est coupé
 	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux \textit{clusters} (un rose et un vert). En \textbf{B} le dendrogramme
 	est coupé à une hauteur de 5 menant cette fois-ci à trois \textit{clusters} (en rose, jaune et vert).} 
 	\label{Figure:tbr_dendrogram_example} 
@@ -434,7 +434,7 @@ MinPts = ln(\text{n}),
 avec n le nombre total de points à être partitionnés.
 
 Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le graphique des \textit{k-distance} obtenu par la méthode des k plus proches voisins 
-(\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{James2013, Goldberger2005, Ester1996}. Le principe de cette méthode
+(\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{Goldberger2005, Ester1996}. Le principe de cette méthode
 est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance (ici de Minkowski) d'un nouveau point et de prédire la classe de ce dernier. 
 
 Le graphique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à son voisin le plus éloigné 
@@ -489,7 +489,8 @@ et négatifs sont également spécifiées.
 \end{figure}
 
 La courbe \gls{roc} correspondant à ce modèle est obtenue en faisant varier le seuil de discrimination, ainsi le taux de faux positifs (\gls{fpr} en anglais) 
-et celui de vrais positifs (\gls{tpr} en anglais), qui sont respectivement les abscisses et les ordonnées de la courbe \gls{roc}, vont évoluer \citep{James2013} : 
+et celui de vrais positifs (\gls{tpr} en anglais), qui sont respectivement les abscisses et les ordonnées de la courbe \gls{roc}, 
+vont évoluer \citep[Chapitre~4]{James2013} : 
 
 \begin{equation}
 \label{eq:tbr_fpr_tpr}
@@ -506,7 +507,7 @@ De plus, FP $+$ TN correspond au nombre total de négatifs, et TP $+$ FN au nomb
 
 Les courbes \gls{roc} sont fréquemment utilisées pour mesurer la performance de partitionnements binaires, notamment grâce à
 l'\gls{auc} : plus cette aire est grande, plus la courbe \gls{roc} s'éloigne du partitionnement aléatoire modélisé par une droite allant
-de (0, 0) à (1, 1) \citep{James2013}. 
+de (0, 0) à (1, 1) \citep[Chapitre~3]{James2013}. 
 
 \subsubsection{Comparaison des seuils identifiés par les méthodes de partitionnement}
 Les seuils identifiés pour la discrimination de deux groupes par le \gls{gmm}, la méthode de Ward et le \gls{dbscan} sont comparés à celui trouvé pour 
@@ -793,8 +794,14 @@ En effet, deux points ont été approfondis ici pour juger de leur impact sur le
 La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eeg}. Ces artefacts de basse fréquence
 peuvent affecter les calculs de puissance et donc par ricochet les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
 la correction d'artefacts oculaires basée sur la séparation aveugle de sources (\textit{blind source separation} en anglais) \citep{Barthelemy2017} 
-ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée.
-Par conséquent la correction des artefacts oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées.
+ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée. Par conséquent la correction des artefacts 
+oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées. 
+
+Une des hypothèses justifiant ce 
+résultat serait que les artefacts oculaires présents dans la bande bêta seraient compensaient par ceux de la bande thêta. En effet, le \gls{tbr} est un ratio dont les bandes de
+fréquence sont extraites sur les mêmes électrodes. Par ailleurs, même s'il a été montré que les clignements d'yeux affectent davantage la bande thêta que bêta \citep{Barthelemy2017},
+la bande thêta ne s'etend que sur 4Hz, contraitement à la bande bêta qui est plus longue (9Hz), ainsi l'hypothèse de la compensation paraît cohérente.
+
 
 \begin{figure}[h!]
   \centering
@@ -832,9 +839,19 @@ Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge
 
 \subsubsection{Autres facteurs de confusion}
 
-Deux facteurs de confusion ont été explorés, cependant il en existe d'autres qu'il n'est ici pas possible d'étudier faute de disponibilité des données.
-En particulier même si tous les enfants inclus dans cette étude sont diagnostiqués \gls{tdah}, ils ne présentent pas tous la même sévérité de symptômes : il serait
-intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent significativement au niveau clinique. % trouver des refs
+Deux facteurs de confusion ont pu être explorés, cependant il en existe d'autres qu'il n'est ici pas possible d'étudier faute de disponibilité des données.
+En particulier, même si tous les enfants inclus dans cette étude sont diagnostiqués \gls{tdah}, ils ne présentent pas tous la même sévérité de symptômes : il serait
+intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent significativement au niveau clinique. 
+
+Par ailleurs, il a été observé que les enfants nés en fin d'année sont plus souvent diagnostiqués \gls{tdah} \citep{Layton2018} : en effet ces derniers 
+étant parfois plus jeunes de près d'un an, ils peuvent présenter un comportement différent qui peut amener à un diagnostic du \gls{tdah}. Evaluer si 
+les deux \textit{clusters} d'enfants mis en évidence ici se distinguent par le mois de naissance serait intéressant.
+
+Enfin, un autre facteur qu'il aurait été intéressant d'étudier est l'exposition aux écrans. De nombreuses études se sont penchées sur le lien 
+entre troubles de l'attention et temps passé devant les écrans durant l'enfance : alors que les premiers résultats montrent effectivement un lien 
+entre les deux \citep{Swing2010, Christakis2004}, de nouvelles études sont venues nuancer cette conclusion \citep{Schmidt2008, Lillard2011, Zimmerman2007, Kostyrka2017}.
+En effet, le type de programme regardé par l'enfant aurait une infuence importante : les programmes éducatifs n'auraient pas effet d'effet négatif sur 
+la capacité d'attention.
 
 
 \section{Conclusion}
