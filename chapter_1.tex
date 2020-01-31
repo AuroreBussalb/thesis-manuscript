@@ -12,12 +12,12 @@ présentées dans ce manuscrit ont fait l'objet de publications scientifiques et
 \section{Définition du Neurofeedback}
 
 Le \gls{nfb} est une technique d’apprentissage à visée thérapeutique permettant de modifier un paramètre d’activité cérébrale au moyen d’une 
-information en temps réel, c'est à dire analysée instantanément, associée à un retour visuel ou auditif \citep{Arns2014} qui peut être délivré
+information en temps réel, c'est à dire rendue instantanément, associée à un retour visuel ou auditif \citep{Arns2014} qui peut être délivré
 dans le cadre d'un jeu sérieux \citep{Wang2010}. Une définition plus précise est donnée en \ref{principe_nfb}.
 
 L'activité cérébrale peut être obtenue grâce à différents modes d'acquisition (\gls{fmri}, \gls{nirs}, \gls{ecog}, ...) comme détaillé par la suite, 
 cependant celui qui nous intéresse ici est l'\gls{eeg}, dont les caractéristiques sont tout d'abord
-rappelées. Ensuite, la découverte et l'évolution de la méthode du \gls{nfb}-\gls{eeg} sont retracées, puis son principe est décrit précisément.
+rappelées. Ensuite, la découverte et l'évolution de la méthode du \gls{nfb}-\gls{eegi} sont retracées, puis son principe est décrit précisément.
 
 \subsection{Acquisition de l'électroencéphalogramme} \label{eeg_definition}
 
@@ -135,11 +135,11 @@ Enfin, afin d'obtenir le tracé des signaux \gls{eeg} présenté à la Figure~\r
 
 L'\gls{eeg} a diverses applications : il peut être analysé en différé, une fois que l'intégralité de l'enregistrement est disponible, notamment pour la localisation de sources \citep{Latif2006} 
 mais aussi en temps réel dans le cadre, par exemple, de l'épilepsie, du suivi d'une personne dans 
-le coma ou d'un enfant prématuré, du \gls{nfb}-\gls{eeg} et des interfaces cerveau machine (\gls{bci} en anglais) \citep{Li2010}. 
+le coma ou d'un enfant prématuré, du \gls{nfb}-\gls{eegi} et des interfaces cerveau machine (\gls{bci} en anglais) \citep{Li2010}. 
 
-Les \gls{bci} et le \gls{nfb}-\gls{eeg} sont étroitement liés comme souligné par \citet{Jeunet2018} : dans les deux cas les utilisateurs doivent apprendre à réguler leur activité \gls{eeg} à l'aide du retour 
+Les \gls{bci} et le \gls{nfb}-\gls{eegi} sont étroitement liés comme souligné par \citet{Jeunet2018} : dans les deux cas les utilisateurs doivent apprendre à réguler leur activité \gls{eeg} à l'aide du retour 
 qui leur est délivré. Le but, pour un utilisateur de \gls{bci}, est de produire une activité cérébrale qui est traduite en une commande pour l'application de \gls{bci} lui permettant ainsi d'intéragir 
-avec son environnement \citep{Enriquez2017, Birbaumer2009}. Dans le cas du \gls{nfb}-\gls{eeg}, le but est d'apprendre à auto-réguler son activité cérébrale grâce au retour délivré en temps réel par l'application 
+avec son environnement \citep{Enriquez2017, Birbaumer2009}. Dans le cas du \gls{nfb}-\gls{eegi}, le but est d'apprendre à auto-réguler son activité cérébrale grâce au retour délivré en temps réel par l'application 
 \citep{Enriquez2017, Jeunet2018} comme décrit en \ref{principe_nfb}.
 
 Il existe différents types de \gls{bci} : les \gls{bci} dites actives et passives. Dans le premier cas, l'utilisateur essaye délibérément de contrôler son activité cérébrale afin
@@ -151,17 +151,17 @@ restaurer des fonctions utiles aux personnes handicapées suite, par exemple, à
 
 Quant aux \gls{bci} passives, elles peuvent être utilisées pour classifier des images grâce à l'activité \gls{eeg} ou pour évaluer la charge mentale \citep{George2014}.   
 
-Dans le cadre de cette thèse, l'\gls{eeg} est enregistré et analysé en temps réel pour l'entrainement par \gls{nfb}-\gls{eeg} défini précisément par la suite.  
+Dans le cadre de cette thèse, l'\gls{eeg} est enregistré et analysé en temps réel pour l'entrainement par \gls{nfb}-\gls{eegi} défini précisément par la suite.  
  
 
 \subsection{Historique du Neurofeedback}
 
-Les prémices du \gls{nfb}-\gls{eeg} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain et de la découverte des ondes alpha par Hans Berger en 1929 \citep{Berger1929}.
+Les prémices du \gls{nfb}-\gls{eegi} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain et de la découverte des ondes alpha par Hans Berger en 1929 \citep{Berger1929}.
 En effet, \citet{Durup1935} et \citet{Loomis1936} ont observé que les ondes alpha de l'\gls{eeg}, oscillant entre 8 et 12Hz, pouvaient être contrôlées grâce au 
 conditionnement classique \citep{Pavlov1929}. Ce conditionnement, également appelé conditionnement répondant ou pavlovien, consiste à apprendre un comportement en associant un stimuli
 de l'environnement à des réactions automatiques de l'organisme.
 
-Plus tard, ce qui peut être considéré comme le premier entrainement par \gls{nfb}-\gls{eeg} a été mené par le Dr. Kamiya qui, en se basant sur les travaux de \citet{Durup1935}, 
+Plus tard, ce qui peut être considéré comme le premier entrainement par \gls{nfb}-\gls{eegi} a été mené par le Dr. Kamiya qui, en se basant sur les travaux de \citet{Durup1935}, 
 a demandé aux sujets de son étude de contrôler le rythme alpha à l'aide d'un retour auditif \citep{Kamiya1969}, ce qu'ils ont réussi à faire. 
 
 Une preuve solide de la modulation de l'\gls{eeg} a été rapportée dans les années 1960 par le Dr. Sterman et son équipe \citep{Sterman1969} : l'expérience 
@@ -181,28 +181,28 @@ d'épilepsie, sur les astronautes. Afin de mettre en évidence son effet épilep
 ont souffert de convulsions, mais ceux ayant participer à l'expérience du \gls{smr} ont présenté moins de crises ou ont eu une meilleure tolérance aux effets nocifs du carburant \citep{Sterman1974}.  
 Cette expérience a permis de démontrer que le contrôle de l'activité cérébrale pouvait être associé à des bénéfices cliniques, ouvrant ainsi la voie aux expériences incluant les humains.
 
-En 1972, une patiente épileptique a entrainé son \gls{smr} grâce à la technique du \gls{nfb}-\gls{eeg} : elle a réussi à moduler son \gls{smr}, conduisant à la quasi-disparition de ses crises 
+En 1972, une patiente épileptique a entrainé son \gls{smr} grâce à la technique du \gls{nfb}-\gls{eegi} : elle a réussi à moduler son \gls{smr}, conduisant à la quasi-disparition de ses crises 
 d'épilepsie durant les séances \citep{Sterman1974}. 
 
-Alors que l'épilepsie a été la première application du \gls{nfb}-\gls{eeg}, un autre usage thérapeutique possible commence à être étudié dans la foulée : l'hyperkinésie chez l'enfant \citet{Lubar1976ADHD}
+Alors que l'épilepsie a été la première application du \gls{nfb}-\gls{eegi}, un autre usage thérapeutique possible commence à être étudié dans la foulée : l'hyperkinésie chez l'enfant \citet{Lubar1976ADHD}
 qui peut être considérée comme l'ancêtre du \gls{tdah}. Cette étude est divisée en trois phases : tout d'abord, l'enfant module les ondes cérébrales d'intérêt 
 dans le bon sens, puis ensuite dans le sens inverse et enfin à nouveau dans le bon sens. Des résultats encourageants sont observés.
 
 A la suite de ces observations prometteuses, d'autres chercheurs se sont penchés sur cette technique, cependant, faute d'une technologie suffisamment puissante, il leur était impossible
-d'obtenir des preuves cliniques plus solides. C'est pourquoi, après les années 80, le \gls{nfb}-\gls{eeg} est tombé en désuétude \citep{Masterpasqua2003}.
+d'obtenir des preuves cliniques plus solides. C'est pourquoi, après les années 80, le \gls{nfb}-\gls{eegi} est tombé en désuétude \citep{Masterpasqua2003}.
  
-Il faut attendre les années 2000 pour que la communauté scientifique et médicale s'intéresse de nouveau sérieusement au \gls{nfb}-\gls{eeg}, conduisant à une explosion du nombre d'articles scientifiques publiés 
+Il faut attendre les années 2000 pour que la communauté scientifique et médicale s'intéresse de nouveau sérieusement au \gls{nfb}-\gls{eegi}, conduisant à une explosion du nombre d'articles scientifiques publiés 
 visant à mieux comprendre ses effets, illustrée à la Figure~\ref{Figure:introduction_number_of_nfb_publications}. 
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-1/introduction-number-of-nfb-publications} 
-  \caption{Evolution du nombre de publications sur le \gls{nfb}-\gls{eeg} par année, entre 1962 et 2018. La base de données PubMed a été questionnée avec les 
+  \caption{Evolution du nombre de publications sur le \gls{nfb}-\gls{eegi} par année, entre 1962 et 2018. La base de données PubMed a été questionnée avec les 
 	termes de recherche "Neurofeedback OR EEG Biofeedback".}
   \label{Figure:introduction_number_of_nfb_publications}
 \end{figure}
 
-Les dates clés de l'histoire du \gls{nfb}-\gls{eeg} sont résumées sur la frise présentée à la Figure~\ref{Figure:introduction_nfb_history}.
+Les dates clés de l'histoire du \gls{nfb}-\gls{eegi} sont résumées sur la frise présentée à la Figure~\ref{Figure:introduction_nfb_history}.
 
 \begin{figure}[h!]
   \centering
