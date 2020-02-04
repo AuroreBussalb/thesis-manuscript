@@ -177,7 +177,8 @@ Plus la valeur absolue de l'\gls{es}-inter-groupes est élevée, plus l'efficaci
 
 \subsection{Calcul de la fiabilité de chaque taille d'effet}
 
-Le terme précision englobe trois valeurs statistiques liées les unes aux autres : la variance, l'erreur type, et l'intervalle de confiance.
+Le terme précision englobe trois valeurs statistiques liées les unes aux autres : la variance, l'\glsfirst{et} (à ne pas confondre avec
+l'écart type), et l'intervalle de confiance.
 Ces trois facteurs de précision définissent un intervalle de valeurs probables pour l'\gls{es} réel. 
 
 Tout d'abord, la variance de chaque \gls{es}-inter-groupes est calculée \citep{Morris2008}:
@@ -820,10 +821,14 @@ cette $p$-value devient significative et le reste.
 Dans le cas de l'évolution des $p$-values dans le sous-groupe des études suivant un protocole standard (Figure~\ref{Figure:meta_analysis_evolution_pvalue_std}), la dernière mise à jour 
 de \citet{Cortese2016} conduit à des résultats limite significatifs pour les évaluations des parents (\textbf{A}) et à une perte de signifiance statistique pour celles des 
 enseignants (\textbf{B}), remettant en question les conclusion de \citet{Cortese2016} et \citet{Bussalb2019clinical} quant à l'efficacité des protocoles standards.
+ 
+La $p$-value est très largement utilisée en méta-analyse, mais est également de plus en plus contestée du fait qu'elle soit trop souvent mal interprétée 
+\citep{Halsey2019}. 
+En effet, la $p$-value mesure le degré de compatibilité entre les données et l'hypothèse nulle, et non la probabilité que l'hypothèse nulle soit vraie
 
-La $p$-value est très largement utilisée mais est également de plus en plus contestée du fait de sa propension à être mal interprée \citep{Halsey2019}. 
-Ainsi, certains chercheurs se tournent vers des substituts tels que le facteur de Bayes \citep{Morey2016} ou l'\gls{aic} \citep{Mcelreath2018}. L'évolution de ces valeurs avec l'inclusion de 
-nouvelles études serait intéressante à étudier. 
+Ainsi, les chercheurs se tournent de plus en plus vers les statistiques bayésiennes, avec des outils comme le rapport de vraisemblance 
+(\textit{likelihood ratio} en anglais) \citep{Dormuth2016}, ou le facteur de Bayes \citep{Morey2016, Rouder2011}. L'évolution de ces 
+valeurs avec l'inclusion de nouvelles études serait intéressante à étudier. 
 
 Pour conclure, la mise à jour des méta-analyses peut avoir une incidence sur la signifiance statistique de la $p$-value, notamment dans le cas où peu d'études et donc de sujets
 sont inclus. Continuer à inclure de nouvelles études permet d'augmenter la puissance statistque des calculs : en particulier les études les plus récentes sur l'efficacité du \gls{nfb}
