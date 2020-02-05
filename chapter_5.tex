@@ -41,6 +41,12 @@ directions pour choisir les paramètres permettant d'obtenir une meilleure perfo
 Les résultats présentés ici, notamment ceux de la méta-analyse et de la \gls{saob}, ont vocation à être mis à jour afin d'inclure davantage d'études : les résultats alors obtenus se 
 stabiliseront et leur fiabilité augmentera.   
 
+Jusqu'à maintenant, les méta-analyses sont des outils issus des statistiques fréquentistes,
+évaluant uniquement le degré de compatibilité entre les données et une hypothèse nulle.
+Les courbes d'évolution des tailles d'effets et des $p$-values nous invitent à basculer vers des méta-analyses bayésiennes,
+attribuant une probabilité a priori aux hypothèses testées (en utilisant l'état de l'art) et permettant ainsi d'estimer la probabilité a posteriori que l'hypothèse nulle soit vraie.
+Une telle approche a été déjà été décrite et implémentée \citep{Dormuth2016, Spiegelhalter2004} mais n'a pas encore été utilisée dans le cas du \gls{nfb} appliqué au \gls{tdah}.  
+
 Par ailleurs, de nouveaux facteurs pourront être étudiés avec la \gls{saob}, apportant ainsi de nouvelles  
 indications. Dans sa forme actuelle, la \gls{saob} donne des indications qualitatives sur comment choisir les facteurs, il serait peut-être intéressant de mettre en place des
 méthodes conduisant à des directives qualitatives.
@@ -50,8 +56,25 @@ personnalisation des protocoles de \gls{nfb} selon le profil \gls{eeg} de l'enfa
 à la pertinence et à l'efficacité d'une telle approche vont être menées : il serait notamment important de déterminer si l'âge des enfants a effectivement influencé l'étude
 présentée dans ce manuscrit. Par ailleurs, appliquer ces analyses sur des valeurs de \gls{tbr} obtenues les yeux fermés serait à envisager. 
 
-Enfin, dans ce manuscrit, le \gls{nfb} a été étudié pour les enfants souffrant du \gls{tdah} mais les analyses effectuées ici pourraient être 
+Dans ce manuscrit, le \gls{nfb} a été étudié pour les enfants souffrant du \gls{tdah} mais les analyses effectuées ici pourraient être 
 transposées à une toute autre application comme celles listées en \ref{NFB_applications}.
 En particulier, la \gls{saob} pourrait être adaptée, c'est à dire ne pas étudier les facteurs propres au \gls{nfb} 
 appliqué au \gls{tdah}, de façon à inclure toutes les études sur l'efficacité du \gls{nfb} 
 quel que soit le trouble à traiter, pour déterminer si des facteurs généraux sont identifiés comme sugéré en \ref{conclusion_saob}. 
+
+Enfin, certaines questions majeures concernant le \gls{nfb} n'ont pas été traitées dans cette thèse,
+à l'instar de la définition et de la mise en place d'un protocole \textit{sham}-\gls{nfb}, déployable au sein d'un essai clinique en double aveugle. Un tel protocole 
+a pour but de contrôler pour un éventuel effet placebo, effet qui est au coeur du débat sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah} et dont l'impact
+a été discuté en \ref{pblind_anaysis}. 
+
+Le recours au \textit{sham}-\gls{nfb} est encore assez peu répandu, toutefois des études utilisent ce type de contrôle comme \citet{Schabus2017}
+qui étudient l'efficacité du \gls{nfb} sur les troubles du sommeil. Le \textit{feedback} délivré aux sujets du groupe \textit{sham}-\gls{nfb} de cette étude est calculé 
+à partir des bandes de fréquence autres que celle entrainée dans le groupe \gls{nfb}. Si un tel groupe contrôle permet de conduire un essai clinique sur le \gls{nfb}
+en double aveugle, on ignore cependant si ce protocole \textit{sham} n'aurait pas un impact malgré tout. Dans certaines études, le protocole le \textit{sham} retourne \textit{feedback} 
+aléatoire qui ne dépend donc pas de l'activité cérébrale du sujet \citep{Arnold2014}, mais cette pratique pourrait également avoir un impact qui pour l'heure n'est pas connu.
+
+De nombreuses pistes existent concernant l'implémentation d'un \textit{sham}-\gls{nfb}, comme par exemple garder un contrôle en temps réel des artefacts contaminant l'\gls{eeg} en 
+ayant recours aux techniques présentées en \ref{steps_NFB_taining} tout 
+en calculant la métrique de \textit{feedback} sur du bruit blanc. Cependant, peu de travaux ont été réalisés en la matière malgré le potentiel que représente 
+un tel protocole. 
+
