@@ -212,7 +212,7 @@ valeur de la corrélation.
 Une fois la variance obtenue, il est aisé de calculer l'\gls{et} (\textit{standard error} en anglais) de l'\gls{es}-inter-groupes \citep[Chapitre~8]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_standard_error_effect_size_between}
-\text{ET} = \sqrt{\sigma^2(\text{ES})},
+\text{ET} = \sqrt{\sigma^2(\text{ES})} = \sigma(\text{ES}),
 \end{equation}
 où \gls{es} désigne l'\gls{es}-inter-groupes. Alors que la variance est intéressante pour les calculs statistiques, l'\gls{et} est quant à elle 
 un index plus aisé à comprendre car elle est sur la même échelle que l'\gls{es}.
@@ -250,19 +250,21 @@ w_{\text{fixe},k} = \frac{1}{\sigma^2(\text{ES}_k)}.
 Cette étape a pour but de minimiser l'importance des études avec une large variabilité intra-étude.
 
 Dans notre cas nous employons le modèle à effets aléatoires, qui inclut également la variance inter-études $\tau^2$ conduisant à des 
-poids ($w_{\text{aléatoires},k} = w_k$) associés aux études différents.
+poids $w_{\text{aléatoires},k}$, simplement notés $w_k$ par la suite, associés aux études différents.
+Toutefois, afin d'obtenir les poids $w_k$, il est nécessaire de calculer d'abord les $w_{\text{fixe},k}$ grâce à l'équation 
+Eq.~(\ref{eq:metareview_weight_fixed_study}).
 
 Calculer la variance inter-études se fait en trois étapes décrites par les équations Eq.~(\ref{eq:metareview_Q}), Eq.~(\ref{eq:metareview_C}) 
 et Eq.~(\ref{eq:metareview_Tau}) \citep[Chapitre~12]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_Q}
-Q = \sum_{k=1}^{K} (w_{\text{fixe},k} \text{ES}_k^2),
+Q = \sum_{k=1}^{K} w_{\text{fixe},k} * \text{ES}_k^2,
 \end{equation}
 \begin{equation}
 \label{eq:metareview_C}
 C = \sum_{k=1}^{K} w_{\text{fixe},k} - \frac{ \sum_{k=1}^{K} (w_{\text{fixe},k})^2 } { \sum_{k=1}^{K} w_{\text{fixe},k} },
 \end{equation}
-avec $K$ le nombre total d'études incluses.
+avec $K$ le nombre total d'études incluses, et :
 \begin{equation}
 \label{eq:metareview_Tau}
 \tau^2 = \frac{Q - \text{df}}{C},
@@ -280,7 +282,7 @@ Enfin, la moyenne pondérée des $K$ \gls{es}-inter-groupes est calculée pour o
 Eq.~(\ref{eq:metareview_summary_effect}) \citep[Chapitre~12]{Borenstein2009}:
 \begin{equation}
 \label{eq:metareview_summary_effect}
-\text{EST} = \frac{\sum_{k=1}^{K} w_k \text{ES}_k} {\sum_{k=1}^{K} w_k}.
+\text{EST} = \frac{\sum_{k=1}^{K} w_k * \text{ES}_k} {\sum_{k=1}^{K} w_k}.
 \end{equation} 
 
 \subsection{Calcul de la fiabilité de la taille d'effet totale}
@@ -293,7 +295,7 @@ Une fois l'\gls{est} obtenu, on peut calculer ses trois valeurs de précision. T
 puis son erreur type ET(EST) :
 \begin{equation}
 \label{eq:metareview_standard_error_effect}
-\text{ET(EST)} = \sqrt{\sigma^2(\text{EST})},
+\text{ET(EST)} = \sqrt{\sigma^2(\text{EST})} = \sigma(\text{EST}),
 \end{equation} 
 et enfin son intervalle de confiance à 95\% : 
 \begin{equation}
