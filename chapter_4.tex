@@ -89,12 +89,12 @@ De tous les patients présents dans la base \gls{cmi-mipdb}, seulement ceux sati
 \item avoir son âge précisé.
 \end{enumerate}
 
-L'\gls{eeg} a été enregistré avec un système \gls{eeg} Geodesic Hydrocel \gls{egi} à une fréquence d'échantillonnage de 500Hz et un filtre passe-bande entre 0.1 et 100Hz. 
+L'\gls{eeg} a été enregistré avec un système \gls{eeg} Geodesic Hydrocel \gls{egi} à une fréquence d'échantillonnage de 500Hz et filtré entre 0.1 et 100Hz. 
 L'électrode de référence est Cz, localisée au vertex de la tête. Le tour de tête de chaque participant est mesuré pour que le bonnet utilisé lors de l'enregistrement 
 soit à la bonne taille. L'impédance des électrodes est gardée inférieure à $40\text{k}\Omega$ : elle est vérifiée toutes les 30 minutes ainsi qu'avant chaque enregistrement.
 
 \subsection{Données CMI-HBN}
-La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles reçoivent \$150 pour leur participation 
+La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles reçoivent 150\$ pour leur participation 
 et les sujets se voient de plus offrir les rapports de consultation et les avis sur les sessions d'\gls{eeg}.
 
 Seuls les sujets remplissant les critères suivants ont été inclus dans notre analyse :
@@ -134,7 +134,7 @@ l'autre pour les enregistrements \gls{eo}, seul ce dernier va être analysé. En
 que pour les données NEWROFEED, à l'exception du filtre coupe bande dont les bornes sont modifiées pour intercepter les artefacts 
 causés par les lignes électriques américaines (57-63Hz).
 
-Dans le cas d'enregistrements d'\gls{eeg} avec une haute résolution spatiale comme ici avec les données CMI, 
+Dans le cas d'enregistrements d'\gls{eeg} avec une haute résolution spatiale comme ici avec les données \gls{cmi}, 
 il est courant qu'au moins un canal se déconnecte ponctuellement causant aussi bien des artefacts de large amplitude que des signaux plats \citep{Barlow1986, Oregan2013}. 
 Une strategie est ici mise en place pour détecter de façon fiable puis interpoler ces électrodes déconnectées : la variance de chaque canal 
 \gls{eeg} est calculée sur une fenêtre glissante de 10 secondes puis est ensuite convertie en deux $Z$-scores grâce à :
@@ -153,6 +153,7 @@ dans le système international 10-20 en projetant les coordonnées sur une sphè
 
 
 \section{Theta-Beta ratio : un marqueur de l'attention}
+% donner une plus large définition en se basant sur la littérature
 
 Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2013}. L'utilisation fréquente de ce protocole est notamment due
 à \citet{Lubar1991} qui, en se basant sur la littérature existante, avance que la valeur du \gls{tbr} permettrait de différencier un enfant \gls{tdah} d'un enfant sain.  
@@ -197,9 +198,9 @@ L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitemen
 Tout d'abord, les données artefactées sont exclues en utilisant le géométrie Riemanniene \citep{Barachant2013, Barthelemy2019}. 
 
 Le principe de cette méthode consiste à calculer la matrice de covariance de chaque segment d'\gls{eeg} : les époques dont la matrice de covariance se trouve à l'extérieur d'une région
-d'acceptabilité, appelé patate, définie par un $Z$-score sont considérées artefactées et donc rejetées. Cette région d'acceptabilité est définie par une \gls{eeg} de référence propre.
+d'acceptabilité, appelé patate, définie par un $Z$-score sont considérées artefactées et donc rejetées. Cette région d'acceptabilité est définie par une référence d'\gls{eeg} propre.
 
-Afin d'augmenter la sensibilité et la spécifité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citet{Barthelemy2019}, 
+Afin d'augmenter la sensibilité et la spécifité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citep{Barthelemy2019}, 
 cette méthode a été appliquée ici.
 Les données \gls{eeg} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et vont être analysées simultanément par six patates. Chaque patate a pour but de détecter 
 un type d'artefact, les canaux de chaque patate ainsi que le filtrage du signal \gls{eeg} sont donc choisis de façon à pouvoir le repérer. 
@@ -214,15 +215,15 @@ Pour chaque patate un $Z$-score est calculé, ceux-ci sont ensuite combinés pou
 plus grande qu'un seuil obtenu grâce à une référence d'\gls{eeg} propres. 
 
 \subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}} \label{extraction_iapf}
-Ensuite, l'\gls{iapf} est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha définie entre 7 et 13Hz. Si aucun pic n'est observé,
-l'\gls{iapf} est obtenue grâce à l'estimation de Klimesch basée sur l'âge du sujet \citep{Klimesch1999}. L'\gls{iapf} est calculée sur l'\gls{eeg} mesuré à l'électrode Pz au repos
-et les yeux ouverts. 
+Ensuite, l'\gls{iapf}, définie en \ref{principe_nfb}, est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha prise entre 7 et 13Hz.
+Cette bande fréquence est extraite de l'\gls{eeg} enregistré à l'électrode Pz au repos et les yeux ouverts. 
+Si aucun pic n'est détecté, l'\gls{iapf} est obtenue grâce à l'estimation de Klimesch basée sur l'âge du sujet \citep{Klimesch1999}. 
 
-L'\gls{iapf} permet de définir des bandes de fréquence personnalisées pour chaque sujet : theta = [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz] et beta = [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
-Ces valeurs ont été choisies par le comité scientifique de NEWROFEED.
+L'\gls{iapf} permet de définir des bandes de fréquence personnalisées pour chaque sujet qui ont été choisies 
+par le comité scientifique de NEWROFEED : theta = [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz] et beta = [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
 Cette étape a pour but d'adapter précisément l'entrainement aux jeunes cerveaux qui se développent très vite \citep{Aurlien2004}. En effet, dans le cas des enfants, il serait possible de considérer 
 des basses fréquences de la bande alpha comme appartenant à la bande theta, ce qui fausserait l'entrainement par \gls{nfb} car la modulation de mauvaises fréquences 
-seraient récompensée. Cette méthode mène évidemment à des résultats différents d'avec des bandes de fréquence aux bornes fixes \citep{Arns2008, Vollebregt2015} et a été 
+serait récompensée. Cette méthode mène évidemment à des résultats différents d'avec des bandes de fréquence aux bornes fixes \citep{Arns2008, Vollebregt2015} et a été 
 l'objet de plusieurs études \citep{Kaiser2001, Bazanova2006, Vollebregt2015} dont les résultats montrent que cette personnalisation pourrait améliorer l'efficacité du protocole
 \gls{tbr} pour le traitement du \gls{tdah}.
 
@@ -233,7 +234,7 @@ En effet, la façon dont est calculé le \gls{tbr} est très variable dans la li
 Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses définitions du \gls{tbr} : le \gls{tbr} peut faire référence au ratio
 des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz).  
 
-Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquences pour calculer le \gls{tbr} peuvent aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquences pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
 de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. 
 
 Dans notre cas le \gls{tbr} est défini comme le ratio de la puissance dans la bande de fréquences theta et de la bande de fréquences beta obtenues 
@@ -260,15 +261,15 @@ conduisant à un ratio instantané de valeurs de puissances qui représente une 
 La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la médiane obtenue à Fz et Cz est utilisée pour représenter le \gls{tbr} sur l'ensemble 
 de l'enregistrement, puis le maximum sur ces deux électrodes est retenu.
 
-Enfin, cette valeur de \gls{tbr} doit être normalisée pour les analyses de partionnement suivantes. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
-le \gls{bgmm} et le \gls{gmm} détaillées par la suite, supposent que la distribution des \gls{tbr} est normale. 
+Enfin, cette valeur de \gls{tbr} doit être normalisée pour les analyses de partionnement qui vont suivre. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
+le \glsfirst{bgmm} et le \gls{gmm} détaillées par la suite, supposent que la distribution des \gls{tbr} est normale. 
 En effet, un \gls{bgmm} appliqué à une distribution non normale identifierait de faux \textit{clusters} pour ajuster les données. 
 Ainsi, pour être certain que l'hypothèse de normalité est valide, la distribution des \gls{tbr} de patients sains (provenant de la base de données \gls{cmi-hbn})
 est analysée avec deux techniques de normalisation différentes : la \textit{log normalization} et la \textit{square-root-normalization}.
 
 Les distributions de \gls{tbr} non-normalisés, log-normalisés et \textit{square-root} normalisés (les \gls{srntbr}) sont visuellement analysées à l'aide 
-d'histogrammes, puis des tracés de probabilités (\textit{probability plots}) sont utilisés pour comparer ces distributions à des distributions normales 
-et sont présentés à la Figure~\ref{Figure:tbr_normalization}. Le test de Shapiro-Wilk \citep{Shapiro1965} a été utilisé pour obtenir une mesure quantitative 
+d'histogrammes, puis des tracés de probabilités (\textit{probability plots} en anglais) sont utilisés pour comparer ces distributions à des distributions normales 
+et sont présentés à la Figure~\ref{Figure:tbr_normalization}. Le test de Shapiro-Wilk \citep{Shapiro1965} a été appliqué pour obtenir une mesure quantitative 
 de la normalité des \gls{tbr} contrôles. Avec un seuil de significativité de 0.01, seule la distribution des \gls{srntbr} ne permet pas de rejeter l'hypothèse
 nulle de normalité ($p$-value = 0.46). Ainsi, on suppose que les valeurs de \gls{srntbr} sont distribuées normalement dans la population \gls{tdah}. 
 
@@ -289,12 +290,12 @@ Les \gls{tbr} sont donc normalisés suivant l'équation suivante :
 
 \subsection{Méthodes de partitionnement de la distribution des Theta-beta ratios} \label{clustering}
 
-Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement, issues de familles différentes,
-(\textit{clustering} en anglais) sont appliquées aux \gls{srntbr} : 
+Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement (\textit{clustering} en anglais), issues de familles différentes,
+sont appliquées aux \gls{srntbr} : 
 \begin{itemize}
 \item une qui se base sur les distributions Gaussiennes (\glsfirst{gmm} et \glsfirst{bgmm}), 
 \item une sur les distances (la méthode de Ward),
-\item et une autre sur les densités (\gls{dbscan}). 
+\item et une autre sur les densités (\glsfirst{dbscan}). 
 \end{itemize}
 
 Ces méthodes ont été choisies car elles se basent sur des critères différents afin de déterminer s'il existe bien deux groupes d'enfants \gls{tdah}. Il a été décidé
@@ -320,7 +321,7 @@ Il en va de même pour l'algorithme du \gls{gmm}.
 
 Il a été décidé d'avoir recours à un nombre de composantes variant entre 1 et 3 pour pouvoir valider ou infirmer l'hypothèse qu'il existe deux groupes d'enfants \gls{tdah}.
 En effet, le modèle à une composante va être comparé à celui à deux composantes, et celui à deux le sera à celui à trois composantes afin de déterminer quel modèle 
-représene le mieux la distribution des \gls{srntbr}. 
+représente le mieux la distribution des \gls{srntbr}. 
 
 Pour un \gls{gmm} avec $K$ composantes, la $k^{th}$ composante a une moyenne de $\mu_k$ et une variance de $\sigma_k$ dans le cas univarié. Les poids associés $\Phi_k$ aux composantes
 $C_k$ sont définis tels que $\sum_{i=1}^{K} \Phi_i = 1$ pour que la distribution de probabilité totale soit égale à 1. Mathématiquement un \gls{gmm} se traduit ainsi \citep{Santosh2013} :
@@ -406,8 +407,8 @@ toutefois un tel choix peut manquer de précision \citep[Chapitre~10]{James2013}
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-example} 
-  \caption{Exemples de dendrogramme issus de \citet[Chapitre~10]{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A} le dendrogramme est coupé
-	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux \textit{clusters} (un rose et un vert). En \textbf{B} le dendrogramme
+  \caption{Exemples de dendrogramme issus de \citet[Chapitre~10]{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A}, le dendrogramme est coupé
+	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux \textit{clusters} (un rose et un vert). En \textbf{B}, le dendrogramme
 	est coupé à une hauteur de 5 menant cette fois-ci à trois \textit{clusters} (en rose, jaune et vert).} 
 	\label{Figure:tbr_dendrogram_example} 
 \end{figure}
@@ -435,7 +436,7 @@ avec n le nombre total de points à être partitionnés.
 
 Une méthode pour déterminer la valeur $\epsilon$ optimale est de tracer le graphique des \textit{k-distance} obtenu par la méthode des k plus proches voisins 
 (\gls{knn} en anglais) non supervisée en prenant $k = MinPts$ \citep{Goldberger2005, Ester1996}. Le principe de cette méthode
-est de trouver un nombre prédéfini d'observations, noté k, les plus proches en distance (ici de Minkowski) d'un nouveau point et de prédire la classe de ce dernier. 
+est de trouver un nombre prédéfini d'observations, noté $k$, les plus proches en distance (ici de Minkowski) d'un nouveau point et de prédire la classe de ce dernier. 
 
 Le graphique des distances k (\textit{k-distance plot} en anglais) représente les distances de chaque observation à son voisin le plus éloigné 
 lors du partitionnement par \gls{knn}. Les distances obtenues sont ensuite classées par ordre décroissant. 
@@ -805,7 +806,7 @@ la bande thêta ne s'etend que sur 4Hz, contraitement à la bande bêta qui est 
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.5\linewidth]{figures/chapter-4/tbr-eye-artifact-correction} 
+	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-eye-artifact-correction} 
   \caption{Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts oculaires (en bleu) et sans correction (en vert).}
   \label{Figure:tbr_eye_artifact_correction}
 \end{figure}
@@ -834,7 +835,7 @@ conduisent à la même conclusion que sur l'intégralité de la population : deu
 composantes $= 2e-4$) et un seuil \gls{tbr} de 3.84 est trouvé. 
 
 Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge, il serait intéressant d'effectuer cette analyse sur une sous population de jeunes (5 
-à 6 ans) et plus grands (18 à 21) sujets. Cependant, faute d'un nombre suffisant d'informations dans ces extrêmes, cette étude ne peut pas être menée. Les prochaines
+à 6 ans) et plus grands (18 à 21 ans) sujets. Cependant, faute d'un nombre suffisant d'informations dans ces extrêmes, cette étude ne peut pas être menée. Les prochaines
 études sur le \gls{tbr} devront corriger les valeurs de \gls{tbr} de façon à ce qu'elles ne soient pas affectées par l'âge des patients.
 
 \subsubsection{Autres facteurs de confusion}
