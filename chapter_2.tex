@@ -12,7 +12,7 @@ de relever l'éventuel impact de certains choix méthodologiques de \citet{Corte
 ces résultats en incluant de nouvelles études. 
 
 A travers le travail présenté ici, la performance du \gls{nfb} sur les enfants \gls{tdah} est alors évaluée et la revue de littérature
-qui a été menée a permis de se familiariser avec les études sur l'efficacité de ce traitement et d'en noter les éventuels faiblesses.
+qui a été menée a permis de se familiariser avec les études sur l'efficacité de ce traitement et d'en noter les éventuelles faiblesses.
 
 \clearpage
 
@@ -38,7 +38,7 @@ sur un plus grand nombre de sujets provenant de populations différentes, l'effi
 Alors qu'avant les années 1990 les revues narratives (\textit{narrative reviews} en anglais) étaient le plus couramment utilisées pour cette tâche, elles ont 
 perdu leur popularité au profit des méta-analyses. En effet, les revues narratives souffrent de la subjectivité des auteurs qui choisissent notamment le poids 
 à donner à telle ou telle étude : alors que certains
-vont donner plus d'importance aux études incluant de nombreux sujets, d'autres vont favoriser les études qu'ils jugent de bonne qualité. La méta-analyse permet 
+vont donner plus d'importance aux études incluant de nombreux sujets, d'autres vont favoriser celles qu'ils jugent de bonne qualité. La méta-analyse permet 
 de réduire cette subjectivité en utilisant par exemple des critères mathématiques définis à l'avance pour calculer le poids à attribuer à chaque étude incluse
 \citep[Chapitre~1]{Borenstein2009}. 
 
@@ -156,7 +156,7 @@ dans le groupe contrôle ($M_{\text{pre},C}$, $M_{\text{post},C}$), divisée par
 \label{eq:stats_metareview_std_pre}
 \sigma_{\text{pre}} = \sqrt{\frac{(n_T - 1)\sigma_{\text{pre},T}^2 + (n_C - 1)\sigma_{\text{pre},C}^2} {n_T + n_C - 2}},
 \end{equation}
-où $\sigma_{\text{pre},G}$ correspond à l'écart-type du groupe $G$ à pré-test and $n_G$ indique le nombre de sujets ayant suivi l'intégralité 
+où $\sigma_{\text{pre},G}$ correspond à l'écart-type du groupe $G$ à pré-test et $n_G$ indique le nombre de sujets ayant suivi l'intégralité 
 du traitement dans chaque groupe.
 
 La normalisation de l'\gls{es}-inter-groupes (équation Eq.~(\ref{eq:metareview_effect_size_between})) à l'aide de $\sigma_{\text{pre}}$ 
@@ -165,7 +165,7 @@ induite par le traitement.
 
 Il s'avère que l'\gls{es}-inter-groupes présente un léger biais qui tend à sous-estimer la valeur absolue de la différence moyenne standardisée de la population
 lorsque les études incluent peu de sujets. Cette valeur est obtenue en calculant la différence entre les vraies moyennes de la population de chaque groupe divisée 
-par l'erreur type de la vraie population qui est supposée être identique pour les deux groupes $\delta$ \citep[Chapitre~4]{Borenstein2009}. Ce biais peut être supprimé 
+par l'erreur type de la vraie population qui est supposée être identique pour les deux groupes \citep[Chapitre~4]{Borenstein2009}. Ce biais peut être supprimé 
 grâce à un facteur de correction $c_p$ qui est utilisé pour les petites études (c'est à dire pour lesquelles $n_T + n_C - 2 < 10$) : 
 \begin{equation}
 \label{eq:metareview_correction_factor}
@@ -233,7 +233,7 @@ la vraie valeur de l'\gls{es}-inter-groupes de la population est de 95\%.
 
 La précision est affectée, dans une large mesure, par le nombre de sujets inclus dans l'étude : les échantillons plus grands mènent à des
 variances plus faibles et donc à des estimations d'\gls{es}-inter-groupes plus précises \citep[Chapitre~8]{Borenstein2009}, c'est pourquoi un plus grand 
-poids leur est attribué dans la méta-analyse.
+poids leur est attribué dans la méta-analyse comme détaillé par la suite.
 
 \subsection{Calcul de l'effet total du traitement} \label{compute_summary_effect}
 
@@ -322,7 +322,7 @@ Pour un test bilatéral (utilisé par \citet{Micoulaud2014, Cortese2016}), la $p
 \label{eq:metareview_confidence_interval_summary_effect_p_value}
 p = 2(1 - \Phi(\abs{Z})),
 \end{equation} 
-où $\Phi$ est la fonction de distribution cumulative de la loi normale standardisée (\textit{ie.} centrée et normée).
+où $\Phi$ est la fonction de distribution cumulative de la loi normale standardisée (\textit{i.e.} centrée et normée).
 
 Si la $p$-value obtenue est inférieure à 0.05, alors il y a une différence statistiquement significative entre l'efficacité du traitement étudié 
 et celle du groupe contrôle.
@@ -340,7 +340,7 @@ L'analyse visuelle de la symétrie d'un \textit{funnel plot} est une méthode co
 l'influence des facteurs cités précédemment \citep{Sterne2011}.
 
 Il s'agit d'un nuage de points de la précision de chaque \gls{es}-inter-groupes en fonction des \gls{es}-inter-groupes. L'\gls{et} est couramment 
-utilisé comme estimation de la précision et de la taille d'une étude et est placé sur un axe des abscisses inversé de façon à ce que les plus grandes études 
+utilisée comme estimation de la précision et de la taille d'une étude et est placée sur un axe des abscisses inversé de façon à ce que les plus grandes études 
 soient au sommet et que les plus petites se retrouvent 
 dispersées en bas. En l'absence de biais et d'hétérogénéité entre les études, la répartition des points est seulement due à la variabilité de la taille des études : 
 le graphique est symétrique. Le triangle centré sur l'\gls{est}, obtenu avec un modèle à effet fixe et s'étendant de 1.96 \gls{et} de chaque côté, 
