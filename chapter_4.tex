@@ -11,7 +11,7 @@ l'on prend en compte la variété de phénotypes \gls{eeg} présents. En effet, 
 Quelques études ont proposé de personnaliser le protocole d'entrainement par \gls{nfb} \citep{Bazanova2018, Escolano2014}, mais trop peu pour en déterminer
 l'impact sur l'efficacité du \gls{nfb} par la \gls{saob}. L'analyse présentée dans ce chapitre n'a pas pour but d'évaluer directement l'efficacité de la 
 personnalisation des protocoles de \gls{nfb}, mais sa pertinence. Pour ce faire, la distribution des valeurs de \gls{tbr} chez les enfants \gls{tdah} est 
-étudiée à l'aide de différentes méthodes de partitionnement pour déterminer combien de groupes d'enfants \gls{tdah} existent en se basant seulement sur les 
+étudiée à l'aide de différentes méthodes de partitionnement (\textit{clustering} en anglais) pour déterminer combien de groupes d'enfants \gls{tdah} existent en se basant seulement sur les 
 valeurs de \gls{tbr}. 
 \clearpage
 
@@ -272,7 +272,7 @@ de l'enregistrement, puis le maximum sur ces deux électrodes est retenu.
 
 Enfin, cette valeur de \gls{tbr} doit être normalisée pour les analyses de partionnement qui vont suivre. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
 le \glsfirst{bgmm} et le \gls{gmm} détaillées par la suite, supposent que la distribution des \gls{tbr} est normale. 
-En effet, un \gls{bgmm} appliqué à une distribution non normale identifierait de faux \textit{clusters} pour ajuster les données. 
+En effet, un \gls{bgmm} appliqué à une distribution non normale identifierait de faux groupes (\textit{clusters} en anglais) pour ajuster les données. 
 Ainsi, pour être certain que l'hypothèse de normalité est valide, la distribution des \gls{tbr} de patients sains (provenant de la base de données \gls{cmi-hbn})
 est analysée avec deux techniques de normalisation différentes : la \textit{log normalization} et la \textit{square-root-normalization}.
 
@@ -299,7 +299,7 @@ Les \gls{tbr} sont donc normalisés suivant l'équation suivante :
 
 \subsection{Méthodes de partitionnement de la distribution des Theta-beta ratios} \label{clustering}
 
-Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement (\textit{clustering} en anglais), issues de familles différentes,
+Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement, issues de familles différentes,
 sont appliquées aux \gls{srntbr} : 
 \begin{itemize}
 \item une qui se base sur les distributions Gaussiennes (\glsfirst{gmm} et \glsfirst{bgmm}), 
@@ -374,18 +374,18 @@ La multiplication par -2 est une étape nécessaire pour convertir la \textit{lo
 l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le seuil de significativité est fixé à $\alpha = 0.01$.
 
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
-La méthode de Ward est un critère utilisé pour rassembler deux \textit{clusters} lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
-en anglais) \citep{Ward1963}. Ce type d'algorithme de \textit{clustering} fusionne de façon récursive deux groupes similaires, qui initiallement ne comporte qu'une seule observation, jusqu'à obtenir un
-grand \textit{cluster} comprenant l'ensemble des données \citep[Chapitre~10]{James2013}.
+La méthode de Ward est un critère utilisé pour rassembler deux partitions lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
+en anglais) \citep{Ward1963}. Ce type d'algorithme de partitionnement fusionne de façon récursive deux groupes similaires, qui initiallement ne comporte qu'une seule observation, jusqu'à obtenir une
+grande partition comprenant l'ensemble des données \citep[Chapitre~10]{James2013}.
 
 Un exemple schématique de ce type de partitionnement est représenté à la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example} avec six observations (A, B, C, D, E, F) :
 \begin{enumerate}
-\item \emph{Première étape :} calcul de la proximité des points individuels qui sont considérés comme des \textit{clusters},
-\item \emph{Deuxième étape :} fusion des \textit{clusters} similaires pour en former de nouveaux. Sur la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example}, B et C d'une part et D et E
-d'autre part sont des \textit{clusters} similaires et sont donc fusionnés. Il reste désormais quatre groupes : A, BC, DE et F,
-\item \emph{Troisième étape :} nouveau calcul de la proximité entre les \textit{clusters} restants et fusion de ceux qui sont similaires pour en obtenir de nouveaux : A, BC, DEF,
-\item \emph{Quatrième étape :} nouveau calcul de la proximité entre les nouveaux \textit{clusters} et fusion de ceux qui sont similaires ce qui conduit à deux groupes : A, BCDEF,
-\item \emph{Cinquième étape :} les deux \textit{clusters} sont fusionnés pour en former un unique.
+\item \emph{Première étape :} calcul de la proximité des points individuels qui sont considérés comme des groupes,
+\item \emph{Deuxième étape :} fusion des groupes similaires pour en former de nouveaux. Sur la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example}, B et C d'une part et D et E
+d'autre part sont des groupes similaires et sont donc fusionnés. Il reste désormais quatre groupes : A, BC, DE et F,
+\item \emph{Troisième étape :} nouveau calcul de la proximité entre les groupes restants et fusion de ceux qui sont similaires pour en obtenir de nouveaux : A, BC, DEF,
+\item \emph{Quatrième étape :} nouveau calcul de la proximité entre les nouveaux groupes et fusion de ceux qui sont similaires ce qui conduit à deux groupes : A, BCDEF,
+\item \emph{Cinquième étape :} les deux groupes sont fusionnés pour en former un unique.
 \end{enumerate}
 
 \begin{figure}[h!]
@@ -395,21 +395,21 @@ d'autre part sont des \textit{clusters} similaires et sont donc fusionnés. Il r
 	\label{Figure:tbr_hierarchical_agglomerative_clustering_example} 
 \end{figure}
 
-Plusieurs méthodes existent pour quantifier la proximité de deux \textit{clusters}, ici on se base sur la méthode de Ward qui minimise 
+Plusieurs méthodes existent pour quantifier la proximité de deux partitions, ici on se base sur la méthode de Ward qui minimise 
 la variance des deux groupes qui sont fusionnés \citep{Ward1963}.
 
-Le nombre de \textit{clusters} estimé par cette méthode varie de 2 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. 
+Le nombre de groupes estimé par cette méthode varie de 2 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. 
 
 Ce partionnement hierarchique agglomérant est représenté par un dendrogramme, dont un exemple est donné à la 
 Figure~\ref{Figure:tbr_dendrogram_example}. Il s'agit d'un arbre souvent renversé dont l'analyse visuelle 
-peut aider à choisir le nombre de \textit{clusters} à identifier \citep[Chapitre~10]{James2013}.
+peut aider à choisir le nombre de partitions à identifier \citep[Chapitre~10]{James2013}.
 Chaque feuille de l'arbre correspond à une observation et, plus on remonte dans l'arbre, plus les feuilles se regroupent en branches lorsque elles 
 sont similaires. Ensuite, les branches fusionnent avec d'autres branches ou feuilles similaires. Plus la fusion entre deux groupes a lieu tôt, c'est à dire en bas de
 l'arbre, plus ceux-ci se ressemblent. La similitude entre deux groupes est mise en évidence par l'axe des ordonnées de l'arbre :
 plus le trait vertical d'un dendrogramme est grand, plus les groupes fusionnés sont différents. Ici l'axe des ordonnées correspond à la distance de Ward.
 
-Afin de se donner une idée du nombre de \textit{clusters} à identifier, des lignes horizontales coupant les lignes verticales du dendrogramme peuvent être
-tracées : le nombre de ligne verticales coupées correspond au nombre de \textit{clusters} comme illustré à la Figure~\ref{Figure:tbr_dendrogram_example}.
+Afin de se donner une idée du nombre de groupes à identifier, des lignes horizontales coupant les lignes verticales du dendrogramme peuvent être
+tracées : le nombre de ligne verticales coupées correspond au nombre de groupes comme illustré à la Figure~\ref{Figure:tbr_dendrogram_example}.
 Le plus souvent, il est choisi de tracer les lignes horizontales de façon à ce qu'elles coupent les plus longs traits verticaux du dendrogramme, 
 toutefois un tel choix peut manquer de précision \citep[Chapitre~10]{James2013}.
 
@@ -417,23 +417,23 @@ toutefois un tel choix peut manquer de précision \citep[Chapitre~10]{James2013}
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-example} 
   \caption{Exemples de dendrogramme issus de \citet[Chapitre~10]{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A}, le dendrogramme est coupé
-	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux \textit{clusters} (un rose et un vert). En \textbf{B}, le dendrogramme
-	est coupé à une hauteur de 5 menant cette fois-ci à trois \textit{clusters} (en rose, jaune et vert).} 
+	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux groupes (un rose et un vert). En \textbf{B}, le dendrogramme
+	est coupé à une hauteur de 5 menant cette fois-ci à trois groupes (en rose, jaune et vert).} 
 	\label{Figure:tbr_dendrogram_example} 
 \end{figure}
 
 \subsubsection{Partitionnement basé sur les densités : DBSCAN}
-\gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des \textit{clusters} estimés \citep{Ester1996}. 
+\gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des partitions estimées \citep{Ester1996}. 
 Deux paramètres sont nécessaires pour permettre à l'algorithme de partitionner la donnée : la distance $\epsilon$ et le nombre minimum de points 
-$MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un \textit{cluster}.
+$MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un groupe.
  
 Pour un point donné, l'algorithme récupère son voisinage dans un rayon $\epsilon$ et vérifie qu'il contient bien au moins $MinPt$s points, auquel cas, 
-ce point est alors considéré comme faisant partie d'un \textit{cluster}. On parcourt ensuite le voisinage 
-dans un rayon $\epsilon$ de proche en proche afin de trouver l'ensemble des points du \textit{cluster}.
+ce point est alors considéré comme faisant partie d'un groupe. On parcourt ensuite le voisinage 
+dans un rayon $\epsilon$ de proche en proche afin de trouver l'ensemble des points du groupe.
 
 Afin de choisir les valeurs des paramètres $\epsilon$ et $MinPts$, la topologie de l'espace à partitionner est à prendre en compte. En effet, une 
 trop faible valeur de $\epsilon$  et/ou une trop grande valeur de$MinPts$ peuvent empêcher 
-l'algorithme de propager les \textit{clusters}. A l'inverse, une trop grande valeur pour $\epsilon$  
+l'algorithme de propager les partitions. A l'inverse, une trop grande valeur pour $\epsilon$  
 et/ou une trop faible valeur pour $MinPts$ peuvent conduire l'algorithme à ne renvoyer que du bruit. 
  
 Ici, $MinPts$ est déterminé grâce une méthode heuristique \citep{Birant2007} :
@@ -462,16 +462,16 @@ obtenu sur des données factices est présenté à la Figure~\ref{Figure:tbr_k_d
 \end{figure}
 
 Le \textit{silhouette coefficient} est utilisé pour rendre compte de la qualité du partitionnement : -1 est la pire valeur, 1 la meilleure et 0
-correspond à des \textit{clusters} qui se superposent.
+correspond à des groupes qui se superposent.
 
 \subsection{Identification du seuil optimal pour la personnalisation du protocole de Neurofeedback}
 
-Les seuils de discrimination obtenus lorsque les méthodes présentées précédemment identifient deux \textit{clusters} parmi la population d'enfants \gls{tdah} 
+Les seuils de discrimination obtenus lorsque les méthodes présentées précédemment identifient deux groupes parmi la population d'enfants \gls{tdah} 
 sont comparés entre eux, notamment à l'aide d'une courbe \gls{roc}, afin de déterminer le seuil \gls{tbr} à utiliser pour personnaliser le protocole de \gls{nfb}. 
 
 \subsubsection{Seuil obtenu par le \gls{bgmm}}
 Si le \gls{bgmm} à deux composantes est identifié comme offrant le meilleur ajustement du modèle, la distribution théorique de chaque composante 
-est utilisée pour en déduire la valeur du seuil conduisant à la meilleure discrimination entre les deux \textit{clusters}. 
+est utilisée pour en déduire la valeur du seuil conduisant à la meilleure discrimination entre les deux groupes. 
 
 Ce seuil correspond à l'abscisse $x$ de l'intersection des deux Gaussiennes, c'est à dire qu'il faut trouver $x$ tel que $G_1(x) = G_2(x)$, avec $G_1$ et $G_2$ les deux Gausiennes estimées. 
 Pour déterminer $x$ il suffit de traduire mathématiquement les deux Gaussiennes ce qui
@@ -483,17 +483,17 @@ vrais positifs et vrais négatifs (ceux qui sont assignés à la bonne classe) e
 
 Habituellement, une courbe \gls{roc}
 est obtenue grâce à un \textit{gold standard} qui provient de résultats cliniques, alors qu'ici le partionnement retourné par le \gls{bgmm} à deux composantes est utilisé : on suppose 
-que ces deux \textit{clusters} existent et sont correctement estimés par cette méthode, et c'est à partir de ces résultats que la capacité à discriminer les patients \gls{tdah} est évaluée.
+que ces deux groupes existent et sont correctement estimés par cette méthode, et c'est à partir de ces résultats que la capacité à discriminer les patients \gls{tdah} est évaluée.
 
 Une représentation graphique des résultats factices d'un \gls{bgmm} à deux composantes est présentée à la Figure~\ref{Figure:tbr_bgmm_example} : les deux Gaussiennes obtenues correspondent 
-aux deux \textit{clusters} supposés correctement estimés,
+aux deux groupes supposés correctement estimés,
 le seuil calculé pour le \gls{bgmm} à deux composantes est représenté par la droite verticale noire, les populations de vrais positifs et négatifs ainsi que celles des faux positifs 
 et négatifs sont également spécifiées. 
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-bgmm-example} 
-  \caption{Tracés des résultats factices d'un \gls{bgmm} à deux composantes. Les deux Gaussiennes estimées en vert et bleu correspondent aux deux \textit{clusters} délimités par la droite
+  \caption{Tracés des résultats factices d'un \gls{bgmm} à deux composantes. Les deux Gaussiennes estimées en vert et bleu correspondent aux deux groupes délimités par la droite
 	verticale noire. En supposant que ces groupes sont correctement estimés, les populations de vrais positifs et négatifs et faux positifs et négatifs sont représentées.} 
 	\label{Figure:tbr_bgmm_example} 
 \end{figure}
@@ -579,19 +579,19 @@ Figure~\ref{Figure:tbr_ward_dendrogram}.
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
   \caption{Dendrogrammes représentant le partitionnement obtenu suivant la méthode de Ward. En \textbf{A}, tous les liens connectant des noeuds 
-	avec des distances plus grandes ou égales à un seuil fixé à 6 (représenté en pointillés noirs) sont colorés en bleu, ce qui mène à deux \textit{clusters}	
-	(un vert et un rouge). En \textbf{B}, le seuil est fixé à 4, conduisant à trois \textit{clusters}.}
+	avec des distances plus grandes ou égales à un seuil fixé à 6 (représenté en pointillés noirs) sont colorés en bleu, ce qui mène à deux groupes	
+	(un vert et un rouge). En \textbf{B}, le seuil est fixé à 4, conduisant à trois partitions.}
   \label{Figure:tbr_ward_dendrogram}
 \end{figure}
 
-Cette représentation permet de supposer que les données pourraient être séparées en 2 \textit{clusters} (en rouge et vert) 
-mais aussi en 3 (en vert, rouge et orange). Les résultats d'un partitionnement en 2 et 3 \textit{clusters} sont représentés 
+Cette représentation permet de supposer que les données pourraient être séparées en 2 groupes (en rouge et vert) 
+mais aussi en 3 (en vert, rouge et orange). Les résultats d'un partitionnement en 2 et 3 groupes sont représentés 
 à la Figure~\ref{Figure:tbr_ward_histograms} sous forme d'histogrammes.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-histogram-ward} 
-  \caption{Distribution des \gls{srntbr} répartis en \textbf{A} : 2 \textit{clusters} (vert et rouge) et \textbf{B} : 3 \textit{clusters} 
+  \caption{Distribution des \gls{srntbr} répartis en \textbf{A} : 2 groupes (vert et rouge) et \textbf{B} : 3 groupes 
 	(vert, rouge et orange). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointillés bleus sur la 
 	figure \textbf{A}.}
   \label{Figure:tbr_ward_histograms}
@@ -622,7 +622,7 @@ indique un partitionnement convenable, car beaucoup plus grand que -1, mais dont
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dbscan-clustering-plot} 
   \caption{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en vert et rouge) et 13 points sont considérés comme du bruit (en noir).
 	En \textbf{A} le partitionnement est représenté par un nuage de points et en \textbf{B} sous forme d'histogramme. Le seuil \gls{srntbr} est représenté par 
-	la droite verticale en pointillés bleus en \textbf{B}. En \textbf{A} les observations ont été ordonnées de façon à ce que toutes celles du \textit{cluster} des \gls{tbr} élevés 
+	la droite verticale en pointillés bleus en \textbf{B}. En \textbf{A} les observations ont été ordonnées de façon à ce que toutes celles du groupe des \gls{tbr} élevés 
 	soient regroupées.}
   \label{Figure:tbr_dbscan_clustering_plot}
 \end{figure}
@@ -640,7 +640,7 @@ Les seuils obtenus sont :
 \begin{description}
 \item[pour le \gls{bgmm} : ] le seuil identifié est de 3.7, il est représenté par un point bleu à la Figure~\ref{Figure:tbr_bgmm},
 \item[pour le \gls{gmm} : ] le seuil identifié est de 3.8, valeur très proche de celle du seuil déterminé par le \gls{bgmm},
-\item[pour la méthode de Ward : ] le seuil identifié lorsque le nombre de \textit{clusters} est fixé à 2 est de 4.032, représenté
+\item[pour la méthode de Ward : ] le seuil identifié lorsque le nombre de partitions est fixé à 2 est de 4.032, représenté
 par une ligne verticale en pointillés bleus à la Figure~\ref{Figure:tbr_ward_histograms},
 \item[pour le \gls{dbscan} : ] le seuil identifié est de 6.426, schématisé à la Figure~\ref{Figure:tbr_dbscan_clustering_plot} par une ligne
 verticale en pointillés bleus. 
@@ -706,8 +706,8 @@ Il est important de rappeler qu'ici il a été choisi d'estimer la distribution 
 \gls{srntbr} est bien normale.
 
 L'\textit{agglomerative clustering} basé sur la distance de Ward montre que l'ensemble des données peut être réparti 
-en deux ou trois groupes. Lors du partitionnement en deux groupes, un \textit{cluster} correspondant aux \gls{tbr} élevés et comprenant 29\% de la donnée
-est identifié. Ce \textit{cluster} est toujours identifié lorsque le partitionnement se fait en trois groupes : le nouveau groupe est formé dans la sous-population
+en deux ou trois groupes. Lors du partitionnement en deux groupes, un groupe correspondant aux \gls{tbr} élevés et comprenant 29\% de la donnée
+est identifié. Ce groupe est toujours identifié lorsque le partitionnement se fait en trois groupes : le nouveau groupe est formé dans la sous-population
 des \gls{tbr} plus faibles. 
 
 La méthode de Ward a déjà été utilisée lors de recherches 
@@ -723,13 +723,13 @@ se basait sur les puissances totales et relatives dans les bandes de fréquence 
 
 Ainsi, un groupe d'enfants \gls{tdah} au \gls{tbr} élevé a également été identifié par \citet{Clarke2011}.
 
-L'algorithme \gls{dbscan} conduit également à deux \textit{clusters}, dont l'un correspond aux \gls{tbr} élevés avec un \textit{silhouette score} de 0.388 
+L'algorithme \gls{dbscan} conduit également à deux groupes, dont l'un correspond aux \gls{tbr} élevés avec un \textit{silhouette score} de 0.388 
 qui permet d'être assez confiant dans le partitionnement retourné. Parmi les 13 points attribués à 
 aucune classe, 9 correspondent à des sujets ayant un \gls{tbr} élevé. La possibilité qu'a cet algorithme de considérer certains points comme bruités, conduit à
 une classe de \gls{tbr} élevés très dense. 
 
 Toutefois, il faut garder à l'esprit que le paramètre $\epsilon$ du \gls{dbscan} a été déterminé visuellement : cette valeur peut donc facilement varier et conduire à
-un nombre différent de \textit{clusters} identifiés. 
+un nombre différent de partitions identifiées. 
 
 En conclusion, ces deux dernières méthodes semblent confirmer les résultats du \gls{bgmm} quant à l'existence d'un groupe de \gls{tbr} élevés, ce qui permet 
 d'apporter de nouvelles preuves à l'hétérogénéité du \gls{tdah} déjà évoquée dans la littérature \citep{Arns2008, Arns2012, Barry2003, Clarke2011, 
@@ -754,9 +754,9 @@ Le seuil calculé à partir du \gls{bgmm} à deux composantes conduit à un grou
 Ce pourcentage est en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
 De plus,\citep{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
-25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un \textit{cluster}
+25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un groupe
 de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la basse \gls{acc} obtenue laisse à penser
-que la valeur de ce seuil ne sépare pas de manière fiable les deux groupes. Le seuil identifié par la méthode de Ward dans le cas de deux \textit{clusters}
+que la valeur de ce seuil ne sépare pas de manière fiable les deux groupes. Le seuil identifié par la méthode de Ward dans le cas de deux groupes
 est proche de celui trouvé par le \gls{bgmm} à deux composantes (4 contre 3.7), ce qui prouve une nouvelle fois qu'il existe un groupe d'enfants \gls{tdah}
 présentant un \gls{tbr} élevé.
 
@@ -771,7 +771,7 @@ Au vu de ces réultats, nous recommandons l'utilisation d'un seuil \gls{tbr} de 
 les protocoles d'entrainement du fait de son bon équilibre entre un faible \gls{fpr} et une \gls{acc} et un \gls{tpr} élevés. 
 
 Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car elles n'ont pas été obtenues à l'aide d'un \textit{gold standard} mais grâce au \gls{bgmm}
-à deux composantes, dont on suppose que les \textit{clusters} ont été correctement estimés. 
+à deux composantes, dont on suppose que les groupes ont été correctement estimés. 
 
 \subsection{Variabilité du calcul des Theta-Beta ratios} 
 
@@ -856,7 +856,7 @@ intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent sign
 
 Par ailleurs, il a été observé que les enfants nés en fin d'année sont plus souvent diagnostiqués \gls{tdah} \citep{Layton2018} : en effet ces derniers 
 étant parfois plus jeunes de près d'un an, ils peuvent présenter un comportement différent de leurs pairs qui peut amener à un diagnostic du \gls{tdah}. Evaluer si 
-les deux \textit{clusters} d'enfants mis en évidence ici se distinguent par le mois de naissance serait intéressant.
+les deux groupes d'enfants mis en évidence ici se distinguent par le mois de naissance serait intéressant.
 
 Enfin, un autre facteur qu'il aurait été intéressant d'étudier est l'exposition aux écrans. De nombreuses études se sont penchées sur le lien 
 entre troubles de l'attention et temps passé devant les écrans durant l'enfance : alors que les premiers résultats montrent effectivement un lien 
@@ -869,7 +869,7 @@ la capacité d'attention.
 
 Cette étude avait pour but d'explorer l'existence d'un groupe d'enfants \gls{tdah} basée sur leur \gls{tbr} extraits de signaux \gls{eeg} enregistrés les yeux 
 ouverts. Les résultats montrent qu'il existerait deux groupes : un avec un \gls{tbr} élevé, et l'autre avec des valeurs de \gls{tbr} normales. Bien que les 
-distributions de ces deux \textit{clusters} se superposent, le seuil de séparation le plus précis est de 3.7. Toutefois, le seuil qui équilibre le mieux
+distributions de ces deux groupes se superposent, le seuil de séparation le plus précis est de 3.7. Toutefois, le seuil qui équilibre le mieux
 le \gls{tpr} et le \gls{fpr} est celui de 4.1, il est donc recommandé pour assigner les protocoles de \gls{nfb}. 
 
 La confirmation de l'existence de deux groupes distincts est importante pour l'utilisation du \gls{nfb} pour traiter le \gls{tdah}. En effet, cela indique 
