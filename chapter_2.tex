@@ -697,7 +697,15 @@ L'importance de mettre à jour les méta-analyses est étudiée en deux temps :
 \item par l'évolution de l'\gls{est} calculé sur la composante totale au fur et à mesure de l'inclusion des études selon leur année de publication ; l'intervalle de confiance à 95\% est 
 aussi représenté,
 \item par l'évolution de la $p$-value de ces \gls{est} ; l'intervalle de confiance à 95\% des $p$-values
-est obtenu avec les $p$-values de chaque étude incluse.
+est obtenu avec les $p$-values de chaque étude incluse. Une fois cet intervalle, noté CI, obtenu, ses bornes sont ajustées de façon à prendre en compte le fait 
+que la $p$-value est une valeur bornée entre 0 et 1 \citep{Mandelkern2002} : 
+\begin{equation}
+\label{eq:metareview_confidence_interval_evolitio_p_value}
+\text{CI} = \begin{cases}
+           [max(0;\text{borne inférieure}) ; max(0;\text{borne supérieure})], \\
+					 [min(1;\text{borne inférieure}) ; min(1;\text{borne supérieure})].
+					  \end{cases}
+\end{equation}
 \end{itemize}
 Les courbes sont tracées pour les évaluations des parents et des enseignants. Le nombre de sujets par étude (NS) et cumulatif (NSC) sont précisés sur les axes 
 des abscisses en haut de chaque graphique. Les NSC sont obtenus de la façon suivante : $\text{NSC}(n) = \text{NSC}(n - 1) + \text{NS}(n)$, avec $n$ 
