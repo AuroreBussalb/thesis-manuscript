@@ -2,6 +2,7 @@
 %% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
 %% ---------------------------------------------------------------
 
+\pdfobjcompresslevel 0
 \documentclass[12pt,a4paper,french]{report}
 
 \input{preamble}
@@ -36,6 +37,14 @@
 \tableofcontents
 \thispagestyle{empty}
 
+\listoffigures
+\newpage
+
+\listoftables
+
+\newpage
+\printglossary[title=Abréviations, type=\acronymtype]
+
 \input{chapter_1}
 
 \newpage
@@ -51,9 +60,10 @@
 \input{chapter_4}
 
 \newpage
-\bibliography{bibliography}
+
+\input{chapter_5}
 
 \newpage
-\printglossary[title=List of abbreviations, type=\acronymtype]
+\bibliography{bibliography}
 
 \end{document}
