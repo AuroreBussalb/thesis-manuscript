@@ -32,7 +32,7 @@ $n = 363$ sujets diagnostiqués \gls{tdah} sont analysés.
 
 \begin{table}[h!]
   \centering
-  \caption{Informations sur les données utilisées. Les critères d'inclusion pour chaque base de données sont listés, ainsi que le nombre de sujets satisfaisant
+  \caption[Informations sur les données utilisées.]{Informations sur les données utilisées. Les critères d'inclusion pour chaque base de données sont listés, ainsi que le nombre de sujets satisfaisant
 	chaque critère entre parenthèses. Le nombre total de sujets inclus par base de données est précisé à la dernière ligne.}
   \input{tables/chapter-4/table_tbr_datasets_description}
   \label{Table:tbr_datasets_description}
@@ -285,7 +285,8 @@ nulle de normalité ($p$-value = 0.46). Ainsi, on suppose que les valeurs de \gl
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-normalization} 
-  \caption{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. Les histogrammes des distributions de valeurs \gls{tbr} non nomalisées,
+  \caption[Comparaison de techniques de normalisation des valeurs de \gls{tbr}.]{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. 
+	Les histogrammes des distributions de valeurs \gls{tbr} non nomalisées,
 	log normalisées et \textit{square-root} normalisées sont presentés à la première ligne. La seconde ligne contient les tracés de probabilités comparant les
 	dstributions. La statistique W du test de Shapiro-Wilk et la $p$-value correspondante sont affichées sur chaque tracé de probabilité.}
   \label{Figure:tbr_normalization}
@@ -391,7 +392,7 @@ d'autre part sont des groupes similaires et sont donc fusionnés. Il reste déso
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-hierarchical-agglomerative-clustering-example} 
-  \caption{Exemple schématique des étapes de \textit{hierarchical agglomerative clustering} sur six observations : A, B, C, D, E, F.} 
+  \caption[Exemple schématique des étapes de \textit{hierarchical agglomerative clustering}.]{Exemple schématique des étapes de \textit{hierarchical agglomerative clustering} sur six observations : A, B, C, D, E, F.} 
 	\label{Figure:tbr_hierarchical_agglomerative_clustering_example} 
 \end{figure}
 
@@ -416,7 +417,8 @@ toutefois un tel choix peut manquer de précision \citep[Chapitre~10]{James2013}
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dendrogram-example} 
-  \caption{Exemples de dendrogramme issus de \citet[Chapitre~10]{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A}, le dendrogramme est coupé
+  \caption[Exemples de dendrogrammes obtenus lors d'un partitionnement hiérarchique.]{Exemples de dendrogrammes 
+	issus de \citet[Chapitre~10]{James2013} obtenus lors d'un partitionnement hiérarchique. En \textbf{A}, le dendrogramme est coupé
 	par une ligne horizontale (en pointillés noirs) à une hauteur de 9 ce qui conduit à deux groupes (un rose et un vert). En \textbf{B}, le dendrogramme
 	est coupé à une hauteur de 5 menant cette fois-ci à trois groupes (en rose, jaune et vert).} 
 	\label{Figure:tbr_dendrogram_example} 
@@ -456,7 +458,8 @@ obtenu sur des données factices est présenté à la Figure~\ref{Figure:tbr_k_d
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-k-distance-plot-example} 
-  \caption{Exemple de \textit{k-distance plot} sur des données factices. Les observations ayant une \textit{k-distance} élevée sont potentiellement
+  \caption[Exemple de \textit{k-distance plot} sur des données factices.]{Exemple de \textit{k-distance plot} sur des données factices. Les observations 
+	ayant une \textit{k-distance} élevée sont potentiellement
 	des outliers. L'observation représentée par une croix rouge correspond au "coude" dont l'abscisse correspond à $\epsilon$.} 
 	\label{Figure:tbr_k_distance_plot_example} 
 \end{figure}
@@ -493,7 +496,7 @@ et négatifs sont également spécifiées.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-bgmm-example} 
-  \caption{Tracés des résultats factices d'un \gls{bgmm} à deux composantes. Les deux Gaussiennes estimées en vert et bleu correspondent aux deux groupes délimités par la droite
+  \caption[Tracés des résultats factices d'un \gls{bgmm} à deux composantes.]{Tracés des résultats factices d'un \gls{bgmm} à deux composantes. Les deux Gaussiennes estimées en vert et bleu correspondent aux deux groupes délimités par la droite
 	verticale noire. En supposant que ces groupes sont correctement estimés, les populations de vrais positifs et négatifs et faux positifs et négatifs sont représentées.} 
 	\label{Figure:tbr_bgmm_example} 
 \end{figure}
@@ -556,7 +559,7 @@ Les résultats des \gls{bgmm} avec un nombre de composantes allant de 1 à 3 son
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-bgmm} 
-  \caption{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec \textbf{A} 1-mode, \textbf{B} 2-modes et \textbf{C} 3-modes du \gls{bgmm} superposés. $P$-value (1-2) correspond
+  \caption[Résultats des \gls{bgmm} avec une à trois composantes.]{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec \textbf{A} 1-mode, \textbf{B} 2-modes et \textbf{C} 3-modes du \gls{bgmm} superposés. $P$-value (1-2) correspond
 	à la $p$-value du test de déviance comparant les \gls{bgmm} à 1 mode et 2 modes ; $p$-value (2-3) correspond à la $p$-value du test de déviance comparant les \gls{bgmm}
 	à 2 modes et 3 modes. Significativité symbolisée par ** (seuil fixé à 0.01). Le seuil \gls{srntbr} est précisé pour le modèle à 2 composantes et représenté par un cercle bleu.}
   \label{Figure:tbr_bgmm} 
@@ -578,7 +581,8 @@ Figure~\ref{Figure:tbr_ward_dendrogram}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-4/tbr-dendrogram-ward} 
-  \caption{Dendrogrammes représentant le partitionnement obtenu suivant la méthode de Ward. En \textbf{A}, tous les liens connectant des noeuds 
+  \caption[Dendrogrammes représentant le partitionnement obtenu suivant la méthode de Ward.]{Dendrogrammes représentant le partitionnement obtenu suivant 
+	la méthode de Ward. En \textbf{A}, tous les liens connectant des noeuds 
 	avec des distances plus grandes ou égales à un seuil fixé à 6 (représenté en pointillés noirs) sont colorés en bleu, ce qui mène à deux groupes	
 	(un vert et un rouge). En \textbf{B}, le seuil est fixé à 4, conduisant à trois partitions.}
   \label{Figure:tbr_ward_dendrogram}
@@ -591,7 +595,7 @@ mais aussi en 3 (en vert, rouge et orange). Les résultats d'un partitionnement 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-histogram-ward} 
-  \caption{Distribution des \gls{srntbr} répartis en \textbf{A} : 2 groupes (vert et rouge) et \textbf{B} : 3 groupes 
+  \caption[Résultats du partitionnement en deux et trois groupes selon la méthode de Ward.]{Distribution des \gls{srntbr} répartis grâce à la méthode de Ward en \textbf{A} : 2 groupes (vert et rouge) et \textbf{B} : 3 groupes 
 	(vert, rouge et orange). Le seuil séparant la distribution des \gls{srntbr} en deux groupes est représenté par la ligne verticale en pointillés bleus sur la 
 	figure \textbf{A}.}
   \label{Figure:tbr_ward_histograms}
@@ -609,7 +613,7 @@ où un coude est observé à $y = 0.048$. Cette valeur, identifiée visuellement
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-dbscan-knn-plot} 
-  \caption{Graphique des k distances pour la méthode \gls{dbscan}. La ligne en pointillés noirs coupe la courbe où le coude est identifié.}
+  \caption[Graphique des k distances pour la méthode \gls{dbscan}.]{Graphique des k distances pour la méthode \gls{dbscan}. La ligne en pointillés noirs coupe la courbe où le coude est identifié.}
   \label{Figure:tbr_dbscan_kdistance_plot}
 \end{figure}
 
@@ -620,7 +624,7 @@ indique un partitionnement convenable, car beaucoup plus grand que -1, mais dont
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-dbscan-clustering-plot} 
-  \caption{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en vert et rouge) et 13 points sont considérés comme du bruit (en noir).
+  \caption[Partitionnement obtenu par \gls{dbscan}.]{Partitionnement obtenu par \gls{dbscan}. Deux groupes sont identifiés (en vert et rouge) et 13 points sont considérés comme du bruit (en noir).
 	En \textbf{A} le partitionnement est représenté par un nuage de points et en \textbf{B} sous forme d'histogramme. Le seuil \gls{srntbr} est représenté par 
 	la droite verticale en pointillés bleus en \textbf{B}. En \textbf{A} les observations ont été ordonnées de façon à ce que toutes celles du groupe des \gls{tbr} élevés 
 	soient regroupées.}
@@ -653,7 +657,7 @@ La valeur des seuils affichée correspond au seuil sur les valeurs \gls{tbr}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-roc} 
-  \caption{Courbe \gls{roc} obtenue avec le \gls{bgmm} à deux composantes (en bleu). Les seuils \gls{tbr} obtenus avec les méthodes implémentées ici sont représentés 
+  \caption[Courbe \gls{roc} obtenue avec le \gls{bgmm} à deux composantes.]{Courbe \gls{roc} obtenue avec le \gls{bgmm} à deux composantes (en bleu). Les seuils \gls{tbr} obtenus avec les méthodes implémentées ici sont représentés 
 	par un point rouge sur la courbe ; les seuils issus de la littérature sont représentés par un point noir. Pour chaque seuil la valeur de justesse (\gls{acc}) 
 	est donnée.}
   \label{Figure:tbr_roc}
@@ -668,7 +672,8 @@ avec les seuils présentés sur la courbe \gls{roc} à la Figure~\ref{Figure:tbr
 par \gls{dbscan} qui mène à un groupe comprenant seulement 5\% de la population étudiée.
 \begin{table}[h!]
   \centering
-  \caption{Poucentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.}
+  \caption[Poucentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.]{Poucentage 
+	de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.}
   \input{tables/chapter-4/tbr_thresholds_number_of_subjects}
   \label{Table:tbr_thresholds_number_of_subjects}
 \end{table}
@@ -817,7 +822,8 @@ la bande thêta ne s'étend que sur 4Hz, contraitement à la bande bêta qui est
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-eye-artifact-correction} 
-  \caption{Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts oculaires (en bleu) et sans correction (en vert).}
+  \caption[Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts 
+	oculaires et sans correction.]{Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts oculaires (en bleu) et sans correction (en vert).}
   \label{Figure:tbr_eye_artifact_correction}
 \end{figure}
 
@@ -834,7 +840,8 @@ davantage de sujets âges que le groupe de \gls{tbr} élevé (en rouge).
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-age-distribution} 
-  \caption{Comparaison des distributions normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes. La distribution
+  \caption[Comparaison des distributions normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes.]{Comparaison des distributions 
+	normalisées des âges dans les groupes de \gls{tbr} identifiés par le \gls{bgmm} à deux composantes. La distribution
 	en rouge correspond aux sujets inclus dans le groupe des valeurs de \gls{tbr} élevées et celle en vert au groupe dont les valeurs sont normales.}
   \label{Figure:tbr_age_distribution}
 \end{figure}
