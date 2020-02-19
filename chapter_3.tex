@@ -214,7 +214,8 @@ d'une régression simple à la Figure~\ref{Figure:factors_comparison_ols_wls}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/factors-comparison-ols-wls} 
-  \caption{Comparaison des régressions simples non pondérée (\gls{ols}) en \textbf{A} et pondérée (\gls{wls}) en \textbf{B} sur des données factices. Les points bleus correspondent aux observations
+  \caption[Comparaison des régressions simples non pondérée (\gls{ols}) et pondérée (\gls{wls}) sur des données factices.]{Comparaison des régressions 
+	simples non pondérée (\gls{ols}) en \textbf{A} et pondérée (\gls{wls}) en \textbf{B} sur des données factices. Les points bleus correspondent aux observations
 	dont la taille dans le cas de la \gls{wls} est proportionnelle au poids qui leur est attribué. Les droites rouges correspondent aux droites de régression : dans le cas de la \gls{wls} elle
 	est plus proche des points ayant un fort poids. Dans notre cas la variable dépendante sera l'\gls{es}-intra-groupe et la variable indépendante un facteur.}
   \label{Figure:factors_comparison_ols_wls}
@@ -349,7 +350,7 @@ sur la solution de l'\gls{ols} évoqué en \ref{wls_part}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/comparison-lasso-ridge-ols-lasso} 
-  \caption{Evolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ (en vert, rouge, jaune, violet et bleu) en fonction de
+  \caption[Comparaison des régressions \gls{lasso} et \textit{Ridge} sur des données factices.]{Evolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ (en vert, rouge, jaune, violet et bleu) en fonction de
   la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et \textit{Ridge} (en \textbf{B}) sur des données factices. Pour $\lambda = 0$, on se retrouve
   dans le cas de l'\gls{ols}. Le \gls{lasso} effectue bien une sélection de variables en mettant à zéro les coefficients les plus faibles.}
   \label{Figure:factors_comparison_lasso_ridge_ols_lasso}
@@ -390,7 +391,7 @@ Un arbre exemple est schématisé à la Figure~\ref{Figure:factors_decision_tree
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/decision-tree-example} 
-  \caption{Exemple schématique d'arbre de décision de régression. Le \textit{root node} est en rouge, les noeuds sont en bleu et les feuilles en vert. 
+  \caption[Exemple schématique d'arbre de décision de régression.]{Exemple schématique d'arbre de décision de régression. Le \textit{root node} est en rouge, les noeuds sont en bleu et les feuilles en vert. 
 	Les variables A, C et D sont catégorielles ; les variables B, E et F sont numériques. Les "Valeurs\_X" correspondent à la valeur 
 	prédite par l'arbre de décision de la variable dépendante suite à la division précédente.}
   \label{Figure:factors_decision_tree_example}
@@ -446,7 +447,7 @@ Au final $k = 41$ études ont été retenues, qui correspondent par ailleurs au 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-selection-studies} 
-  \caption{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 2 septembre 2019).} 
+  \caption[Diagramme de sélection des études pour l'analyse systématique des biais.]{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 2 septembre 2019).} 
   \label{Figure:factors_pipeline_selection_studies}
 \end{figure}
 
@@ -457,7 +458,8 @@ Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-3/distribution-ES-within} 
-  \caption{Distribution des tailles d'effet (\gls{es}) intra-groupe, une valeur négative est en faveur du Neurofeedback. Les lignes 
+  \caption[Distribution des tailles d'effet intra-groupe calculées pour les études incluses dans la \gls{saob}.]{Distribution des tailles d'effet (\gls{es}) intra-groupe calculées pour les études 
+	incluses dans la \gls{saob}, une valeur négative est en faveur du Neurofeedback. Les lignes 
 	verticales noires correspondent aux bornes supérieure et 
 	inférieure de l'intervalle dans lequel les observations sont acceptées. La courbe verte est la Gaussienne ayant pour paramètres $\mu =$ la moyenne
 	de tous les \gls{es} intra-groupe et $\sigma =$ l'écart-type calculé sur tous les \gls{es} intra-groupe}
@@ -483,7 +485,7 @@ qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_
 \newpage\
 \begin{table}[h!]
   \centering
-  \caption{Liste des études incluses dans l'analyse systématique des biais : a) études incluses dans \citet{Cortese2016}
+  \caption[Liste des études incluses dans l'analyse systématique des biais.]{Liste des études incluses dans l'analyse systématique des biais : a) études incluses dans \citet{Cortese2016}
 	(dernière recherche le 30 août 2015) ; b) études satisfaisant le critère d'inclusion de \citet{Cortese2016} (dernière recherche le 2 septembre 2019) ; c) études 
 	satisfaisant le critère d'inclusion de \citet{Cortese2016} à l'exception de la partie concernant le groupe contrôle (dernière recherche le 2 septembre 2019).}
   \input{tables/chapter-3/table_factors_analysis_meta_analysis_list_studies}
@@ -508,12 +510,12 @@ homogènes ou présentaient trop d'observations manquantes sur la base des crit�
 	\item le degré d'engagement dans l'entraînement par \gls{nfb}.
 \end{itemize} 
 
-Afin de mettre en évidence la variabilité des valeurs au sein des facteurs non-catégoriels sélectionnés, les boxplots des valeurs standardisées ont 
+Afin de mettre en évidence la variabilité des valeurs au sein des facteurs non-catégoriels sélectionnés, les \textit{boxplots} des valeurs standardisées ont 
 été obtenus et représentés à la Figure~\ref{Figure:factors-boxplots} :
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-distribution-of-factors} 
-  \caption{Boxplots des facteurs aux valeurs numériques standardisées.} 
+  \caption[\textit{Boxplots} des facteurs aux valeurs numériques standardisées.]{\textit{Boxplots} des facteurs aux valeurs numériques standardisées.} 
   \label{Figure:factors-boxplots}
 \end{figure}
 
@@ -525,7 +527,7 @@ Table~\ref{Table:table_factors_analysis_results_summary}.
 \newpage\
 \begin{table}[h!]
   \centering
-  \caption{Resultats de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une $p$-value $<$ 0.05 
+  \caption[Resultats de l'analyse systématique des biais.]{Resultats de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une $p$-value $<$ 0.05 
 	(en gras) signifie que le coefficient du facteur correspondant est significativement différent de 0. Pour le \gls{lasso}, les facteurs dont les coefficients sont non mis à 0 (en gras) sont 
 	sélectionnés. Pour l'arbre de décision, la place du facteur dans l'arbre est indiquée. Pour les deux premières colonnes, quand la valeur du coefficient est négative le facteur 
 	correspondant pourrait mener à de meilleurs résultats du \gls{nfb}.}
@@ -556,7 +558,8 @@ La validation croisée \textit{leave-one-out} illustrée à la Figure~\ref{Figur
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-selection-lasso-best-lambda} 
-  \caption{Erreur quadratique moyenne (\gls{mse}) obtenue sur la moyenne de tous les \textit{folds} utilisés lors de la validation 
+  \caption[Erreur quadratique moyenne obtenue sur la moyenne de tous les \textit{folds} utilisés lors de la validation 
+	croisée \textit{leave-one-out}.]{Erreur quadratique moyenne (\gls{mse}) obtenue sur la moyenne de tous les \textit{folds} utilisés lors de la validation 
 	croisée \textit{leave-one-out}. La courbe bleue représente la \gls{mse} moyennée sur tous les \textit{folds} ; la droite verticale en pointillés correspond
 	au minimum de la \gls{mse} moyenne.}
   \label{Figure:selection_lambda_lasso}
@@ -574,7 +577,7 @@ en moins d'observations sont disponibles plus on descend dans l'arbre, l'influen
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-decision-tree} 
-  \caption{Arbre de décision obtenu : \gls{es} correspond à l'\gls{es}-intra-groupe et $k$ au nombre d'études. L'importance des variables indépendantes
+  \caption[Arbre de décision]{Arbre de décision obtenu : \gls{es} correspond à l'\gls{es}-intra-groupe et $k$ au nombre d'études. L'importance des variables indépendantes
 	décroît depuis le \textit{root node}. La durée de la session est mesurée en minutes et la durée du traitement en semaines.}
   \label{Figure:factors_decision_tree}
 \end{figure}
@@ -603,7 +606,7 @@ Ces résultats sont résumés à la Table~\ref{Table:table_factors_analysis_resu
 
 \begin{table}[h!]
   \centering
-  \caption{Facteurs classés selon le nombre de méthodes les identifiant comme significatifs. Un signe + signifie que la présence (dans le cas d'une variable catégorielle) ou l'importante valeur
+  \caption[Facteurs classés selon le nombre de méthodes les identifiant comme significatifs.]{Facteurs classés selon le nombre de méthodes les identifiant comme significatifs. Un signe + signifie que la présence (dans le cas d'une variable catégorielle) ou l'importante valeur
 	de la variable a un effet favorable sur l'efficacité du \gls{nfb}. A l'inverse, un signe - signifie que l'absence (dans le cas d'une variable catégorielle) ou la faible valeur
 	de la variable a un effet favorable sur l'efficacité du \gls{nfb}. Le nombre de signes est décroissant avec le degré de confiance accordé à l'influence du facteur. 0 signifie 
 	que le facteur n'aurait pas d'effet.}
@@ -668,7 +671,7 @@ sessions. Afin de se rendre compte du lien entre ces trois paramètres un \texti
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-pairplot} 
-  \caption{\textit{Pairplot} obtenu sur les variables indépendantes non standardisées "fréquence des sessions", "nombre de sessions" et "durée du traitement" 
+  \caption[\textit{Pairplot} obtenu sur les variables indépendantes non standardisées.]{\textit{Pairplot} obtenu sur les variables indépendantes non standardisées "fréquence des sessions", "nombre de sessions" et "durée du traitement" 
 	comprenant les 85 observations retenues suite au prétraitement des données expliqué en \ref{preprocessing}. La fréquence des sessions 
 	est donnée en nombre de sessions par semaine et la durée du traitement en semaines.}
   \label{Figure:factors_pairplot}
@@ -786,9 +789,9 @@ qu'au cas \textbf{B}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-pblind-discussion} 
-  \caption{Scores à pré-test et post-test ($\pm$ erreur type) donnés par les parents (\gls{mprox}) en bleu et les enseignants (\gls{pblind}) en pointillés verts. 
-	Deux hypothèses sur des données hypothétiques : \textbf{A)} pas d'effet placebo, les enseignants notent moins de symptômes du \gls{tdah} donc la difference entre pré et post-test est faible
-	et \textbf{B)} effet placebo, les enseignants observent autant de symptômes à pré-test que les parents mais pas autant d'amélioration. \textbf{C)} Données réelles : 
+  \caption[Comparaison des scores cliniques attribués aux enfants par les parents et les enseignants à pré et post-test.]{Scores à pré-test et post-test ($\pm$ erreur type) donnés par les parents (\gls{mprox}) en bleu et les enseignants (\gls{pblind}) en pointillés verts. 
+	Deux hypothèses sur des données hypothétiques : en \textbf{A} pas d'effet placebo, les enseignants notent moins de symptômes du \gls{tdah} donc la difference entre pré et post-test est faible
+	et en \textbf{B} effet placebo, les enseignants observent autant de symptômes à pré-test que les parents mais pas autant d'amélioration. En \textbf{C} résultats sur des données réelles : 
 	évolution des scores attribués par les parents et enseignants entre pré- et post-test dans les études qui satisfont le critère d'inclusion de \citeauthor{Cortese2016} 
 	et qui donnent les scores sur les mêmes échelles pour les deux types d'évaluateurs.}
   \label{Figure:factors_pblind_discussion}
@@ -834,7 +837,7 @@ Table~\ref{Table:table_factors_analysis_results_summary_update}.
 
 \begin{table}[h!]
   \centering
-  \caption{Resultats des mises à jour de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt})
+  \caption[Comparaison entre les résultats de la \gls{saob} de \citet{Bussalb2019clinical} et de sa mise à jour.]{Resultats des mises à jour de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt})
 	comparés à ceux de \citet{Bussalb2019clinical}. Pour la \gls{wls}, une $p$-value $<$ 0.05 
 	(en gras) signifie que le coefficient du facteur correspondant est significativement différent de 0. Pour le \gls{lasso}, les facteurs dont les coefficients sont non mis à 0 (en gras) sont 
 	sélectionnés. Pour l'arbre de décision, la place du facteur dans l'arbre est indiquée. Pour les deux premières colonnes, quand la valeur du coefficient est négative le facteur 
@@ -887,7 +890,7 @@ Ils sont obtenus de la façon suivante : $\text{NOC}(n) = \text{NOC}(n - 1) + \t
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-evolution-with-update} 
-  \caption{Evolution du nombre de méthodes de régression pour lesquelles les facteurs sont sélectionnés au fur et à mesure de l'ajout des études mettant à jour \citet{Bussalb2019clinical}.
+  \caption[Evolution du nombre de méthodes de régression pour lesquelles les facteurs sont sélectionnés au fur et à mesure de l'ajout de nouvelles études.]{Evolution du nombre de méthodes de régression pour lesquelles les facteurs sont sélectionnés au fur et à mesure de l'ajout des études mettant à jour \citet{Bussalb2019clinical}.
 	La courbe rouge correspond au facteur "durée du traitement", la grise à "la qualité de \gls{eeg} égale à 2", la bleue au "nombre de sessions", la orange au "protocole \gls{smr}". 
 	Les carrés verts représentent les résultats de \citet{Bussalb2019clinical} et les violets ceux de la mise à jour de cet article présentée en \ref{saob_results}.
 	Le nombre d'observations incluses dans chaque nouvelle étude ajoutée ainsi que le nombre cumulatif d'observations sont donnés sur les axes des abscisses supérieurs.
