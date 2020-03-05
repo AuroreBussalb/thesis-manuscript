@@ -53,7 +53,7 @@ Ces rythmes sont représentés à la Figure~\ref{Figure:introduction_EEG_waves}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.5\linewidth]{figures/chapter-1/introduction-EEG-waves} 
-  \caption[Rythmes cérébraux sur 1s d'\gls{eeg} réel.]{Rythmes cérébraux sur 1s d'\gls{eeg} réel. L'axe des ordonnées est entre -10 et 10$\mu$V }
+  \caption[Rythmes cérébraux sur 1s d'\gls{eeg} réel.]{Rythmes cérébraux sur 1s d'\gls{eeg} réel. L'axe des ordonnées est entre -10 et 10$\mu$V.}
   \label{Figure:introduction_EEG_waves}
 \end{figure}
 
@@ -82,7 +82,12 @@ défini par la suite, sont représentées ainsi que les aires cérébrales qu'el
 
 \subsubsection{Enregistrement de l'\gls{eeg}}
 
-L'\gls{eeg} est enregistré sur le cuir chevelu à l'aide d'électrodes dont le nombre et le placement varient en fonction de ce qu'on cherche à observer.
+L'\gls{eeg} est enregistré sur le cuir chevelu à l'aide d'électrodes dont le nombre et le placement varient en fonction de ce qu'on cherche à observer. L'\gls{eeg} correspond
+au potentiel électrique entre deux points : l'électrode d'enregistrement et l'électrode de masse (\textit{ground electrode} en anglais). Cependant, cette dernière introduit
+du bruit électrique, c'est pourquoi une électrode de référence est utilisée : le potentiel entre cette dernière et l'électrode de masse est mesurée puis soustraite à celui entre
+l'électrode d'enregistrement et l'électrode de masse. Ainsi, ce qui est réellement enregistré par l'\gls{eeg} reflète le potentiel entre l'électrode d'enregistrement et celle
+de référence. L'emplacement de l'électrode de référence est variable : bout du nez, mastoïde ou une électrode d'enregistrement \citep{Michel2004}.
+
 Le placement des électrodes suit généralement le système international 10-20 qui a été mis en place en 1948 afin d'harmoniser les enregistrements à travers le monde 
 \citep{Jasper1949, Sharbrough1991} et qui est représenté à la Figure~\ref{Figure:introduction_system_10_20}.
 
@@ -96,7 +101,8 @@ Le placement des électrodes suit généralement le système international 10-20
   \label{Figure:introduction_system_10_20}
 \end{figure}
 
-Le système 10-20 couvre l'ensemble des aires cérébrales du cortex, en répartissant les électodes de manière régulière entre les points de repère de la tête : le nasion, le vertex et l'inion. 
+Le système 10-20 couvre l'ensemble des aires cérébrales du cortex, en répartissant les électodes de manière régulière entre les points de repère de la tête : le nasion (la 
+dépression entre les yeux au sommet du nez), le vertex (le sommet de la tête) et l'inion (la bosse à l'arrière de la tête). 
 
 Comme on peut le voir sur les Figures~\ref{Figure:introduction_system_10_20} et \ref{Figure:introduction_cortical_areas_and_functions}, le nom des électrodes est 
 constitué d'une lettre et d'un chiffre ou de la lettre z, cette nomenclature est définie par \citet{Jasper1949} :
@@ -105,7 +111,7 @@ constitué d'une lettre et d'un chiffre ou de la lettre z, cette nomenclature es
 \item le chiffre indique quant à lui si l'électrode est placée sur l'hémisphère droit (chiffre pair) ou sur l'hémiphère gauche (chiffre impair),
 \item la lettre z est associée aux électrodes qui se trouvent sur la ligne médiane du crâne,
 \item les électrodes Fp sont situées en pré-frontal,
-\item les électrodes A1 et A2 sont généralement des électrodes de référence.
+\item les électrodes A1 et A2 sont généralement les électrodes de référence et de masse.
 \end{itemize}
   
 Le nombre et le placement des électrodes varie selon le but de l'application de l'\gls{eeg} : par exemple enregister l'\gls{eeg} afin
@@ -129,7 +135,7 @@ Enfin, afin d'obtenir le tracé des signaux \gls{eeg} présenté à la Figure~\r
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-eeg-example} 
-  \caption[Exemple d'\gls{eeg} réel enregistré sur 9 secondes.]{Exemple d'\gls{eeg} réel enregistré sur 9 secondes. L'axe des ordonnées est entre -40 et 40$\mu$V }
+  \caption[Exemple d'\gls{eeg} réel enregistré sur 9 secondes.]{Exemple d'\gls{eeg} réel enregistré sur 9 secondes. L'axe des ordonnées est entre -40 et 40$\mu$V.}
   \label{Figure:introduction_eeg_example}
 \end{figure}
 
