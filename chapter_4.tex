@@ -1,7 +1,7 @@
 \chapter{Analyse de la distribution d'un marqueur de l'attention au sein d'une population d'enfants TDAH} \label{chapitre-4}
 
 \section*{Introduction}
-Il existe de nombreuses études sur les distributions de \gls{tbr} chez les enfants \gls{tdah}
+Il existe de nombreuses études sur les distributions de \gls{tbr} chez les enfants souffrant de \gls{tdah}
 \citep{Arns2013, Clarke2001, Zhang2017}. Cela constitue par ailleurs la base historique de l'apparition du \gls{tbr} \gls{nfb} comme intervention utilisée
 pour traiter le \gls{tdah} chez les enfants \citep{Arnold2014, Deilami2016, Gevensleben2009, VanDongen2013}. Cependant, ce protocole ne serait 
 peut-être pas adapté à tous les enfants \gls{tdah} si 
@@ -10,8 +10,8 @@ l'on prend en compte la variété de phénotypes \gls{eeg} présents. En effet, 
 
 Quelques études ont proposé de personnaliser le protocole d'entrainement par \gls{nfb} \citep{Bazanova2018, Escolano2014}, mais trop peu pour en déterminer
 l'impact sur l'efficacité du \gls{nfb} par la \gls{saob}. L'analyse présentée dans ce chapitre n'a pas pour but d'évaluer directement l'efficacité de la 
-personnalisation des protocoles de \gls{nfb}, mais sa pertinence. Pour ce faire, la distribution des valeurs de \gls{tbr} chez les enfants \gls{tdah} est 
-étudiée à l'aide de différentes méthodes de partitionnement (\textit{clustering} en anglais) pour déterminer combien de groupes d'enfants \gls{tdah} existent en se basant seulement sur les 
+personnalisation des protocoles de \gls{nfb}, mais d'en étudier la pertinence. Pour ce faire, la distribution des valeurs de \gls{tbr} chez les enfants \gls{tdah} est 
+étudiée à l'aide de différentes méthodes de partitionnement (\textit{clustering} en anglais) pour déterminer des groupes d'enfants \gls{tdah} en se basant seulement sur les 
 valeurs de \gls{tbr}. 
 \clearpage
 
@@ -46,7 +46,7 @@ mises en place pour homogénéiser l'ensemble des données sont explicitées.
 \subsection{Données NEWROFEED}
 
 Une partie des données utilisées dans cette analyse provient de l'étude NEWROFEED (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019})
-qui avait pour but d'évaluer l'efficacité du \gls{nfb} à la maison versus celle du \gls{mph} sur une population d'enfants \gls{tdah}.
+qui avait pour but d'évaluer si l'efficacité du \gls{nfb} à la maison était non-inférieure à celle du \gls{mph} sur une population d'enfants souffrant du \gls{tdah}.
 Au moment où le travail décrit dans ce chapitre a été mené, NEWROFEED était en cours, donc 
 seulement une partie des données était disponible. Ainsi, 122 enregistrements \gls{eeg} d'enfants diagnostiqués \gls{tdah} d'après les critères du DSM-IV \citep{DSM-4} 
 ont été analysés. L'\gls{eeg} a été enregistré avec l'appareil Mensia Koala équipé de 8 électrodes \gls{agcl} individuellement blindées, positionnées sur le scalp suivant
@@ -69,7 +69,7 @@ exemple l'autisme ou la schizophrénie,
 \item avoir un \gls{qi} < 80 d'après les trois sous-tests du \gls{wasi} ou du \gls{wisc} \citep{Wechsler1999}.
 \end{itemize}
 
-Seule la première évaluation de l'\gls{eeg} enregistrée pour chaque patient avant le début du traitement par \gls{nfb} est utilisée pour cette analyse. 
+Seule la première évaluation de l'\gls{eeg} enregistrée pour chaque patient avant le début du traitement par \gls{nfb} ou du traitement par \gls{mph} est utilisée pour cette analyse. 
 L'étude NEWROFEED a été menée dans 12 centres cliniques dans 5 pays européens (France, Espagne, Allemagne, Belgique et Suisse).
 
 \subsection{Données CMI-MIPDB}
@@ -77,15 +77,15 @@ Au moment de l'analyse, l'intégralité de la base \gls{cmi-mipdb} compte 126 pa
 Les participants ont été recrutés au Child Mind Medical Practice et dans la région de la ville de New-York. Chaque sujet a été questionné pendant 10 minutes
 au téléphone ou en personne par un chercheur expérimenté pour évaluer son éligibilité grâce à :
 \begin{itemize}
-\item l'historique de ses troubles psychiatriques, incluant les traitements en cours et précédents,
-\item l'historique de ses troubles neurologiques et/ou épilepsie.
+\item l'historique des troubles psychiatriques, incluant les traitements en cours et précédents,
+\item l'historique des troubles neurologiques et/ou épilepsie.
 \end{itemize}
 
 L'enregistrement de l'\gls{eeg} est prévu si aucune contre-indication n'est trouvée. 
 
-De tous les patients présents dans la base \gls{cmi-mipdb}, seulement ceux satisfaisant les critères suivants ont été inclus dans l'analyse présentée dans ce chapitre :
+De tous les patients présents dans la base \gls{cmi-mipdb}, seulement ceux satisfaisant aux critères suivants ont été inclus dans l'analyse présentée dans ce chapitre :
 \begin{enumerate}
-\item être diagnostiqué \gls{tdah},
+\item être diagnostiqué \gls{tdah} d'après les critères du DSM-IV \citep{DSM-4},
 \item posséder un \gls{eeg} au repos disponible au format brut (c'est à dire sans pré-traitement),
 \item avoir son âge précisé.
 \end{enumerate}
@@ -96,7 +96,7 @@ soit à la bonne taille. L'impédance des électrodes est gardée inférieure à
 
 \subsection{Données CMI-HBN}
 La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles reçoivent 150\$ pour leur participation 
-et les sujets se voient de plus offrir les rapports de consultation et les avis sur les sessions d'\gls{eeg}.
+et les sujets bénéficient des rapports de consultation et des avis sur les sessions d'\gls{eeg}.
 
 Seuls les sujets remplissant les critères suivants ont été inclus dans notre analyse :
 \begin{enumerate}
@@ -158,7 +158,7 @@ dans le système international 10-20 en projetant les coordonnées sur une sphè
 Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2013}. L'utilisation fréquente de ce protocole est notamment due
 à \citet{Lubar1991} qui, en se basant sur la littérature existante, avance que la valeur du \gls{tbr} permettrait de différencier un enfant \gls{tdah} d'un enfant sain.  
 
-Le \gls{tbr} est défini ici, puis les étapes pour l'extraire des
+Le \gls{tbr} est d'abord défini, puis les étapes pour l'extraire des
 signaux \gls{eeg} à notre disposition sont décrites. Ces \gls{tbr} sont ensuite partitionnés à l'aide de trois méthodes dont le principe est expliqué dans cette partie. 
 Enfin, la méthode pour identifier le seuil optimal séparant les classes obtenues est détaillée.
 
@@ -182,14 +182,15 @@ serait analysé dans le but de prédire les différences entre les individus att
 des caractéristiques du \gls{tdah} \citep{Arns2013, Zhang2017}. 
 
 Cette utilisation prognostique du \gls{tbr} est notamment justifiée par \citet{Clarke2011} qui estiment qu'environ 35\% d'enfants \gls{tdah} présentent un \gls{tbr} élevé, ainsi que 
-par des études qui montrent que la prise de stimulants chez les patients \gls{tdah} avec un \gls{tbr} élevé est plus efficace \citep{Arns2012med, Clarke2002}. 
+par des études qui montrent que la prise de stimulants chez les patients \gls{tdah} avec un \gls{tbr} élevé serait plus efficace \citep{Arns2012med, Clarke2002}. 
 Ainsi, l'existence d'un groupe d'enfants \gls{tdah} au \gls{tbr} élevé pourrait être utilisée pour identifier de meilleurs répondeurs à une intervention donnée, comme le \gls{nfb}. 
 
-La diminution du \gls{tbr} fait partie des protocoles le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
+La diminution du \gls{tbr} est l'objectif des protocoles le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
 On peut supposer que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eeg}. 
 Par exemple, il serait peut-être plus pertinent que les sujets présentant un haut \gls{tbr} suivent un protocole de \gls{nfb} où il est demandé de 
-diminuer le \gls{tbr}. Cette répartition a été proposée lors de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi. 
-Un autre essai clinique randomisé et en double aveugle proposé par \citet{Kerson2013} prévoyait d'utiliser un seuil \gls{tbr} de 5 mais cette valeur a 
+diminuer le \gls{tbr}. Cette répartition a été proposée lors de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi pour allouer les sujets 
+selon leur valeur de \gls{tbr} à l'un des protocoles de \gls{nfb} disponibles (diminution du \gls{tbr} ou augmentation du \gls{smr}). 
+Un autre essai clinique randomisé et en double aveugle proposé par \citet{Kerson2013} prévoyait d'inclure des enfants entre 7 et 10 ans présentant un \gls{tbr} supérieur à 5 mais cette valeur a 
 été modifiée et fixée à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov), valeur également
 utilisée dans NEWROFEED. Choisir correctement la valeur de seuil est crucial car cette valeur détermine quel protocole de \gls{nfb} le patient va suivre. 
 
@@ -197,7 +198,7 @@ Le caractère arbitraire des valeurs de seuil basées sur le \gls{tbr} appelle �
 sous-groupe de patients \gls{tdah} présentant un \gls{tbr} élevé et du seuil à partir duquel les valeurs de \gls{tbr} sont considérées comme élevées.  
  
 \subsection{Extraction du Theta-Beta ratio} \label{extraction_tbr}
-L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitement TBR} comprend plusieurs étapes :
+L'extraction du \gls{tbr} des \gls{eeg} obtenus après les pré-traitements présentés en \ref{pré-traitement TBR} comprend plusieurs étapes :
 \begin{enumerate}
 \item le rejet des artefacts en utilisant la géométrie Riemannienne,
 \item l'extraction de l'\gls{iapf},
@@ -208,11 +209,11 @@ L'extraction du \gls{tbr} des \gls{eeg} pré-traités après \ref{pré-traitemen
 Tout d'abord, les données artefactées sont exclues en utilisant le géométrie Riemanniene \citep{Barachant2013, Barthelemy2019}. 
 
 Le principe de cette méthode consiste à calculer la matrice de covariance de chaque segment d'\gls{eeg} : les époques dont la matrice de covariance se trouve à l'extérieur d'une région
-d'acceptabilité, appelé patate, définie par un $Z$-score sont considérées artefactées et donc rejetées. Cette région d'acceptabilité est définie par une référence d'\gls{eeg} propre.
+d'acceptabilité, appelée patate, définie par un $Z$-score sont considérées artefactées et donc rejetées. Cette région d'acceptabilité est définie par une référence d'\gls{eeg} propre.
 
 Afin d'augmenter la sensibilité et la spécifité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citep{Barthelemy2019}, 
 cette méthode a été appliquée ici.
-Les données \gls{eeg} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et vont être analysées simultanément par six patates. Chaque patate a pour but de détecter 
+Les données \gls{eeg} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et sont analysées simultanément par six patates. Chaque patate a pour but de détecter 
 un type d'artefact, les canaux de chaque patate ainsi que le filtrage du signal \gls{eeg} sont donc choisis de façon à pouvoir le repérer. 
 Ici les sous-ensembles de canaux choisis et les bandes de fréquence \gls{eeg} analysées sont les suivants :
 \begin{itemize}
@@ -231,7 +232,8 @@ Si aucun pic n'est détecté, l'\gls{iapf} est obtenue grâce à l'estimation de
 
 L'\gls{iapf} permet de définir des bandes de fréquence personnalisées pour chaque sujet qui ont été choisies 
 par le comité scientifique de NEWROFEED : theta = [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz] et beta = [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
-Cette étape a pour but d'adapter précisément l'entrainement aux jeunes cerveaux qui se développent très vite \citep{Aurlien2004}. En effet, dans le cas des enfants, il serait possible de considérer 
+Cette étape a pour but d'adapter précisément l'entrainement aux spécificités neurodéveloppementales liées à l'âge de l'enfant \citep{Aurlien2004}. En effet, dans le cas des enfants, 
+il serait possible de considérer 
 des basses fréquences de la bande alpha comme appartenant à la bande theta, ce qui fausserait l'entrainement par \gls{nfb} car la modulation de mauvaises fréquences 
 serait récompensée. Cette méthode mène évidemment à des résultats différents d'avec des bandes de fréquence aux bornes fixes \citep{Arns2008, Vollebregt2015} et a été 
 l'objet de plusieurs études \citep{Kaiser2001, Bazanova2006, Vollebregt2015} dont les résultats montrent que cette personnalisation pourrait améliorer l'efficacité du protocole
@@ -738,16 +740,16 @@ Toutefois, il faut garder à l'esprit que le paramètre $\epsilon$ du \gls{dbsca
 un nombre différent de partitions identifiées. 
 
 En conclusion, ces deux dernières méthodes semblent confirmer les résultats du \gls{bgmm} quant à l'existence d'un groupe de \gls{tbr} élevés, ce qui permet 
-d'apporter de nouvelles preuves à l'hétérogénéité du \gls{tdah} déjà évoquée dans la littérature \citep{Arns2008, Arns2012, Barry2003, Clarke2011, 
+d'apporter de nouvelles preuves quant à l'hétérogénéité du \gls{tdah} déjà évoquée dans la littérature \citep{Arns2008, Arns2012, Barry2003, Clarke2011, 
 Liechti2013, Loo2013, Loo2018}.
 
 \subsubsection{Seuils de partitionnements}
 
-Etant donné que le \gls{tdah} est un trouble hétérogène, tous les enfants \gls{tdah} ne vont pas nécessairement répondre au même traitement, ainsi le personnaliser 
-pourrait être un moyen d'optimiser son efficacité pour chaque patient. L'existence de deux groupes distincts au sein de la 
+L'hétérogénéité des patients souffrant de \gls{tdah} implique des réponses thérapeutiques différentes. Une meilleure identification des sous-groupes de patients souffrant de 
+\gls{tdah} pourrait permettre de personnaliser l'approche thérapeutique et donc d'optimiser son efficacité pour chaque patient. L'existence de deux groupes distincts au sein de la 
 population \gls{tdah} basée sur la valeur du \gls{tbr} étaye l'idée que le traitement par \gls{nfb} devrait être différent pour ces groupes. En effet, il semblerait
 plus approprié que le protocole de diminution du \gls{tbr} ne soit proposé qu'aux enfants du groupe \gls{tbr} élevés et que les autres enfants entrainent un autre
-neuromarqueur, comme par exemple le \gls{smr}. Ce modèle à deux protocoles a été notamment suggérés par \citet{Kerson2013, Arns2012} et a été évaluée lors 
+neuromarqueur, comme par exemple le \gls{smr}. Ce modèle à deux protocoles a été notamment suggéré par \citet{Kerson2013, Arns2012} et a été évalué lors 
 d'un récent essai clinique (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019}).
 
 L'essai clinique de Mensia Technologies a fixé un seuil de \gls{tbr} à 4.5 qui permet d'assigner les sujets soit au groupe devant augmenter leur \gls{smr}, soit 
@@ -861,6 +863,10 @@ Etant donné que les variations de \gls{tbr} sont censées augmenter avec l'âge
 Deux facteurs de confusion ont pu être explorés, cependant il en existe d'autres qu'il n'est ici pas possible d'étudier faute de disponibilité des données.
 En particulier, même si tous les enfants inclus dans cette étude sont diagnostiqués \gls{tdah}, ils ne présentent sans doute pas tous la même sévérité de symptômes : il serait
 intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent significativement au niveau clinique. 
+
+En outre, il a été montré que la présence de comorbidités, comme les troubles du comportement et la dépression, a une influence sur la valeur du \gls{tbr} \citep{Loo2013}. 
+\citet{Barry2003erp} ont également souligné que les enfants souffrant des symptômes d'inattention et d'yperactivité ont tendance à avoir un \gls{tbr} plus élevé que ceux présentant seulement des
+troubles d'attention .  
 
 Par ailleurs, il a été observé que les enfants nés en fin d'année sont plus souvent diagnostiqués \gls{tdah} \citep{Layton2018} : en effet ces derniers 
 étant parfois plus jeunes de près d'un an, ils peuvent présenter un comportement différent de leurs pairs qui peut amener à un diagnostic du \gls{tdah}. Evaluer si 
