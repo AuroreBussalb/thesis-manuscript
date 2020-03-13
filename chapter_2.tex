@@ -671,7 +671,6 @@ dans la performance du traitement.
 De plus, aucun consensus n'existe quant au nombre de sessions ou à la durée du traitement, ainsi ces choix sont très variables d'une étude à l'autre et peu
 souvent questionnés, bien qu'ils soient centraux dans la théorie de l'apprentissage.
 
-
 \section{Importance de la mise à jour des méta-analyses} \label{need_to_update_meta_analysis}
 
 Afin d'éviter de tomber dans le \textit{p-hacking}, c'est à dire faire en sorte d'obtenir un résultat significatif, il est important de ne pas arrêter la collecte de données 
@@ -691,8 +690,8 @@ $t + 1$ et ne plus la retrouver. Ces deux configurations sont représentées ave
 \end{figure}
 
 Les conclusions d'une méta-analyse pourraient donc souffrir de l'arrêt prématuré des analyses lorsque la $p$-value de l'\gls{est} n'est pas stable. 
-Ainsi, la méta-analyse de \citet{Cortese2016} a déjà fait l'objet de deux mises à jour, dont les différences vont être comparées par la suite : la première a été publiée 
-en 2019 \citep{Bussalb2019clinical} et la deuxième est présentée en \ref{selection_studies}. 
+Ainsi, la méta-analyse de \citet{Cortese2016} a déjà fait l'objet de deux mises à jour, dont les différences vont être comparées par la suite : 
+la première a été publiée en 2019 \citep{Bussalb2019clinical} et la deuxième est présentée en \ref{selection_studies}. 
 
 \subsubsection{Mise en évidence de l'importance des mises à jour} \label{methods_importance_to_update_meta_analysis}
 
@@ -711,6 +710,10 @@ que la $p$-value est une valeur bornée entre 0 et 1 \citep{Mandelkern2002} :
 					  \end{cases}
 \end{equation}
 \end{itemize}
+
+L'évolution des l'\gls{est} est considérée comme stable lorsque visuellement elle semble converger. Quant à l'évolution des $p$-values, elle est
+estimée stable lorsque les bornes de son intervalle de confiance sont au-dessus (ou en-dessous) du seuil de significativité à 5\%.
+
 Les courbes sont tracées pour les évaluations des parents et des enseignants. Le nombre de sujets par étude (NS) et cumulatif (NSC) sont précisés sur les axes 
 des abscisses en haut de chaque graphique. Les NSC sont obtenus de la façon suivante : $\text{NSC}(k) = \text{NSC}(k - 1) + \text{NS}(k)$, avec $k$ l'indice de l'étude incluse
 allant de $1$ à $K$, avec $K$ le nombre total d'études incluses.
@@ -773,7 +776,7 @@ les études suivant un protocole standard \citep{Arns2014}.
 Dans le cas des études satisfaisant la définition du protocole standard, les \gls{est} calculés à partir des évaluations des parents 
 (\textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_est_std}) diminuent avec le temps, tout comme leur intervalle de confiance à 95\%. 
 En ce qui concerne les \gls{est} obtenus grâce aux enseignants (\textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_est_std}), un faible nombre d'études 
-est inclus et alors que dans les cas précédents la diminution de l'\gls{est}ne menait pas à une perte de significativité statistique parmi les méta-analyses, 
+est inclus et, alors que dans les cas précédents la diminution de l'\gls{est}ne menait pas à une perte de significativité statistique parmi les méta-analyses, 
 ici la mise à jour de \citet{Cortese2016} présentée en \ref{selection_studies} conduit à un \gls{est} non significativement en faveur du \gls{nfb}. 
 
 \subsubsection{Analyse des courbes de l'évolution de la $p$-value des tailles d'effet totales}
@@ -812,31 +815,38 @@ l'intégralité des études et à la Figure~\ref{Figure:meta_analysis_evolution_
 
 Tout d'abord, en ce qui concerne l'évolution de la $p$-value en incluant l'intégralité des études pour les 
 évaluations des parents (\textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total}), on remarque que les $p$-values sont toutes
-en-dessous du seuil de significativité à 5\% sauf en 2009. Après 2009, les $p$-values sont plutôt stables et leur intervalle de confiance à 95\% diminue, ce qui laisse 
-penser que nous sommes plutôt dans le cas \textbf{A} illustré à la Figure~\ref{Figure:meta-analysis-evolution-p-value-examples}.
+en-dessous du seuil de significativité à 5\% sauf en 2009. Après 2009, les $p$-values varient moins et leur intervalle de confiance à 95\% diminue, 
+ce qui laisse penser que nous sommes plutôt dans le cas \textbf{A} illustré à la Figure~\ref{Figure:meta-analysis-evolution-p-value-examples}. Toutefois,
+la borne supérieure de l'intervalle de confiance n'est jamais en-dessous du seuil de significativité de 5\%.
 
-Quant à l'évolution des $p$-values présentée en \textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total}, bien que toujours non statistiquement significative, 
-elle n'est pas stable.
+Quant à l'évolution des $p$-values présentée en \textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total}, elle est
+toujours non statistiquement significative, mais perd sa stabilité à partir de 2019.
 
-Enfin, en ce qui concerne le groupe standard, les fluctuations des $p$-values sont moins importantes aussi bien pour les évaluations des parents que celles des enseignants. 
-Cependant, les $p$-values sont à la limite du seuil de significativité dans les deux cas lors de la dernière mise à jour.
+Enfin, en ce qui concerne le groupe standard présenté à Figure~\ref{Figure:meta_analysis_evolution_pvalue_std}, les fluctuations des $p$-values 
+sont moins importantes aussi bien pour les évaluations 
+des parents (en \textbf{A}) que celles des enseignants (en \textbf{B}) mais restent instables. 
+De plus, les $p$-values sont à la limite du seuil de significativité dans les deux cas lors de la dernière mise à jour.
 
 \subsubsection{Discussion sur ces courbes}
 
-Les courbes d'évolution des \gls{est} au fur et à mesure de l'inclusion de l'ensemble des études (Figure~\ref{Figure:meta_analysis_evolution_est_total}) illustrent le fait que l'\gls{est} 
-devient de plus en plus stable avec le temps. Par ailleurs, la diminution des intervalles de confiance à 95\% montre que les résultats deviennent de plus en plus précis.
+Les courbes d'évolution des \gls{est} au fur et à mesure de l'inclusion de l'ensemble des études (Figure~\ref{Figure:meta_analysis_evolution_est_total}) 
+illustrent le fait que l'\gls{est} 
+devient visuellement de plus en plus stable avec le temps. Par ailleurs, la diminution des intervalles de confiance à 95\% montre que les résultats 
+deviennent de plus en plus précis.
 
-Les courbes correspondant à l'évolution de l'\gls{est} dans le sous-groupe des études suivant un protocole standard (Figure~\ref{Figure:meta_analysis_evolution_est_total}) sont moins stables 
-du fait du nombre limité de sujets et d'études incluses.
+Les courbes correspondant à l'évolution de l'\gls{est} dans le sous-groupe des études suivant un protocole standard (Figure~\ref{Figure:meta_analysis_evolution_est_total}) 
+fluctuent daantage du fait du nombre limité de sujets et d'études incluses.
 
-Alors que les \gls{est} commencent dans l'ensemble à se stabiliser, leur $p$-value continue de fluctuer (Figure~\ref{Figure:meta_analysis_evolution_pvalue_total} et 
+Alors que les \gls{est} commencent dans l'ensemble à converger, leur $p$-value continue de fluctuer (Figure~\ref{Figure:meta_analysis_evolution_pvalue_total} et 
 Figure~\ref{Figure:meta_analysis_evolution_pvalue_std}) même si sur la totalité des études elles s'accordent depuis 2011 sur la conclusion de \citet{Cortese2016} :
 les évaluations des parents (\textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total}) sont significativement en faveur du \gls{nfb} 
 au contraire des évaluations des enseignants (\textbf{B} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total}). 
-Toutefois, la $p$-value de la dernière mise à jour de \citet{Cortese2016} tend vers la significativité statistique, il serait donc intéressant de continuer à mettre à jour ce travail pour déterminer si 
-cette $p$-value devient significative et le reste.
+Toutefois, alors qu'elle était stable entre 2014 et 2018, elle recommence à fluctuer à partir de 2019 : 
+la $p$-value de la dernière mise à jour de \citet{Cortese2016} tend vers la significativité statistique, il serait donc intéressant 
+de continuer à mettre à jour ce travail pour déterminer si cette $p$-value devient significative et le reste.
 
-Dans le cas de l'évolution des $p$-values dans le sous-groupe des études suivant un protocole standard (Figure~\ref{Figure:meta_analysis_evolution_pvalue_std}), la dernière mise à jour 
+Dans le cas de l'évolution des $p$-values dans le sous-groupe des études suivant un protocole standard (Figure~\ref{Figure:meta_analysis_evolution_pvalue_std}), 
+la dernière mise à jour 
 de \citet{Cortese2016} conduit à des résultats limite significatifs pour les évaluations des parents (\textbf{A}) et à une perte de significativité statistique pour celles des 
 enseignants (\textbf{B}), remettant en question les conclusion de \citet{Cortese2016} et \citet{Bussalb2019clinical} quant à l'efficacité des protocoles standards.
  
