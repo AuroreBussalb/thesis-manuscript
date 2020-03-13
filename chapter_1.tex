@@ -713,55 +713,63 @@ Le \gls{nfb} a fait l'objet de nombreuses études pour déterminer son efficacit
 Malheureusement, aucun consensus n'a encore été clairement atteint, ainsi le travail effectué au cours de cette thèse a pour but de déterminer les facteurs 
 de réussite de l'entraînement par \gls{nfb} pour les enfants \gls{tdah} en se basant sur des données cliniques mais aussi physiologiques. 
 
-Les trois sous objectifs de ce travail, chacun développé dans un chapitre, sont les suivants :
+Les trois sous-objectifs de ce travail, chacun développé dans un chapitre, sont les suivants :
 \begin{itemize}
-\item étudier l'efficacité du \gls{nfb} chez les enfants \gls{tdah} à l'aide d'une méthode couramment utilisée : la méta-analyse,
-\item identifier les paramètres méthodologiques et cliniques influençant la performance de ce traitement,
+\item étudier l'efficacité du \gls{nfb} chez les enfants souffrant du \gls{tdah} à l'aide d'une méthode couramment utilisée : la méta-analyse,
+\item identifier les paramètres méthodologiques, techniques et cliniques influençant la performance de ce traitement,
 \item analyser la distribution d'un marqueur de l'attention (le \gls{tbr}) au sein d'une population d'enfants \gls{tdah} pour mieux cibler
 l'entrainement par \gls{nfb}. 
 \end{itemize}
 
 \section{Contribution et résumé des chapitres}
 
-Ce manuscrit est divisé en cinq parties, dont les trois centrales (les chapitres \ref{chapitre-2}, \ref{ch-saob} et \ref{chapitre-4}) ont chacune pour but de remplir 
-un des objectifs précédemment énoncés.
+Ce manuscrit est divisé en cinq parties, dont les trois centrales (les chapitres \ref{chapitre-2}, \ref{ch-saob} et \ref{chapitre-4}) 
+ont chacune pour but de remplir un des objectifs précédemment énoncés.
 
 Avant de chercher à déterminer les facteurs de réussite de l'entrainement par \gls{nfb}, son efficacité sur les enfants \gls{tdah} est évaluée à l'aide 
 d'une méthode couramment utilisée \citep{Sonuga-Barke2013, Micoulaud2014, Cortese2016} et présentée dans le chapitre \ref{chapitre-2} : la méta-analyse. 
 Les résultats de ce type d'analyse ont un impact important sur la communauté scientifique : \citet{Micoulaud2016} a notamment réagi à la méta-analyse de 
 \citet{Cortese2016} en discutant certains points de cette analyse. 
 
-Ainsi, dans ce chapitre la méta-analyse de \citet{Cortese2016} qui, au moment où ce travail a été mené était la plus récente sur le sujet, est répliquée en modifiant 
-les points soulignés par \citet{Micoulaud2016} afin de jauger leur impact sur les conclusions émises dans la méta-analyse. Ensuite, étant donné que de nouvelles études 
-satisfaisant les critères d'inclusion établis par \citet{Cortese2016} sont disponibles, cette méta-analyse est mise à jour : en plus des 13 études originellement incluses, 7
-sont ajoutées, ce qui apporte une plus grande puissance statistique aux résultats. La réplication et la mise à jour sont effectuées, non pas avec les logiciels 
-habituellement utilisés tels que Revman \citep{Revman}, mais à l'aide d'un package Python développé pour cette occasion et disponible en ligne afin de favoriser 
+Ainsi, dans ce chapitre la méta-analyse de \citet{Cortese2016} qui, au moment où ce travail a été mené était la plus récente sur le sujet, 
+est répliquée en modifiant les points qui ont fait débat \citep{Micoulaud2016} afin de jauger leur impact sur les conclusions émises dans la méta-analyse. 
+Ensuite, étant donné que de nouvelles études satisfaisant les critères d'inclusion établis par \citet{Cortese2016} sont disponibles, cette méta-analyse 
+est mise à jour : en plus des 13 études originellement incluses, 7 sont ajoutées, ce qui apporte une plus grande puissance statistique aux résultats. 
+La réplication et la mise à jour sont effectuées, non pas avec les logiciels 
+habituellement utilisés tels que RevMan \citep{Revman}, mais à l'aide d'un package Python développé pour cette occasion et disponible en ligne afin de favoriser 
 la réplication et/ou la mise à jour de ce travail. 
 
 La réplication de la méta-analyse conduisant aux mêmes résultats que \citet{Cortese2016}, les choix discutés par \citet{Micoulaud2016} n'ont pas un impact assez
 important pour changer ses conclusions : le \gls{nfb} est jugé efficace par les parents alors que les enseignants, considérés comme \gls{pblind}, ne notent aucune
-amélioration significative. Par ailleurs, la mise à jour confirme les résultats qui semblent commencer à se stabiliser pour les évaluations des parents.
-
-% parler evolution pvalue et est
+amélioration significative. Par ailleurs, la mise à jour confirme les résultats de \citep{Cortese2016}, ce qui laisserait penser qu'ils commenceraient
+à se figer. En outre, l'évolution de l'\glsfirst{est} (défini en \ref{compute_summary_effect}) et de sa $p$-value en fonction de l'ajout des nouvelles études selon
+leur année de publication est tracée afin de mettre en évidence une éventuelle stabilisation des résultats. 
 
 Ce chapitre a été l'occasion de mener une revue de littérature des études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah} 
 qui a permis de mettre en évidence la forte hétérogénéité d'un point de vue clinique et méthodologique de ces études. 
 
 Alors que la fiabilité des résultats des méta-analyses souffre de ces différences qui pourraient, par ailleurs, expliquer l'absence de consensus quant 
-à l'efficacité du \gls{nfb} \citep{Alkoby2017}, une analyse en tirant avantage est implémentée : la \gls{saob} décrite dans le chapitre \ref{saob}. 
+à l'efficacité du \gls{nfb} \citep{Alkoby2017}, une analyse en tirant avantage est implémentée ici : la \gls{saob} décrite dans le chapitre \ref{saob}. 
 
 Les facteurs méthodologiques et/ou cliniques fortement variables entre les études tels que, par exemple, la durée du traitement, le nombre de sessions et le type 
 de protocole de \gls{nfb} suivi, sont extraits de 41 études d'efficacité sur le \gls{nfb} appliqué aux enfants \gls{tdah}, dans le but de déterminer lesquels 
-ont un impact sur l'efficacité du \gls{nfb}. Pour ce faire, trois méthodes multivariées sont utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. 
+ont un impact sur l'efficacité du \gls{nfb}. Pour ce faire, trois méthodes de régression multivariées sont utilisées : la \gls{wls}, le \gls{lasso} et le \gls{dt}. 
 
-La \gls{saob} identifie trois facteurs qui semblent avoir un impact sur l'efficacité du \gls{nfb} : tout d'abord, utiliser un matériel d'acquisition de bonne 
-qualité conduirait à de meilleurs résultats, ensuite un traitement intensif semblerait préférable, et enfin les évaluations des enseignants seraient plus
+La \gls{saob} identifie trois facteurs qui semblent avoir un impact sur l'efficacité du \gls{nfb} : 
+\begin{itemize}
+\item un traitement intensif semblerait préférable, 
+\item l'intégration d'une phase de transfert aurait un impact négatif, 
+\item les évaluations des enseignants seraient plus
 sévères quant à l'amélioration du traitement. 
+\end{itemize}
 
-La personnalisation des protocoles de \gls{nfb} est un facteur dont il aurait été intéressant d'étudier l'impact sur l'efficacité du \gls{nfb}.  
+Le package Python développé pour mener la \gls{saob} est disponible en ligne afin de permettre facilement la réplication et la mise à jour 
+de ce travail. 
+
+La personnalisation des protocoles de \gls{nfb} est un facteur innovant dont il aurait été intéressant d'étudier l'impact sur l'efficacité du \gls{nfb}.  
 Cependant, faute d'un nombre suffisant d'études ayant recours à la personnalisation, ce facteur n'a pas pu être étudié dans la \gls{saob}. C'est pourquoi
-la pertinence d'une personnalisation est étudiée dans le chapitre \ref{chapitre-4} grâce à l'analyse de la distribution d'un marqueur de l'attention : le \gls{tbr} pour
-lequel de précédentes études ont montré qu'il serait variable au sein de la population \gls{tdah} \citep{Zhang2017, Arns2013, Clarke2001}.
+la pertinence d'une personnalisation est étudiée dans le chapitre \ref{chapitre-4} grâce à l'analyse de la distribution d'un marqueur de l'attention : 
+le \gls{tbr} pour lequel de précédentes études ont montré qu'il serait variable au sein de la population \gls{tdah} \citep{Zhang2017, Arns2013, Clarke2001}.
 
 Le \gls{tbr} est extrait de 363 \gls{eeg} d'enfants \gls{tdah} qui vont être partitionnés grâce à trois méthodes : le \gls{bgmm}, le partitionnement
 hiérarchique basé sur la distance de Ward et le \gls{dbscan}. Si la distribution est trouvée bimodale par ces trois méthodes, les seuils calculés par chaque méthode,
@@ -770,8 +778,11 @@ les résultats du \gls{bgmm} afin de déterminer celui sur lequel il faudrait se
 
 Les trois méthodes s'accordent sur le fait que la distribution des \gls{tbr} est bimodale, ce qui indique qu'il existe en effet deux groupes d'enfants
 \gls{tdah} : l'un présentant des \gls{tbr} plutôt faibles et l'autre avec des \gls{tbr} élevés. Ainsi, personnaliser le protocole de \gls{nfb} en 
-fonction de la valeur de \gls{tbr} semblerait pertinent et après comparaison des seuils \gls{tbr} obtenus, celui de 4.1 apporte le plus d'équilibre entre 
-un faible taux de faux positifs et un taux de vrais positifs élevé.  
+fonction de la valeur de \gls{tbr} semblerait pertinent, mais son efficacité n'a pas été étudiée ici. Après comparaison des seuils \gls{tbr} obtenus, 
+celui de 4.1 apporterait le plus d'équilibre entre 
+un faible taux de faux positifs et un taux de vrais positifs élevé. Cette analyse a également souligné l'existence de nombreuses
+façons de calculer le \gls{tbr}, ainsi elle a permis d'établir une recommandation sur la définition du \gls{tbr} à partir de laquelle nos
+résultats ont été obtenus. 
 
 \section{Liste des publications}
 
