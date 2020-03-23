@@ -2,18 +2,6 @@
 
 \section{Conclusion}
 
-Les différentes analyses effectuées au cours de cette thèse ont contribué à 
-\begin{itemize}
-\item trancher le débat entourant les choix effectués dans une récente méta-analyse grâce à une analyse de sensibilité,
-\item étudier l'efficacité du \gls{nfb} en mettant à jour cette même méta-analyse pour y inclure les nouvelles études publiées,
-\item déterminer les paramètres inhérents à la mise en place du traitement par \gls{nfb} qui influencent sa performance,
-\item mettre en évidence la différence entre les évaluations des personnes aveugles et non-aveugles,
-\item proposer un package Python accessible en ligne permettant d'effectuer des méta-analyses et de mettre à jour l'analyse des facteurs,
-\item dresser un état des lieux des définitions du \gls{tbr},
-\item analyser la distribution du \gls{tbr} au sein d'une population d'enfants \gls{tdah} pour évaluer la pertinence 
-de la personnalisation du \gls{nfb}.
-\end{itemize}
-
 Tout d'abord, la méta-analyse la plus récente au moment où ce travail a été réalisé, celle de \citet{Cortese2016}, a été répliquée 
 pour quantifier l'impact des choix des auteurs qui ont été débattus par la communauté scientifique. Par la suite, cette méta-analyse est 
 mise à jour. Ces deux étapes ont été effectuées à l'aide d'un package Python développé 
@@ -52,8 +40,8 @@ plus ses résultats seront fiables
 La \gls{saob} a permis d'étudier l'impact de différents facteurs sur la performance du \gls{nfb}, cependant la personnalisation 
 des protocoles d'entrainement dont l'influence serait intéressante 
 à explorer, a été exclu de cette analyse, faute d'un nombre suffisant d'études la proposant. Ainsi, la pertinence de la personnalisation 
-du \gls{nfb} a été étudiée ici grâce à l'analyse de la distribution 
-du \gls{tbr} chez une large population d'enfants \gls{tdah}. La variabilité des définitions du \gls{tbr} est tout d'abord mise en 
+du \gls{nfb} a été étudiée ici à l'aide de l'analyse de la distribution 
+du \gls{tbr} dans une large population d'enfants \gls{tdah}. La variabilité des définitions du \gls{tbr} est tout d'abord mise en 
 évidence, puis une recommandation quant à son calcul est proposée. A partir de cette définition, les \gls{tbr} de la population à notre diposition
 sont obtenus puis partitionnés à l'aide de trois méthodes différentes. Ces dernières se sont accordées sur le fait que cette distribution 
 est bimodale, ce qui va dans 
@@ -106,11 +94,11 @@ quel que soit le trouble à traiter, pour déterminer si des facteurs généraux
 Enfin, certaines questions majeures concernant le \gls{nfb} n'ont pas été traitées dans cette thèse,
 à l'instar de la définition et de la mise en place d'un protocole \textit{sham}-\gls{nfb}, déployable au sein d'un essai clinique en double aveugle. 
 Un tel protocole 
-a pour but de contrôler pour un éventuel effet placebo, effet qui est au coeur du débat sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah} 
+aurait pour but de contrôler pour un éventuel effet placebo, effet qui est au coeur du débat sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah} 
 et dont l'impact
 a été discuté en \ref{pblind_anaysis}. 
 
-La recherche dans le domaine du \gls{nfb} est très active, aussi bien au niveau de la compréhension des mécanismes neurologiques 
+La recherche dans le domaine du \gls{nfb} est très active, aussi bien au niveau de la compréhension des mécanismes neurophysiologiques 
 qu'à celui de son efficacité clinique.
 Cependant, malgré le nombre important d'études menées sur le sujet, aucune n'est nettement en faveur de son efficacité. 
 Ce constat pourrait s'expliquer par le fait que, depuis tant d'années de recherche, la plupart des études comportent un nombre
@@ -122,12 +110,28 @@ or le \gls{nfb} demande à l'utilisateur d'apprendre à réguler son activité c
 \gls{nfb} à privilégier. En effet, le \gls{nfb}
 parait prometteur dans d'autres domaines, notamment la gestion la douleur \citep{Barthelemy2019}, sur lesquels il faut continuer de se pencher.
 
-Le moyen de trancher la question de l'efficacité du \gls{nfb} pour les enfants souffrant du \gls{tdah} est de mettre en place des études randomisées 
-et contrôlées incluant de grands échantillons. 
-Ainsi, les récentes études cliniques évaluant l'efficacité du \gls{nfb} incluent de plus en plus de sujets et suivent une méthodologie davantage fiable. 
-En effet, la communauté scientifique appelle à être le plus transparent possible lors de ce genre d'études afin d'aider à conclure quant à 
-l'efficacité du traitement. Par conséquent, dans quelques années, il sera sans doute possible de déterminer si le \gls{nfb} appliqué aux enfants
+Le moyen de trancher la question de l'efficacité du \gls{nfb} pour les enfants souffrant du \gls{tdah} serait de mettre en place des études randomisées 
+et contrôlées incluant de grands échantillons pour augmenter la puissance statistique. 
+Ainsi, les récentes études cliniques évaluant l'efficacité du \gls{nfb} incluent de plus en plus de sujets et suivent une méthodologie davantage fiable 
+\citep{Bioulac2019}. 
+En effet, la communauté scientifique appelle à être le plus transparent possible, notamment sur les caractéristiques du \textit{feedback} 
+lors de ce genre d'études afin d'aider à conclure quant à 
+l'efficacité du traitement \citep{Ros2019}. Par conséquent, dans quelques années, il sera sans doute possible de déterminer si le \gls{nfb} appliqué aux enfants
 souffrant de \gls{tdah} est efficace ou non.
+
+\section{Résumé des contributions de la thèse}
+
+Les différentes analyses effectuées au cours de cette thèse ont donc contribué à 
+\begin{itemize}
+\item trancher le débat entourant les choix effectués dans une récente méta-analyse grâce à une analyse de sensibilité,
+\item étudier l'efficacité du \gls{nfb} en mettant à jour cette même méta-analyse pour y inclure les nouvelles études publiées,
+\item déterminer les paramètres inhérents à la mise en place du traitement par \gls{nfb} qui influencent sa performance,
+\item mettre en évidence la différence entre les évaluations des personnes aveugles et non-aveugles,
+\item proposer un package Python accessible en ligne permettant d'effectuer des méta-analyses et de mettre à jour l'analyse des facteurs,
+\item dresser un état des lieux des définitions du \gls{tbr},
+\item analyser la distribution du \gls{tbr} au sein d'une population d'enfants \gls{tdah} pour évaluer la pertinence 
+de la personnalisation du \gls{nfb}.
+\end{itemize}
 
 
 %Le recours au \textit{sham}-\gls{nfb} est encore assez peu répandu, toutefois des études utilisent ce type de contrôle comme \citet{Schabus2017}
