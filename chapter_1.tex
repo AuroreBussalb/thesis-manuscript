@@ -1,13 +1,13 @@
 \chapter{Introduction} \label{chapitre-1}
 
-Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \gls{nfb}-\gls{eeg}, 
+Les concepts sur lesquels porte le travail décrit dans ce manuscrit sont définis dans cette première partie introductive. Tout d'abord, la technique du \glsfirst{nfb}-\glsfirst{eegi}, 
 qui est au centre de ce travail, est présentée en détail, puis ses diverses applications sont listées. Dans la suite du manuscrit, seule l'une d'entre elles est étudiée : 
 il s'agit du \glsfirst{tdah} chez l'enfant, dont les principales caractéristiques sont exposées dans cette partie. 
 
 Une fois ces concepts décrits, les objectifs de cette thèse sont énoncés et la contribution de chaque chapitre est mise en évidence. Enfin, les analyses 
 présentées dans ce manuscrit ont fait l'objet de publications scientifiques et d'une communication orale dont les références sont fournies à la fin de ce chapitre. 
 
-\clearpage 
+\newpage 
 
 \section{Définition du Neurofeedback}
 
@@ -16,14 +16,14 @@ information en temps réel, c'est à dire rendue instantanément, associée à u
 dans le cadre d'un jeu sérieux \citep{Wang2010}. Une définition plus précise est donnée en \ref{principe_nfb}.
 
 L'activité cérébrale peut être obtenue grâce à différents modes d'acquisition (\gls{fmri}, \gls{nirs}, \gls{ecog}, ...) comme détaillé par la suite, 
-cependant celui qui nous intéresse ici est l'\gls{eeg}, dont les caractéristiques sont tout d'abord
+cependant celui qui nous intéresse ici est l'\glsfirst{eegie}, dont les caractéristiques sont tout d'abord
 rappelées. Ensuite, la découverte et l'évolution de la méthode du \gls{nfb}-\gls{eegi} sont retracées, puis son principe est décrit précisément.
 
 \subsection{Acquisition de l'électroencéphalogramme} \label{eeg_definition}
 
-L'\gls{eeg} est un examen électrophysiologique du cerveau, non invasif, permettant d’enregistrer de manière amplifiée l'activité électrique du cerveau \citep{Nunez2006}. 
+L'\gls{eegie} est un examen électrophysiologique du cerveau, non invasif, permettant d’enregistrer de manière amplifiée l'activité électrique du cerveau \citep{Nunez2006}. 
 
-\subsubsection{Génération de l'\gls{eeg}}
+\subsubsection{Génération des signaux \gls{eegi}}
 
 Cette activité cérébrale est enregistrée grâce à des électrodes placées sur le scalp qui détectent la sommation de l'activité électrique d'un grand nombre de neurones actifs de manière synchrone.
 Cette activité électrique est générée par les potentiels post-synaptiques dans les dendrites apicaux des cellules pyramidales du cortex \citep{Hallez2007}. Le cortex désigne 
@@ -38,8 +38,6 @@ Ainsi, en fonction de l'activité de ces neurones, différents rythmes cérébra
 
 Les rythmes cérébraux correspondent à des oscillations électromagnétiques dans une bande de fréquence donnée, dont les bornes peuvent varier selon les études et sont présents sur l'\gls{eeg}
 selon l'état psychologique d'un sujet \citep{Marzbani2016} :  
-%\renewcommand{\labelitemi}{$\bullet$}
-%\renewcommand{\labelitemii}{$\cdot$}
 \begin{itemize}
 \item \emph{les ondes delta} (moins de 4Hz) : observées lorsqu'un grand nombre de groupes de neurones est synchrone, c'est à dire pendant le sommeil profond,
 \item \emph{les ondes theta} (4-8Hz) : observées durant un état de somnolence, sous hypnose ou lors de la mémorisation d'informations par exemple,
@@ -53,7 +51,7 @@ Ces rythmes sont représentés à la Figure~\ref{Figure:introduction_EEG_waves}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.5\linewidth]{figures/chapter-1/introduction-EEG-waves} 
-  \caption[Rythmes cérébraux sur 1s d'\gls{eeg} réel.]{Rythmes cérébraux sur 1s d'\gls{eeg} réel. L'axe des ordonnées est entre -10 et 10$\mu$V.}
+  \caption[Rythmes cérébraux sur 1 seconde d'\gls{eeg} réel.]{Rythmes cérébraux sur 1 seconde d'\gls{eeg} réel. L'axe des ordonnées est entre -10 et 10$\mu$V.}
   \label{Figure:introduction_EEG_waves}
 \end{figure}
 
@@ -69,7 +67,7 @@ car chaque aire cérébrale a des fonctions spécifiques, comme par exemple \cit
 \item \emph{la zone centrale} est impliquée dans l'attention.
 \end{itemize}
 
-Ces différentes fonctions sont résumées à la Figure~\ref{Figure:introduction_cortical_areas_and_functions} où les principales électrodes, placées en accord avec le système \gls{eeg} 10-20 
+Ces différentes fonctions sont résumées à la Figure~\ref{Figure:introduction_cortical_areas_and_functions} où les principales électrodes, placées en accord avec le système \gls{eegi} 10-20 
 défini par la suite, sont représentées ainsi que les aires cérébrales qu'elles couvrent. 
 
 \begin{figure}[h!]
@@ -85,7 +83,7 @@ défini par la suite, sont représentées ainsi que les aires cérébrales qu'el
 L'\gls{eeg} est enregistré sur le cuir chevelu à l'aide d'électrodes dont le nombre et le placement varient en fonction de ce qu'on cherche à observer. L'\gls{eeg} correspond
 au potentiel électrique entre deux points : l'électrode d'enregistrement et l'électrode de masse (\textit{ground electrode} en anglais). Cependant, cette dernière introduit
 du bruit électrique, c'est pourquoi une électrode de référence est utilisée : le potentiel entre cette dernière et l'électrode de masse est mesurée puis soustraite à celui entre
-l'électrode d'enregistrement et l'électrode de masse. Ainsi, ce qui est réellement enregistré par l'\gls{eeg} reflète le potentiel entre l'électrode d'enregistrement et celle
+l'électrode d'enregistrement et l'électrode de masse. Ainsi, l'\gls{eeg} reflète le potentiel entre l'électrode d'enregistrement et celle
 de référence. L'emplacement de l'électrode de référence est variable : bout du nez, mastoïde ou une électrode d'enregistrement \citep{Michel2004}.
 
 Le placement des électrodes suit généralement le système international 10-20 qui a été mis en place en 1948 afin d'harmoniser les enregistrements à travers le monde 
@@ -96,7 +94,7 @@ Le placement des électrodes suit généralement le système international 10-20
 	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-system-10-20} 
   \caption[Placement des électrodes enregistrant l'\gls{eeg} suivant le système international 10-20.]{Placement des électrodes enregistrant l'\gls{eeg} suivant le système international 10-20. 
 	Les pourcentages sont calculés par rapport à la distance totale entre le nasion
-	et l'inion, et par rapport à la distance totale entre les mastoïdes gauche et droit (A1 et A2). Les électrodes les plus couramment utilisées 
+	et l'inion, et par rapport à la distance totale entre les mastoïdes gauche et droit (A1 et A2). Les électrodes le plus couramment utilisé 
 	sont cerclées de noir sur fond beige \citep{Marzbani2016}.}
   \label{Figure:introduction_system_10_20}
 \end{figure}
@@ -114,7 +112,7 @@ constitué d'une lettre et d'un chiffre ou de la lettre z, cette nomenclature es
 \item les électrodes A1 et A2 sont généralement les électrodes de référence et de masse.
 \end{itemize}
   
-Le nombre et le placement des électrodes varie selon le but de l'application de l'\gls{eeg} : par exemple enregister l'\gls{eeg} afin
+Le nombre et le placement des électrodes varie selon le but de l'application de l'\gls{eegie} : par exemple enregister l'\gls{eeg} afin
 de mener une localisation de sources (c'est à dire déterminer les sources corticales à l'origine de l'\gls{eeg}) demande une forte densité spatiale \citep{Lantz2003}. 
 
 Par ailleurs, le type des électrodes d'enregistrement peut également être différent : 
@@ -129,7 +127,7 @@ n'exclut pas la mesure de l'impédance qui doit être faible \citep{Lopez2014}. 
 situe entre 150 et 200 k$\Omega$ et tombe entre 5 et 10K$\Omega$ après application du gel \citep{Lopez2014}. Une faible impédance signifie 
 que le niveau de bruit dans le signal est réduit \citep{Kappenman2010}.
 
-Enfin, afin d'obtenir le tracé des signaux \gls{eeg} présenté à la Figure~\ref{Figure:introduction_eeg_example}, ceux-ci sont amplifiés 
+Enfin, afin d'obtenir le tracé des signaux \gls{eegi} présenté à la Figure~\ref{Figure:introduction_eeg_example}, ceux-ci sont amplifiés 
 à l'aide d'un amplificateur, qui peut être conforme à la norme ISO-60601-2-26 \citep{ISO}. Selon les systèmes d'acquisition utilisés, la fréquence
 d'échantillonnage, qui correspond au nombre d'échantillons par seconde, est variable.
 
@@ -140,13 +138,13 @@ d'échantillonnage, qui correspond au nombre d'échantillons par seconde, est va
   \label{Figure:introduction_eeg_example}
 \end{figure}
 
-\subsection{Exemples d'application de l'électroencéphalogramme}
+\subsection{Exemples d'application de l'électroencéphalographie}
 
-L'\gls{eeg} a diverses applications : il peut être analysé en différé, une fois que l'intégralité de l'enregistrement est disponible, notamment pour la localisation de sources \citep{Latif2006} 
+L'\gls{eegie} a diverses applications : il peut être analysé en différé, une fois que l'intégralité de l'enregistrement est disponible, notamment pour la localisation de sources \citep{Latif2006} 
 mais aussi en temps réel dans le cadre, par exemple, de l'épilepsie, du suivi d'une personne dans 
 le coma ou d'un enfant prématuré, du \gls{nfb}-\gls{eegi} et des interfaces cerveau machine (\gls{bci} en anglais) \citep{Li2010}. 
 
-Les \gls{bci} et le \gls{nfb}-\gls{eegi} sont étroitement liés comme souligné par \citet{Jeunet2018} : dans les deux cas les utilisateurs doivent apprendre à réguler leur activité \gls{eeg} à l'aide du retour 
+Les \gls{bci} et le \gls{nfb}-\gls{eegi} sont étroitement liés comme souligné par \citet{Jeunet2018} : dans les deux cas les utilisateurs doivent apprendre à réguler leur activité \gls{eegi} à l'aide du retour 
 qui leur est délivré. Le but, pour un utilisateur de \gls{bci}, est de produire une activité cérébrale qui est traduite en une commande pour l'application de \gls{bci} lui permettant ainsi d'intéragir 
 avec son environnement \citep{Enriquez2017, Birbaumer2009}. Dans le cas du \gls{nfb}-\gls{eegi}, le but est d'apprendre à auto-réguler son activité cérébrale grâce au retour délivré en temps réel par l'application 
 \citep{Enriquez2017, Jeunet2018} comme décrit en \ref{principe_nfb}.
@@ -158,7 +156,7 @@ se concentrer sur sa tâche : son activité est simplement analysée afin d'adap
 Les applications des \gls{bci} actives sont diverses : les \gls{bci} peuvent être utilisées dans le cadre de jeux vidéos \citep{Kerous2018} mais aussi dans un but thérapeutique : remplacer ou
 restaurer des fonctions utiles aux personnes handicapées suite, par exemple, à une blessure à la colonne vertébrale ou à un accident vasculaire cérébral \citep{Shih2012}. 
 
-Quant aux \gls{bci} passives, elles peuvent être utilisées pour classifier des images grâce à l'activité \gls{eeg} ou pour évaluer la charge mentale \citep{George2014}.   
+Quant aux \gls{bci} passives, elles peuvent être utilisées pour classifier des images grâce à l'activité \gls{eegi} ou pour évaluer la charge mentale \citep{George2014}.   
 
 Dans le cadre de cette thèse, l'\gls{eeg} est enregistré et analysé en temps réel pour l'entrainement par \gls{nfb}-\gls{eegi} défini précisément par la suite.  
  
@@ -167,7 +165,7 @@ Dans le cadre de cette thèse, l'\gls{eeg} est enregistré et analysé en temps 
 
 Les prémices du \gls{nfb}-\gls{eegi} remontent au début des années 1930, peu après l'enregistrement du premier \gls{eeg} humain et de la découverte des ondes alpha par Hans Berger en 1929 \citep{Berger1929}.
 En effet, \citet{Durup1935} et \citet{Loomis1936} ont observé que les ondes alpha de l'\gls{eeg}, oscillant entre 8 et 12Hz, pouvaient être contrôlées grâce au 
-conditionnement classique \citep{Pavlov1929}. Ce conditionnement, également appelé conditionnement répondant ou pavlovien, consiste à apprendre un comportement en associant un stimuli
+conditionnement classique \citep{Pavlov1929}. Ce conditionnement, également appelé conditionnement répondant ou pavlovien, consiste à apprendre un comportement en associant un stimulus
 de l'environnement à des réactions automatiques de l'organisme.
 
 Plus tard, ce qui peut être considéré comme le premier entrainement par \gls{nfb}-\gls{eegi} a été mené par le Dr. Kamiya qui, en se basant sur les travaux de \citet{Durup1935}, 
@@ -194,7 +192,7 @@ En 1972, une patiente épileptique a entrainé son \gls{smr} grâce à la techni
 d'épilepsie durant les séances \citep{Sterman1974}. 
 
 Alors que l'épilepsie a été la première application du \gls{nfb}-\gls{eegi}, un autre usage thérapeutique possible commence à être étudié dans la foulée : l'hyperkinésie chez l'enfant \citet{Lubar1976ADHD}
-qui peut être considérée comme l'ancêtre du \gls{tdah} comme présenté en \ref{adhd_history}. Cette étude est divisée en trois phases : tout d'abord, l'enfant module les ondes cérébrales d'intérêt 
+qui peut être considérée comme l'ancêtre du \glsfirst{tdah} comme expliqué en \ref{adhd_history}. Cette étude est divisée en trois phases : tout d'abord, l'enfant module les ondes cérébrales d'intérêt 
 dans le bon sens, puis ensuite dans le sens inverse et enfin à nouveau dans le bon sens. Des résultats encourageants sont observés.
 
 A la suite de ces observations prometteuses, d'autres chercheurs se sont penchés sur cette technique, cependant, faute d'une technologie suffisamment puissante, il leur était impossible
@@ -206,7 +204,7 @@ visant à mieux comprendre ses effets, illustrée à la Figure~\ref{Figure:intro
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-1/introduction-number-of-nfb-publications} 
-  \caption[Evolution du nombre de publications sur le \gls{nfb}-\gls{eegi} par année, entre 1962 et 2018.]{Evolution du nombre de publications sur le \gls{nfb}-\gls{eegi} par année, entre 1962 et 2018. La base de données PubMed a été questionnée avec les 
+  \caption[Evolution du nombre de publications sur le \gls{nfb} par année, entre 1962 et 2018.]{Evolution du nombre de publications sur le \gls{nfb}-\gls{eegi} par année, entre 1962 et 2018. La base de données PubMed a été questionnée avec les 
 	termes de recherche "Neurofeedback OR EEG Biofeedback".}
   \label{Figure:introduction_number_of_nfb_publications}
 \end{figure}
@@ -216,7 +214,7 @@ Les dates clés de l'histoire du \gls{nfb}-\gls{eegi} sont résumées sur la fri
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-nfb-history} 
-  \caption{Dates clés de l'histoire du \gls{nfb}-\gls{eeg}.}
+  \caption[Dates clés de l'histoire du \gls{nfb}.]{Dates clés de l'histoire du \gls{nfb}-\gls{eegi}.}
   \label{Figure:introduction_nfb_history}
 \end{figure}
 
@@ -233,14 +231,14 @@ Le \gls{nfb} est basé sur le conditionnement opérant \citep{Reynolds1975} où 
 des réponses réflexes de l'organisme, comme c'est le cas pour le conditionnement classique, mais à l'influence de l'environnement, qui 
 renforce positivement ou négativement le conditionnement \citep{Skinner1948}. 
 
-L'activité cérébrale enregistrée lors du \gls{nfb} est couramment l'\gls{eeg} dont les caractéristiques sont décrites en \ref{eeg_definition}.
+L'activité cérébrale enregistrée lors du \gls{nfb} est couramment l'\gls{eegie} dont les caractéristiques sont décrites en \ref{eeg_definition}.
 Cependant d'autres modalités telles que, par exemple, 
 l'\gls{ecog} \citep{Khanna2016, Gharabaghi2014}, la spectroscopie dans l'infrarouge proche (\glsfirst{nirs} en anglais) \citep{Marx2015} et 
 l'Imagerie par Résonance Magnétique fonctionnelle (\gls{fmri} en anglais) \citep{Sulzer2013}.
 sont parfois utilisées. 
 
 \paragraph{Electrocorticographie} 
-L'\gls{ecog} enregistre l'activité cérébrale à l'aide d'électrodes implantées en profondeur dans la boîte crânienne. Tout comme l'\gls{eeg}, 
+L'\gls{ecog} enregistre l'activité cérébrale à l'aide d'électrodes implantées en profondeur dans la boîte crânienne. Tout comme pour l'\gls{eegi}, 
 les variations de potentiel électriques dues à l'activité neuronale sont mesurées \citep{Leuthardt2006}. 
 
 \paragraph{\textit{Near-Infrared Spectroscopy}} 
@@ -250,22 +248,22 @@ sur la surface corticale. Une forte activité cérébrale correspond à une conc
 
 \paragraph{\textit{functional Magnetic Resonance Imaging}} 
 Le \gls{fmri} mesure la réponse \gls{bold}, c'est à dire les différences du signal dues à des changements locaux de la concentration d'hémoglobine désoxygénée 
-dans le tissu cérébral qui est dépendante de l'activité neuronale \citep{Dewiputri2013}. Dans le cas du \gls{fmri}-\gls{nfb}, c'est à partir du signal 
+dans le tissu cérébral qui est dépendante de l'activité neuronale \citep{Dewiputri2013}. Dans le cas du \gls{nfb}-\gls{fmri}, c'est à partir du signal 
 \gls{bold} que le \textit{feedback} est calculé \citep{Dewiputri2013}. 
 
-Alors que l'\gls{eeg} possède une résolution temporelle élevée, sa résolution spatiale est quant à elle faible, 
+Alors que l'\gls{eegie} possède une résolution temporelle élevée, sa résolution spatiale est quant à elle faible, 
 contrairement au \gls{fmri}. Ainsi des études ont implémenté un couplage de ces deux modalités pour pallier leurs faiblesses et conduire à des 
 protocoles de \gls{nfb} plus efficaces \citep{Perronnet2017}. 
 
-Cependant, bien que prometteur ce couplage est difficile à mettre en place, notamment à cause du feedback \cgls{fmri}.
-Un couplage plus souvent observé est celui entre l'\gls{eeg} et l'\gls{emg} : cette fois-ci le sujet doit réguler son activité cérébrale en même temps que son
-activité musculaire et est donc récompensé sur les deux \citep{Bink2014}.
-
-Le fait que l'\gls{eeg} soit le plus couramment utilisé pour l'entrainement par \gls{nfb} s'explique par sa bonne résolution temporelle, son caractère non-invasif
-ainsi que sa facilité de mise en place et son coût modéré \citep{Fovet2016}. Toutefois, comme évoqué plus haut, il souffre d'une mauvaise résolution 
+Cependant, bien que prometteur ce couplage est difficile à mettre en place, notamment à cause du \textit{feedback} \gls{fmri}.
+Un couplage plus souvent observé est celui entre l'\gls{eegie} et l'\gls{emgie} : cette fois-ci le sujet doit réguler son activité cérébrale en même temps que son
+activité musculaire et est donc récompensé sur les deux \citep{Bink2014}. \\
+\\
+\indent Le fait que l'\gls{eeg} soit la modalité le plus couramment utilisée pour l'entrainement par \gls{nfb} s'explique par sa bonne résolution temporelle, son caractère non-invasif
+ainsi que par sa facilité de mise en place et son coût modéré \citep{Fovet2016}. Toutefois, comme évoqué plus haut, il souffre d'une mauvaise résolution 
 spatiale et est sensible aux artefacts (mouvements physiologiques et bruits environnementaux) \citep{Iwasaki2005, Goncharova2003}. 
 
-Dans la suite de ce manuscrit, seul le \gls{nfb}-\gls{eeg}, simplement noté \gls{nfb}, est étudié. 
+Dans la suite de ce manuscrit, seul le \gls{nfb}-\gls{eegi}, simplement noté \gls{nfb}, est étudié. 
 
 \subsubsection{Etapes de l'entrainement par \gls{nfb}} \label{steps_NFB_taining}
 
@@ -273,27 +271,27 @@ Le \gls{nfb} est un entrainement cognitif en boucle fermée : une représentatio
 au sujet afin de l'aider à la réguler \citep{Enriquez2017}. Cet entrainement s'effectue en cinq temps \citep{Enriquez2017}, détaillés
 par la suite :
 \begin{enumerate}
-\item l'acquisition du signal \gls{eeg}, 
+\item l'acquisition du signal \gls{eegi}, 
 \item le pré-traitement en temps réel du signal,
 \item l'extraction des marqueurs d'intérêt du signal qui doivent être modulés par le sujet (les neuromarqueurs),
 \item la génération du \textit{feedback},
-\item le sujet module son activité, en adpatant sa stratégie en fonction du retour qu'il a reçu. 
+\item la modulation de l'activité cérébrale dont la stratégie est adaptée en fonction du retour reçu. 
 \end{enumerate}
 
-\paragraph{Acquisition du signal \gls{eeg}}
+\paragraph{Acquisition du signal \gls{eegi}}
 La première étape consiste à enregistrer l'\gls{eeg} comme expliqué précédemment dans la partie \ref{eeg_definition}. Le choix
 du nombre et du placement des électrodes se fait en fonction de l'application du \gls{nfb}, dont les principales sont décrites en
 \ref{applications_NFB}. 
 
-Le signal \gls{eeg} étant de faible amplitude, il est très facilement perturbé par des artefacts d'origine physiologique (générés par le
+Le signal \gls{eegi} étant de faible amplitude, il est très facilement perturbé par des artefacts d'origine physiologique (générés par le
 corps du patient) et d'origine environnementale. Les artefacts physiologiques les plus couramment observés sont les clignements et mouvements
 d'yeux \citep{Iwasaki2005} et les artefacts musculaires \citep{Goncharova2003} causés par exemple par des mouvements du visage ; les artefacts environnementaux sont le plus souvent 
 dus aux lignes électriques (50Hz en Europe et 60Hz aux Etats-Unis). 
 
-\paragraph{Pré-traitement en temps réel du signal \gls{eeg}}
+\paragraph{Pré-traitement en temps réel du signal \gls{eegi}}
 Ces artefacts se superposent à l'activité électrique du cerveau pouvant fausser l'extraction du marqueur d'intérêt et donc rendre
-incorrect le \textit{feedback} délivré \citep{Enriquez2017, Montgomery2001, Sherlin2011, Paluch2017}. C'est pourquoi des \emph{méthodes de rejet ou de correction d'artefacts} en temps 
-réel sont implémentées pour s'assurer que les récompenses sont bien calculées à partir du signal \gls{eeg} et non sur du bruit. 
+incorrect le \textit{feedback} délivré \citep{Enriquez2017, Montgomery2001, Sherlin2011, Paluch2017}. C'est pourquoi des méthodes de rejet ou de correction d'artefacts en temps 
+réel sont implémentées pour s'assurer que les récompenses sont bien calculées à partir du signal \gls{eegi} et non sur du bruit. 
 
 Les méthodes de rejet consistent à ne pas extraire de marqueur d'intérêt d'un segment artefacté d'une durée donnée de l'\gls{eeg} (appelée époque). 
 Pour sélectionner les époques à garder, certaines études définissent un seuil sur l'amplitude du signal : si l'amplitude du signal d'une époque est supérieure
@@ -301,20 +299,20 @@ Pour sélectionner les époques à garder, certaines études définissent un seu
 différer ou non selon les canaux. 
 
 D'autres études se basent sur la géométrie Riemannienne pour rejeter les époques artefactés \citep{Barachant2013, Barthelemy2019, Bioulac2019}. 
-la matrice de covariance de chaque segment, dont l'équation est donnée en équation Eq.~(\ref{eq:introduction_covariance_matrix}), est calculée pour un sous-ensemble de canaux (par exemple les canaux
+La matrice de covariance de chaque segment, dont l'équation est donnée en équation Eq.~(\ref{eq:introduction_covariance_matrix}), est calculée pour un sous-ensemble de canaux (par exemple les canaux
 centraux) : les segments dont la matrice de covariance se retrouve à l'extérieur d'une région d'acceptabilité définie grâce à une référence d'\gls{eeg} propres sont alors rejetés.
 
 \begin{equation}
 \label{eq:introduction_covariance_matrix}
 \Sigma = \frac{1}{N - 1}XX^T,
 \end{equation}
-avec $X$ une matrice ($C \times N$) correspondant à une époque du signal \gls{eeg}, avec $N$ le nombre d'échantillons temporels et $C$ le nombre de canaux. 
+avec $X$ une matrice ($C \times N$) correspondant à une époque du signal \gls{eegi}, avec $N$ le nombre d'échantillons temporels et $C$ le nombre de canaux. 
 
 Dans le cas où des artefacts sont détectés, l'utilisateur peut en être informé et adopter une action corrective, à l'instar de ce qui est implémenté dans 
 \citet{Bioulac2019}.
 
 Dans certains cas, les artefacts oculaires ne sont pas rejetés, mais sont corrigés en temps réel \citep{Barthelemy2017, Maurizio2014, Bioulac2019} en se basant sur
-le principe de la séparation aveugle de sources (la \gls{bss} en anglais). Les signaux \gls{eeg} sont le résultat d'un mélange de sources cérébrales et non cérébrales : le but 
+le principe de la séparation aveugle de sources (la \gls{bss} en anglais). Les signaux \gls{eegi} sont le résultat d'un mélange de sources cérébrales et non cérébrales : le but 
 de la \gls{bss} est d'estimer ces sources à partir des signaux et d'identifier la source qui correspond à l'artefact oculaire pour la supprimer.
 % équations ? plus de précisions ?
 
@@ -329,10 +327,10 @@ et détecter/rejeter les artefacts évitables (mouvements).
 \end{itemize}
 
 Traiter les artefacts est une étape essentielle du pré-traitement de l'\gls{eeg} : elle permet de délivrer à l'utilisateur un \textit{feedback} 
-spécifique du marqueur \gls{eeg} à moduler lors de sa session de \gls{nfb} \citep{Barthelemy2019}. 
+spécifique du marqueur \gls{eegi} à moduler lors de sa session de \gls{nfb} \citep{Barthelemy2019}. 
 
 \paragraph{Extraction du marqueur d'intérêt}
-Ensuite, la troisième étape consiste à \emph{extraire le marqueur à moduler} lors de la session de \gls{nfb}, appelé par la suite neuromarqueur : 
+Ensuite, la troisième étape consiste à extraire le marqueur à moduler lors de la session de \gls{nfb}, appelé par la suite neuromarqueur : 
 celui-ci, tout comme les électrodes utilisées, dépend de l'application du \gls{nfb}. 
 
 Le neuromarqueur correspond le plus souvent aux ondes cérébrales listées en \ref{eeg_definition}, isolées au 
@@ -340,20 +338,21 @@ niveau de certaines électrodes. Dans certains cas, le neuromarqueur est un rati
 est calculé. 
 
 Les caractéristiques de l'\gls{eeg} étant différentes d'un sujet à l'autre, notamment à cause de l'âge, de la présence d'une maladie, de la capacité à effectuer une tâche ou du volume 
-du cerveau \citep{Enriquez2017, Klimesch1999, Moretti2004, Alkoby2017}, la personnalisation des bandes de fréquence est parfois proposée par les applications de \gls{nfb}. 
+du cerveau \citep{Enriquez2017, Klimesch1999, Moretti2004, Alkoby2017}, ainsi la personnalisation des bandes de fréquence est parfois proposée par les applications de \gls{nfb}. 
 En effet, il est supposé qu'adapter la définition des bandes de fréquence au sujet conduira à une meilleure efficacité \citep{Enriquez2017}. 
 
-Une façon de personnaliser les bandes de fréquence est de se baser sur la fréquence du pic alpha du sujet \citep{Alkoby2017, Escolano2014, Bazanova2018, Bioulac2019}, qui 
+Une façon de personnaliser les bandes de fréquence est de se baser sur la fréquence du pic alpha du sujet 
+\citep{Alkoby2017, Escolano2014, Bazanova2018, Bioulac2019}, appelée en anglais l'\gls{iapf}, qui 
 est propre à chaque individu \citep{Haegens2014, Aurlien2004, Smit2006}. Un exemple de ce pic est présenté à la Figure~\ref{Figure:introduction_iapf}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-1/introduction-iapf} 
-  \caption[Spectre d'un signal \gls{eeg} obtenu les yeux fermés au repos.]{Spectre d'un signal \gls{eeg} obtenu les yeux fermés au repos. L'\gls{iapf} correspond au point rouge.}
+  \caption[Spectre d'un signal \gls{eegi} obtenu les yeux fermés au repos.]{Spectre d'un signal \gls{eegi} obtenu les yeux fermés au repos. L'\gls{iapf} correspond au point rouge.}
   \label{Figure:introduction_iapf}
 \end{figure}
 
-Enfin, certaines applications de \gls{nfb} proposent d'entrainer le neuromarqueur qui correspond le mieux au profil \gls{eeg} du sujet 
+Enfin, certaines applications de \gls{nfb} proposent d'entrainer le neuromarqueur qui correspond le mieux au profil \gls{eegi} du sujet 
 \citep{Bioulac2019, Kerson2013}, comme expliqué dans le cas du traitement du \gls{tdah} décrit en \ref{nfb_and_adhd}. 
 
 \paragraph{Génération du \textit{feedback}}
@@ -368,18 +367,19 @@ Le \textit{feedback} présenté au sujet dépend donc du résultat de la compara
 le neuromarqueur est modulé comme souhaité, les récompenses peuvent varier \citep{Bioulac2019}. 
 
 \paragraph{Modulation de l'activité cérébrale en fonction du \textit{feedback}}
-Enfin, en fonction du feedback qu'il reçoit, le \textit{sujet va moduler son activité cérébrale} dans la direction attendue, en appliquant et en adaptant des stratégies. 
+Enfin, en fonction du \textit{feedback} qu'il reçoit, le sujet va moduler son activité cérébrale dans la direction attendue, en adaptant sa stratégie. 
 Les caractéristiques des sujets qui réussissent à apprendre à contrôler correctement leur activité cérébrale, les \textit{learners}, ont fait l'objet de plusieurs études : 
-\citet{Friedrich2014} note que les \textit{learners} se caractérisent par un état d'esprit positif et sont motivés. 
+\citet{Friedrich2014} note que ces derniers sont dans un état d'esprit positif et sont motivés. 
 
-Le feedback délivré peut-être visuel, auditif ou tactile ou bien combiné \citep{Vernon2004}.
-
-Toutes ces étapes sont résumées à la Figure~\ref{Figure:introduction_nfb_explications}.
+Le \textit{feedback} délivré peut-être visuel, auditif ou tactile ou bien combiné \citep{Vernon2004}.
+\\
+\\
+Ces cinq étapes sont résumées à la Figure~\ref{Figure:introduction_nfb_explications}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-1/introduction-nfb-explication} 
-  \caption{Schématisation du principe de \gls{nfb}.}
+  \caption[Schématisation du principe de \gls{nfb}.]{Schématisation du principe de \gls{nfb}.}
   \label{Figure:introduction_nfb_explications}
 \end{figure}
 
@@ -407,14 +407,14 @@ Figure~\ref{Figure:introduction_timeline_session}.
   \caption[Exemple de déroulement d'un traitement par \gls{nfb}.]{Exemples de répartition 
 	des séances sur une semaine lors d'un entrainement par \gls{nfb} (en \textbf{A}) et du déroulement d'une session (en \textbf{B}). 
 	En \textbf{A} Les croix jaunes correspondent aux jours où une session de \gls{nfb} est effectuée. En \textbf{B} les points verts représentent les blocs d'entrainement où un \textit{feedback}
-	est délivré à l'utilisateur et le point orange au bloc de transfert (où l'utilisateur n'a aucun \textit{feedback}.}
+	est délivré à l'utilisateur et le point orange au bloc de transfert où l'utilisateur n'a aucun \textit{feedback}.}
   \label{Figure:introduction_timeline_session}
 \end{figure}
 
 \section{Les champs d'application du Neurofeedback} \label{applications_NFB}
 
 Le \gls{nfb} peut être utilisé dans différents cas dont les principaux sont détaillés ici \citep{Marzbani2016}. Parmi ces applications, l'une d'entre elles est présentée 
-plus précisément car elle est exclusivement étudiée dans la suite : le \gls{tdah} chez l'enfant.
+plus précisément car elle est exclusivement étudiée dans la suite de ce manuscrit : le \gls{tdah} chez l'enfant.
 
 \subsection{De nombreuses applications} \label{NFB_applications}
 
@@ -422,7 +422,7 @@ Comme détaillé précédemment, l'\gls{eeg} comporte plusieurs composantes fré
 En effet, par exemple, les ondes delta sont observées lorsque le sujet est endormi, les ondes theta lorsqu'il somnole, les ondes alpha lorsqu'il est relaxé, 
 les ondes beta lorsqu'il est attentif et les ondes gamma lorsqu'il est en plein processus cognitif \citep{Marzbani2016}. 
 
-Par ailleurs, la zone sur laquelle elles sont observées est également à prendre en considération, étant donné leurs fonctions différentes comme résumées
+Par ailleurs, la zone sur laquelle elles sont observées est également à prendre en considération, étant donné leurs fonctions différentes résumées
 à la Figure~\ref{Figure:introduction_cortical_areas_and_functions}.
 
 Certains troubles se caractérisent par un surplus ou un défaut d'un rythme cérébral dans une zone donnée, comme décrit par la suite. 
@@ -456,14 +456,15 @@ exemple, été utilisé dans le cas de lombalgies chroniques en entrainant les o
 cérébrales \citep{Mcknight2001, Thapa2018, Mayaud2019}.
 
 \subsubsection{Troubles du sommeil}
-Le \gls{nfb} peut aussi être employé dans le cas de l'insomnie qui touche de nombreuses personnes \citep{Marzbani2016}. Plusieurs études se sont penchées sur ce traitement
+
+Le \gls{nfb} peut aussi être employé dans le cas de l'insomnie, trouble qui touche de nombreuses personnes \citep{Marzbani2016}. Plusieurs études se sont penchées sur ce traitement
 basé sur l'augmentation du rythme \gls{smr} \citep{Schabus2014, Schabus2017}, cependant afin de conclure clairement quant à l'efficacité du \gls{nfb} davantage 
 d'études contrôlées et en double aveugle sont nécessaires \citep{Micoulaud2019sommeil}. 
 
 \subsubsection{Autres applications}
 
 D'autres applications existent comme la diminution de l'anxiété via un protocole de diminution des ondes alpha \citep{Budzynski2009}, le traitement de la dépression
-grâce à l'augmentation des ondes alpha et theta tout en diminuant les ondes beta \citep{Hurt2014}, l'augmentation de la concentration par le contrôle des ondes
+grâce à l'augmentation des ondes alpha et theta tout en diminuant les ondes beta \citep{Hurt2014} et l'augmentation de la concentration par le contrôle des ondes
 alpha \citep{Babiloni2008, Berka2010}. Par ailleurs, le \gls{nfb} a également été appliqué dans le cadre de la rééducation suite à un accident vasculaire cérébral \citep{Biasiucci2018,
 Cervera2018}. 
 
@@ -473,7 +474,8 @@ Le \gls{nfb} est donc utilisé dans de nombreux cas mais son efficacité fait en
 montre que le \gls{nfb} conduit à une réduction significative de la fréquence des crises, cependant davantage d'essais cliniques
 rigoureusement menés sont nécessaires avant de pouvoir conclure. 
 
-Il en va de même dans le cas des douleurs chroniques où les résultats semblent prometteurs \citep{Mayaud2019} mais le manque d'études rigoureuses empêche de
+Il en va de même dans le cas des douleurs chroniques où les résultats semblent prometteurs \citep{Mayaud2019} mais le manque d'études randomisées et
+contrôlées empêche de
 trancher sur l'efficacité du \gls{nfb}.
 
 Ainsi, un des problèmes majeurs des études évaluant l'efficacité du \gls{nfb} est l'absence d'un groupe contrôle adéquat et le fait que les évaluateurs et sujets
@@ -506,7 +508,7 @@ peuvent perdurer jusqu'à l'âge adulte \citep{Faraone2006} : la prévalence des
 ce qui en fait une problématique en plein essor. Toutefois, dans la suite du manuscrit, seul le \gls{tdah} chez l'enfant est étudié. 
 
 En plus des symptômes décrits plus haut, le \gls{tdah} impacte négativement le bien-être des enfants : ceux-ci ont, pour la plupart, une faible estime d'eux-mêmes 
-\citep{Shaw2005} et de mauvais résultats scolaires \citep{Barry2002}. Par ailleurs, ce trouble s'accompagne souvent de comorbidités telles que par exemple 
+\citep{Shaw2005} et de mauvais résultats scolaires \citep{Barry2002}. Par ailleurs, ce trouble s'accompagne souvent de comorbidités telles que, par exemple, 
 des troubles de l'humeur du comportement et de l'apprentissage \citep{Monastra2005}. Ainsi, afin d'être pris en charge de façon adaptée, il est 
 important de diagnostiquer le \gls{tdah} au plus tôt. 
 
@@ -516,13 +518,13 @@ dans les différentes communautés scientifiques \citep{Galera2014}. En effet, d
 vitamine D durant la grossesse et l'exposition à des pesticides durant la première année de vie de l'enfant \citep{Galera2014, Sucksdorff2019}.
 
 En ce qui concerne les facteurs génétiques, des études montrent que le \gls{tdah} est fortement transmissible d'une génération à l'autre \citep{Larsson2014} :
-dans les familles où un enfant a été diagnostiqué \gls{tdah}, plus de 30\% de frères et soeurs sont aussi \gls{tdah} \citep{Monastra2005}.
+dans les familles où un enfant a été diagnostiqué \gls{tdah}, plus de 30\% de frères et soeurs le sont aussi \citep{Monastra2005}.
 
 Structurellement, des études \gls{fmri} et \gls{mri} ont montré des différences significatives au niveau de la taille et de la symétrie de régions cérébrales impliquées
 dans l'attention entre les patients \gls{tdah} et sains au même âge, notamment au niveau du lobe frontal \citep{Monastra2005}.  
 
-Enfin concernant le phénotype \gls{eeg} des enfants \gls{tdah}, \citet{Lubar1991} conclut que les enfants souffrant du \gls{tdah} présentent un excès 
-d'ondes theta en frontocentral \citep{Loo2010} et un déficit d'ondes beta par rapport aux enfants sains du même âge ce qui a été confirmé par \citet{Barry2003}, toutefois cette observation 
+Enfin concernant le phénotype \gls{eegi} des enfants \gls{tdah}, \citet{Lubar1991} conclut que les enfants souffrant du \gls{tdah} présentent un excès 
+d'ondes theta en frontocentral \citep{Loo2010} et un déficit d'ondes beta par rapport aux enfants sains du même âge ce qui a été confirmé par \citet{Barry2003}. Toutefois cette observation 
 a été nuancée par \citet{Arns2012} qui précisent que seuls certains enfants \gls{tdah} présenteraient ce phéntotype. 
 
 \subsubsection{Histoire du \gls{tdah}} \label{adhd_history}
@@ -532,7 +534,7 @@ une définition d'un trouble
 qui ressemble beaucoup au \gls{tdah} \citep{Crichton1798}, mais sans mentionner de symptômes d'hyeractivité : il s'intéresse seulement à l'attention
 en la définissant par ailleurs de manière précise. 
 
-En 1844 le Dr. Heinrich Hoffmann a écrit une série de petits livres pour enfants qui racontent l'histoire d'enfants dont l'agitation incessante 
+En 1844, le Dr. Heinrich Hoffmann a écrit une série de petits livres pour enfants qui racontent l'histoire d'enfants dont l'agitation incessante 
 entraine des conflits familiaux \citep{Lange2010}. Certains auteurs considèrent que ces livres contiennent la première description du comportement d'enfants 
 souffrant du \gls{tdah} \citep{Burd1988, Kopf2006}.  
 
@@ -540,9 +542,9 @@ Pour beaucoup, le point de départ scientifique de l'histoire du \gls{tdah} sont
 en 1902 \citep{Barkley2006, Conners2000, Palmer2001, Rafalovich2001} : il y expose le cas de 20 enfants présentant un défaut de contrôle moral sans
 déficience intellectuelle ou maladie organique \citep{Still1902}. 
 
-En 1932, les Dr. Franz Kramer and Hans Pollnow font état d'une "maladie hyperkinétique de l'enfance" dont le symptôme principal consiste en une 
+En 1932, les Dr. Franz Kramer et Hans Pollnow font état d'une "maladie hyperkinétique de l'enfance" dont le symptôme principal consiste en une 
 activité motrice infatigable \citep{Kramer1932}. Ces symptômes avaient déjà été mis en évidence par le passé mais n'avaient pas été différenciés 
-des maladies présentant des caractéristiques similaires, comme les symptômes résiduels de l'épidemie d'encéphalites léthargique \citep{Lange2010}. 
+des maladies présentant des caractéristiques similaires, comme les symptômes résiduels de l'épidemie d'encéphalites léthargiques \citep{Lange2010}. 
 Ainsi, les Dr. Franz Kramer et Hans Pollnow ont créé le concept de maladie hyperkinétique qui ressemble beaucoup à la défintion actuelle
 du \gls{tdah} \citep{Lange2010}. Peu de temps après, les premiers traitements médicamenteux sont mis au point : la prise d'amphétamines 
 \citep{Bradley1937} et de psychostimulants \citep{Morton2000}. 
@@ -563,7 +565,6 @@ Les dates clés de l'histoire du \gls{tdah} sont résumées sur la frise présen
   \label{Figure:introduction_adhd_history}
 \end{figure}
 
-
 \subsubsection{Diagnostic du \gls{tdah}}
 
 Le diagnostic du \gls{tdah} repose sur la clinique, des questionnaires évaluant le comportement de l'enfant peuvent être utilisés et être ensuite 
@@ -581,12 +582,12 @@ qui peuvent être différents :
 \end{itemize}
 
 L'apparition au cours de l'enfance et le caractère persistant des symptômes s'exprimant dans différents contextes de la vie de l'individu (en privé et 
-en public) sont des critères fondamentaux pour le diagnostic du \gls{tdah} \citep{HAS}. Par ailleurs les symptômes doivent porter préjudice au bon 
+en public) sont des critères fondamentaux pour le diagnostic du \gls{tdah} \citep{HAS}. Par ailleurs, les symptômes doivent porter préjudice au bon 
 développement de l'enfant, aussi bien dans ses interactions sociales et familiales qu'au cours de son apprentissage. 
 
 Un appareil ayant pour but d'aider le diagnostic du \gls{tdah} chez l'enfant en se basant sur leur \gls{eeg} 
 a été approuvé par la \gls{fda} \citep{FDA, NebaHealth}, cependant les nouvelles études remettent en question l'utilsation de cet appareil \citep{Arns2013, 
-Zhang2017}. Ainsi, des marqueurs objectifs cérébraux obtenus grâce à l'\gls{eeg} ou par \gls{fmri} ne permettraient pas d'améliorer le diagnostic pour un individu, mais
+Zhang2017}. Ainsi, des marqueurs objectifs cérébraux obtenus grâce à l'\gls{eegie} ou par \gls{fmri} ne permettraient pas d'améliorer le diagnostic pour un individu, mais
 peuvent aider à distinguer différents groupes de patients \citep{Johnstone2005, Zhang2017, Clarke2011}. En effet, certains enfants \gls{tdah} 
 présentent une augmentation d'ondes theta et/ou une diminution d'ondes beta dans l'aire frontale, ou une diminution du \gls{smr} dans l'aire centrale
 \citep{Monastra2005, Janzen1995, Loo2018}. 
@@ -597,19 +598,18 @@ subjectivité et ainsi mener à des diagnostics erronés \citep{Lambez2019}.
 
 \subsubsection{Traitements existants} \label{traitements_existants}
 
-En France, la \citet{HAS} recommande en première intention une prise en charge non-médicamenteuse durant 3 mois à l'instar des thérapies cognitivo-comportementale. 
+En France, la \citet{HAS} recommande en première intention une prise en charge non-médicamenteuse durant 3 mois à l'instar des thérapies cognitivo-comportementales. 
 Ces thérapies se basent sur un système de récompenses pour encourager l'enfant à contrôler son \gls{tdah} \citep{Evans2011, Sonuga2004}.
 Cependant, si ces approches se révèlent peu efficaces, un traitement médicamenteux peut être envisagé. En France seul le \gls{mph}
 peut être prescrit en suivant des règles très strictes \citep{HAS}. Dans d'autres pays, d'autres molécules sont autorisées comme la lisdexamfetamine et 
-les non-stimulantes telles que l'atomoxetine et la guanfacine \citep{Luan2017}.
+les non-stimulantes tels que l'atomoxetine et la guanfacine \citep{Luan2017}.
 
 Même si le traitement médicamenteux est prescrit, la \citet{HAS} recommande de poursuivre les thérapies comportementales : un tel traitement multimodal 
 est fortement conseillé dans le cadre du \gls{tdah} chez l'enfant.
 
 Bien que très couramment utilisée,  la prise de \gls{mph} occasionne de fréquents effets secondaires,
 notamment la diminution de l'appétit et des troubles du sommeil \citep{Sousa2012}. Ainsi, malgré son efficacité \citep{Taylor2014,
-Storebo2015, Swanson2017}, certains parents et médecins se tournent vers des alternatives non-pharmacologiques, comme par exemple les thérapies cognitivo 
-comportementales \citep{Berger2008} qui se révèlent néanmoins
+Storebo2015, Swanson2017}, certains parents et médecins se tournent vers des alternatives non-pharmacologiques, comme par exemple les thérapies cognitivo-comportementales \citep{Berger2008} qui se révèlent néanmoins
 moins efficaces que la prise de médicaments \citep{Sonuga-Barke2013}. 
 
 Le \gls{nfb} est une autre approche non-médicamenteuse et non-invasive pour réduire les symptômes du \gls{tdah} \citep{Arns2015, Marzbani2016}.  
@@ -619,9 +619,9 @@ Plusieurs protocoles d'entrainement ont été proposés et étudiés :
 \gls{smr} généralement dans l'aire centrale \citep{Beauregard2006}, diminution du rythme theta et/ou augmentation du beta dans les 
 zones frontale et centrale \citep{Arns2015, Kropotov2005} ; lorsque ces deux dernières bandes sont contrôlées simultanément on parle du protocole 
 \gls{tbr} \citep{Lubar1976, Arns2013}, 
-\item les protocoles basés sur les \textit{slow cortical potentials}, qui consistent à réguler les seuils d'excitation corticale en se concentrant sur l'activité 
+\item les protocoles basés sur les \gls{scp}, qui consistent à réguler les seuils d'excitation corticale en se concentrant sur l'activité 
 générée par des signaux extérieurs \citep{Heinrich2004, Banaschewski2007},
-\item les protocoles basés sur les \glsfirst{erp} : l'amplitude de l'onde P300 peut être considérée comme un marqueur neurophysiologique spécifique de l'attention 
+\item les protocoles basés sur les \gls{erp} : l'amplitude de l'onde P300 peut être considérée comme un marqueur neurophysiologique spécifique de l'attention 
 sélective \citep{Desain2012, Fouillen2017}. L'onde P300 est un \gls{erp} endogène, c'est à dire qu'il est lié à la réaction de la personne au stimulus et non aux 
 caractéristiques de ce dernier. D'autres \gls{erp} peuvent être utilisés comme l'ont résumé \citet{Johnstone2013} et \citet{Barry2003erp}
 \end{itemize}
@@ -630,7 +630,7 @@ Par ailleurs, les protocoles peuvent également être individualisés comme déc
 
 \subsubsection{Efficacité du \gls{nfb} appliqué au \gls{tdah}}
 
-La performance du \gls{nfb} dans le traitement du \gls{tdah} a fait l'objet de plusieurs études cliniques \citep{Escolano2014, Maurizio2014, Strehl2017} 
+La performance du \gls{nfb} dans le cadre du traitement du \gls{tdah} a fait l'objet de plusieurs études cliniques \citep{Escolano2014, Maurizio2014, Strehl2017} 
 et de méta-analyses \citep{Arns2009, Arns2013, Sonuga-Barke2013, Micoulaud2014, Cortese2016, Catala2017, Lambez2019}. Dans ces études, l'efficacité du \gls{nfb} est 
 principalement évaluée à l'aide d'échelles cliniques telles que, par exemple :
 \begin{itemize}
@@ -643,13 +643,13 @@ principalement évaluée à l'aide d'échelles cliniques telles que, par exemple
 
 Ces échelles se présentent sous la forme de questionnaires destinés aux parents, enseignants et médecins évaluant le comportement de l'enfant. 
 
-Avant le début de l'entrainenemt par \gls{nfb}, les évaluateurs remplissent ces questionnaires dans le but d'obtenir un score rendant compte de 
+Avant le début de l'entrainement par \gls{nfb}, les évaluateurs remplissent ces questionnaires dans le but d'obtenir un score rendant compte de 
 la sévérité des symptômes : généralement, plus le score est haut, plus ils sont prononcés \citep{Pappas2006, Conners2008}. Par ailleurs, certaines échelles 
-permettent de calculer un score pour les composantes inattention, hyperactivité et pour les symptômes totaux \citep{Pappas2006} conduisant ainsi à une caractérisation 
-plus précise du trouble. Ces questionnaires sont ensuite remplis à l'issue de l'entrainement par les mêmes personnes afin de quantifier l'évolution 
+permettent de calculer un score pour les composantes inattention, hyperactivité et pour les symptômes totaux conduisant ainsi à une caractérisation 
+plus précise du trouble \citep{Pappas2006}. Ces questionnaires sont ensuite remplis à l'issue de l'entrainement par les mêmes personnes afin de quantifier l'évolution 
 des symptômes. 
 
-Les évaluations des enseignants et des parents sont le plus souvent utilisées : bien que subjectives elles sont tout de même considérées comme fiables 
+Les évaluations des enseignants et des parents sont le plus souvent utilisées : bien que subjectives, elles sont tout de même considérées comme fiables 
 \citep{Mcgough2004}. Les récentes méta-analyses décrivent les parents comme non-aveugles au traitement suivi par leur enfant (ils sont dits \gls{mprox}), alors
 que les enseignants sont considérés comme probablement aveugles (\gls{pblind}) et donc potentiellement insensibles à un éventuel effet placebo 
 \citep{Micoulaud2014, Cortese2016}. Cependant, des études ont montré qu'enseignants et parents n'évaluent pas de la même façon les symptômes du \gls{tdah}
@@ -665,13 +665,13 @@ un groupe contrôle qui permettrait de démontrer la présence d'un éventuel ef
 En effet, dans les études d'efficacité, le \gls{nfb} peut être comparé à différents types de contrôles \citep{Arns2014} :
 \begin{itemize}
 \item des contrôles aux conditions semi-actives qui visent à analyser les effets non-spécifiques du \gls{nfb} tels que l'importance de l'intéraction entre le sujet et le thérapeute ; 
-ces contrôles ne sont pas censés avoir un effet clinique sur le \gls{tdah}. Parmi ces contrôles, on trouve les thérapies cognitives ou l'\gls{emg}-Biofeedback qui renvoie un \textit{feedback} basé
+ces contrôles ne sont pas censés avoir un effet clinique sur le \gls{tdah}. Parmi ces contrôles, on trouve les thérapies cognitives ou le Biofeedback-\gls{emgic} qui renvoie un \textit{feedback} basé
 sur l'activité d'un muscle donné \citep{Bakhshayesh2011},
 \item des contrôles aux conditions actives qui, eux, sont connus pour avoir un effet clinique sur les symptômes du \gls{tdah} à l'instar d'un autre protocole de \gls{nfb} \citep{Leins2007} ou
 de la prise de psychostimulants \citep{Meisel2014},
 \item des contrôles aux conditions placebo, le \textit{sham}-\gls{nfb}, qui sont souvent considérés comme la référence absolue en recherche. Il s'agit d'un groupe contrôle
 où tout est identique, sauf le \textit{feedback} qui n'est pas calculé sur l'activité électrique du cerveau \citep{Arnold2014}. Ce type de contrôle permet 
-que le sujet et tous les évaluateurs soient aveugles au traitement afin d'éviter un effet placebo.
+au sujet et à tous les évaluateurs d'être aveugles au traitement et donc d'éviter un effet placebo.
 \end{itemize}
 
 Afin de confronter la performance du \gls{nfb} appliqué au \gls{tdah} aux autres traitements décrits en \ref{traitements_existants}, des histogrammes
@@ -679,7 +679,7 @@ représentant la distribution de l'efficacité de chaque traitement (quantifiée
 sont tracés à la Figure~\ref{Figure:introduction-efficacy-treatments}.
 
 Les études incluses pour le \gls{nfb} correspondent à celles sélectionnées suivant les critères d'inclusion présentés en \ref{selection_studies}, celles pour les
-trois autres traitements (médicaments psychostimulants, médicaments non psychostimulants et thérapie comportementale) proviennent des plus récentes méta-analyses 
+trois autres traitements (médicaments psychostimulants, médicaments non psychostimulants et thérapies comportementales) proviennent des plus récentes méta-analyses 
 référencées sur PubMed sur le sujet au moment où ce travail a été effectué (été 2018) \citep{Luan2017, Catala2017}.
 
 \begin{figure}[h!]
@@ -693,7 +693,7 @@ référencées sur PubMed sur le sujet au moment où ce travail a été effectu�
   \label{Figure:introduction-efficacy-treatments}
 \end{figure}
 
-En se basant sur ces histogrammes, les traitements médicamenteux (\textbf{A} et \textbf{B}) sont les plus performants, le \gls{nfb} (\textbf{D}) présente de bons
+En analysant qualitativement ces histogrammes, on observe que les traitements médicamenteux (\textbf{A} et \textbf{B}) sont les plus performants, le \gls{nfb} (\textbf{D}) présente de bons
 résultats, en partie meilleurs que les thérapies comportementales (\textbf{C}). 
 
 L'efficacité du \gls{nfb} sur le long terme a fait l'objet de quelques études, mais avec un nombre de sujets qui reste plutôt faible. Il est observé notamment
@@ -741,7 +741,7 @@ la réplication et/ou la mise à jour de ce travail.
 
 La réplication de la méta-analyse conduisant aux mêmes résultats que \citet{Cortese2016}, les choix discutés par \citet{Micoulaud2016} n'ont pas un impact assez
 important pour changer ses conclusions : le \gls{nfb} est jugé efficace par les parents alors que les enseignants, considérés comme \gls{pblind}, ne notent aucune
-amélioration significative. Par ailleurs, la mise à jour confirme les résultats de \citep{Cortese2016}, ce qui laisserait penser qu'ils commenceraient
+amélioration significative. Par ailleurs, la mise à jour confirme les résultats de \citet{Cortese2016}, ce qui laisserait penser qu'ils commenceraient
 à se figer. En outre, l'évolution de l'\glsfirst{est} (défini en \ref{compute_summary_effect}) et de sa $p$-value en fonction de l'ajout des nouvelles études selon
 leur année de publication est tracée afin de mettre en évidence une éventuelle stabilisation des résultats. 
 
@@ -769,12 +769,12 @@ de ce travail.
 La personnalisation des protocoles de \gls{nfb} est un facteur innovant dont il aurait été intéressant d'étudier l'impact sur l'efficacité du \gls{nfb}.  
 Cependant, faute d'un nombre suffisant d'études ayant recours à la personnalisation, ce facteur n'a pas pu être étudié dans la \gls{saob}. C'est pourquoi
 la pertinence d'une personnalisation est étudiée dans le chapitre \ref{chapitre-4} grâce à l'analyse de la distribution d'un marqueur de l'attention : 
-le \gls{tbr} pour lequel de précédentes études ont montré qu'il serait variable au sein de la population \gls{tdah} \citep{Zhang2017, Arns2013, Clarke2001}.
+le \gls{tbr} pour lequel de précédentes études ont montré qu'il serait variable au sein de la population d'enfants souffrant de \gls{tdah} \citep{Zhang2017, Arns2013, Clarke2001}.
 
-Les valeurs de \gls{tbr} sont extraites de 363 \gls{eeg} d'enfants \gls{tdah} et vont être partitionnés grâce à trois méthodes : le \gls{bgmm}, le partitionnement
-hiérarchique basé sur la distance de Ward et le \gls{dbscan}. Si la distribution est trouvée bimodale par ces trois méthodes, les seuils calculés par chaque méthode,
-sont comparés, notamment grâce à une courbe \gls{roc} obtenue sur
-les résultats du \gls{bgmm} à deux composantes afin de déterminer celui sur lequel il faudrait se baser pour attribuer le protocole de \gls{nfb}.
+Les valeurs de \gls{tbr} sont extraites de 363 \gls{eeg} d'enfants \gls{tdah} et vont être partitionnés grâce à trois méthodes : le \glsfirst{bgmm}, le partitionnement
+hiérarchique basé sur la distance de Ward et le \glsfirst{dbscan}. Si la distribution est trouvée bimodale par ces trois méthodes, les seuils calculés par chaque méthode,
+sont comparés, notamment grâce à une courbe \glsfirst{roc} obtenue sur
+les résultats du \gls{bgmm} à deux composantes afin de déterminer celui qu'il faudrait utiliser pour attribuer le protocole de \gls{nfb}.
 
 Les trois méthodes s'accordent sur le fait que la distribution des \gls{tbr} est bimodale, ce qui indique qu'il existe en effet deux groupes d'enfants
 \gls{tdah} : l'un présentant des \gls{tbr} plutôt faibles et l'autre avec des \gls{tbr} élevés. Ainsi, personnaliser le protocole de \gls{nfb} en 
