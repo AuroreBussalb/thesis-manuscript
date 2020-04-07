@@ -15,7 +15,7 @@ ces résultats en incluant de nouvelles études.
 A travers le travail présenté ici, la performance du \gls{nfb} sur les enfants \gls{tdah} est alors évaluée et la revue de littérature
 qui a été menée a permis de se familiariser avec les études sur l'efficacité de ce traitement et d'en noter les éventuelles faiblesses.
 
-\clearpage
+\newpage
 
 \section{Principe d'une méta-analyse} \label{methods}
 
@@ -57,7 +57,6 @@ populations et de mesures relativement hétérogènes \citep{Cortese2016}.
 
 La première étape consiste à choisir le modèle statistique de la méta-analyse. La plupart des méta-analyses sont basées sur l'un des deux modèles 
 suivants qui reposent sur des hypothèses scientifiques différentes \citep[Chapitre~10]{Borenstein2009} :
-\renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 \item le modèle à effet fixe (\textit{fixed-effect model} en anglais),
 \item le modèle à effets aléatoires (\textit{random-effects model} en anglais).
@@ -92,8 +91,6 @@ la littérature existante, c'est le modèle à effets aléatoires qui est utilis
 
 Une fois le modèle choisi, l'étape suivante est de quantifier l'efficacité de chaque étude incluse dans la méta-analyse en calculant son \gls{es}. 
 Il existe différents \gls{es} \citep[Chapitre~3]{Borenstein2009} :
-\renewcommand{\labelitemi}{$\bullet$}
-\renewcommand{\labelitemii}{$\cdot$}
 \begin{itemize}
 \item \gls{es} basés sur des \emph{moyennes} :
 \begin{itemize}
@@ -140,8 +137,8 @@ les \gls{es} basés sur des moyennes. Par ailleurs, les échelles cliniques vari
 d'une étude à l'autre, les moyennes et les écarts-types ne sont pas comparables : il faut donc standardiser l'\gls{es}. 
 Ainsi, nous allons utiliser la différence moyenne standardisée \citep{Cortese2016, Micoulaud2014}.
 
-Enfin, lorsqu'un groupe contrôle est disponible, on peut calculer l'\gls{es}-inter-groupes (\textit{between}-\gls{es}) comme défini par \citet{Morris2008}.
-Cet \gls{es} est utilisé par \citet{Cortese2016, Micoulaud2014} et implémenté dans \citet{Bussalb2019clinical} :
+Enfin, lorsqu'un groupe contrôle est disponible, on peut calculer l'\gls{es}-inter-groupes (\textit{between}-\gls{es} en anglais) comme défini par \citet{Morris2008}.
+Cet \gls{es} est utilisé par \citet{Cortese2016} et \citet{Micoulaud2014} et implémenté dans \citet{Bussalb2019clinical} :
 \begin{equation}
 \label{eq:metareview_effect_size_between}
 \text{ES-inter-groupes} = c_p \left(\frac{(M_{\text{post},T} - M_{\text{pre},T}) - (M_{\text{post},C} - M_{\text{pre},C}) }{\sigma_{\text{pre}}} \right).
@@ -178,7 +175,7 @@ Plus la valeur absolue de l'\gls{es}-inter-groupes est élevée, plus l'efficaci
 
 \subsection{Calcul de la fiabilité de chaque taille d'effet}
 
-Le terme précision englobe trois valeurs statistiques liées les unes aux autres : la variance, l'\glsfirst{et} (à ne pas confondre avec
+Le terme précision englobe trois valeurs statistiques liées les unes aux autres : la variance, l'\gls{et} (à ne pas confondre avec
 l'écart type), et l'intervalle de confiance.
 Ces trois facteurs de précision définissent un intervalle de valeurs probables pour l'\gls{es} réel. 
 
@@ -293,7 +290,7 @@ Une fois l'\gls{est} obtenu, on peut calculer ses trois valeurs de précision. T
 \label{eq:metareview_variance_summary_effect}
 \sigma^2(\text{EST}) = \frac{1} {\sum_{k=1}^{K} w_k},
 \end{equation} 
-puis son erreur type ET(EST) :
+puis son \gls{et} ET(EST) :
 \begin{equation}
 \label{eq:metareview_standard_error_effect}
 \text{ET(EST)} = \sqrt{\sigma^2(\text{EST})} = \sigma(\text{EST}),
@@ -356,7 +353,7 @@ zéro (seuil de significativité statistique à 5\%), alors le \textit{funnel pl
 Afin de faciliter la lecture des résultats d'une méta-analyse, ceux-ci sont résumés dans un \textit{forest plot} \citep[Chapitre~1]{Borenstein2009}. Les études incluses sont
 en ordonnées et les \gls{es}-inter-groupes en abscisses. Chaque \gls{es}-inter-groupes est représenté par un carré dont la taille est proportionnelle
 au poids $w_k$ attribué à l'étude $k$. Les intervalles de confiance à 95\% pour chaque \gls{es}-inter-groupes sont représentés. En bas du graphique, l'\gls{est}
-est symbolisé par un diamant avec son intervalle de confiance à à 95\%. Une droite verticale d'équation $x = 0$ est tracée pour délimiter la
+est symbolisé par un diamant avec son intervalle de confiance à 95\%. Une droite verticale d'équation $x = 0$ est tracée pour délimiter la
 partie du graphique où les \gls{es} sont en faveur du traitement de celle où ils ne le sont pas. Dans notre cas, la partie à gauche de cette droite
 est en faveur du \gls{nfb}.
 
@@ -383,7 +380,7 @@ obtenus avec le package Python vont être comparés à ceux donnés par la versi
 afin de valider l'utilisation de ce package.
 
 \subsubsection{Matériel et méthodes}
-La première étape a été d'entrer dans un fichier .csv, pour chaque étude incluse, les moyennes des scores cliniques à pré-test et post-test avec leur écart-type 
+La première étape a été d'entrer dans un fichier \gls{csv}, pour chaque étude incluse, les moyennes des scores cliniques à pré-test et post-test avec leur écart-type 
 utilisés par \citet{Cortese2016} pour calculer les \gls{es}-inter-groupes. Lorsqu'ils sont disponibles, les scores cliniques évaluant l'inattention, l'hyperactivité 
 et la totalité des symptômes sont extraits afin d'obtenir une valeur d'efficacité pour chacune de ces composantes. Par ailleurs, les scores donnés par les
 parents (\gls{mprox}) mais aussi par les enseignants (\gls{pblind}) sont utilisés.
@@ -410,10 +407,10 @@ Les différences de signe entre les \gls{est} de \citet{Cortese2016} et ceux de 
 par -1 les \gls{es}-inter-groupes calculés avec l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cette décision a également été prise par 
 \citet{Micoulaud2014}.
 
-Les petites différences observées notamment au niveau des $p$-values sont dues à notre décision d'utiliser systématiquement une \textit{pooled} corrélation de Pearson 
-intra-groupes toujours égale à 0.5 \citep{Balk2012} lors du calcul de la variance de chaque \gls{es}-inter-groupes à l'équation 
-Eq.~(\ref{eq:metareview_variance_effect_size_between}). Une analyse de sensibilité a été menée pour s'assurer de l'impact mineur de la valeur de la \textit{pooled} 
-corrélation de Pearson intra-groupes : lorsqu'elle varie entre 0.2 et 0.8, la significativité statistique de l'\gls{est} ne change pas.
+Les petites différences observées notamment au niveau des $p$-values sont dues à notre décision d'utiliser systématiquement une corrélation de Pearson groupée intra-groupes
+toujours égale à 0.5 \citep{Balk2012} lors du calcul de la variance de chaque \gls{es}-inter-groupes à l'équation 
+Eq.~(\ref{eq:metareview_variance_effect_size_between}). Une analyse de sensibilité a été menée pour s'assurer de l'impact mineur de la valeur de la corrélation de Pearson groupée 
+intra-groupes : lorsqu'elle varie entre 0.2 et 0.8, la significativité statistique de l'\gls{est} ne change pas.
 
 Au vu de la faible différence entre ce qui est retourné par RevMan et par le package Python, la validité de ce dernier est confirmée : il sera donc utilisé pour mener
 les analyses suivantes.
@@ -545,7 +542,7 @@ Parmi les nouvelles études ajoutées, certaines telles que \citet{Shereena2019,
 contrairement à d'autres \citep{Moreno2019, Minder2018}.
 
 Les résultats de la mise à jour sont illustrés par les \textit{forest plots} à la Figure~\ref{Figure:meta_analysis_forest_plots} : les évaluations
-des parents mènent à des résultats statistiqument significatifs et en faveur de l'efficacité du \gls{nfb}, à l'inverse des enseignants pour qui
+des parents mènent à des résultats statistiquement significatifs et en faveur de l'efficacité du \gls{nfb}, à l'inverse des enseignants pour qui
 aucun \gls{est} n'est significatif.
 
 \begin{figure}[h!]
@@ -596,11 +593,12 @@ significatif ($p$-value = 0.017).
 \section{Discussion} 
 
 Les méta-analyses doivent être menées rigoureusement, ainsi pour guider les auteurs des recommandations existent comme celles de PRISMA \citep{Moher2009}.
-La réplication et la mise à jour présentées ici remplissent la majorité des points de cette checklist, sauf notamment l'évaluation du risque de biais dans chaque étude.
+La réplication et la mise à jour présentées ici remplissent la majorité des points de cette \textit{checklist}, sauf notamment l'évaluation du risque de biais dans chaque étude.
 Par ailleurs, elles ont été effectuées avec le package Python dont la fiabilité n'a été testée que sur une méta-analyse.
  
 Le travail décrit précédemment a pour but d'explorer l'impact de certains choix de \citet{Cortese2016} qui ont été débattus dans la communauté scientifique 
-\citep{Micoulaud2016}. Nous résumons ici la liste des changements, leur justification et leurs conséquences sur les résultats. 
+\citep{Micoulaud2016}. Nous résumons ici la liste des changements, leur justification et leurs conséquences sur les résultats puis mettons en évidence 
+les contributions de la mise à jour de la méta-analyse. 
 
 \subsection{Discussion sur les résultats obtenus} \label{replication_and_update}
 
@@ -642,7 +640,7 @@ de moins bonne qualité et donc n'arrivent pas à montrer l'efficacité du \gls{
 études auraient été en faveur du \gls{nfb}. 
 
 En ce qui concerne les évaluations des parents, le \textit{funnel plot} parait asymétrique, or le test d'Egger contredit cette observation ($p$-value = 0.264). 
-Cela pourrait s'expliquer par le faible poids associé à ces études. 
+Cela pourrait s'expliquer par le faible poids associé aux études qui causent cette asymétrie visuelle. 
 
 Enfin, l'ajout de ces sept nouvelles études donne plus de puissance statistique aux résultats, notamment pour l'analyse des sous-groupes menée par \citet{Cortese2016}.
 
@@ -660,7 +658,7 @@ significativité statistique de l'\gls{est} de la composante hyperactivité éva
 
 Même si les méta-analyses regroupent les études répondant toutes aux critères d'inclusion comme, par exemple, ceux énoncés à \ref{selection_studies}, 
 elles diffèrent tout de même sur de nombreux points, comme le nombre de sessions et la durée du traitement, limitant la fiabilité de leurs résultats 
-comme le souligne \citep{Alkoby2017}. Afin de pallier 
+comme le soulignent \citet{Alkoby2017}. Afin de pallier 
 cette hétérogénéité, l'analyse peut cibler une population plus précise, comme ce qui a été effectué lors de l'analyse
 des sous populations. Cependant, ce genre de restriction souffre d'une puissance statistique plus faible et regroupe encore des études fortement hétérogènes.
 En effet, même si seuls les protocoles \gls{scp}, \gls{tbr} et \gls{smr} sont utilisés, ils restent intrinsèquement différents et il est probable que leur
@@ -682,8 +680,8 @@ $t + 1$ et ne plus la retrouver. Ces deux configurations sont représentées ave
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value-examples} 
-  \caption[Exemples d'évolution des $p$-value des \glsfirst{est} factices au fur et à mesure que la taille de l'échantillon augmente.]
-	{Exemples d'évolution des $p$-value des \gls{est} factices au fur et à mesure que la taille de l'échantillon augmente. 
+  \caption[Exemples d'évolution des $p$-value d'\gls{est} factices au fur et à mesure que la taille de l'échantillon augmente.]
+	{Exemples d'évolution des $p$-value d'\gls{est} factices au fur et à mesure que la taille de l'échantillon augmente. 
 	En \textbf{A}, la $p$-value se stabilise sous le seuil de significativité statistique suite à l'ajout de nouveaux sujets ; en \textbf{B}, la $p$-value 
 	passe temprorairement sous le seuil de significativité puis s'en éloigne suite à l'ajout de nouveaux sujets. 
 	Le seuil de significativité statistique à 5\% est représenté en pointillés noirs.}
@@ -712,7 +710,7 @@ que la $p$-value est une valeur bornée entre 0 et 1 \citep{Mandelkern2002} :
 \end{equation}
 \end{itemize}
 
-L'évolution des l'\gls{est} est considérée comme stable lorsque visuellement elle semble converger. Quant à l'évolution des $p$-values, elle est
+L'évolution des \gls{est} est considérée comme stable lorsque visuellement elle semble converger. Quant à l'évolution des $p$-values, elle est
 estimée stable lorsque les bornes de son intervalle de confiance sont au-dessus (ou en-dessous) du seuil de significativité à 5\%.
 
 Les courbes sont tracées pour les évaluations des parents et des enseignants. Le nombre de sujets par étude (NS) et cumulatif (NSC) sont précisés sur les axes 
@@ -721,8 +719,8 @@ allant de $1$ à $K$, avec $K$ le nombre total d'études incluses.
  
 Par ailleurs, la méta-analyse de \citet{Cortese2016} ainsi que ses mises
 à jour sont symbolisées sur les tracés par une étoile si l'\gls{est} est statistiquement significatif ou par un carreau sinon : les symboles
-rouges correspondent aux résulats de \citet{Cortese2016}, les verts à ceux de \citet{Bussalb2019clinical} et les violets à ceux de la mise à jour décrite en \ref{selection_studies}. Les méta-analyses
-étant généralement publiées quelque temps après la fin de sélection des études, leur année de publication est représentée grâce à un point de la même couleur que le carreau ou
+rouges correspondent aux résulats de la réplication de \citet{Cortese2016} (partie \ref{replication}), les verts à ceux de \citet{Bussalb2019clinical} et les violets à ceux de la mise à jour décrite en \ref{selection_studies}. Les méta-analyses
+étant généralement publiées quelque temps après la fin de la sélection des études, leur année de publication est représentée grâce à un point de la même couleur que le carreau ou
 l'étoile relié au résultat de la méta-analyse par une droite en pointillés. 
 
 L'axe des ordonnées a été inversé de façon à ce que les points en hauteur correspondent aux méta-analyses les plus favorables au traitement.
@@ -734,12 +732,12 @@ La Figure~\ref{Figure:meta_analysis_evolution_est_total} représente l'évolutio
 enseignants (en \textbf{B}) sur la composante totale en fonction de l'année de publication des études satisfaisant le critère d'inclusion établi par \citep{Cortese2016} et énoncé en 
 \ref{selection_studies}.
 
-\begin{figure}[h!]
+\begin{figure}[t]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-summary-effect-total} 
-  \caption[Evolution des \glsfirst{est} au fur et à mesure de l'ajout de nouvelles études.]{Evolution des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études satisfaisant le critère d'inclusion de \citet{Cortese2016} pour les évaluations des 
+  \caption[Evolution des \gls{est} au fur et à mesure de l'ajout de nouvelles études.]{Evolution des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études satisfaisant le critère d'inclusion de \citet{Cortese2016} pour les évaluations des 
 	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
-  Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2016clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
+  Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2019clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
 	indiquent un \gls{est} statistiquement significatif, un losange un \gls{est} non statistiquement significatif. L'année de publication de ces méta-analyses est représentée grâce à un point de la couleur 
 	d'intérêt relié au résultat de la méta-analyse par une droite en pointillés.
 	Plus la valeur absolue de l'\gls{est} est élevée plus le traitement est efficace.
@@ -759,10 +757,10 @@ de fin 2018 la valeur absolue des \gls{est} augmente.
 Les mêmes graphiques sont tracés à la Figure~\ref{Figure:meta_analysis_evolution_est_std} mais cette fois en incluant seulement 
 les études suivant un protocole standard \citep{Arns2014}.
 
-\begin{figure}[h!]
+\begin{figure}[t]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-summary-effect-std} 
-  \caption[Evolution des \glsfirst{est} au fur et à mesure de l'ajout de nouvelles études suivant un protocole standard.]{Evolution des \gls{est} et de leur 
+  \caption[Evolution des \gls{est} au fur et à mesure de l'ajout de nouvelles études suivant un protocole standard.]{Evolution des \gls{est} et de leur 
 	intervalle de confiance à 95\% au fur et à mesure de l'ajout des études suivant un protocole standard pour les évaluations des 
 	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
   Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2019clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
@@ -773,6 +771,8 @@ les études suivant un protocole standard \citep{Arns2014}.
 	décrite en \ref{methods_importance_to_update_meta_analysis}}
   \label{Figure:meta_analysis_evolution_est_std}
 \end{figure}
+
+\clearpage
 
 Dans le cas des études satisfaisant la définition du protocole standard, les \gls{est} calculés à partir des évaluations des parents 
 (\textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_est_std}) diminuent avec le temps, tout comme leur intervalle de confiance à 95\%. 
@@ -785,12 +785,12 @@ ici la mise à jour de \citet{Cortese2016} présentée en \ref{selection_studies
 L'évolution des $p$-value de ces \gls{est} en fonction des études incluses est ensuite étudiée et présentée à la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total} pour 
 l'intégralité des études et à la Figure~\ref{Figure:meta_analysis_evolution_pvalue_std} pour les études suivant un protocole standard \citep{Arns2014}.
 
-\begin{figure}[h!]
+\begin{figure}[t]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-pvalue-total} 
-  \caption[Evolution de la $p$-value des \glsfirst{est} au fur et à mesure de l'ajout de nouvelles études.]{Evolution de la $p$-value des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études satisfaisant le critère d'inclusion de \citet{Cortese2016} pour les évaluations des 
+  \caption[Evolution de la $p$-value des \gls{est} au fur et à mesure de l'ajout de nouvelles études.]{Evolution de la $p$-value des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études satisfaisant le critère d'inclusion de \citet{Cortese2016} pour les évaluations des 
 	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
-  Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2016clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
+  Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2019clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
 	indiquent un \gls{est} statistiquement significatif, un losange un \gls{est} non statistiquement significatif. L'année de publication de ces méta-analyses est représentée grâce à un point de la couleur 
 	d'intérêt relié au résultat de la méta-analyse par une droite en pointillés.
 	Le nombre de sujets inclus par étude et cumulatif est indiqué sur les axes des abscissses supérieurs. La manière dont est calculé ce dernier est 
@@ -799,10 +799,10 @@ l'intégralité des études et à la Figure~\ref{Figure:meta_analysis_evolution_
   \label{Figure:meta_analysis_evolution_pvalue_total}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[t]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-pvalue-std} 
-  \caption[Evolution de la $p$-value des \glsfirst{est} au fur et à mesure de l'ajout de nouvelles études suivant un protocole standard.]{Evolution de la $p$-value 
+  \caption[Evolution de la $p$-value des \gls{est} au fur et à mesure de l'ajout de nouvelles études suivant un protocole standard.]{Evolution de la $p$-value 
 	des \gls{est} et de leur intervalle de confiance à 95\% au fur et à mesure de l'ajout des études répondant à la définition du protocole standard pour les évaluations des 
 	parents en \textbf{A} et des enseignants en \textbf{B} sur la composante totale.
   Les résultats de \citep{Cortese2016} sont représentés par des symboles rouges, ceux de \citet{Bussalb2019clinical} en vert et ceux présentés en \ref{selection_studies} en violet. Les étoiles 
@@ -813,6 +813,8 @@ l'intégralité des études et à la Figure~\ref{Figure:meta_analysis_evolution_
 	Le seuil de significativité à 5\% est représenté par des pointillés orange.}
   \label{Figure:meta_analysis_evolution_pvalue_std}
 \end{figure}
+
+\clearpage
 
 Tout d'abord, en ce qui concerne l'évolution de la $p$-value en incluant l'intégralité des études pour les 
 évaluations des parents (\textbf{A} de la Figure~\ref{Figure:meta_analysis_evolution_pvalue_total}), on remarque que les $p$-values sont toutes
