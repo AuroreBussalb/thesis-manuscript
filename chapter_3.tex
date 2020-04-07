@@ -9,10 +9,11 @@ de la qualité de l'acquisition de l'\gls{eeg}, du neuromarqueur entrainé lors 
 et la durée du traitement). 
 
 Afin de mieux identifier l'importance de ces facteurs sur l'efficacité du \gls{nfb}, une nouvelle approche a été implémentée : l'analyse systématique des biais 
-(\gls{saob} en anglais). Dans cette analyse, l'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes 
+(\glsfirst{saob} en anglais). Dans cette analyse, l'efficacité du traitement est considérée comme la variable dépendante expliquée par des variables indépendantes 
 qui sont ici les facteurs méthodologiques et techniques. Le but de cette analyse est donc de déterminer les paramètres qui ont une influence sur la performance du 
 \gls{nfb} afin de mieux les prendre en compte dans l'implémentation d'études cliniques évaluant l'efficacité de ce traitement. 
-\clearpage
+
+\newpage
 
 \section{Extraction et pré-traitement des facteurs}
 
@@ -28,7 +29,6 @@ Cortese2016, Enriquez2017, Strehl2014}. Les facteurs
 spécifiques à l'entrainement par \gls{nfb} sont définis avec plus de précision en \ref{principe_nfb}.
 
 Les paramètres ayant une possible influence sur l'efficacité perçue du \gls{nfb} ont été répartis en cinq catégories :
-\renewcommand{\labelitemi}{$\bullet$}
 \begin{itemize}
 \item \emph{les biais méthodologiques :} 
     \begin{itemize} 
@@ -63,16 +63,16 @@ Certaines de ces caractéristiques ont déjà été indivividuellement étudiée
 		\item la durée et la fréquence des sessions, 
 		\item la durée du traitement, 
 		\item l'individualisation des bandes de fréquence basée sur l'\gls{iapf} (l'\gls{iapf} est la valeur du pic dans la bande alpha qui diffère selon les individus), 
-		\item le couplage du \gls{nfb} avec l'\gls{emg}-Biofeedback (un retour est donné sur l'activité électrique du cerveau, mais aussi sur l'activité musculaire qui est 
+		\item le couplage du \gls{nfb} avec le Biofeedback-\gls{emgic} (un retour est donné sur l'activité électrique du cerveau, mais aussi sur l'activité musculaire qui est 
 		également enregistrée : l'enfant doit
 		contrôler les deux simultanément).
 		\end{itemize}
 Il existe différents types de protocoles dont l'efficacité clinique a déjà été comparée précisément
-\citep{Leins2007, Heinrich2019}. Les paramètres concernant l'aide au tranfert d'apprentissage semblent jouer un rôle important comme le soulignent \citet{Arns2014, Gani2008, Strehl2006}.
+\citep{Leins2007, Heinrich2019}. Les paramètres concernant l'aide au tranfert d'apprentissage semblent jouer un rôle important comme le soulignent \citet{Arns2014, Gani2008} et \citet{Strehl2006}.
 Par ailleurs, l'influence de ces facteurs sur le \gls{nfb} est étudiée à travers la méta-analyse de \citet{Cortese2016} et ses mises à jour en regroupant les études suivant un protocole standard
 \citep{Arns2014}.
 
-La question du seuil est également déterminante comme soulignée par \citet{Arns2014, Strehl2014} tout comme l'importance d'aider au transfert de l'auto-régulation cérébrale
+La question du seuil est également déterminante comme le relèvent \citet{Arns2014} et \citet{Strehl2014} tout comme l'importance d'aider au transfert de l'auto-régulation cérébrale
 apprise durant les séances de \gls{nfb} à la vie de tous les jours. 
 
 En ce qui concerne le nombre de sessions, ce paramètre a fait l'objet de plusieurs analyses \citep{Cortese2016, Arns2009,
@@ -81,7 +81,7 @@ Arns2014, Enriquez2017} afin de déterminer sa valeur optimale.
 La durée du traitement et des sessions ainsi que leur fréquence étant variables d'une étude à l'autre, il parait important
 de les étudier \citep{Enriquez2017}. 
 
-Enfin l'individualisation des bandes de fréquences et le couplage entre le \gls{nfb} et l'\gls{emg}-Biofeedback font l'objet de plus en plus d'études \citep{Bioulac2019, Bazanova2018, Bink2014,
+Enfin l'individualisation des bandes de fréquences et le couplage entre le \gls{nfb} et le Biofeedback-\gls{emgic} font l'objet de plus en plus d'études \citep{Bioulac2019, Bazanova2018, Bink2014,
 Duric2012, Enriquez2017, Klimesch1999}, ainsi leur influence serait intéressante à explorer. 
 \item \emph{la qualité de l'acquisition :} 
     \begin{itemize}
@@ -96,15 +96,15 @@ Duric2012, Enriquez2017, Klimesch1999}, ainsi leur influence serait intéressant
     Un score de qualité de 3 est donné si tous les critères ci-dessus sont remplis. Si au moins l'un d'eux est satisfait, le score est de 2, sinon il est mis à 1.
 		\end{itemize}
 Le matériel utilisé semble intuitivement être central quant à l'efficacité du \gls{nfb} d'où notre idée d'étudier son impact de plus près \citep{Lopez2014}. En particulier,
-il a été montré que les études sur le \gls{nfb} sont très hétérogènes quant au nombre et au placement des électrodes enregistrant le signal \gls{eeg} sur 
+il a été montré que les études sur le \gls{nfb} sont très hétérogènes quant au nombre et au placement des électrodes enregistrant le signal \gls{eegi} sur 
 lequel est calculé le \textit{feedback} \citep{Enriquez2017, Rogala2016}.
 \item \emph{la qualité du signal} : 
     \begin{itemize}
     \item le rejet en temps réel (l'époque est exclue, pas de retour ou \emph{feedback} calculé) ou la correction (retour calculé sur l'époque débruitée) des 
-artefacts oculaires (\gls{eog}),
+artefacts oculaires,
     \item le rejet en temps réel d'artefacts génériques détectés grâce à leur large amplitude. 
     \end{itemize}
-Le signal \gls{eeg} est l'élement central du \gls{nfb} et peut être très facilement contaminé par des artefacts comme expliqué en \ref{steps_NFB_taining} \citep{Chavez2018}, 
+Le signal \gls{eegi} est l'élement central du \gls{nfb} et peut être très facilement contaminé par des artefacts comme expliqué en \ref{steps_NFB_taining} \citep{Chavez2018}, 
 ainsi l'effet de la correction ou du rejet 
 d'artefacts est à étudier. 
 \end{itemize}
@@ -117,7 +117,8 @@ comme valide notamment au niveau de la normalisation des variables et de la vali
 Les auteurs des études incluses dans la \gls{saob} ne précisent pas systématiquement toutes les valeurs des facteurs, ce qui conduit à des observations manquantes. 
 Afin que les paramètres pour lesquels peu d'observations sont disponibles ne faussent l'analyse, il est apparu raisonnable de considérer qu'au-delà de 20\%
 d'observations manquantes ce paramètre est exclu. Les observations manquantes dans les facteurs comportant des valeurs numériques sont 
-imputées et remplacées par -1 pour le \glsfirst{dt} de régression et par la moyenne des valeurs du facteur pour la \glsfirst{wls} et le \glsfirst{lasso}, méthodes décrites en \ref{saob_method}. 
+imputées et remplacées par -1 pour le \glsfirst{dt} de régression et par la moyenne des valeurs du facteur pour la \glsfirst{wls} et le \glsfirst{lasso}, méthodes 
+qui sont décrites en \ref{saob_method}. 
 
 Par ailleurs, comme cette analyse tire avantage de l'hétérogénéité des études, si un facteur a plus de 80\% d'observations identiques, 
 celui-ci est également rejeté. 
@@ -155,7 +156,7 @@ lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\g
 \noindent où $M_{\text{t},T}$ est la moyenne sur l'échelle clinique, pour le traitement $T$, au moment t (pré-test ou post-test) et $\sigma_{\text{t},T}$ représente
 son écart-type. Au contraire de l'\gls{es}-inter-groupes défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de se concentrer sur l'effet du 
 traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} a déjà été précédemment utilisée dans la littérature sur le \gls{nfb} 
-appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Plus la valeur absolue de \gls{es}-intra-groupe est élevée, plus
+appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Plus la valeur absolue de l'\gls{es}-intra-groupe est élevée, plus
 le traitement étudié est efficace. 
 
 Afin de limiter l'influence d'observations extrêmes parmi les valeurs des \gls{es}-intra-groupe, celles se trouvant à plus de 3 écart-types de la moyenne
@@ -173,7 +174,7 @@ Cette analyse comporte trois méthodes qui ont été implémentées à l'aide de
 	  \item un arbre de décision de régression (\glsfirst{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
 
-La \gls{wls} a été choisie car son équivalent non pondéré (l'\gls{ols}) est très connue car couramment utilisée. Par ailleurs, cette méthode est très proche de la méta-régression qui est 
+La \gls{wls} a été choisie car son équivalent non pondéré (l'\gls{ols}) est très connue du fait de son utilisation courante. Par ailleurs, cette méthode est très proche de la méta-régression qui est 
 parfois mise en place dans les méta-analyses pour quantifier la relation entre un paramètre des études et leur efficacité \citep{Cortese2016, Borenstein2009}. 
 
 Le \gls{lasso} est également une régression mais permet de sélectionner clairement les variables indépendantes ayant une influence sur la variable dépendante. 
@@ -186,7 +187,7 @@ Les résultats de ces trois méthodes intrinsèquement différentes vont être c
 
 Il a été décidé d'utiliser trois méthodes car celles choisies sont suffisammment différentes pour mener à des conclusions intéressantes : si malgré leurs dissimilitudes 
 elles sont d'accord sur l'influence d'un facteur alors on peut raisonnablement conclure que cette influence est fortement probable. Il aurait été possible
-d'avoir recours à plus de méthodes mais étant donné l'aspect novateur de cette approche, il semblait préférable de ne pas complexifier le message en utilisant trop de méthodes.
+d'avoir recours à plus de méthodes mais, étant donné l'aspect novateur de cette approche, il semblait préférable de ne pas complexifier le message en utilisant trop de méthodes.
 
 \subsubsection{La régression linéaire multiple et pondérée} \label{wls_part}
 La régression linéaire a pour but d'estimer les coefficients de régression qui lient linéairement les facteurs aux \gls{es}-intra-groupe \citep{Montgomery2012}. Ici, nous préférerons 
@@ -214,10 +215,10 @@ d'une régression simple à la Figure~\ref{Figure:factors_comparison_ols_wls}.
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/factors-comparison-ols-wls} 
-  \caption[Comparaison des régressions simples non pondérée (\gls{ols}) et pondérée (\gls{wls}) sur des données factices.]{Comparaison des régressions 
+  \caption[Comparaison des régressions simples non pondérée et pondérée sur des données factices.]{Comparaison des régressions 
 	simples non pondérée (\gls{ols}) en \textbf{A} et pondérée (\gls{wls}) en \textbf{B} sur des données factices. Les points bleus correspondent aux observations
-	dont la taille dans le cas de la \gls{wls} est proportionnelle au poids qui leur est attribué. Les droites rouges correspondent aux droites de régression : dans le cas de la \gls{wls} elle
-	est plus proche des points ayant un fort poids. Dans notre cas la variable dépendante sera l'\gls{es}-intra-groupe et la variable indépendante un facteur.}
+	dont la taille dans le cas de la \gls{wls} est proportionnelle au poids qui leur est attribué. Les droites rouges correspondent aux droites de régression : dans le cas de la \gls{wls}, elle
+	est plus proche des points ayant un fort poids. Dans notre cas, la variable dépendante sera l'\gls{es}-intra-groupe et la variable indépendante un facteur.}
   \label{Figure:factors_comparison_ols_wls}
 \end{figure}
 
@@ -256,7 +257,7 @@ la statistique F \citep{James2013} :
 avec $\text{WTSS} = \sum_{i=1}^{n} w_i(y_i - \bar{y})^2$, la somme totale des carrés des résidus (\gls{wtss} en anglais) et $\bar{y}$ la moyenne 
 pondérée par les $w_i$ des $y_i$. 
 
-La $p$-value associée à la statistique F est calculée à partir de la F-distribution, qui est une distribution de probabilités de la statistique F, obtenue si $H_{0}$ 
+La $p$-value associée à la statistique F est calculée à partir de la F-\textit{distribution}, qui est une distribution de probabilités de la statistique F, obtenue si $H_{0}$ 
 est vraie et si les résidus sont distribués normalement.
 
 Afin de déterminer si les résidus sont distribués normalement, la \textit{skewness}, le Kurtosis et le test Omnibus sont utilisés \citep{dagostino1973, dagostino1971, Bowman1975}.
@@ -264,7 +265,7 @@ Afin de déterminer si les résidus sont distribués normalement, la \textit{ske
 La \textit{skewness} $\gamma$ rend compte d'à quel point la forme générale d'une distribution diffère de celle d'une distribution normale : 
 \begin{equation}
 \label{eq:factors_skewness}
-\kappa = E \Big[ \Big(\frac{ Y - \mu }{ \sigma }\Big)^{3} \Big], 
+\gamma = E \Big[ \Big(\frac{ Y - \mu }{ \sigma }\Big)^{3} \Big], 
 \end{equation}
 avec $E$ la valeur attendue, $Y$ la variable aléatoire, $\mu$ la moyenne de la population et $\sigma$ l'écart-type de la population.
 
@@ -286,18 +287,19 @@ Le Kurtosis $\kappa$ quantifie à quel point les formes des queues de la distrib
 \end{equation}
 avec $E$ la valeur attendue, $Y$ la variable aléatoire, $\mu$ la moyenne de la population et $\sigma$ l'écart-type de la population.
 
-Le Kurtosis d'une distribution normale est de 3, cependant le Kurtosis est parfois exprimé en tant qu'excès de Kurtosis :
+Le Kurtosis d'une distribution normale est de 3, cependant le Kurtosis est parfois exprimé en tant qu'excès de Kurtosis en soustrayant 3 
+à la valeur du Kurtosis :
 \begin{equation}
 \label{eq:factors_kurtosis_excess}
 g_{2} = \frac{ \mu_{4} } {s^4}, 
 \end{equation}
-avec $\mu_{4}$ le troisième moment central de l'échantillon et $s$ l'écart-type de l'échantillon.
+avec $\mu_{4}$ le quatrième moment central de l'échantillon et $s$ l'écart-type de l'échantillon.
 
-Ainsi, avec les valeurs de kurtosis et de skewness on peut quantifier d'à quel point la distribution des résidus diffère 
+Ainsi, avec les valeurs de kurtosis et de \textit{skewness} on peut quantifier d'à quel point la distribution des résidus diffère 
 d'une distribution normale. Afin de savoir si cette différence est significative, le test Omnibus peut être utilisé. 
 
-Ce test se base sur les valeurs de la \textit{skewness} et le Kurtosis pour tester l'hypothèse $H_{0}$ qui est que les résidus sont distribués normalement.
-Pour ce faire, il regroupe les variables aléatoires pour la \textit{skewness} et le Kurtosis en un seul test statistique :
+Ce test se base sur les valeurs de la \textit{skewness} et d'excès de Kurtosis pour tester l'hypothèse $H_{0}$ qui est que les résidus sont distribués normalement.
+Pour ce faire, il regroupe les variables aléatoires pour la \textit{skewness} et d'excès de Kurtosis en un seul test statistique :
 \begin{equation}
 \label{eq:factors_omnibus_statistic}
 K = Z_{1}(g_{1})^2 + Z_{2}(g_{2})^2, 
@@ -307,7 +309,7 @@ $g_{2}$ la variable aléatoire de l'excès de Kurtosis, et $Z_{1}$ et $Z_{2}$ de
 les distributions de $g_{1}$ et $g_{2}$ normales.
 
 Si toutes ces hypothèses sont satisfaites, alors les résultats de la \gls{wls} peuvent être interprétés. A l'aide d'un t-test, on détermine  
-parmi les coefficients $\beta_{j}$ où $0 \leq j \leq p$, ceux qui sont significativement différents de 0 (avec un seuil de significativité de 5\%) : 
+parmi les coefficients $\beta_{j}$ où $0 \leq j \leq p$ ceux qui sont significativement différents de 0 (avec un seuil de significativité de 5\%) : 
 pour ces coefficients, le facteur qui leur est associé est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, 
 le signe du coefficient indique si cette influence est positive ou négative. 
 
@@ -331,7 +333,7 @@ Une régression linéaire ordinaire (\gls{ols} en anglais) est aussi mise en pla
 \subsubsection{La régression linéaire avec régularisation parcimonieuse $\ell_1$}
 
 La deuxième méthode appliquée lors de la \gls{saob} est le \glsfirst{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce 
-à un a priori de parcimonie des variables/coefficients, obtenue via une régularisation par la norme $\ell_1$ \citep{Tibshirani1996}.
+à un \textit{a priori} de parcimonie des variables/coefficients, obtenue via une régularisation par la norme $\ell_1$ \citep{Tibshirani1996}.
 
 La régression régularisée par la norme $\ell_1$ est préférable ici à la régression \textit{Ridge} \citep{James2013} régularisée par 
 la norme $\ell_2$ (aussi appelée régularisation de Tikhonov) : en effet, la norme $\ell_2$ donne des coefficients lissés, alors que la norme $\ell_1$ donne des coefficients parcimonieux 
@@ -406,7 +408,7 @@ d'observations, ainsi son impact sur l'efficacité est davantage probable.
 
 Les résultats de la \gls{saob} sont présentés ici. Cette méthode, dont les premières étapes (i.e. la sélection des études et le calcul des \gls{es}) rappellent
 la méta-analyse, se distingue de cette dernière par l'utilisation de méthodes multivariées. Celles-ci tirent avantage de l'hétérogénéité des études
-sur le \gls{nfb} appliqué aux enfants \gls{tdah} pour déterminer les facteurs ayant un impact sur la performance du \gls{nfb}.
+sur le \gls{nfb} appliqué aux enfants souffrant du \gls{tdah} pour déterminer les facteurs ayant un impact sur la performance du \gls{nfb}.
 
 \subsection{Sélection des études} \label{saob_selection_studies}
 
@@ -447,7 +449,7 @@ Au final $k = 41$ études ont été retenues, qui correspondent par ailleurs au 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-selection-studies} 
-  \caption[Diagramme de sélection des études pour l'analyse systématique des biais.]{Diagramme de sélection des études pour l'analyse systématique des biais (dernière recherche le 2 septembre 2019).} 
+  \caption[Diagramme de sélection des études pour la \gls{saob}.]{Diagramme de sélection des études pour la \gls{saob} (dernière recherche le 2 septembre 2019).} 
   \label{Figure:factors_pipeline_selection_studies}
 \end{figure}
 
@@ -457,18 +459,18 @@ Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs 
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.7\linewidth]{figures/chapter-3/distribution-ES-within} 
-  \caption[Distribution des tailles d'effet intra-groupe calculées pour les études incluses dans la \gls{saob}.]{Distribution des tailles d'effet (\gls{es}) intra-groupe calculées pour les études 
+	\includegraphics[width=0.5\linewidth]{figures/chapter-3/distribution-ES-within} 
+  \caption[Distribution des tailles d'effet intra-groupe calculées pour les études incluses dans la \gls{saob}.]{Distribution des \gls{es}-intra-groupe calculés pour les études 
 	incluses dans la \gls{saob}, une valeur négative est en faveur du Neurofeedback. Les lignes 
 	verticales noires correspondent aux bornes supérieure et 
 	inférieure de l'intervalle dans lequel les observations sont acceptées. La courbe verte est la Gaussienne ayant pour paramètres $\mu =$ la moyenne
-	de tous les \gls{es} intra-groupe et $\sigma =$ l'écart-type calculé sur tous les \gls{es} intra-groupe}
+	de tous les \gls{es}-intra-groupe et $\sigma =$ l'écart-type calculé sur tous les \gls{es}-intra-groupe.}
   \label{Figure:distribution_ES_within}
 \end{figure}
 
 Sur la base de notre critère d'exclusion défini en \ref{preprocessing}, $i = 3$ observations (3.40\% du nombre total d'observations) issues de deux études (4.87\% du nombre total d'études) 
 sont rejetées : deux groupes de sujets de \citet{Bazanova2018} (celui de l'individualisation du \gls{nfb} et 
-celui de l'individualisation du \gls{nfb} et du couplage avec \gls{emg}-Biofeedback) et les résultats obtenus avec les évaluations des 
+celui de l'individualisation du \gls{nfb} et du couplage avec Biofeedback-\gls{emgic}) et les résultats obtenus avec les évaluations des 
 parents de \citet{Rajabi2019}. 
 
 En effet, ces trois observations présentent des \gls{es}-intra-groupe très larges, notamment les groupes de \citet{Bazanova2018} 
@@ -482,8 +484,9 @@ La \gls{saob} est donc effectuée sur 41 études (qui correspondent à 85 observ
 qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_list_studies}. Au total, les 41 études sélectionnées rassemblent 
 1 153 enfants \gls{tdah} effectuant du \gls{nfb}.
 
-\newpage\
-\begin{table}[h!]
+\newpage
+
+\begin{table}[t]
   \centering
   \caption[Liste des études incluses dans l'analyse systématique des biais.]{Liste des études incluses dans l'analyse systématique des biais : a) études incluses dans \citet{Cortese2016}
 	(dernière recherche le 30 août 2015) ; b) études satisfaisant le critère d'inclusion de \citet{Cortese2016} (dernière recherche le 2 septembre 2019) ; c) études 
@@ -492,7 +495,8 @@ qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_
   \label{Table:table_factors_analysis_meta_analysis_list_studies}
 \end{table}
 
-\newpage\
+\clearpage
+
 \subsection{Facteurs identifiés méthode par méthode}
 
 Vingt-huit paramètres ont été initialement identifiés afin d'analyser leur influence sur l'efficacité du \gls{nfb}. Parmi eux, dix ont dû être exclus car ils étaient trop
@@ -500,12 +504,12 @@ homogènes ou présentaient trop d'observations manquantes sur la base des crit�
 \begin{itemize}
 	\item le protocole visant l'augmentation du rythme beta dans les aires frontales,
 	\item la présence d'un \gls{irb},
-  \item l'utilisation d'une carte pour le transfert de ce qui a été appris durant l'entrainement à la maison et à l'école, 
+  \item l'utilisation d'une carte pour le transfert de ce qui a été appris durant l'entrainement à la maison ou à l'école, 
   \item le type de seuillage pour les récompenses discrètes (incrémental ou fixe),
   \item la qualité de l'acquisition de l'\gls{eeg} égale à 3,
 	\item la présence d'un groupe contrôle,
 	\item l'individualisation des bandes de fréquences basée sur la valeur de l'\gls{iapf},
-	\item le couplage entre le \gls{nfb} et l'\gls{emg}-Biofeedback qui demande au sujet de contrôler son activité cérébrale ene même temps que musculaire,
+	\item le couplage entre le \gls{nfb} et le Biofeedback-\gls{emgic} qui demande au sujet de contrôler son activité cérébrale en même temps que musculaire,
 	\item la sévérité des symptômes du \gls{tdah},
 	\item le degré d'engagement dans l'entraînement par \gls{nfb}.
 \end{itemize} 
@@ -514,7 +518,7 @@ Afin de mettre en évidence la variabilité des valeurs au sein des facteurs non
 été obtenus et représentés à la Figure~\ref{Figure:factors-boxplots} :
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=0.7\linewidth]{figures/chapter-3/factors-distribution-of-factors} 
+	\includegraphics[width=0.5\linewidth]{figures/chapter-3/factors-distribution-of-factors} 
   \caption[\textit{Boxplots} des facteurs aux valeurs numériques standardisées.]{\textit{Boxplots} des facteurs aux valeurs numériques standardisées.} 
   \label{Figure:factors-boxplots}
 \end{figure}
@@ -524,7 +528,6 @@ Le nombre de sessions et la durée de la session sont plus variables que l'âge 
 Les trois méthodes décrites précédemment sont donc appliquées tour à tour sur les dix-huit facteurs restants. Tous les résultats sont résumés dans la 
 Table~\ref{Table:table_factors_analysis_results_summary}.
 
-\newpage\
 \begin{table}[h!]
   \centering
   \caption[Resultats de l'analyse systématique des biais.]{Resultats de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une $p$-value $<$ 0.05 
@@ -535,9 +538,10 @@ Table~\ref{Table:table_factors_analysis_results_summary}.
   \label{Table:table_factors_analysis_results_summary}
 \end{table}
 
+
 \subsubsection{La régression linéaire multiple et pondérée}
 
-Les hypothèses de ce modèle sont respectées, les résultats sont interprétables :
+Les hypothèses de ce modèle étant respectées (voir \ref{saob_method}) , les résultats sont interprétables :
 \begin{itemize}
 	\item la matrice ${\textbf{X}}^{T}\textbf{W}^{T}\textbf{WX}$ est bien régulière,
   \item la tendance linéaire estimée est trouvée significative (Prob(F-statistic) = 1.56e-05),
@@ -636,7 +640,7 @@ La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence
 du \gls{nfb} et de la littérature scientifique sur le sujet. Les résultats trouvés par la \gls{saob} sont discutés ici et mis en perspective avec cette littérature, en s'intéressant à la fois 
 aux paramètres pour lesquels l'influence sur la performance clinique est fortement probable et à ceux pour lesquels l'impact s'avère moins certain. 
 
-Tout d'abord, Le type de protocole \gls{nfb} n'a été identifié, étonnamment, par aucune méthode à l'exception de l'augmentation du rythme beta en central qui l'a été par une méthode. 
+Tout d'abord, le type de protocole \gls{nfb} n'a été identifié, étonnamment, par aucune méthode à l'exception de l'augmentation du rythme beta en central qui l'a été par une méthode. 
 Ainsi, selon la \gls{saob}, quel que serait le protocole d'entrainement, il n'influencerait pas l'efficacité du \gls{nfb}, son effet serait non-spécifique. Cette importance 
 minime octroyée par la \gls{saob} à ces facteurs est contre-intuitive étant donné le rôle central du protocole choisi sur le mode d'action neurophysiologique 
 et donc sur l'impact sur l'efficacité thérapeutique \citep{Vernon2004, Heinrich2019}. Une probable 
@@ -649,7 +653,7 @@ au choix du nombre de sessions, celui-ci n'aurait pas d'influence sur l'efficaci
 plus de sessions serait favorable. 
 
 \citet{Vernon2004} a suggéré qu'au moins 20 sessions étaient nécessaires pour observer un effet thérapeutique, 
-ce qui a été confirmé par \citet{Arns2014, Arns2009, Wang2014}. 
+ce qui a été confirmé par \citet{Arns2014, Arns2009} et \citet{Wang2014}. 
 \citet{Wang2014} a montré sur des enfants sains une amélioration significative de la mémoire de travail suite à 20 sessions d'entrainement cognitif.
 Quant à \citet{Arns2009}, plusieurs régressions linéaires sans correction pour tests multiples ont montré une
 corrélation positive entre le nombre de sessions et les \gls{es}-intra-groupe pour la composante inattention seulement. 
@@ -670,7 +674,7 @@ sessions. Afin de se rendre compte du lien entre ces trois paramètres un \texti
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-pairplot} 
+	\includegraphics[width=0.9\linewidth]{figures/chapter-3/factors-pairplot} 
   \caption[\textit{Pairplot} obtenu sur les variables indépendantes non standardisées.]{\textit{Pairplot} obtenu sur les variables indépendantes non standardisées "fréquence des sessions", "nombre de sessions" et "durée du traitement" 
 	comprenant les 85 observations retenues suite au prétraitement des données expliqué en \ref{preprocessing}. La fréquence des sessions 
 	est donnée en nombre de sessions par semaine et la durée du traitement en semaines.}
@@ -706,7 +710,7 @@ Tout comme la durée du traitement, deux autres facteurs ont été identifiés p
 et les évaluateurs probablement aveugles au traitement. Ce dernier est discuté en \ref{pblind_anaysis}.
 
 La phase de transfert ayant pour but d'aider à transposer le contrôle appris lors des séances de \gls{nfb} à la vie de tous les jours, on pourrait donc s'attendre à un effet positif sur les symptômes
-du \gls{tdah} comme l'ont avancé \citet{Arns2014, Strehl2006, Gani2008}, or la \gls{saob} conclut à un impact négatif. Ce résultat s'expliquerait peut-être par le fait qu'une phase de 
+du \gls{tdah} comme l'ont avancé \citet{Arns2014, Strehl2006} et \citet{Gani2008}, or la \gls{saob} conclut à un impact négatif. Ce résultat s'expliquerait peut-être par le fait qu'une phase de 
 transfert seule ne soit pas si efficace si elle n'est pas couplée à l'utilisation d'une carte représentant la métaphore utilisée lors des sessions de \gls{nfb} qui permet à l'enfant de se 
 souvenir plus facilement du contrôle qu'il exerçait durant la séance \citep{Bioulac2019, Bluschke2016}. Ce facteur devait être analysé mais étant trop homogène (plus de 80\% des observations 
 n'utilisent pas de carte), il a été exclus de l'analyse. 
@@ -717,14 +721,14 @@ Tout comme la fréquence des sessions, deux autres paramètres sont retournés p
 l'efficacité du \gls{nfb} : la qualité de l'\gls{eeg} égale à 2 et la correction ou rejet des artefacts oculaires.
 
 En effet, selon deux méthodes, enregistrer l'\gls{eeg} dans de bonnes conditions mènerait à de meilleurs résultats. Cette observation peut s'expliquer par le fait qu'un signal
-\gls{eeg} de bonne qualité permet l'extraction plus précise des caractéristiques de l'\gls{eeg} liées au \gls{tdah} et donc conduit à un meilleur apprentissage et 
+\gls{eegi} de bonne qualité permet l'extraction plus précise des caractéristiques de l'\gls{eeg} liées au \gls{tdah} et donc conduit à un meilleur apprentissage et 
 à une efficacité thérapeutique augmentée. Cependant, évaluer la qualité des moyens d'acquisition de l'\gls{eeg} (comme l'amplificateur utilisé) 
 est difficile du fait du peu d'informations fourni par les études à ce sujet. Par conséquent, les futures essais cliniques devraient apporter plus 
-de précisions quant au matériel utilisé afin de pouvoir plus aisément juger de sa qualité. La qualité d'acquisition de signaux \gls{eeg} peut être évaluée grâce à différentes
-métriques dont certaines ont été utilisées par \citep{Bussalb2018benchmark} lors de la comparaison de différents systèmes \gls{eeg}. 
+de précisions quant au matériel utilisé afin de pouvoir plus aisément juger de sa qualité. La qualité d'acquisition de signaux \gls{eegi} peut être évaluée grâce à différentes
+métriques dont certaines ont été utilisées par \citep{Bussalb2018benchmark} lors de la comparaison de différents systèmes \gls{eegi}. 
 
 Deux méthodes s'accordent également sur le fait que corriger ou rejeter les artefacts oculaires aurait un impact positif sur l'efficacité du \gls{nfb}. Ce résultat peut également
-s'expliquer par le fait qu'un signal \gls{eeg} non contaminé par des artefacts permet d'extraire plus précisément les neuromarqueurs \citep{Barthelemy2017, Barthelemy2019} étant donné l'impact
+s'expliquer par le fait qu'un signal \gls{eegi} non contaminé par des artefacts permet d'extraire plus précisément les neuromarqueurs \citep{Barthelemy2017, Barthelemy2019} étant donné l'impact
 des mouvements oculaires et clignements sur l'\gls{eeg} souligné en \ref{steps_NFB_taining} \citep{Iwasaki2005}. 
 
 \subsection{Perspectives pour de futures analyses}
@@ -733,7 +737,7 @@ L'influence d'autres facteurs sur l'efficacité du \gls{nfb} aurait été intér
 protocoles d'entrainement basée sur l'\gls{iapf}. En effet, \citet{Vernon2004} et \citet{Klimesch1999} ont noté que les limites des bandes 
 de fréquence varient d'un individu à l'autre et sont aussi dépendantes de l'âge. Par ailleurs, les résultats paraissent prometteurs selon 
 \citet{Bazanova2018, Escolano2014} et \citet{Alkoby2017}. Cependant, ce paramètre n'a pas pu être inclus dans la \gls{saob} faute d'un 
-nombre suffisant d'études proposant un protocole personnalisé. Ce manque d'études est aussi la raison pour laquelle le couplage entre l'\gls{emg}-Biofeedback 
+nombre suffisant d'études proposant un protocole personnalisé. Ce manque d'études est aussi la raison pour laquelle le couplage entre le Biofeedback-\gls{emgic}
 et le \gls{nfb} n'a pas pu être étudié dans la \gls{saob}. 
 
 Un autre facteur intéressant, qui aurait pu aider à expliquer les résultats sur la durée du traitement, a 
@@ -747,7 +751,7 @@ n'est trouvée entre les résultats des performances à la clinique et à l'éco
 pourrait faciliter le transfert de ce qui a été appris lors des sessions de \gls{nfb} à la vie de tous les jours.
 
 Dans la grande majorité des études sur le \gls{nfb} appliqué aux enfants
-\gls{tdah}, les sessions ont lieu en clinique, rendant impossible à la \gls{saob} d'étudier ce facteur. Cependant, à l'instar de \citet{Steiner2014, Minder2018}, 
+\gls{tdah}, les sessions ont lieu en clinique, rendant impossible à la \gls{saob} d'étudier ce facteur. Cependant, à l'instar de \citet{Steiner2014} et \citet{Minder2018}, 
 d'autres études demandent à leurs sujets d'effectuer leurs séances en dehors du milieu hospitalier \citep{Bioulac2019}, ainsi l'influence du lieu d'entrainement 
 pourra finir par être étudiée plus précisément. Cela sera aussi valable pour les facteurs évoqués plus tôt et qui ont dû être exclus de la \gls{saob}.
 
@@ -774,7 +778,7 @@ de systèmes d'acquisition de bonne qualité et le rythme soutenu du traitement.
 des symptômes par des personnes non-aveugles (\gls{mprox}) conduit à des résultats plus favorables que celles des évaluateurs \gls{pblind}, ce qui est en accord avec les
 méta-analyses existantes \citep{Micoulaud2014, Cortese2016}. 
 
-Les enseignants sont considérés comme \gls{pblind} par \citet{Cortese2016, Micoulaud2014} et cette définition a été suivie dans la \gls{saob}. Etonnamment, les données
+Les enseignants sont considérés comme \gls{pblind} par \citet{Cortese2016} et \citet{Micoulaud2014} et cette définition a été suivie dans la \gls{saob}. Etonnamment, les données
 à disposition ne vont pas exactement dans le sens de l'hypothèse largement acceptée que la différence entre \gls{mprox} et \gls{pblind} peut être seulement 
 expliquée par l'effet placebo. Par ailleurs, les enseignants sont désignés comme "probablement" aveugles, ce qui signifie qu'ils peuvent être au courant du
 traitement suivi par les enfants. En effet, il est possible que certains enseignants voient les enfants prendre des psychostimulants lors des pauses.
@@ -842,7 +846,7 @@ Table~\ref{Table:table_factors_analysis_results_summary_update}.
 	(en gras) signifie que le coefficient du facteur correspondant est significativement différent de 0. Pour le \gls{lasso}, les facteurs dont les coefficients sont non mis à 0 (en gras) sont 
 	sélectionnés. Pour l'arbre de décision, la place du facteur dans l'arbre est indiquée. Pour les deux premières colonnes, quand la valeur du coefficient est négative le facteur 
 	correspondant pourrait mener à de meilleurs résultats du \gls{nfb}. Les valeurs en vert correspondent aux valeurs devenues significatives après la mise à jour de \citet{Bussalb2019clinical}; les valeurs
-	en rouges correspondent aux valeurs ayant perdu la significativité après la mise à jour.}
+	en rouge correspondent aux valeurs ayant perdu la significativité après la mise à jour.}
   \input{tables/chapter-3/table_factors_analysis_results_summary_update}
   \label{Table:table_factors_analysis_results_summary_update}
 \end{table}
@@ -858,7 +862,7 @@ donnée en \ref{choix_des_facteurs}, manque de précision
 du fait du peu d'informations disponibles sur le matériel utilisé par les études. Ainsi, afin d'évaluer au mieux son influence, les études devraient fournir 
 davantage d'informations.
 
-A l'inverse la présence d'une phase de transfert est désormais sélectionnée par les trois méthodes.
+A l'inverse, la présence d'une phase de transfert est désormais sélectionnée par les trois méthodes.
 
 \subsubsection{Etude de l'évolution du nombre de méthodes sélectionnant un facteur entre les résultats de \citet{Bussalb2019clinical} et ceux de sa mise à jour} \label{evolution_methods}
 Afin de mettre évidence la fluctuation des résultats, la même approche que celle décrite en \ref{meta_analysis_update} est suivie ici : l'évolution du nombre de méthodes de régression pour 
@@ -868,6 +872,7 @@ selon leur année de publication, des nouvelles études mettant à jour \citet{B
 Il a été decidé de s'intéresser à l'évolution des résultats en prenant comme origine ceux présentés dans \citet{Bussalb2019clinical} car le nombre d'observations y est déjà faible (67) compte tenu du nombre 
 de variables indépendantes (19) : effectuer la \gls{saob} sur moins d'observations conduirait à des résultats peu fiables. 
 
+\newpage
 Les facteurs dont l'évolution est illustrée en 
 Figure~\ref{Figure:factors_evolution_with_update} ont été choisis d'une part, car chacun a été sélectionné par un nombre de méthodes différent suite à l'analyse décrite en \ref{saob_results}
 et dont les résultats sont résumés à la Table~\ref{Table:table_factors_analysis_results_summary_number_of_factors} et, d'autre part, pour les raisons suivantes :
