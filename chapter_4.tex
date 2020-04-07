@@ -2,25 +2,26 @@
 
 \section*{Introduction}
 Il existe de nombreuses études sur les distributions de \gls{tbr} chez les enfants souffrant de \gls{tdah}
-\citep{Arns2013, Clarke2001, Zhang2017}. Cela constitue par ailleurs la base historique de l'apparition du \gls{tbr} \gls{nfb} comme intervention utilisée
+\citep{Arns2013, Clarke2001, Zhang2017}. Cela constitue par ailleurs la base historique de l'apparition du protocole de \gls{nfb} qui consiste à diminuer le \gls{tbr} 
+comme intervention utilisée
 pour traiter le \gls{tdah} chez les enfants \citep{Arnold2014, Deilami2016, Gevensleben2009, VanDongen2013}. Cependant, ce protocole ne serait 
-peut-être pas adapté à tous les enfants \gls{tdah} si 
-l'on prend en compte la variété de phénotypes \gls{eeg} présents. En effet, il a été avancé qu'il existerait un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé 
+peut-être pas adapté à tous les enfants souffrant de \gls{tdah} si 
+l'on prend en compte la variété de phénotypes \gls{eegi} présents. En effet, il a été avancé qu'il existerait un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé 
 \citep{Zhang2017, Clarke2011}, ainsi ces enfants bénéficieraient peut-être davantage d'un protocole diminuant leur \gls{tbr} que les autres. 
 
 Quelques études ont proposé de personnaliser le protocole d'entrainement par \gls{nfb} \citep{Bazanova2018, Escolano2014}, mais trop peu pour en déterminer
-l'impact sur l'efficacité du \gls{nfb} par la \gls{saob}. L'analyse présentée dans ce chapitre n'a pas pour but d'évaluer directement l'efficacité de la 
+l'impact sur l'efficacité du \gls{nfb} par la \gls{saob} présenté dans le chapitre \ref{ch-saob}. L'analyse présentée dans cette partie n'a pas pour but d'évaluer directement l'efficacité de la 
 personnalisation des protocoles de \gls{nfb}, mais d'en étudier la pertinence. Pour ce faire, la distribution des valeurs de \gls{tbr} chez les enfants \gls{tdah} est 
 étudiée à l'aide de différentes méthodes de partitionnement (\textit{clustering} en anglais) pour déterminer des groupes d'enfants \gls{tdah} en se basant seulement sur les 
 valeurs de \gls{tbr}. 
-\clearpage
+\newpage
 
 \section{Population étudiée}
 
-Les signaux \gls{eeg} utilisés dans cette analyse proviennent de trois bases de données différentes :
+Les signaux \gls{eegi} utilisés dans cette analyse proviennent de trois bases de données différentes :
 \begin{itemize}
 \item NEWROFEED (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019}),
-\item \gls{cmi-mipdb} \citep{Langer2017, Langer2017b}, les signaux \gls{eeg} sont accessibles en \href{http://fcon_1000.projects.nitrc.org/indi/cmi_eeg/eeg.html}{ligne},
+\item \gls{cmi-mipdb} \citep{Langer2017, Langer2017b}, les signaux \gls{eegi} sont accessibles en \href{http://fcon_1000.projects.nitrc.org/indi/cmi_eeg/eeg.html}{ligne},
 \item \gls{cmi-hbn} \citep{Alexander2017, Alexander2017b}, pour laquelle les signaux sont également disponibles en 
 \href{http://fcon_1000.projects.nitrc.org/indi/cmi_healthy_brain_network/sharing_neuro.html}{ligne}.
 \end{itemize}
@@ -28,7 +29,7 @@ Pour chacune de ces bases de données, un consentement éclairé écrit a été 
 ont été effectués dans un environnement contrôlé avec les yeux ouverts (\gls{eo} en anglais) et au repos (c'est à dire que le sujet n'effectue aucune tâche) 
 pendant une minute sous la supervision d'un spécialiste. 
 
-La description de l'ensemble des données est disponible dans la Table~\ref{Table:tbr_datasets_description}. Au total, les enregsitrements \gls{eeg} de 
+La description de l'ensemble des données est disponible dans la Table~\ref{Table:tbr_datasets_description}. Au total, les enregsitrements \gls{eegi} de 
 $n = 363$ sujets diagnostiqués \gls{tdah} sont analysés.
 
 \begin{table}[h!]
@@ -48,8 +49,8 @@ mises en place pour homogénéiser l'ensemble des données sont explicitées.
 Une partie des données utilisées dans cette analyse provient de l'étude NEWROFEED (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019})
 qui avait pour but d'évaluer si l'efficacité du \gls{nfb} à la maison était non-inférieure à celle du \gls{mph} sur une population d'enfants souffrant du \gls{tdah}.
 Au moment où le travail décrit dans ce chapitre a été mené, NEWROFEED était en cours, donc 
-seulement une partie des données était disponible. Ainsi, 122 enregistrements \gls{eeg} d'enfants diagnostiqués \gls{tdah} d'après les critères du DSM-IV \citep{DSM-4} 
-ont été analysés. L'\gls{eeg} a été enregistré avec l'appareil Mensia Koala équipé de 8 électrodes \gls{agcl} individuellement blindées, positionnées sur le scalp suivant
+seulement une partie des données était disponible. Ainsi, 122 enregistrements \gls{eegi} d'enfants diagnostiqués \gls{tdah} d'après les critères du DSM-IV \citep{DSM-4} 
+ont été analysés. L'\gls{eeg} a été enregistré avec l'appareil Mensia Koala équipé de 8 électrodes \gls{agcl} individuellement blindées, positionnées sur le scalp en accord avec 
 le système international 10-20 : Fpz, F3, Fz, F4, C3, Cz, C4, Pz. La fréquence d'échantillonnage était de 512Hz. Les impédances devaient être
 inférieures à $40\text{k}\Omega$ et le niveau de contamination électromagnétique devait rester inférieur à 1/3 de l'énergie totale du signal. 
 
@@ -90,13 +91,13 @@ De tous les patients présents dans la base \gls{cmi-mipdb}, seulement ceux sati
 \item avoir son âge précisé.
 \end{enumerate}
 
-L'\gls{eeg} a été enregistré avec un système \gls{eeg} Geodesic Hydrocel \gls{egi} à une fréquence d'échantillonnage de 500Hz et filtré entre 0.1 et 100Hz. 
+L'\gls{eeg} a été enregistré avec un système \gls{eegi} Geodesic Hydrocel \gls{egi} à une fréquence d'échantillonnage de 500Hz et filtré entre 0.1 et 100Hz. 
 L'électrode de référence est Cz, localisée au vertex de la tête. Le tour de tête de chaque participant est mesuré pour que le bonnet utilisé lors de l'enregistrement 
 soit à la bonne taille. L'impédance des électrodes est gardée inférieure à $40\text{k}\Omega$ : elle est vérifiée toutes les 30 minutes ainsi qu'avant chaque enregistrement.
 
 \subsection{Données CMI-HBN}
 La base de données \gls{cmi-hbn} est composée de 881 sujets, avec ou sans diagnostic \citep{Alexander2017, Alexander2017b}. Les familles reçoivent 150\$ pour leur participation 
-et les sujets bénéficient des rapports de consultation et des avis sur les sessions d'\gls{eeg}.
+et les sujets bénéficient des rapports de consultation et des avis sur leurs sessions d'\gls{eegie}.
 
 Seuls les sujets remplissant les critères suivants ont été inclus dans notre analyse :
 \begin{enumerate}
@@ -114,7 +115,7 @@ et doivent remplir les critères 2. et 3. cités précédemment. Au final, 74 su
 \subsection{Pré-traitement et homogénéisation des bases de données} \label{pré-traitement TBR}
 Les \gls{eeg} des différentes bases de données sont pré-traités de façon à être comparables, notamment au niveau du placement des électrodes.
 En ce qui concerne le traitement des artefacts et l'extraction du \gls{tbr}, les étapes sont les mêmes quelle que soit la base de données. 
-Les pré-traitements ainsi que les analyses des signaux \gls{eeg} qui suivent sont effectués à l'aide du logiciel NeuroRT (v3, Mensia Technologies, 
+Les pré-traitements ainsi que les analyses des signaux \gls{eegi} qui suivent sont effectués à l'aide du logiciel NeuroRT (v3, Mensia Technologies, 
 Paris, France).
 
 \subsubsection{Base de données NEWROFEED}
@@ -127,18 +128,18 @@ Le seul pré-traitement que nécessitent les signaux de la base de données NEWR
 \subsubsection{Bases de données CMI} \label{treatment_cmi_databases}
 
 Le pré-traitement des bases de données \gls{cmi-mipdb} et \gls{cmi-hbn} demande plus d'étapes : filtrage temporel, suppression et 
-interpolation des canaux bruités et/ou déconnectés, et une interpolation spatiale afin de passer d'un espace à 128 électrodes \gls{egi},
-à l'espace de 8 électrodes placées selon le système 10-20 utilisé dans la base de données NEWROFEED.
+interpolation des canaux bruités et/ou déconnectés, et une interpolation spatiale afin de passer d'un espace à 128 électrodes \gls{egi}
+à l'espace de 8 électrodes placées selon le système 10-20, utilisé dans la base de données NEWROFEED.
 
 Tout d'abord, les \gls{eeg} obtenus au repos sont séparés en deux fichiers : l'un pour les enregistrements les yeux fermés, 
 l'autre pour les enregistrements \gls{eo}, seul ce dernier va être analysé. Ensuite, les mêmes filtres temporels vont être appliqués
 que pour les données NEWROFEED, à l'exception du filtre coupe bande dont les bornes sont modifiées pour intercepter les artefacts 
 causés par les lignes électriques américaines (57-63Hz).
 
-Dans le cas d'enregistrements d'\gls{eeg} avec une haute résolution spatiale comme ici avec les données \gls{cmi}, 
+Dans le cas d'enregistrements d'\gls{eegi} avec une haute résolution spatiale comme ici avec les données \gls{cmi}, 
 il est courant qu'au moins un canal se déconnecte ponctuellement causant aussi bien des artefacts de large amplitude que des signaux plats \citep{Barlow1986, Oregan2013}. 
-Une strategie est ici mise en place pour détecter de façon fiable puis interpoler ces électrodes déconnectées : la variance de chaque canal 
-\gls{eeg} est calculée sur une fenêtre glissante de 10 secondes puis est ensuite convertie en deux $Z$-scores grâce à :
+Une strategie est ici mise en place pour détecter de façon fiable ces électrodes déconnectées puis pour les interpoler : la variance de chaque canal 
+\gls{eegi} est calculée sur une fenêtre glissante de 10 secondes puis est ensuite convertie en deux $Z$-scores grâce à :
 \begin{enumerate}
 \item la distribution instantanée des variances pour les 127 autres canaux ($Z$-score spatial),
 \item la distribution cumulative des variances pour le canal d'intérêt ($Z$-score temporel).
@@ -149,7 +150,7 @@ variance (autrement dit l'électrode doit être déconnectée et n'enregistre ri
 empiriquement en se basant sur la distribution des variances mais n'ont pas été validées de manière plus précise.  
 
 Les données sont re-référéncées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
-de données NEWROFEED. Les signaux \gls{eeg} des 128 électrodes de l'espace \gls{egi} sont ensuite spatialement reconstruits dans l'espace à 8 électrodes 
+de données NEWROFEED. Les signaux \gls{eegi} des 128 électrodes de l'espace \gls{egi} sont ensuite spatialement reconstruits dans l'espace à 8 électrodes 
 dans le système international 10-20 en projetant les coordonnées sur une sphère unitaire \citep{Perrin1989}.
 
 
@@ -159,7 +160,7 @@ Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux
 à \citet{Lubar1991} qui, en se basant sur la littérature existante, avance que la valeur du \gls{tbr} permettrait de différencier un enfant \gls{tdah} d'un enfant sain.  
 
 Le \gls{tbr} est d'abord défini, puis les étapes pour l'extraire des
-signaux \gls{eeg} à notre disposition sont décrites. Ces \gls{tbr} sont ensuite partitionnés à l'aide de trois méthodes dont le principe est expliqué dans cette partie. 
+signaux \gls{eegi} à notre disposition sont décrites. Ces \gls{tbr} sont ensuite partitionnés à l'aide de trois méthodes dont le principe est expliqué dans cette partie. 
 Enfin, la méthode pour identifier le seuil optimal séparant les classes obtenues est détaillée.
 
 \subsection{Définition du Theta-Beta ratio}
@@ -185,8 +186,8 @@ Cette utilisation prognostique du \gls{tbr} est notamment justifiée par \citet{
 par des études qui montrent que la prise de stimulants chez les patients \gls{tdah} avec un \gls{tbr} élevé serait plus efficace \citep{Arns2012med, Clarke2002}. 
 Ainsi, l'existence d'un groupe d'enfants \gls{tdah} au \gls{tbr} élevé pourrait être utilisée pour identifier de meilleurs répondeurs à une intervention donnée, comme le \gls{nfb}. 
 
-La diminution du \gls{tbr} est l'objectif des protocoles le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
-On peut supposer que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eeg}. 
+La diminution du \gls{tbr} est l'objectif du protocole le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
+On peut supposer que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eegi}. 
 Par exemple, il serait peut-être plus pertinent que les sujets présentant un haut \gls{tbr} suivent un protocole de \gls{nfb} où il est demandé de 
 diminuer le \gls{tbr}. Cette répartition a été proposée lors de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi pour allouer les sujets 
 selon leur valeur de \gls{tbr} à l'un des protocoles de \gls{nfb} disponibles (diminution du \gls{tbr} ou augmentation du \gls{smr}). 
@@ -213,21 +214,21 @@ d'acceptabilité, appelée patate, définie par un $Z$-score sont considérées 
 
 Afin d'augmenter la sensibilité et la spécifité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citep{Barthelemy2019}, 
 cette méthode a été appliquée ici.
-Les données \gls{eeg} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et sont analysées simultanément par six patates. Chaque patate a pour but de détecter 
-un type d'artefact, les canaux de chaque patate ainsi que le filtrage du signal \gls{eeg} sont donc choisis de façon à pouvoir le repérer. 
-Ici les sous-ensembles de canaux choisis et les bandes de fréquence \gls{eeg} analysées sont les suivants :
+Les données \gls{eegi} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et sont analysées simultanément par six patates. Chaque patate a pour but de détecter 
+un type d'artefact, les canaux de chaque patate ainsi que le filtrage du signal \gls{eegi} sont donc choisis de façon à pouvoir le repérer. 
+Les sous-ensembles de canaux choisis ici et les bandes de fréquence \gls{eegi} analysées sont les suivants :
 \begin{itemize}
 \item Fpz, F3, F4, C3 et C4 pour détecter les artefacts musculaires. Ces artefacts affectant les hautes fréquences, le signal a été préalablement filtré entre 55 et 95Hz,
 \item quatre groupes de deux électrodes (Fpz et Fz, F3 et F4, C3 et C4, Cz et Pz) pour détecter les déconnections temporaires d'électrodes. Le signal a été préalablement filtré entre 1 et 20Hz, 
 \item l'ensemble des canaux (Fpz, Fz, F3, F4, C3, C4, Cz et Pz) pour détecter les artefacts généraux. Le signal a été filtré de façon à exclure la bande de fréquences entre 4 et 31Hz, qui correspond
-aux ondes \gls{eeg} d'intérêt.
+aux ondes \gls{eegi} d'intérêt.
 \end{itemize}
 Pour chaque patate un $Z$-score est calculé, ceux-ci sont ensuite combinés pour aboutir à une seule $p$-value : un segment d'\gls{eeg} est considéré comme propre si cette $p$-value est 
 plus grande qu'un seuil obtenu grâce à une référence d'\gls{eeg} propres. 
 
 \subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}} \label{extraction_iapf}
 Ensuite, l'\gls{iapf}, définie en \ref{principe_nfb}, est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha prise entre 7 et 13Hz.
-Cette bande fréquence est extraite de l'\gls{eeg} enregistré à l'électrode Pz au repos et les yeux ouverts. 
+Cette bande de fréquence est extraite de l'\gls{eeg} enregistré à l'électrode Pz au repos et les yeux ouverts. 
 Si aucun pic n'est détecté, l'\gls{iapf} est obtenue grâce à l'estimation de Klimesch basée sur l'âge du sujet \citep{Klimesch1999}. 
 
 L'\gls{iapf} permet de définir des bandes de fréquence personnalisées pour chaque sujet qui ont été choisies 
@@ -244,12 +245,12 @@ La dernière étape consiste à obtenir le \gls{tbr}, dont la méthode de calcul
 
 En effet, la façon dont est calculé le \gls{tbr} est très variable dans la littérature, ce qui conduit à des valeurs variant entre 2 et 8 pour les sujets contrôles \citep{Arns2012,
 Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses définitions du \gls{tbr} : le \gls{tbr} peut faire référence au ratio
-des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz).  
+des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des tensions ($\mu$V) ou des densités de tensions ($\mu$V/Hz).  
 
-Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquences pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquence pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
 de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. 
 
-Dans notre cas le \gls{tbr} est défini comme le ratio de la puissance dans la bande de fréquences theta et de la bande de fréquences beta obtenues 
+Dans notre cas le \gls{tbr} est défini comme le ratio de la puissance dans la bande de fréquence theta et de la bande de fréquence beta obtenues 
 grâce à l'\gls{iapf}. Une moyenne mobile de la puissance du signal $\bar{P}$ est estimée par la méthode de Welch \citep{Welch1967} sur 32 segments, de 2 secondes chacun, avec un 
 chevauchement toutes les 1/16 de seconde :
 \begin{equation}
@@ -260,7 +261,7 @@ P_{c,b} = \norm{ x_{c,b} }_{F}^2,
 \label{eq:tbr_average_power_computation}
 \bar{P}_{c,b} = \frac{1}{I} \sum_{i=1}^{I} (P_{c,b})_{i},
 \end{equation}
-où $x_{c,b}$ correspond à un segment du signal \gls{eeg} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
+où $x_{c,b}$ correspond à un segment du signal \gls{eegi} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
 le nombre de segments. La puissance dans les bandes theta ($\theta$) et beta ($\beta$) est calculée avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
 puis ces deux puissances sont divisées entre elles :
 
@@ -281,8 +282,10 @@ est analysée avec deux techniques de normalisation différentes : la \textit{lo
 
 Les distributions de \gls{tbr} non-normalisés, log-normalisés et \textit{square-root} normalisés (les \gls{srntbr}) sont visuellement analysées à l'aide 
 d'histogrammes, puis des tracés de probabilités (\textit{probability plots} en anglais) sont utilisés pour comparer ces distributions à des distributions normales 
-et sont présentés à la Figure~\ref{Figure:tbr_normalization}. Le test de Shapiro-Wilk \citep{Shapiro1965} a été appliqué pour obtenir une mesure quantitative 
-de la normalité des \gls{tbr} contrôles. Avec un seuil de significativité de 0.01, seule la distribution des \gls{srntbr} ne permet pas de rejeter l'hypothèse
+et sont présentés à la Figure~\ref{Figure:tbr_normalization}. De plus, le test de Shapiro-Wilk \citep{Shapiro1965} a été appliqué pour obtenir une mesure quantitative 
+de la normalité de la distribution des \gls{tbr} contrôles. 
+
+Avec un seuil de significativité de 0.01, seule la distribution des \gls{srntbr} ne permet pas de rejeter l'hypothèse
 nulle de normalité ($p$-value = 0.46). Ainsi, on suppose que les valeurs de \gls{srntbr} sont distribuées normalement dans la population \gls{tdah}. 
 
 \begin{figure}[h!]
@@ -311,13 +314,13 @@ sont appliquées aux \gls{srntbr} :
 \item et une autre sur les densités (\glsfirst{dbscan}). 
 \end{itemize}
 
-Ces méthodes ont été choisies car elles se basent sur des critères différents afin de déterminer s'il existe bien deux groupes d'enfants \gls{tdah}. Il a été décidé
+Ces méthodes ont été choisies car elles s'appuient sur des critères différents afin de déterminer s'il existe bien deux groupes d'enfants \gls{tdah}. Il a été décidé
 d'avoir recours à trois méthodes pour pouvoir comparer les résultats de chacune d'entre elles et de déterminer s'ils sont fiables ou non. Davantage de méthodes auraient pu
 être utilisées, cependant le message aurait été complexifié.   
 
 Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (v0.18.1, \citet{Pedregosa2011}).
 
-\subsubsection{Partitionnement basé sur les distributions : Gaussian Mixture Model et Bayesian Gaussian Mixture Model} 
+\subsubsection{Partitionnement basé sur les distributions : \textit{Gaussian Mixture Mode}l et \textit{Bayesian Gaussian Mixture Model}} 
 Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population. Un \textit{mixture model}
 correspond à une \textit{mixture distribution} qui représente la distribution de probabilités des observations dans la totalité d'une population.
 La distribution des \gls{srntbr} est ainsi tracée et ajustée par un \gls{bgmm} puis par un \gls{gmm} pour comparaison \citep{Attias2000, Blei2006}. 
@@ -379,7 +382,7 @@ l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le
 
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
 La méthode de Ward est un critère utilisé pour rassembler deux partitions lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
-en anglais) \citep{Ward1963}. Ce type d'algorithme de partitionnement fusionne de façon récursive deux groupes similaires, qui initiallement ne comporte qu'une seule observation, jusqu'à obtenir une
+en anglais) \citep{Ward1963}. Ce type d'algorithme de partitionnement fusionne de façon récursive deux groupes similaires, qui initiallement ne comportent qu'une seule observation, jusqu'à obtenir une
 grande partition comprenant l'ensemble des données \citep[Chapitre~10]{James2013}.
 
 Un exemple schématique de ce type de partitionnement est représenté à la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example} avec six observations (A, B, C, D, E, F) :
@@ -543,7 +546,7 @@ Le seuil qui sépare 35\% des valeurs de
 \gls{tbr} est également ajouté à la courbe \gls{roc} pour visualiser les résultats de \citet{Zhang2017} basés sur les conclusions de \citet{Clarke2011}.
 De plus, le seuil conduisant à 10\% de \gls{fpr} selon le partitionnement par le \gls{bgmm} à deux composantes est aussi ajouté à la courbe \gls{roc}. 
 En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéalement traiter les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec 
-un protocole adapté à leur profil \gls{eeg}, comme la diminution du \gls{tbr}.
+un protocole adapté à leur profil \gls{eegi}, comme la diminution du \gls{tbr}.
 
 \section{Partitionnement de la distribution des Theta-Beta ratios}
 
@@ -688,9 +691,9 @@ Trois méthodes de partitionnement différentes ont été utilisées afin de dé
 le seuil à partir duquel le \gls{tbr} est considéré comme élevé est calculé. Ces résultats sont discutés ici et les limites de cette analyse sont 
 explorées.
 
-\subsection{Pré-traitement des données \gls{eeg}}
+\subsection{Pré-traitement des données \gls{eegi}}
 
-Les 363 sujets \gls{tdah} inclus dans cette étude proviennent de différentes bases de données, leurs signaux \gls{eeg} ont donc dû être homogénéisés 
+Les 363 sujets \gls{tdah} inclus dans cette étude proviennent de différentes bases de données, leurs signaux \gls{eegi} ont donc dû être homogénéisés 
 en suivant les étapes décrites en \ref{pré-traitement TBR}. Lors du traitement des signaux issus des bases de données du \gls{cmi}, des canaux ont 
 été rejetés et interpolés : il aurait été intéressant de rapporter le nombre de ces canaux ainsi que d'évaluer la qualité de l'interpolation, notamment 
 en comparant les spectres en fréquence des signaux gardés et de ceux qui ont été rejetés. 
@@ -773,53 +776,53 @@ En effet, optimiser l'\gls{acc} revient à utilser le seuil du \gls{bgmm} de 3.7
 efficace pour les patients dans le groupe des \gls{tbr} élevés tandis que le protocole alternatif est efficace de la même façon pour tous les patients, il 
 serait préférable de minimiser le \gls{fpr} plutôt que de maximiser l'\gls{acc}. Si on fixe raisonnablement un seuil menant à 10\% de \gls{fpr}, un seuil de 4.1
 est obtenu, résultant en un \gls{tpr} de 67\% et une \gls{acc} de 78\%. Cette valeur de seuil a été choisie car un faible \gls{fpr} est intéressant pour traiter 
-les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec un protocole adapté à leur profil \gls{eeg}, comme la diminution du \gls{tbr}.
+les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec un protocole adapté à leur profil \gls{eegi}, comme la diminution du \gls{tbr}.
 
 Au vu de ces réultats, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
 les protocoles d'entrainement du fait de son bon équilibre entre un faible \gls{fpr} et une \gls{acc} et un \gls{tpr} élevés. 
 
 Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car elles n'ont pas été obtenues à l'aide d'un \textit{gold standard} mais grâce au \gls{bgmm}
-à deux composantes, dont on suppose que les groupes ont été correctement estimés. 
+à deux composantes dont on suppose que les groupes ont été correctement estimés. 
 
 \subsection{Variabilité du calcul des Theta-Beta ratios} 
 
 Comme souligné en \ref{tbr_computation}, la façon dont est calculé le \gls{tbr} est très variable dans la littérature. En effet diverses définitions du \gls{tbr} existent :
-il peut être un ratio des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des voltages ($\mu$V) ou des densités de tensions ($\mu$V/Hz) 
+il peut être un ratio des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des tensions ($\mu$V) ou des densités de tensions ($\mu$V/Hz) 
 \citep{Liechti2013}. 
 
 De plus, pour une même définition, différents algorithmes de calcul peuvent être utilisés ce qui mène à des écarts entre les valeurs de \gls{tbr}. En 
-effet, \citet{Kerson2019} ont montré que la façon dont est gérée la fuite spectrale (\textit{spectral leakage} en anglais), c'est à dire que la puissance
+effet, \citet{Kerson2019} ont montré que la façon dont est gérée la fuite spectrale (\textit{spectral leakage} en anglais), c'est à dire le fait que la puissance
 sur une fréquence donnée se disperse sur d'autres fréquences, est une des principales raisons de l'écart entre deux valeurs de \gls{tbr}. 
 
-Par ailleurs, la définition des bandes de fréquences pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+Par ailleurs, la définition des bandes de fréquence pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
 de bandes de fréquence standards ou personnalisées, notamment grâce à l'\gls{iapf} du sujet. Ainsi, pour pouvoir comparer les valeurs de \gls{tbr} provenant de différentes
-études, une définition homogène doit être mise en place. De récentes études suggèrent de se baser sur des bandes de fréquences 
-qui seraient propres à chaque individus \citep{Zhang2017, Saad2018} pour s'affranchir de l'influence de l'âge. A travers cette analyse, nous recommandons de définir le \gls{tbr} de la façon suivante : 
+études, une définition homogène doit être mise en place. De récentes études suggèrent de se baser sur des bandes de fréquence 
+qui seraient propres à chaque individu \citep{Zhang2017, Saad2018} pour s'affranchir de l'influence de l'âge. A travers cette analyse, nous recommandons de définir le \gls{tbr} de la façon suivante : 
 le ratio entre la puissance dans la bande theta et la puissance dans la bande beta, avec une bande theta correspondant à [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz]
 et une bande beta à [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz]. Ces intervalles ont été définis par la comité scientfique de NEWROFEED. 
 
 Il est important de souligner que les résultats de cette étude sont comparés à ceux où les \gls{tbr} sont calculés à partir de bandes de fréquence standards
 les yeux fermés \citep{Zhang2017, Clarke2011}. Ces valeurs de \gls{tbr} sont donc différentes, mais nous supposons que les tendances dans la distribution et le
-partitionnement obtenues ici doivent y être observées. Le choix d'effectuer nos analyses sur des données \gls{eeg} enregistrées les yeux ouverts est dû à l'indisponibilté
+partitionnement obtenues ici doivent y être observées. Le choix d'effectuer nos analyses sur des données \gls{eegi} enregistrées les yeux ouverts est dû à l'indisponibilté
 d'autant de données obtenues les yeux fermés.
 
 \subsection{Analyse des facteurs de confusion}
 
-Les conclusions de cette analyse de la distribution des \gls{tbr} au sein de la population d'enfants \gls{tdah} doivent prendre en compte ses limitations.
+Les conclusions de cette analyse de la distribution des \gls{tbr} au sein de la population d'enfants \gls{tdah} doivent prendre en compte ces limitations.
 En effet, deux points ont été approfondis ici pour juger de leur impact sur les résultats.
 
 \subsubsection{Correction des artefacts oculaires}
 
-La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eeg}. Ces artefacts de basse fréquence
+La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eegi}. Ces artefacts de basse fréquence
 peuvent affecter les calculs de puissance et donc par ricochet les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
 la correction d'artefacts oculaires basée sur la séparation aveugle de sources (\textit{blind source separation} en anglais) \citep{Barthelemy2017} 
-ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée. Par conséquent la correction des artefacts 
+ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée. Par conséquent, la correction des artefacts 
 oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées. 
 
 Une des hypothèses justifiant ce 
-résultat serait que les artefacts oculaires présents dans la bande bêta seraient compensées par ceux de la bande thêta. En effet, le \gls{tbr} est un ratio dont les bandes de
+résultat serait que les artefacts oculaires présents dans la bande bêta seraient compensés par ceux de la bande thêta. En effet, le \gls{tbr} est un ratio dont les bandes de
 fréquence sont extraites sur les mêmes électrodes. Par ailleurs, même s'il a été montré que les clignements d'yeux affectent davantage la bande thêta que bêta \citep{Barthelemy2017},
-la bande thêta ne s'étend que sur 4Hz, contraitement à la bande bêta qui est plus longue (9Hz), ainsi l'hypothèse de la compensation paraît cohérente.
+la bande thêta ne s'étend que sur 4Hz, contrairement à la bande bêta qui est plus longue (9Hz), ainsi l'hypothèse de la compensation paraît cohérente.
 
 
 \begin{figure}[h!]
@@ -837,7 +840,7 @@ avec l'âge des enfants \citep{Liechti2013, Snyder2015, Perone2018}. De plus, le
 qu'il existe une différence significative entre l'âge des enfants du groupe de \gls{tbr} plus faibles et celui des enfants au \gls{tbr} élevé définis avec 
 le seuil de 3.7 du \gls{bgmm} à deux composantes
 ($p\text{-value} = 2.30e-15$\text{,} $U = 22 104$, avec les âges médians $\pm$ l'ecart absolu médian de chaque groupe : 8.0$\pm$1.57 et 10.1$\pm$2.43). Par ailleurs, lorsqu'on trace
-la distribution des âges dans chaque groupe représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que le groupe de \gls{tbr} plus faibles (en vert) comportent 
+la distribution des âges dans chaque groupe, représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que le groupe de \gls{tbr} plus faibles (en vert) comporte 
 davantage de sujets âges que le groupe de \gls{tbr} élevé (en rouge). 
 
 \begin{figure}[h!]
@@ -865,7 +868,7 @@ En particulier, même si tous les enfants inclus dans cette étude sont diagnost
 intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent significativement au niveau clinique. 
 
 En outre, il a été montré que la présence de comorbidités, comme les troubles du comportement et la dépression, a une influence sur la valeur du \gls{tbr} \citep{Loo2013}. 
-\citet{Barry2003erp} ont également souligné que les enfants souffrant des symptômes d'inattention et d'yperactivité ont tendance à avoir un \gls{tbr} plus élevé que ceux présentant seulement des
+\citet{Barry2003erp} ont également souligné que les enfants souffrant des symptômes d'inattention et d'hyperactivité ont tendance à avoir un \gls{tbr} plus élevé que ceux présentant seulement des
 troubles d'attention .  
 
 Par ailleurs, il a été observé que les enfants nés en fin d'année sont plus souvent diagnostiqués \gls{tdah} \citep{Layton2018} : en effet ces derniers 
@@ -881,15 +884,15 @@ la capacité d'attention.
 
 \section{Conclusion}
 
-Cette étude avait pour but d'explorer l'existence d'un groupe d'enfants \gls{tdah} basée sur leur \gls{tbr} extraits de signaux \gls{eeg} enregistrés les yeux 
-ouverts. Les résultats montrent qu'il existerait deux groupes : un avec un \gls{tbr} élevé, et l'autre avec des valeurs de \gls{tbr} normales. Bien que les 
+Cette étude avait pour but d'explorer l'existence d'un groupe d'enfants souffrant de \gls{tdah} basée sur leur \gls{tbr} extraits de signaux \gls{eegi} enregistrés les yeux 
+ouverts. Les résultats montrent qu'il existerait deux groupes : un avec un \gls{tbr} élevé, et l'autre avec des valeurs de \gls{tbr} plus faibles. Bien que les 
 distributions de ces deux groupes se superposent, le seuil de séparation le plus précis est de 3.7. Toutefois, le seuil qui équilibre le mieux
 le \gls{tpr} et le \gls{fpr} est celui de 4.1, il est donc recommandé pour assigner les protocoles de \gls{nfb}. Par ailleurs, ce travail propose
 une recommandation sur la façon de calculer le \gls{tbr}. 
 
-La confirmation de l'existence de deux groupes distincts est importante pour l'utilisation du \gls{nfb} pour traiter le \gls{tdah}. En effet, cela indique 
+La confirmation de l'existence de deux groupes distincts est importante pour l'utilisation du \gls{nfb} dans le traitement du \gls{tdah}. En effet, cela indique 
 qu'un traitement par \gls{nfb} proposant deux protocoles en fonction du \gls{tbr} serait pertinent et pourrait être plus efficace que le même protocole 
-de \gls{nfb} appliqué à tout le monde. Toutefois cette étude n'avait pas pour but de démontrer l'efficacité du protocole de diminution de \gls{tbr} chez les 
+de \gls{nfb} appliqué à tout le monde. Toutefois, cette étude n'avait pour but de démontrer ni l'efficacité de la personnalisation du \gls{nfb} ni celle du protocole de diminution de \gls{tbr} chez les 
 enfants \gls{tdah} présentant un \gls{tbr} élevé. Alors que certaines études notent une amélioration des symptômes à l'issue d'un protocole \gls{tbr}, 
 d'autres obtiennent des résultats plus négatifs. Une possible explication de ce manque d'efficacité reporté dans ces études serait que contrôler 
 un ratio de fréquence se révèle plus complexe que de moduler la puissance dans une simple bande de fréquence \citep{Rogala2016}. 
