@@ -125,7 +125,7 @@ Le seul pré-traitement que nécessitent les signaux de la base de données NEWR
 \item un filtre Butterworth coupe-bande d'ordre 3 de 47 à 53Hz afin d'enlever l'artefact causé par les lignes électriques.
 \end{itemize}
 
-\subsubsection{Bases de données CMI} \label{treatment_cmi_databases}
+\subsubsection{Bases de données \gls{cmi}} \label{treatment_cmi_databases}
 
 Le pré-traitement des bases de données \gls{cmi-mipdb} et \gls{cmi-hbn} demande plus d'étapes : filtrage temporel, suppression et 
 interpolation des canaux bruités et/ou déconnectés, et une interpolation spatiale afin de passer d'un espace à 128 électrodes \gls{egi}
@@ -226,7 +226,7 @@ aux ondes \gls{eegi} d'intérêt.
 Pour chaque patate un $Z$-score est calculé, ceux-ci sont ensuite combinés pour aboutir à une seule $p$-value : un segment d'\gls{eeg} est considéré comme propre si cette $p$-value est 
 plus grande qu'un seuil obtenu grâce à une référence d'\gls{eeg} propres. 
 
-\subsubsection{Extraction de l'\textit{individualized Alpha Peak Frequency}} \label{extraction_iapf}
+\subsubsection{Extraction de l'\gls{iapf}} \label{extraction_iapf}
 Ensuite, l'\gls{iapf}, définie en \ref{principe_nfb}, est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha prise entre 7 et 13Hz.
 Cette bande de fréquence est extraite de l'\gls{eeg} enregistré à l'électrode Pz au repos et les yeux ouverts. 
 Si aucun pic n'est détecté, l'\gls{iapf} est obtenue grâce à l'estimation de Klimesch basée sur l'âge du sujet \citep{Klimesch1999}. 
@@ -240,7 +240,7 @@ serait récompensée. Cette méthode mène évidemment à des résultats différ
 l'objet de plusieurs études \citep{Kaiser2001, Bazanova2006, Vollebregt2015} dont les résultats montrent que cette personnalisation pourrait améliorer l'efficacité du protocole
 \gls{tbr} pour le traitement du \gls{tdah}.
 
-\subsubsection{Calcul du Theta-Beta ratio} \label{tbr_computation}
+\subsubsection{Calcul du \gls{tbr}} \label{tbr_computation}
 La dernière étape consiste à obtenir le \gls{tbr}, dont la méthode de calcul diffère selon les études.
 
 En effet, la façon dont est calculé le \gls{tbr} est très variable dans la littérature, ce qui conduit à des valeurs variant entre 2 et 8 pour les sujets contrôles \citep{Arns2012,
@@ -320,7 +320,7 @@ d'avoir recours à trois méthodes pour pouvoir comparer les résultats de chacu
 
 Les analyses statistiques sont effectuées avec la bibliothèque Python Scikit Learn (v0.18.1, \citet{Pedregosa2011}).
 
-\subsubsection{Partitionnement basé sur les distributions : \textit{Gaussian Mixture Mode}l et \textit{Bayesian Gaussian Mixture Model}} 
+\subsubsection{Partitionnement basé sur les distributions : \gls{gmm} et \gls{bgmm}} 
 Un \textit{mixture model} est un modèle probabiliste qui permet d'identifier la présence de sous-populations dans une population. Un \textit{mixture model}
 correspond à une \textit{mixture distribution} qui représente la distribution de probabilités des observations dans la totalité d'une population.
 La distribution des \gls{srntbr} est ainsi tracée et ajustée par un \gls{bgmm} puis par un \gls{gmm} pour comparaison \citep{Attias2000, Blei2006}. 
@@ -430,7 +430,7 @@ toutefois un tel choix peut manquer de précision \citep[Chapitre~10]{James2013}
 	\label{Figure:tbr_dendrogram_example} 
 \end{figure}
 
-\subsubsection{Partitionnement basé sur les densités : DBSCAN}
+\subsubsection{Partitionnement basé sur les densités : \gls{dbscan}}
 \gls{dbscan} est un algorithme de partitionnement de données qui s'appuie sur la densité des partitions estimées \citep{Ester1996}. 
 Deux paramètres sont nécessaires pour permettre à l'algorithme de partitionner la donnée : la distance $\epsilon$ et le nombre minimum de points 
 $MinPts$ devant se trouver dans un rayon $\epsilon$ pour que ces points forment un groupe.
@@ -565,9 +565,10 @@ Les résultats des \gls{bgmm} avec un nombre de composantes allant de 1 à 3 son
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-bgmm} 
-  \caption[Résultats des \gls{bgmm} avec une à trois composantes.]{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec \textbf{A} 1-mode, \textbf{B} 2-modes et \textbf{C} 3-modes du \gls{bgmm} superposés. $P$-value (1-2) correspond
+  \caption[Résultats des \gls{bgmm} avec une à trois composantes.]{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec en \textbf{A} 1 mode, en \textbf{B} 
+	2 modes et en \textbf{C} 3 modes du \gls{bgmm} superposés. $P$-value (1-2) correspond
 	à la $p$-value du test de déviance comparant les \gls{bgmm} à 1 mode et 2 modes ; $p$-value (2-3) correspond à la $p$-value du test de déviance comparant les \gls{bgmm}
-	à 2 modes et 3 modes. Significativité symbolisée par ** (seuil fixé à 0.01). Le seuil \gls{srntbr} est précisé pour le modèle à 2 composantes et représenté par un cercle bleu.}
+	à 2 modes et 3 modes. La significativité est symbolisée par ** et fixée à 1\%. Le seuil \gls{srntbr} est précisé pour le modèle à 2 composantes et représenté par un cercle bleu.}
   \label{Figure:tbr_bgmm} 
 \end{figure}
 
@@ -691,7 +692,7 @@ Trois méthodes de partitionnement différentes ont été utilisées afin de dé
 le seuil à partir duquel le \gls{tbr} est considéré comme élevé est calculé. Ces résultats sont discutés ici et les limites de cette analyse sont 
 explorées.
 
-\subsection{Pré-traitement des données \gls{eegi}}
+\subsection{Pré-traitement des données électroencéphalographiques}
 
 Les 363 sujets \gls{tdah} inclus dans cette étude proviennent de différentes bases de données, leurs signaux \gls{eegi} ont donc dû être homogénéisés 
 en suivant les étapes décrites en \ref{pré-traitement TBR}. Lors du traitement des signaux issus des bases de données du \gls{cmi}, des canaux ont 
@@ -752,8 +753,8 @@ L'hétérogénéité des patients souffrant de \gls{tdah} implique des réponses
 \gls{tdah} pourrait permettre de personnaliser l'approche thérapeutique et donc d'optimiser son efficacité pour chaque patient. L'existence de deux groupes distincts au sein de la 
 population \gls{tdah} basée sur la valeur du \gls{tbr} étaye l'idée que le traitement par \gls{nfb} devrait être différent pour ces groupes. En effet, il semblerait
 plus approprié que le protocole de diminution du \gls{tbr} ne soit proposé qu'aux enfants du groupe \gls{tbr} élevés et que les autres enfants entrainent un autre
-neuromarqueur, comme par exemple le \gls{smr}. Ce modèle à deux protocoles a été notamment suggéré par \citet{Kerson2013, Arns2012} et a été évalué lors 
-d'un récent essai clinique (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019}).
+neuromarqueur, comme par exemple le \gls{smr}. Ce modèle à deux protocoles a été notamment suggéré par \citet{Kerson2013} et \citet{Arns2012} et a été évalué lors 
+d'un récent essai clinique (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citep{Bioulac2019}).
 
 L'essai clinique de Mensia Technologies a fixé un seuil de \gls{tbr} à 4.5 qui permet d'assigner les sujets soit au groupe devant augmenter leur \gls{smr}, soit 
 au groupe devant diminuer leur \gls{tbr}. La courbe \gls{roc} représentée à la Figure~\ref{Figure:tbr_roc}, montre que choisir un seuil \gls{tbr} égal à 4.5 conduit
@@ -763,7 +764,7 @@ plus adéquat, avec une \gls{acc} de 79.2\%.
 
 Le seuil calculé à partir du \gls{bgmm} à deux composantes conduit à un groupe d'enfants au \gls{tbr} élevé représentant 36\% de la population étudiée. 
 Ce pourcentage est en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
-De plus,\citep{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
+De plus,\citet{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
 25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un groupe
 de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la basse \gls{acc} obtenue laisse à penser
