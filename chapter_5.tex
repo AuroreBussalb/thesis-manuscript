@@ -1,0 +1,149 @@
+\chapter{Conclusion et perspectives} \label{chapitre-5}
+
+\section{Conclusion}
+
+Ce travail a permis de contribuer au domaine du \gls{nfb} appliqué aux enfants souffrant de \gls{tdah} en menant trois analyses 
+distinctes dont les principaux résultats sont résumés ici. 
+
+Tout d'abord, la méta-analyse la plus récente au moment où ce travail a été réalisé, celle de \citet{Cortese2016}, a été répliquée 
+pour quantifier l'impact des choix des auteurs qui ont été débattus par la communauté scientifique. Par la suite, cette méta-analyse est 
+mise à jour. Ces deux étapes ont été effectuées à l'aide d'un package Python développé 
+dans le cadre de cette thèse. Il se trouve que les choix effectués par \citet{Cortese2016} n'ont pas d'impact sur les conclusions, 
+mais illustrent la complexité de l'émergence de la preuve clinique.
+
+Les résultats de la mise à jour confirment ceux obtenus par \citet{Cortese2016} : 
+l'efficacité perçue est d'autant plus faible qu'elle est évaluée par 
+des observateurs distants de l'intervention et de son ou sa bénéficiaire, comme les enseignants. Alors que ce phénomène très documenté est souvent 
+interprété comme un reflet des biais positifs dont sont victimes les parents du fait de leur plus grande implication dans la délivrance de 
+l'intervention, une analyse approfondie révèle que les enseignants sont également moins sensibles aux symptômes en général et en particulier 
+à leur évolution lente. 
+Cela remet profondément en cause les présupposés méthodologiques actuels de l'évolution des interventions non-médicamenteuses. Par ailleurs
+lorsqu'on étudie précisément l'évolution de l'\glsfirst{est} et de sa $p$-value au fur et à mesure de l'inclusion des études selon leur année de publication, 
+on remarque que ces valeurs ne se sont pas stabilisées (visuellement pour l'\gls{est} et pour la $p$-value grâce à son intervalle de confiance), 
+ce qui appelle à de nouvelles mises à jour.
+
+Ce travail a été l'occasion d'explorer 
+la littérature sur le \gls{nfb} et ainsi de souligner les divergences des choix cliniques, méthodologiques et techniques effectués dans les études 
+d'efficacité qui impactent la fiabilité
+des résultats obtenus dans les méta-analyses. C'est pourquoi une approche tirant avantage de cette hétérogénéité a été mise en place : la \glsfirst{saob}.
+
+La \gls{saob} a recours à des méthodes multivariées pour déterminer les facteurs cliniques, méthodologiques et/ou techniques qui pourraient avoir une 
+influence sur l'efficacité du \gls{nfb}. 
+
+Cette analyse permet de conclure qu'un traitement intensif (c'est à dire court mais avec un rythme important de sessions par semaine) augmenterait 
+l'efficacité du \gls{nfb}. Ce résultat est aussi bien en accord avec un mode d'action spécifique qu'en présence d'un placebo dont l'amplitude 
+sera fonction de l'implication. A l'inverse,  
+intégrer une phase de transfert durant la session diminuerait son efficacité ce qui est contre intuitif : on s'attendrait à ce que ce facteur 
+soit neutre ou positif. Par ailleurs, comme attendu, les évaluations des enseignants ne sont pas en faveur de l'efficacité du \gls{nfb}. 
+Cette différence entre ces deux types d'évaluateurs peut, à première vue, s'expliquer par l'effet placebo mais une analyse plus approfondie des 
+résultats de la \gls{saob} montre que cette explication n'est pas totalement valable, ce qui est en accord avec les conclusions de la partie précédente. 
+Ici aussi, la mise à jour de ces résultats est nécessaire : plus la \gls{saob} sera appliquée sur un nombre important d'observations,
+plus ses résultats seront fiables.
+
+La \gls{saob} a permis d'étudier l'impact de différents facteurs sur la performance du \gls{nfb}, cependant la personnalisation 
+des protocoles d'entrainement dont l'influence serait intéressante 
+à explorer, a été exclu de cette analyse, faute d'un nombre suffisant d'études la proposant. Ainsi, la pertinence de la personnalisation 
+du \gls{nfb} a été étudiée ici à l'aide de l'analyse de la distribution 
+du \gls{tbr} dans une large population d'enfants \gls{tdah}. La variabilité des définitions du \gls{tbr} est tout d'abord mise en 
+évidence, puis une recommandation quant à son calcul est proposée. A partir de cette définition, les \gls{tbr} de la population à notre diposition
+sont obtenus puis partitionnés à l'aide de trois méthodes différentes. Ces dernières se sont accordées sur le fait que cette distribution 
+est bimodale, ce qui va dans 
+le sens d'une personnalisation de protocoles basée sur la valeur de \gls{tbr} dont la valeur seuil conduisant au meilleur équilibre entre 
+\glsfirst{fpr} et \glsfirst{tpr} est de 4.1. 
+
+Grâce à ce résultat, la présence de 
+groupes phénotypiques \gls{eegi} dans la population d'enfants souffrant de \gls{tdah} est confirmée, sans nécessairement prouver la valeur ajoutée d'une 
+intervention personnalisée. Cela constitue néanmoins un premier pas vers l'identification de ces populations pour en 
+permettre la stratification dans le cadre d'études cliniques (NEWROFEED, NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019} et NCT02251743, Arnold, Ohio State University, 
+ClinicalTrials.gov, \citet{Kerson2013}).
+
+Ainsi, le travail présenté dans ce manuscrit a permis de décrire avec précision comment l'efficacité du \gls{nfb} est évaluée à l'aide de 
+la technique de la méta-analyse et de donner des 
+directions pour choisir les paramètres permettant d'obtenir une meilleure performance du \gls{nfb}. Par ailleurs, les packages Python développés pour mener 
+la méta-analyse et la \gls{saob}
+sont accessibles en ligne et permettent à tout chercheur de relancer ou mettre à jour l'analyse : il suffit simplement d'ajouter de nouvelles 
+entrées dans le fichier \gls{csv}.
+
+
+\section{Perspectives}
+
+Les résultats présentés ici, notamment ceux de la méta-analyse et de la \gls{saob}, ont vocation à être mis à jour afin d'inclure davantage 
+d'études : les résultats alors obtenus se stabiliseront et leur fiabilité augmentera.   
+
+Jusqu'à maintenant, les méta-analyses sont des outils issus des statistiques fréquentistes,
+évaluant uniquement le degré de compatibilité entre les données et une hypothèse nulle.
+Les courbes d'évolution des tailles d'effets et des $p$-values nous invitent à basculer vers des méta-analyses bayésiennes,
+attribuant une probabilité \textit{a priori} aux hypothèses testées (en utilisant l'état de l'art) et permettant ainsi d'estimer 
+la probabilité \textit{a posteriori} que l'hypothèse nulle soit vraie.
+Une telle approche a été déjà été décrite et implémentée \citep{Dormuth2016, Spiegelhalter2004} mais n'a pas encore été 
+utilisée dans le cas du \gls{nfb} appliqué au \gls{tdah}.  
+
+Par ailleurs, uen mise à jour de la \gls{saob} pourra permettre d'étudier de nouveaux facteurs, apportant ainsi de nouvelles  
+indications. Dans sa forme actuelle, la \gls{saob} donne des recommandations qualitatives sur comment choisir les facteurs, 
+il serait peut-être intéressant de mettre en place des méthodes conduisant à des directives quantitatives.
+
+Les conclusions de l'analyse de la distribution des valeurs de \gls{tbr} issues d'une large population d'enfants \gls{tdah} justifieraient le recours à la 
+personnalisation des protocoles de \gls{nfb} selon le profil \gls{eegi} de l'enfant. Ce genre d'approche est de plus en plus utilisée, ainsi davantage 
+d'analyses s'intéressant
+à la pertinence et à l'efficacité d'une telle approche vont être menées : il serait notamment important de déterminer si l'âge des enfants 
+a effectivement influencé l'étude
+présentée dans ce manuscrit. Par ailleurs, appliquer ces analyses sur des valeurs de \gls{tbr} obtenues les yeux fermés serait à envisager. 
+
+Dans ce manuscrit, le \gls{nfb} a été étudié pour les enfants souffrant du \gls{tdah} mais les analyses effectuées ici pourraient être 
+transposées à une toute autre application comme celles listées en \ref{NFB_applications}.
+En particulier, la \gls{saob} pourrait être adaptée, c'est à dire ne pas étudier les facteurs propres au \gls{nfb} 
+appliqué au \gls{tdah}, de façon à inclure toutes les études sur l'efficacité du \gls{nfb} 
+quel que soit le trouble à traiter, pour déterminer si des facteurs généraux sont identifiés comme suggéré en \ref{conclusion_saob}. 
+
+Enfin, certaines questions majeures concernant le \gls{nfb} n'ont pas été traitées dans cette thèse,
+à l'instar de la définition et de la mise en place d'un protocole \textit{sham}-\gls{nfb}, déployable au sein d'un essai clinique en double aveugle. 
+Un tel protocole 
+aurait pour but de contrôler pour un éventuel effet placebo, effet qui est au coeur du débat sur l'efficacité du \gls{nfb} appliqué aux enfants \gls{tdah} 
+et dont l'impact
+a été discuté en \ref{pblind_anaysis}. 
+
+La recherche dans le domaine du \gls{nfb} est très active, aussi bien au niveau de la compréhension des mécanismes neurophysiologiques 
+qu'à celui de son efficacité clinique.
+Cependant, malgré le nombre important d'études menées sur le sujet, aucune n'est nettement en faveur de son efficacité. 
+Ce constat pourrait s'expliquer par le fait que, depuis tant d'années de recherche, la plupart des études comportent un nombre
+restreint de sujets et ne sont parfois pas contrôlées : il aurait sans doute été préférable de réduire le nombre de petites études pour financer une grande étude
+qui aurait inclus davantage de sujets.
+
+Par ailleurs, il est possible qu'appliquer le \gls{nfb} au \gls{tdah} ne soit pas pertinent : ce trouble s'accompagne généralement de troubles de l'apprentissage,
+or le \gls{nfb} demande à l'utilisateur d'apprendre à réguler son activité cérébrale. Ainsi, le \gls{tdah} ne serait peut-être pas l'application du 
+\gls{nfb} à privilégier. En effet, le \gls{nfb} parait prometteur dans d'autres domaines, notamment la gestion la douleur \citep{Barthelemy2019}, sur lesquels 
+il faut continuer de se pencher.
+
+Le moyen de trancher la question de l'efficacité du \gls{nfb} pour les enfants souffrant du \gls{tdah} serait de mettre en place des études randomisées 
+et contrôlées incluant de grands échantillons pour augmenter la puissance statistique. Ainsi, les récentes études cliniques évaluant l'efficacité du \gls{nfb} 
+vont dans ce sens : elles incluent de plus en plus de sujets et suivent une méthodologie davantage fiable \citep{Bioulac2019}. 
+En effet, la communauté scientifique appelle à être le plus transparent possible, notamment sur les caractéristiques du \textit{feedback} afin d'aider à 
+conclure quant à l'efficacité du traitement \citep{Ros2019}. Par conséquent, dans quelques années, il sera sans doute possible de déterminer si le \gls{nfb} 
+appliqué aux enfants souffrant de \gls{tdah} est efficace ou non.
+
+\section{Résumé des contributions de la thèse}
+
+Les différentes analyses effectuées au cours de cette thèse ont donc contribué à :
+\begin{itemize}
+\item trancher le débat entourant les choix effectués dans une récente méta-analyse grâce à une analyse de sensibilité,
+\item étudier l'efficacité du \gls{nfb} en mettant à jour cette même méta-analyse pour y inclure les nouvelles études publiées,
+\item déterminer les paramètres inhérents à la mise en place du traitement par \gls{nfb} qui influencent sa performance,
+\item mettre en évidence la différence entre les évaluations des personnes aveugles et non-aveugles,
+\item proposer un package Python accessible en ligne permettant d'effectuer des méta-analyses et de mettre à jour l'analyse des facteurs,
+\item dresser un état des lieux des définitions du \gls{tbr},
+\item analyser la distribution du \gls{tbr} au sein d'une population d'enfants \gls{tdah} pour évaluer la pertinence 
+de la personnalisation du \gls{nfb}.
+\end{itemize}
+
+
+%Le recours au \textit{sham}-\gls{nfb} est encore assez peu répandu, toutefois des études utilisent ce type de contrôle comme \citet{Schabus2017}
+%qui étudient l'efficacité du \gls{nfb} sur les troubles du sommeil. Le \textit{feedback} délivré aux sujets du groupe \textit{sham}-\gls{nfb} de cette étude est calculé 
+%à partir des bandes de fréquence autres que celle entrainée dans le groupe \gls{nfb}. Si un tel groupe contrôle permet de conduire un essai clinique sur le \gls{nfb}
+%en double aveugle, on ignore cependant si ce protocole \textit{sham} n'aurait pas un impact malgré tout. Dans certaines études, le protocole le \textit{sham} retourne \textit{feedback} 
+%aléatoire qui ne dépend donc pas de l'activité cérébrale du sujet \citep{Arnold2014}, mais cette pratique pourrait également avoir un impact qui pour l'heure n'est pas connu.
+%
+%De nombreuses pistes existent concernant l'implémentation d'un \textit{sham}-\gls{nfb}, comme par exemple garder un contrôle en temps réel des artefacts contaminant l'\gls{eeg} en 
+%ayant recours aux techniques présentées en \ref{steps_NFB_taining} tout 
+%en calculant la métrique de \textit{feedback} sur du bruit blanc. Cependant, peu de travaux ont été réalisés en la matière malgré le potentiel que représente 
+%un tel protocole. 
+
