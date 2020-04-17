@@ -232,7 +232,7 @@
 \renewcommand{\contentsname}{Table des mati\`{e}res}%
 \renewcommand*{\glspostdescription}{}%
 \renewcommand{\glsnamefont}[1]{\textmd{#1 :}}%
-\titleformat{\chapter}[display] {\fontsize{17pt}{12pt}\selectfont \bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}%
+\titleformat{\chapter}[display] {\fontsize{20pt}{12pt}\selectfont \bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}%
 \titleformat*{\section}{\Large\bfseries\sffamily}%
 \titleformat*{\subsection}{\large\bfseries\sffamily}%
 \titleformat*{\subsubsection}{\large\bfseries\sffamily}%
