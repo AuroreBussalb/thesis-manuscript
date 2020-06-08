@@ -148,8 +148,8 @@ L'\gls{es}-inter-groupes est équivalent au $Z$-score d'une distribution normale
 de la moyenne d'une population. 
 
 L'\gls{es}-inter-groupes correspond à la différence entre la moyenne à post-test et à pré-test 
-dans le groupe qui reçoit le traitement ($M_{\text{pre},T}$, $M_{\text{post},T}$) moins la différence entre la moyenne du score à post-test et à pré-test 
-dans le groupe contrôle ($M_{\text{pre},C}$, $M_{\text{post},C}$), divisée par la \textit{pooled standard deviation} à pré-test ($\sigma_{\text{pre}}$) :
+dans le groupe qui reçoit le traitement ($M_{\text{post},T}$, $M_{\text{pre},T}$) moins la différence entre la moyenne du score à post-test et à pré-test 
+dans le groupe contrôle ($M_{\text{post},C}$, $M_{\text{pre},C}$), divisée par la \textit{pooled standard deviation} à pré-test ($\sigma_{\text{pre}}$) :
 \begin{equation}
 \label{eq:stats_metareview_std_pre}
 \sigma_{\text{pre}} = \sqrt{\frac{(n_T - 1)\sigma_{\text{pre},T}^2 + (n_C - 1)\sigma_{\text{pre},C}^2} {n_T + n_C - 2}},
@@ -364,10 +364,10 @@ du soin apporté à leur sélection. Cependant, certains choix méthodologiques 
 méritent une attention particulière.
 C'est pourquoi dans un premier temps, la méta-analyse de \citet{Cortese2016} est répliquée en modifiant les points débattus pour évaluer leur impact sur les
 résultats. Ensuite, étant donné que la recherche dans le domaine du \gls{nfb} appliqué aux enfants \gls{tdah} est très active, de nouvelles études répondant au 
-critère d'inclusion de \citet{Cortese2016} ont pu être publiées depuis cette méta-analyse. La mise à jour de ce genre d'analyse est importante
+critère d'inclusion de \citet{Cortese2016} ont été publiées depuis cette méta-analyse. La mise à jour de ce genre d'analyse est importante
 car plus des études y seront incluses, plus les résultats vont se stabiliser, c'est pourquoi la méta-analyse décrite en \ref{selection_studies}
 comprend, en plus des 13 études originelles, celles qui
-satisfaisont les critères d'inclusion de \citet{Cortese2016} depuis sa publication.
+satisfont les critères d'inclusion de \citet{Cortese2016} depuis sa publication.
 
 Dans un souci de transparence et pour faciliter la réplication de ce travail, ces deux analyses sont effectuées en utilisant le package Python 
 (version de Python 3.6.1) dont le contenu est décrit en \ref{methods} \citep{Bussalb2019c}. Par conséquent, la première étape est d'évaluer la
@@ -431,7 +431,7 @@ finales n'étaient pas encore disponibles,
 la BOSS Classroom Observation \citep{Shapiro2010}. Ce choix interpelle car il s'agit d'une échelle peu commune pour quantifier les symptômes du \gls{tdah}, d'autant qu'une échelle clinique 
 plus connue et bien définie \citep{Collett2003, Epstein2012, Bluschke2016}, la Conners-3 Teachers \citep{Conners1998, Conners2008}, est disponible dans 
 cette étude. Ainsi, nous avons utilisé les scores cliniques donnés par les enseignants sur la Conners-3, échelle 
-qui a d'ailleurs été utilisée pour calculer l'\gls{es}-inter-groupes basé sur l'évaluation des parents de cette étude. 
+qui a d'ailleurs été utilisée pour calculer l'\gls{es}-inter-groupes basé sur l'évaluation des parents dans cette étude. 
 \end{itemize}
 
 \subsubsection{Résultats}
@@ -538,7 +538,7 @@ Gevensleben2009, Bakhshayesh2011, Arnold2014, Linden1996, Christiansen2014, Maur
 
 \subsubsection{Résultats de la mise à jour sur toutes les études}
 
-Parmi les nouvelles études ajoutées, certaines telles que \citet{Shereena2019, Strehl2017} concluent à des résultats favorables du \gls{nfb},
+Parmi les nouvelles études ajoutées, certaines telles que \citet{Shereena2019} et \citet{Strehl2017} concluent à des résultats favorables du \gls{nfb},
 contrairement à d'autres \citep{Moreno2019, Minder2018}.
 
 Les résultats de la mise à jour sont illustrés par les \textit{forest plots} à la Figure~\ref{Figure:meta_analysis_forest_plots} : les évaluations
@@ -644,7 +644,7 @@ Cela pourrait s'expliquer par le faible poids associé aux études qui causent c
 
 Enfin, l'ajout de ces sept nouvelles études donne plus de puissance statistique aux résultats, notamment pour l'analyse des sous-groupes menée par \citet{Cortese2016}.
 
-En effet, pour la sous population suivant un protocole \gls{nfb} standard \citep{Arns2014}, \citet{Cortese2016} avait noté que les \gls{pblind} observaient
+En effet, pour la sous population suivant un protocole \gls{nfb} standard \citep{Arns2014}, \citet{Cortese2016} avaient noté que les \gls{pblind} observaient
 une différence statistiquement significative entre le \gls{nfb} et les groupes contrôles en faveur du \gls{nfb}. Alors que cette tendance a été confirmée avec l'ajout 
 de \citet{Baumeister2016} et \citet{Strehl2017} dans \citet{Bussalb2019clinical}, la mise à jour présentée ici rend presque tous les \gls{est} initialement significatifs 
 non significatifs ; désormais seul l'\gls{est} de la composante totale évaluée par les parents l'est encore ($p$-value = 0.047). 
@@ -682,7 +682,7 @@ $t + 1$ et ne plus la retrouver. Ces deux configurations sont représentées ave
 	\includegraphics[width=1\linewidth]{figures/chapter-2/meta-analysis-evolution-p-value-examples} 
   \caption[Exemples d'évolution des $p$-value d'\gls{est} factices au fur et à mesure que la taille de l'échantillon augmente.]
 	{Exemples d'évolution des $p$-value d'\gls{est} factices au fur et à mesure que la taille de l'échantillon augmente. 
-	En \textbf{A}, la $p$-value se stabilise sous le seuil de significativité statistique suite à l'ajout de nouveaux sujets ; en \textbf{B}, la $p$-value 
+	En \textbf{A}, la $p$-value se stabilise visuellement sous le seuil de significativité statistique suite à l'ajout de nouveaux sujets ; en \textbf{B}, la $p$-value 
 	passe temprorairement sous le seuil de significativité puis s'en éloigne suite à l'ajout de nouveaux sujets. 
 	Le seuil de significativité statistique à 5\% est représenté en pointillés noirs.}
   \label{Figure:meta-analysis-evolution-p-value-examples}
