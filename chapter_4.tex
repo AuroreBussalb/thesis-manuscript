@@ -29,7 +29,7 @@ Pour chacune de ces bases de données, un consentement éclairé écrit a été 
 ont été effectués dans un environnement contrôlé avec les yeux ouverts (\gls{eo} en anglais) et au repos (c'est à dire que le sujet n'effectue aucune tâche) 
 pendant une minute sous la supervision d'un spécialiste. 
 
-La description de l'ensemble des données est disponible dans la Table~\ref{Table:tbr_datasets_description}. Au total, les enregsitrements \gls{eegi} de 
+La description de l'ensemble des données est disponible dans la Table~\ref{Table:tbr_datasets_description}. Au total, les enregistrements \gls{eegi} de 
 $n = 363$ sujets diagnostiqués \gls{tdah} sont analysés.
 
 \begin{table}[h!]
@@ -138,7 +138,7 @@ causés par les lignes électriques américaines (57-63Hz).
 
 Dans le cas d'enregistrements d'\gls{eegi} avec une haute résolution spatiale comme ici avec les données \gls{cmi}, 
 il est courant qu'au moins un canal se déconnecte ponctuellement causant aussi bien des artefacts de large amplitude que des signaux plats \citep{Barlow1986, Oregan2013}. 
-Une strategie est ici mise en place pour détecter de façon fiable ces électrodes déconnectées puis pour les interpoler : la variance de chaque canal 
+Une stratégie est ici mise en place pour détecter de façon fiable ces électrodes déconnectées puis pour les interpoler : la variance de chaque canal 
 \gls{eegi} est calculée sur une fenêtre glissante de 10 secondes puis est ensuite convertie en deux $Z$-scores grâce à :
 \begin{enumerate}
 \item la distribution instantanée des variances pour les 127 autres canaux ($Z$-score spatial),
@@ -149,12 +149,12 @@ Si le $Z$-score spatial n'est pas compris entre -2 et 2, soit le signal a une tr
 variance (autrement dit l'électrode doit être déconnectée et n'enregistre rien) : dans les deux cas il est interpolé. Ces valeurs ont été choisies
 empiriquement en se basant sur la distribution des variances mais n'ont pas été validées de manière plus précise.  
 
-Les données sont re-référéncées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
+Les données sont re-référencées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
 de données NEWROFEED. Les signaux \gls{eegi} des 128 électrodes de l'espace \gls{egi} sont ensuite spatialement reconstruits dans l'espace à 8 électrodes 
 dans le système international 10-20 en projetant les coordonnées sur une sphère unitaire \citep{Perrin1989}.
 
 
-\section{Theta-Beta ratio : un marqueur de l'attention}
+\section{Thêta-Bêta Ratio : un marqueur de l'attention}
 
 Le \gls{tbr} est un neuromarqueur couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2013}. L'utilisation fréquente de ce protocole est notamment due
 à \citet{Lubar1991} qui, en se basant sur la littérature existante, avance que la valeur du \gls{tbr} permettrait de différencier un enfant \gls{tdah} d'un enfant sain.  
@@ -163,11 +163,11 @@ Le \gls{tbr} est d'abord défini, puis les étapes pour l'extraire des
 signaux \gls{eegi} à notre disposition sont décrites. Ces \gls{tbr} sont ensuite partitionnés à l'aide de trois méthodes dont le principe est expliqué dans cette partie. 
 Enfin, la méthode pour identifier le seuil optimal séparant les classes obtenues est détaillée.
 
-\subsection{Définition du Theta-Beta ratio}
+\subsection{Définition du Thêta-Bêta Ratio}
 De précédentes études ont montré que les enfants souffrant de \gls{tdah} présentent une augmentation
 de la puissance des ondes lentes et/ou une diminution de la puissance des ondes rapides
 comparés aux enfants sains. Ces différences d'activité de ces 
-ondes peuvent être quantifiées en calculant le ratio de la puissance dans la bande theta et de la puissance dans la bande beta : le 
+ondes peuvent être quantifiées en calculant le ratio de la puissance dans la bande thêta et de la puissance dans la bande bêta : le 
 \gls{tbr} \citep{Arns2013}, qui serait élevé chez les enfants souffrant du \gls{tdah} \citep{Lubar1991, Monastra1999, Barry2009, Snyder2006}. 
 
 Au vu de cette observation, de nombreuses études ont été menées pour analyser la pertinence d'utiliser le \gls{tbr} comme biomarqueur pour 
@@ -178,18 +178,18 @@ ils ont obtenu une spécificité (capacité du test à ne détecter que les mala
 Ainsi, un \gls{tbr} élevé pourrait aider à confirmer les diagnostics du \gls{tdah} : la \gls{fda} a d'ailleurs approuvé en 2013 le recours à la valeur du 
 \gls{tbr} dans ce but \citep{NebaHealth, FDA, Saad2018, Barry2009}. Cependant, les études récentes ont échoué à répliquer les résultats
 montrant une différence entre les valeurs de \gls{tbr} des patients \gls{tdah} et celles des enfants sains, remettant en question son utilisation comme outil 
-diagnostic \citep{Zhang2017, Arns2013, Clarke2001, VanDoren2017, Lenartowicz2014}. A la place, les chercheurs suggèrent de se baser sur le \gls{tbr} à des fins prognostiques : l'\gls{eeg} 
+diagnostic \citep{Zhang2017, Arns2013, Clarke2001, VanDoren2017, Lenartowicz2014}. A la place, les chercheurs suggèrent de se baser sur le \gls{tbr} à des fins pronostiques : l'\gls{eeg} 
 serait analysé dans le but de prédire les différences entre les individus atteints du \gls{tdah} plutôt que dans celui d'identifier 
 des caractéristiques du \gls{tdah} \citep{Arns2013, Zhang2017}. 
 
-Cette utilisation prognostique du \gls{tbr} est notamment justifiée par \citet{Clarke2011} qui estiment qu'environ 35\% d'enfants \gls{tdah} présentent un \gls{tbr} élevé, ainsi que 
+Cette utilisation pronostique du \gls{tbr} est notamment justifiée par \citet{Clarke2011} qui estiment qu'environ 35\% d'enfants \gls{tdah} présentent un \gls{tbr} élevé, ainsi que 
 par des études qui montrent que la prise de stimulants chez les patients \gls{tdah} avec un \gls{tbr} élevé serait plus efficace \citep{Arns2012med, Clarke2002}. 
 Ainsi, l'existence d'un groupe d'enfants \gls{tdah} au \gls{tbr} élevé pourrait être utilisée pour identifier de meilleurs répondeurs à une intervention donnée, comme le \gls{nfb}. 
 
 La diminution du \gls{tbr} est l'objectif du protocole le plus couramment utilisé en \gls{nfb} appliqué aux enfants \gls{tdah} \citep{Arns2014}. 
 On peut supposer que l'efficacité de ce traitement pourrait être augmentée en affectant chaque patient à l'entraînement qui correspond le mieux à son phénotype \gls{eegi}. 
 Par exemple, il serait peut-être plus pertinent que les sujets présentant un haut \gls{tbr} suivent un protocole de \gls{nfb} où il est demandé de 
-diminuer le \gls{tbr}. Cette répartition a été proposée lors de l'essai clinique NEWROFEED, pour lequel un seuil de répartition a dû être choisi pour allouer les sujets 
+diminuer le \gls{tbr}. Cette répartition a été proposée lors de l'essai clinique NEWROFEED (NCT02778360, Mensia Technologies, France, ClinicalTrials.gov, \citet{Bioulac2019}), pour lequel un seuil de répartition a dû être choisi pour allouer les sujets 
 selon leur valeur de \gls{tbr} à l'un des protocoles de \gls{nfb} disponibles (diminution du \gls{tbr} ou augmentation du \gls{smr}). 
 Un autre essai clinique randomisé et en double aveugle proposé par \citet{Kerson2013} prévoyait d'inclure des enfants entre 7 et 10 ans présentant un \gls{tbr} supérieur à 5 mais cette valeur a 
 été modifiée et fixée à 4.5 (NCT02251743, Arnold, Ohio State University, ClinicalTrials.gov), valeur également
@@ -198,7 +198,7 @@ utilisée dans NEWROFEED. Choisir correctement la valeur de seuil est crucial ca
 Le caractère arbitraire des valeurs de seuil basées sur le \gls{tbr} appelle à une validation précise de l'existence d'un 
 sous-groupe de patients \gls{tdah} présentant un \gls{tbr} élevé et du seuil à partir duquel les valeurs de \gls{tbr} sont considérées comme élevées.  
  
-\subsection{Extraction du Theta-Beta ratio} \label{extraction_tbr}
+\subsection{Extraction du Thêta-Bêta Ratio} \label{extraction_tbr}
 L'extraction du \gls{tbr} des \gls{eeg} obtenus après les pré-traitements présentés en \ref{pré-traitement TBR} comprend plusieurs étapes :
 \begin{enumerate}
 \item le rejet des artefacts en utilisant la géométrie Riemannienne,
@@ -207,16 +207,16 @@ L'extraction du \gls{tbr} des \gls{eeg} obtenus après les pré-traitements pré
 \end{enumerate}
 
 \subsubsection{Rejet des artefacts}
-Tout d'abord, les données artefactées sont exclues en utilisant le géométrie Riemanniene \citep{Barachant2013, Barthelemy2019}. 
+Tout d'abord, les données artefactées sont exclues en utilisant le géométrie Riemannienne \citep{Barachant2013, Barthelemy2019}. 
 
 Le principe de cette méthode consiste à calculer la matrice de covariance de chaque segment d'\gls{eeg} : les époques dont la matrice de covariance se trouve à l'extérieur d'une région
 d'acceptabilité, appelée patate, définie par un $Z$-score sont considérées artefactées et donc rejetées. Cette région d'acceptabilité est définie par une référence d'\gls{eeg} propre.
 
-Afin d'augmenter la sensibilité et la spécifité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citep{Barthelemy2019}, 
+Afin d'augmenter la sensibilité et la spécificité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citep{Barthelemy2019}, 
 cette méthode a été appliquée ici.
 Les données \gls{eegi} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et sont analysées simultanément par six patates. Chaque patate a pour but de détecter 
 un type d'artefact, les canaux de chaque patate ainsi que le filtrage du signal \gls{eegi} sont donc choisis de façon à pouvoir le repérer. 
-Les sous-ensembles de canaux choisis ici et les bandes de fréquence \gls{eegi} analysées sont les suivants :
+Les sous-ensembles de canaux choisis ici et les bandes de fréquences \gls{eegi} analysées sont les suivants :
 \begin{itemize}
 \item Fpz, F3, F4, C3 et C4 pour détecter les artefacts musculaires. Ces artefacts affectant les hautes fréquences, le signal a été préalablement filtré entre 55 et 95Hz,
 \item quatre groupes de deux électrodes (Fpz et Fz, F3 et F4, C3 et C4, Cz et Pz) pour détecter les déconnections temporaires d'électrodes. Le signal a été préalablement filtré entre 1 et 20Hz, 
@@ -228,15 +228,15 @@ plus grande qu'un seuil obtenu grâce à une référence d'\gls{eeg} propres.
 
 \subsubsection{Extraction de l'\gls{iapf}} \label{extraction_iapf}
 Ensuite, l'\gls{iapf}, définie en \ref{principe_nfb}, est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha prise entre 7 et 13Hz.
-Cette bande de fréquence est extraite de l'\gls{eeg} enregistré à l'électrode Pz au repos et les yeux ouverts. 
+Cette bande de fréquences est extraite de l'\gls{eeg} enregistré à l'électrode Pz au repos et les yeux ouverts. 
 Si aucun pic n'est détecté, l'\gls{iapf} est obtenue grâce à l'estimation de Klimesch basée sur l'âge du sujet \citep{Klimesch1999}. 
 
-L'\gls{iapf} permet de définir des bandes de fréquence personnalisées pour chaque sujet qui ont été choisies 
-par le comité scientifique de NEWROFEED : theta = [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz] et beta = [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
+L'\gls{iapf} permet de définir des bandes de fréquences personnalisées pour chaque sujet qui ont été choisies 
+par le comité scientifique de NEWROFEED : thêta = [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz] et bêta = [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz].
 Cette étape a pour but d'adapter précisément l'entrainement aux spécificités neurodéveloppementales liées à l'âge de l'enfant \citep{Aurlien2004}. En effet, dans le cas des enfants, 
 il serait possible de considérer 
-des basses fréquences de la bande alpha comme appartenant à la bande theta, ce qui fausserait l'entrainement par \gls{nfb} car la modulation de mauvaises fréquences 
-serait récompensée. Cette méthode mène évidemment à des résultats différents d'avec des bandes de fréquence aux bornes fixes \citep{Arns2008, Vollebregt2015} et a été 
+des basses fréquences de la bande alpha comme appartenant à la bande thêta, ce qui fausserait l'entrainement par \gls{nfb} car la modulation de mauvaises fréquences 
+serait récompensée. Cette méthode mène évidemment à des résultats différents d'avec des bandes de fréquences aux bornes fixes \citep{Arns2008, Vollebregt2015} et a été 
 l'objet de plusieurs études \citep{Kaiser2001, Bazanova2006, Vollebregt2015} dont les résultats montrent que cette personnalisation pourrait améliorer l'efficacité du protocole
 \gls{tbr} pour le traitement du \gls{tdah}.
 
@@ -247,10 +247,10 @@ En effet, la façon dont est calculé le \gls{tbr} est très variable dans la li
 Schutte2017}. La largeur de cet intervalle s'explique en partie par les diverses définitions du \gls{tbr} : le \gls{tbr} peut faire référence au ratio
 des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des tensions ($\mu$V) ou des densités de tensions ($\mu$V/Hz).  
 
-Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquence pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
-de bandes de fréquence standards ou personnalisées grâce à l'\gls{iapf} du sujet. 
+Par ailleurs, comme souligné en \ref{extraction_iapf}, la définition des bandes de fréquences pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+de bandes de fréquences standards ou personnalisées grâce à l'\gls{iapf} du sujet. 
 
-Dans notre cas le \gls{tbr} est défini comme le ratio de la puissance dans la bande de fréquence theta et de la bande de fréquence beta obtenues 
+Dans notre cas le \gls{tbr} est défini comme le ratio de la puissance dans la bande de fréquences thêta et de la bande de fréquences bêta obtenues 
 grâce à l'\gls{iapf}. Une moyenne mobile de la puissance du signal $\bar{P}$ est estimée par la méthode de Welch \citep{Welch1967} sur 32 segments, de 2 secondes chacun, avec un 
 chevauchement toutes les 1/16 de seconde :
 \begin{equation}
@@ -262,7 +262,7 @@ P_{c,b} = \norm{ x_{c,b} }_{F}^2,
 \bar{P}_{c,b} = \frac{1}{I} \sum_{i=1}^{I} (P_{c,b})_{i},
 \end{equation}
 où $x_{c,b}$ correspond à un segment du signal \gls{eegi} sur le canal $c$ après un filtre passe-bande sur la fréquence $b$, $\norm{.}_{F}$ est la norme de Frobenius et $I$ 
-le nombre de segments. La puissance dans les bandes theta ($\theta$) et beta ($\beta$) est calculée avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
+le nombre de segments. La puissance dans les bandes thêta ($\theta$) et bêta ($\beta$) est calculée avec les équations Eq.~(\ref{eq:tbr_power_computation}) et Eq.~(\ref{eq:tbr_average_power_computation}),
 puis ces deux puissances sont divisées entre elles :
 
 \begin{equation}
@@ -274,7 +274,7 @@ conduisant à un ratio instantané de valeurs de puissances qui représente une 
 La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la médiane obtenue à Fz et Cz est utilisée pour représenter le \gls{tbr} sur l'ensemble 
 de l'enregistrement, puis le maximum sur ces deux électrodes est retenu.
 
-Enfin, cette valeur de \gls{tbr} doit être normalisée pour les analyses de partionnement qui vont suivre. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
+Enfin, cette valeur de \gls{tbr} doit être normalisée pour les analyses de partitionnement qui vont suivre. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
 le \glsfirst{bgmm} et le \gls{gmm} détaillées par la suite, supposent que la distribution des \gls{tbr} est normale. 
 En effet, un \gls{bgmm} appliqué à une distribution non normale identifierait de faux groupes (\textit{clusters} en anglais) pour ajuster les données. 
 Ainsi, pour être certain que l'hypothèse de normalité est valide, la distribution des \gls{tbr} de patients sains (provenant de la base de données \gls{cmi-hbn})
@@ -292,19 +292,19 @@ nulle de normalité ($p$-value = 0.46). Ainsi, on suppose que les valeurs de \gl
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-normalization} 
   \caption[Comparaison de techniques de normalisation des valeurs de \gls{tbr}.]{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. 
-	Les histogrammes des distributions de valeurs \gls{tbr} non nomalisées,
+	Les histogrammes des distributions de valeurs \gls{tbr} des patients sains non nomalisées,
 	log normalisées et \textit{square-root} normalisées sont presentés à la première ligne. La seconde ligne contient les tracés de probabilités comparant les
-	dstributions. La statistique W du test de Shapiro-Wilk et la $p$-value correspondante sont affichées sur chaque tracé de probabilité.}
+	distributions. La statistique W du test de Shapiro-Wilk et la $p$-value correspondante sont affichées sur chaque tracé de probabilité.}
   \label{Figure:tbr_normalization}
 \end{figure}
 
 Les \gls{tbr} sont donc normalisés suivant l'équation suivante :
 \begin{equation}
 \label{eq:tbr_srntbr_computation}
-\text{srnTBR} = \sqrt{ \text{max}(\frac{\bar{P}_{Fz,\theta}}{\bar{P}_{Fz,\beta} } ; \frac{\bar{P}_{Cz,\theta}}{\bar{P}_{Cz,\beta}} ) }.
+\text{srnTBR} = \sqrt{ \text{max}\left(\frac{\bar{P}_{Fz,\theta}}{\bar{P}_{Fz,\beta} } ; \frac{\bar{P}_{Cz,\theta}}{\bar{P}_{Cz,\beta}}\right) }.
 \end{equation}
 
-\subsection{Méthodes de partitionnement de la distribution des Theta-beta ratios} \label{clustering}
+\subsection{Méthodes de partitionnement de la distribution des Thêta-Bêta Ratios} \label{clustering}
 
 Afin de déterminer s'il existe un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé, trois méthodes de partitionnement, issues de familles différentes,
 sont appliquées aux \gls{srntbr} : 
@@ -331,7 +331,7 @@ Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur
 assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \gls{tbr} 
 extraits de sujets sains de la base de données \gls{cmi-hbn} étant disponible, ces valeurs sont donc utilisées pour estimer les \textit{a priori} du \gls{bgmm}. 
 Lorsque les observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes Gaussiennes est 
-créé pour modéliser les données. Ici, la distribution multi-modale des valeurs de \gls{srntbr} est modélisée par un \gls{bgmm} avec un nombre 
+créé pour modéliser les données. Ici, la distribution multimodale des valeurs de \gls{srntbr} est modélisée par un \gls{bgmm} avec un nombre 
 de modes/composantes allant de 1 à 3. 
 Il en va de même pour l'algorithme du \gls{gmm}. 
 
@@ -358,7 +358,7 @@ cherche à maximiser la probabilité, ou \textit{likelihood}, des données obser
 consiste en deux étapes :
 \begin{enumerate}
 \item Etape d'\textit{expectation} : calcul de l'\textit{expectation} de la composante $C_k$ pour chaque point $x_i \in X$ étant donné les paramètres du modèle $\Phi_k$, $\sigma_k$,
-et $\mu_k$. L'\textit{expectation} correspond à la probabilité qu'$x_i$ soit généré par la composante $C_k$,
+et $\mu_k$. L'\textit{expectation} correspond à la probabilité que $x_i$ soit généré par la composante $C_k$,
 \item Etape de \textit{maximization} : maximisation des \textit{expectations} calculées à la première étape afin de mettre à jour les valeurs $\Phi_k$, $\sigma_k$,
 et $\mu_k$. 
 \end{enumerate}
@@ -369,7 +369,7 @@ les informations des \textit{a priori} sont intégrées.
 Afin de déterminer le nombre de composantes qui décrit le mieux la distribution des \gls{srntbr}, la significativité de la différence entre chaque 
 modèle est testée grâce à un test $\chi^2$ sur la déviance \citep[Chapitre~6]{James2013}. Etant donné que dans le cas du \textit{Gaussian Mixture Model} les modèles
 sont imbriqués, c'est à dire que le deuxième modèle peut être obtenu en imposant des contraintes sur le premier modèle, le test de 
-deviance est adapté. La déviance est une mesure de la qualité de l'ajustement (\textit{goodness-of-fit} 
+déviance est adapté. La déviance est une mesure de la qualité de l'ajustement (\textit{goodness-of-fit} 
 en anglais) d'un modèle statistique et est définie comme suit :
 \begin{equation}
 \label{eq:tbr_deviance}
@@ -382,7 +382,7 @@ l'utilisation d'un test $\chi^2$ pour tester la significativité statistique. Le
 
 \subsubsection{Partitionnement basé sur les distances : méthode de Ward}
 La méthode de Ward est un critère utilisé pour rassembler deux partitions lors d'un partitionnement hiérarchique agglomérant (\textit{hierarchical agglomerative clustering} 
-en anglais) \citep{Ward1963}. Ce type d'algorithme de partitionnement fusionne de façon récursive deux groupes similaires, qui initiallement ne comportent qu'une seule observation, jusqu'à obtenir une
+en anglais) \citep{Ward1963}. Ce type d'algorithme de partitionnement fusionne de façon récursive deux groupes similaires, qui initialement ne comportent qu'une seule observation, jusqu'à obtenir une
 grande partition comprenant l'ensemble des données \citep[Chapitre~10]{James2013}.
 
 Un exemple schématique de ce type de partitionnement est représenté à la Figure~\ref{Figure:tbr_hierarchical_agglomerative_clustering_example} avec six observations (A, B, C, D, E, F) :
@@ -466,7 +466,7 @@ obtenu sur des données factices est présenté à la Figure~\ref{Figure:tbr_k_d
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-k-distance-plot-example} 
   \caption[Exemple de \textit{k-distance plot} sur des données factices.]{Exemple de \textit{k-distance plot} sur des données factices. Les observations 
 	ayant une \textit{k-distance} élevée sont potentiellement
-	des outliers. L'observation représentée par une croix rouge correspond au "coude" dont l'abscisse correspond à $\epsilon$.} 
+	des \textit{outliers}. L'observation représentée par une croix rouge correspond au "coude" dont l'abscisse correspond à $\epsilon$.} 
 	\label{Figure:tbr_k_distance_plot_example} 
 \end{figure}
 
@@ -482,7 +482,7 @@ sont comparés entre eux, notamment à l'aide d'une courbe \gls{roc}, afin de d�
 Si le \gls{bgmm} à deux composantes est identifié comme offrant le meilleur ajustement du modèle, la distribution théorique de chaque composante 
 est utilisée pour en déduire la valeur du seuil conduisant à la meilleure discrimination entre les deux groupes. 
 
-Ce seuil correspond à l'abscisse $x$ de l'intersection des deux Gaussiennes, c'est à dire qu'il faut trouver $x$ tel que $G_1(x) = G_2(x)$, avec $G_1$ et $G_2$ les deux Gausiennes estimées. 
+Ce seuil correspond à l'abscisse $x$ de l'intersection des deux Gaussiennes, c'est à dire qu'il faut trouver $x$ tel que $G_1(x) = G_2(x)$, avec $G_1$ et $G_2$ les deux Gaussiennes estimées. 
 Pour déterminer $x$ il suffit de traduire mathématiquement les deux Gaussiennes ce qui
 conduit à une équation quadratique dont les coefficients comportent les moyennes et variances de ces deux distributions.
 
@@ -491,7 +491,7 @@ Une courbe \gls{roc} est ensuite tracée à partir du \gls{bgmm} à deux composa
 vrais positifs et vrais négatifs (ceux qui sont assignés à la bonne classe) et les faux positifs et faux négatifs (ceux qui sont assignés à la mauvaise classe). 
 
 Habituellement, une courbe \gls{roc}
-est obtenue grâce à un \textit{gold standard} qui provient de résultats cliniques, alors qu'ici le partionnement retourné par le \gls{bgmm} à deux composantes est utilisé : on suppose 
+est obtenue grâce à un \textit{gold standard} qui provient de résultats cliniques, alors qu'ici le partitionnement retourné par le \gls{bgmm} à deux composantes est utilisé : on suppose 
 que ces deux groupes existent et sont correctement estimés par cette méthode, et c'est à partir de ces résultats que la capacité à discriminer les patients \gls{tdah} est évaluée.
 
 Une représentation graphique des résultats factices d'un \gls{bgmm} à deux composantes est présentée à la Figure~\ref{Figure:tbr_bgmm_example} : les deux Gaussiennes obtenues correspondent 
@@ -548,7 +548,7 @@ De plus, le seuil conduisant à 10\% de \gls{fpr} selon le partitionnement par l
 En effet, un seuil menant à un faible \gls{fpr} est intéressant pour idéalement traiter les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec 
 un protocole adapté à leur profil \gls{eegi}, comme la diminution du \gls{tbr}.
 
-\section{Partitionnement de la distribution des Theta-Beta ratios}
+\section{Partitionnement de la distribution des Thêta-Bêta Ratios}
 
 Les \gls{tbr} ont été extraits en suivant les étapes présentées en \ref{extraction_tbr}. Les \gls{srntbr} calculés sont ensuite partitionnés à l'aide de trois
 méthodes (\gls{bgmm}, partitionnement hiérarchique et \gls{dbscan}) et les seuils de séparation obtenus pour chacune de ces méthodes, dans le cas où deux classes sont 
@@ -582,7 +582,7 @@ entre le modèle à 1 mode (modèle nul) et à 2 modes = 0.002). Ainsi, les \tex
 représenter la donnée. 
 
 \subsubsection{Méthode de Ward}
-Tout d'abord, les résultats d'un partitionnement hiérarchique agglomérant basé sur la distance de Ward sont représentés sur le dendrogramme présenté à la 
+Tout d'abord, les résultats du partitionnement hiérarchique agglomérant basé sur la distance de Ward sont représentés sur le dendrogramme présenté à la 
 Figure~\ref{Figure:tbr_ward_dendrogram}. 
 
 \begin{figure}[h!]
@@ -679,7 +679,7 @@ avec les seuils présentés sur la courbe \gls{roc} à la Figure~\ref{Figure:tbr
 par \gls{dbscan} qui mène à un groupe comprenant seulement 5\% de la population étudiée.
 \begin{table}[h!]
   \centering
-  \caption[Poucentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.]{Poucentage 
+  \caption[Pourcentage de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.]{Pourcentage 
 	de sujets considérés comme présentant un \gls{tbr} élevé pour chaque seuil \gls{tbr} étudié.}
   \input{tables/chapter-4/tbr_thresholds_number_of_subjects}
   \label{Table:tbr_thresholds_number_of_subjects}
@@ -724,7 +724,7 @@ des \gls{tbr} plus faibles.
 
 La méthode de Ward a déjà été utilisée lors de recherches 
 précédentes sur l'identification de sous-groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. Dans cette étude le partitionnement
-se basait sur les puissances totales et relatives dans les bandes de fréquence delta (1.5 - 3.5 Hz), thêta (3.5 - 7.5 Hz), alpha (7.5 - 12.5 Hz) et bêta 
+se basait sur les puissances totales et relatives dans les bandes de fréquences delta (1.5 - 3.5 Hz), thêta (3.5 - 7.5 Hz), alpha (7.5 - 12.5 Hz) et bêta 
 (12.5 - 25 Hz) isolées dans les zones frontales, temporales et centrales et aussi sur l'âge des sujets. Quatre groupes ont été ientifiés : 
 \begin{itemize}
 \item \emph{Premier groupe :} activité bêta élevée,
@@ -764,10 +764,10 @@ plus adéquat, avec une \gls{acc} de 79.2\%.
 
 Le seuil calculé à partir du \gls{bgmm} à deux composantes conduit à un groupe d'enfants au \gls{tbr} élevé représentant 36\% de la population étudiée. 
 Ce pourcentage est en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
-De plus,\citet{Clarke2011} trouve que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
+De plus,\citet{Clarke2011} trouvent que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
 25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un groupe
-de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la basse \gls{acc} obtenue laisse à penser
+de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la faible \gls{acc} obtenue laisse à penser
 que la valeur de ce seuil ne sépare pas de manière fiable les deux groupes. Le seuil identifié par la méthode de Ward dans le cas de deux groupes
 est proche de celui trouvé par le \gls{bgmm} à deux composantes (4 contre 3.7), ce qui prouve une nouvelle fois qu'il existe un groupe d'enfants \gls{tdah}
 présentant un \gls{tbr} élevé.
@@ -785,7 +785,7 @@ les protocoles d'entrainement du fait de son bon équilibre entre un faible \gls
 Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car elles n'ont pas été obtenues à l'aide d'un \textit{gold standard} mais grâce au \gls{bgmm}
 à deux composantes dont on suppose que les groupes ont été correctement estimés. 
 
-\subsection{Variabilité du calcul des Theta-Beta ratios} 
+\subsection{Variabilité du calcul des Thêta-Bêta Ratios} 
 
 Comme souligné en \ref{tbr_computation}, la façon dont est calculé le \gls{tbr} est très variable dans la littérature. En effet diverses définitions du \gls{tbr} existent :
 il peut être un ratio des puissances ($\mu$V$^2$), des densités de puissance ($\mu$V$^2$/Hz), des tensions ($\mu$V) ou des densités de tensions ($\mu$V/Hz) 
@@ -795,16 +795,16 @@ De plus, pour une même définition, différents algorithmes de calcul peuvent �
 effet, \citet{Kerson2019} ont montré que la façon dont est gérée la fuite spectrale (\textit{spectral leakage} en anglais), c'est à dire le fait que la puissance
 sur une fréquence donnée se disperse sur d'autres fréquences, est une des principales raisons de l'écart entre deux valeurs de \gls{tbr}. 
 
-Par ailleurs, la définition des bandes de fréquence pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
-de bandes de fréquence standards ou personnalisées, notamment grâce à l'\gls{iapf} du sujet. Ainsi, pour pouvoir comparer les valeurs de \gls{tbr} provenant de différentes
-études, une définition homogène doit être mise en place. De récentes études suggèrent de se baser sur des bandes de fréquence 
+Par ailleurs, la définition des bandes de fréquences pour calculer le \gls{tbr} peut aussi varier : par exemple, le \gls{tbr} peut être obtenu à partir
+de bandes de fréquences standards ou personnalisées, notamment grâce à l'\gls{iapf} du sujet. Ainsi, pour pouvoir comparer les valeurs de \gls{tbr} provenant de différentes
+études, une définition homogène doit être mise en place. De récentes études suggèrent de se baser sur des bandes de fréquences 
 qui seraient propres à chaque individu \citep{Zhang2017, Saad2018} pour s'affranchir de l'influence de l'âge. A travers cette analyse, nous recommandons de définir le \gls{tbr} de la façon suivante : 
-le ratio entre la puissance dans la bande theta et la puissance dans la bande beta, avec une bande theta correspondant à [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz]
-et une bande beta à [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz]. Ces intervalles ont été définis par la comité scientfique de NEWROFEED. 
+le ratio entre la puissance dans la bande thêta et la puissance dans la bande bêta, avec une bande thêta correspondant à [\gls{iapf} - 5Hz ; \gls{iapf} - 1Hz]
+et une bande bêta à [\gls{iapf} + 3Hz ; \gls{iapf} + 12Hz]. Ces intervalles ont été définis par la comité scientifique de NEWROFEED. 
 
-Il est important de souligner que les résultats de cette étude sont comparés à ceux où les \gls{tbr} sont calculés à partir de bandes de fréquence standards
+Il est important de souligner que les résultats de cette étude sont comparés à ceux où les \gls{tbr} sont calculés à partir de bandes de fréquences standards
 les yeux fermés \citep{Zhang2017, Clarke2011}. Ces valeurs de \gls{tbr} sont donc différentes, mais nous supposons que les tendances dans la distribution et le
-partitionnement obtenues ici doivent y être observées. Le choix d'effectuer nos analyses sur des données \gls{eegi} enregistrées les yeux ouverts est dû à l'indisponibilté
+partitionnement obtenus ici doivent y être observés. Le choix d'effectuer nos analyses sur des données \gls{eegi} enregistrées les yeux ouverts est dû à l'indisponibilité
 d'autant de données obtenues les yeux fermés.
 
 \subsection{Analyse des facteurs de confusion}
@@ -815,14 +815,14 @@ En effet, deux points ont été approfondis ici pour juger de leur impact sur le
 \subsubsection{Correction des artefacts oculaires}
 
 La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eegi}. Ces artefacts de basse fréquence
-peuvent affecter les calculs de puissance et donc par ricochet les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
+peuvent affecter les calculs de puissance et donc, par ricochet, les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
 la correction d'artefacts oculaires basée sur la séparation aveugle de sources (\textit{blind source separation} en anglais) \citep{Barthelemy2017} 
 ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée. Par conséquent, la correction des artefacts 
 oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées. 
 
 Une des hypothèses justifiant ce 
 résultat serait que les artefacts oculaires présents dans la bande bêta seraient compensés par ceux de la bande thêta. En effet, le \gls{tbr} est un ratio dont les bandes de
-fréquence sont extraites sur les mêmes électrodes. Par ailleurs, même s'il a été montré que les clignements d'yeux affectent davantage la bande thêta que bêta \citep{Barthelemy2017},
+fréquences sont extraites sur les mêmes électrodes. Par ailleurs, même s'il a été montré que les clignements d'yeux affectent davantage la bande thêta que bêta \citep{Barthelemy2017},
 la bande thêta ne s'étend que sur 4Hz, contrairement à la bande bêta qui est plus longue (9Hz), ainsi l'hypothèse de la compensation paraît cohérente.
 
 
@@ -830,7 +830,7 @@ la bande thêta ne s'étend que sur 4Hz, contrairement à la bande bêta qui est
   \centering
 	\includegraphics[width=0.7\linewidth]{figures/chapter-4/tbr-eye-artifact-correction} 
   \caption[Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts 
-	oculaires et sans correction.]{Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts oculaires (en bleu) et sans correction (en vert).}
+	oculaires et sans correction.]{Comparaison des distributions normalisées de \gls{tbr} calculés après correction des artefacts oculaires (en bleu) et sans correction (en orange).}
   \label{Figure:tbr_eye_artifact_correction}
 \end{figure}
 
@@ -842,7 +842,7 @@ qu'il existe une différence significative entre l'âge des enfants du groupe de
 le seuil de 3.7 du \gls{bgmm} à deux composantes
 ($p\text{-value} = 2.30e-15$\text{,} $U = 22 104$, avec les âges médians $\pm$ l'ecart absolu médian de chaque groupe : 8.0$\pm$1.57 et 10.1$\pm$2.43). Par ailleurs, lorsqu'on trace
 la distribution des âges dans chaque groupe, représentée à la Figure~\ref{Figure:tbr_age_distribution}, on observe que le groupe de \gls{tbr} plus faibles (en vert) comporte 
-davantage de sujets âges que le groupe de \gls{tbr} élevé (en rouge). 
+davantage de sujets âgés que le groupe de \gls{tbr} élevé (en rouge). 
 
 \begin{figure}[h!]
   \centering
@@ -870,7 +870,7 @@ intéressant d'étudier si les groupes \gls{tbr} identifiés ici diffèrent sign
 
 En outre, il a été montré que la présence de comorbidités, comme les troubles du comportement et la dépression, a une influence sur la valeur du \gls{tbr} \citep{Loo2013}. 
 \citet{Barry2003erp} ont également souligné que les enfants souffrant des symptômes d'inattention et d'hyperactivité ont tendance à avoir un \gls{tbr} plus élevé que ceux présentant seulement des
-troubles d'attention .  
+troubles d'attention.  
 
 Par ailleurs, il a été observé que les enfants nés en fin d'année sont plus souvent diagnostiqués \gls{tdah} \citep{Layton2018} : en effet ces derniers 
 étant parfois plus jeunes de près d'un an, ils peuvent présenter un comportement différent de leurs pairs qui peut amener à un diagnostic du \gls{tdah}. Evaluer si 
@@ -879,7 +879,7 @@ les deux groupes d'enfants mis en évidence ici se distinguent par le mois de na
 Enfin, un autre facteur qu'il aurait été intéressant d'étudier est l'exposition aux écrans. De nombreuses études se sont penchées sur le lien 
 entre troubles de l'attention et temps passé devant les écrans durant l'enfance : alors que les premiers résultats montrent effectivement un lien 
 entre les deux \citep{Swing2010, Christakis2004}, de nouvelles études sont venues nuancer cette conclusion \citep{Schmidt2008, Lillard2011, Zimmerman2007, Kostyrka2017}.
-En effet, le type de programme regardé par l'enfant aurait une infuence importante : les programmes éducatifs n'auraient pas d'effet négatif sur 
+En effet, le type de programme regardé par l'enfant aurait une influence importante : les programmes éducatifs n'auraient pas d'effet négatif sur 
 la capacité d'attention.
 
 
@@ -896,4 +896,4 @@ qu'un traitement par \gls{nfb} proposant deux protocoles en fonction du \gls{tbr
 de \gls{nfb} appliqué à tout le monde. Toutefois, cette étude n'avait pour but de démontrer ni l'efficacité de la personnalisation du \gls{nfb} ni celle du protocole de diminution de \gls{tbr} chez les 
 enfants \gls{tdah} présentant un \gls{tbr} élevé. Alors que certaines études notent une amélioration des symptômes à l'issue d'un protocole \gls{tbr}, 
 d'autres obtiennent des résultats plus négatifs. Une possible explication de ce manque d'efficacité reporté dans ces études serait que contrôler 
-un ratio de fréquence se révèle plus complexe que de moduler la puissance dans une simple bande de fréquence \citep{Rogala2016}. 
+un ratio de fréquences se révèle plus complexe que de moduler la puissance dans une simple bande de fréquences \citep{Rogala2016}. 
