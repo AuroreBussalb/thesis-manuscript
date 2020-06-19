@@ -141,23 +141,23 @@ Enfin, lorsqu'un groupe contrôle est disponible, on peut calculer l'\gls{es}-in
 Cet \gls{es} est utilisé par \citet{Cortese2016} et \citet{Micoulaud2014} et implémenté dans \citet{Bussalb2019clinical} :
 \begin{equation}
 \label{eq:metareview_effect_size_between}
-\text{ES-inter-groupes} = c_p \left(\frac{(M_{\text{post},T} - M_{\text{pre},T}) - (M_{\text{post},C} - M_{\text{pre},C}) }{\sigma_{\text{pre}}} \right).
+\text{ES-inter-groupes} = c_p \left(\frac{(M_{\text{post},T} - M_{\text{pré},T}) - (M_{\text{post},C} - M_{\text{pré},C}) }{\sigma_{\text{pré}}} \right).
 \end{equation} 
 
 L'\gls{es}-inter-groupes est équivalent au $Z$-score d'une distribution normale qui est une mesure de combien d'écarts-types un score brut est au-dessus ou en-dessous
 de la moyenne d'une population. 
 
 L'\gls{es}-inter-groupes correspond à la différence entre la moyenne à post-test et à pré-test 
-dans le groupe qui reçoit le traitement ($M_{\text{post},T}$, $M_{\text{pre},T}$) moins la différence entre la moyenne du score à post-test et à pré-test 
-dans le groupe contrôle ($M_{\text{post},C}$, $M_{\text{pre},C}$), divisée par la \textit{pooled standard deviation} à pré-test ($\sigma_{\text{pre}}$) :
+dans le groupe qui reçoit le traitement ($M_{\text{post},T}$, $M_{\text{pré},T}$) moins la différence entre la moyenne du score à post-test et à pré-test 
+dans le groupe contrôle ($M_{\text{post},C}$, $M_{\text{pré},C}$), divisée par la \textit{pooled standard deviation} à pré-test ($\sigma_{\text{pré}}$) :
 \begin{equation}
 \label{eq:stats_metareview_std_pre}
-\sigma_{\text{pre}} = \sqrt{\frac{(n_T - 1)\sigma_{\text{pre},T}^2 + (n_C - 1)\sigma_{\text{pre},C}^2} {n_T + n_C - 2}},
+\sigma_{\text{pré}} = \sqrt{\frac{(n_T - 1)\sigma_{\text{pré}, T}^2 + (n_C - 1)\sigma_{\text{pré}, C}^2} {n_T + n_C - 2}},
 \end{equation}
-où $\sigma_{\text{pre},G}$ correspond à l'écart-type du groupe $G$ à pré-test et $n_G$ indique le nombre de sujets ayant suivi l'intégralité 
+où $\sigma_{\text{pré},G}$ correspond à l'écart-type du groupe $G$ à pré-test et $n_G$ indique le nombre de sujets ayant suivi l'intégralité 
 du traitement dans chaque groupe.
 
-La normalisation de l'\gls{es}-inter-groupes (équation Eq.~(\ref{eq:metareview_effect_size_between})) à l'aide de $\sigma_{\text{pre}}$ 
+La normalisation de l'\gls{es}-inter-groupes (équation Eq.~(\ref{eq:metareview_effect_size_between})) à l'aide de $\sigma_{\text{pré}}$ 
 (équation Eq.~(\ref{eq:stats_metareview_std_pre})) se fait seulement avec les données obtenues en pré-test pour ne pas y inclure la variabilité 
 induite par le traitement.
 
@@ -169,7 +169,7 @@ grâce à un facteur de correction $c_p$ qui est utilisé pour les petites étud
 \label{eq:metareview_correction_factor}
 c_p =  1 - \frac{3} {4(n_T + n_C - 2) - 1},
 \end{equation} 
-avec $n_T + n_C - 2$ qui correspond au dégré de liberté utilisé pour le calcul de $\sigma_{\text{pre}}$ à l'équation Eq.~(\ref{eq:stats_metareview_std_pre}).
+avec $n_T + n_C - 2$ qui correspond au dégré de liberté utilisé pour le calcul de $\sigma_{\text{pré}}$ à l'équation Eq.~(\ref{eq:stats_metareview_std_pre}).
 
 Plus la valeur absolue de l'\gls{es}-inter-groupes est élevée, plus l'efficacité du traitement est importante.
 
@@ -191,10 +191,10 @@ Tout d'abord, la variance de chaque \gls{es}-inter-groupes est calculée \citep{
 où \gls{es} désigne l'\gls{es}-inter-groupes et $r$ la corrélation de Pearson groupée intra-groupes \citep{James2013} :
 \begin{equation}
 \label{eq:metareview_within_group_pearson_correlation}
-r = \frac{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - \mu_{\text{pre}})(\text{s}_{\text{post},i} - \mu_{\text{post}}) } { \sqrt{ \sum_{i=1}^{n} (\text{s}_{\text{pre},i} - 
-\mu_{\text{pre}})^2} \sqrt{\sum_{i=1}^{n} (\text{s}_{\text{post},i} - \mu_{\text{post}})^2} }, 
+r = \frac{ \sum_{i=1}^{n} (\text{s}_{\text{pré},i} - \mu_{\text{pré}})(\text{s}_{\text{post},i} - \mu_{\text{post}}) } { \sqrt{ \sum_{i=1}^{n} (\text{s}_{\text{pré},i} - 
+\mu_{\text{pré}})^2} \sqrt{\sum_{i=1}^{n} (\text{s}_{\text{post},i} - \mu_{\text{post}})^2} }, 
 \end{equation}
-où $n$ est le nombre de patients inclus dans une étude, $\text{s}_{\text{pre},i}$, $\text{s}_{\text{post},i}$ les valeurs de scores cliniques pour le sujet $i$ 
+où $n$ est le nombre de patients inclus dans une étude, $\text{s}_{\text{pré},i}$, $\text{s}_{\text{post},i}$ les valeurs de scores cliniques pour le sujet $i$ 
 respectivement à pré- et post-test, et $\mu_{\text{pre}}$, $\mu_{\text{post}}$ les scores moyens calculés sur tous les sujets. 
 Il s'agit d'une mesure de corrélation linéaire entre deux variables : une valeur de 1 signifie une corrélation positive entre ces variables,
 une valeur de -1 une corrélation négative, et une valeur de 0 une absence de corrélation linéaire. Ainsi, si le traitement n'a aucun effet, 
@@ -285,7 +285,7 @@ Eq.~(\ref{eq:metareview_summary_effect}) \citep[Chapitre~12]{Borenstein2009}:
 
 \subsection{Calcul de la fiabilité de la taille d'effet totale}
 
-Une fois l'\gls{est} obtenu, on peut calculer ses trois valeurs de précision. Tout d'abord, sa variance $\sigma^2(\text{EST})$ :  
+Une fois l'\gls{est} obtenu, on peut calculer ses trois valeurs de précision \citep[Chapitre~12]{Borenstein2009}. Tout d'abord, sa variance $\sigma^2(\text{EST})$ :  
 \begin{equation}
 \label{eq:metareview_variance_summary_effect}
 \sigma^2(\text{EST}) = \frac{1} {\sum_{k=1}^{K} w_k},
@@ -309,13 +309,13 @@ avec LL la limite inférieure de cet intervalle de confiance et UL sa limite sup
 
 \subsection{Calcul de la significativité statistique de la taille d'effet totale}
 
-Une $Z$-value est calculée pour tester l'hypothèse nulle pour le modèle à effets aléatoires énoncée en \ref{model_choice} :
+Une $Z$-value est calculée pour tester l'hypothèse nulle pour le modèle à effets aléatoires énoncée en \ref{model_choice} \citep[Chapitre~12]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_confidence_interval_summary_effect_z_value}
 Z = \frac{\text{EST}} {\text{ET(EST)}}.
 \end{equation}
 
-Pour un test bilatéral (utilisé par \citet{Micoulaud2014, Cortese2016}), la $p$-value est ensuite calculée avec :
+Pour un test bilatéral (utilisé par \citet{Micoulaud2014, Cortese2016}), la $p$-value est ensuite calculée avec \citep[Chapitre~12]{Borenstein2009} :
 \begin{equation}
 \label{eq:metareview_confidence_interval_summary_effect_p_value}
 p = 2(1 - \Phi(\abs{Z})),
@@ -325,7 +325,8 @@ où $\Phi$ est la fonction de distribution cumulative de la loi normale standard
 Si la $p$-value obtenue est inférieure à 0.05, alors il y a une différence statistiquement significative entre l'efficacité du traitement étudié 
 et celle du groupe contrôle.
 
-D'autres valeurs peuvent ensuite être calculées pour compléter l'analyse, comme par exemple $I^2$ qui estime l'hétérogénéité des \gls{es}-inter-groupes. 
+D'autres valeurs peuvent ensuite être calculées pour compléter l'analyse, comme par exemple $I^2$ qui estime 
+l'hétérogénéité des \gls{es}-inter-groupes \citep[Chapitre~16]{Borenstein2009}. 
 
 \subsection{Analyse des biais}
 
