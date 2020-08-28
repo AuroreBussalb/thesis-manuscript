@@ -33,15 +33,15 @@ Les paramètres ayant une possible influence sur l'efficacité perçue du \gls{n
 \item \emph{les biais méthodologiques :} 
     \begin{itemize} 
 		\item la présence d'un groupe contrôle, 
-		\item l'aveugle des évaluateurs (\gls{pblind}), 
+		\item l'aveugle des évaluateurs (les enseignants sont considérés comme \gls{pblind} \citep{Cortese2016}), 
 		\item la randomisation des sujets dans les essais contrôlés,
 		\item l'autorisation de conduire l'étude par un \gls{cpp} (\gls{irb} en anglais).
     \end{itemize}
-Ces paramètres ne sont pas spécifiques de l'entrainenement par \gls{nfb} mais pourraient avoir une influence sur les résultats.
+Ces paramètres ne sont pas spécifiques de l'entrainement par \gls{nfb} mais pourraient avoir une influence sur les résultats.
 En effet, \citet{Ros2019} appellent notamment à employer un groupe contrôle et à avoir recours à des évaluateurs aveugles afin d'améliorer la qualité des études.
 
 Le fait qu'une étude soit validée par un \gls{irb} rend compte de la qualité de l'implémentation méthodologique : les études qui en sont dépourvues sont
-condidérées comme étant d'une qualité moindre et donc plus sujettes aux divers biais d'implémentation.  
+considérées comme étant d'une qualité moindre et donc plus sujettes aux divers biais d'implémentation.  
 \item \emph{la population :} 
     \begin{itemize}
     \item la prise de psychostimulants durant le traitement par \gls{nfb}, 
@@ -49,12 +49,12 @@ condidérées comme étant d'une qualité moindre et donc plus sujettes aux dive
 		\item la sévérité des symptômes du TDAH à pré-test (score clinique à pré-test divisé par le score maximal à atteindre sur l'échelle clinique), 
 		\item le degré d'engagement dans l'entrainement par \gls{nfb} (observance thérapeutique et ressenti vis à vis du traitement).
     \end{itemize}
-Certaines de ces caractéristiques ont déjà été indivividuellement étudiées, en particulier l'impact de la prise de psychostimulants durant l'entrainement par \gls{nfb} dans
+Certaines de ces caractéristiques ont déjà été individuellement étudiées, en particulier l'impact de la prise de psychostimulants durant l'entrainement par \gls{nfb} dans
 \citet{Cortese2016} et ses mises à jour (\citep{Bussalb2019clinical} et celle présentée en \ref{selection_studies}) et également discutées par \citet{VanDoren2017}.
 \item \emph{l'implémentation du \gls{nfb} :} 
     \begin{itemize}
-    \item le protocole utilisé (\gls{scp}, \gls{smr}, l'augmentation du rythme theta, l'augmentation du rythme beta dans les aires centrale ou frontale 
-    et la diminution du rythme theta), 
+    \item le protocole utilisé (\gls{scp}, \gls{smr}, l'augmentation du rythme thêta, l'augmentation du rythme bêta dans les aires centrale ou frontale 
+    et la diminution du rythme thêta), 
 		\item la présence d'une phase de transfert lors de l'entrainement par \gls{nfb} (bloc durant lequel aucun \textit{feedback} n'est délivré), 
 		\item l'utilisation d'une méthodologie de transfert d'apprentissage (pour s'entrainer à la maison ou à l'école), 
     \item le type de seuillage pour les récompenses discrètes (le seuil qui permet l'attribution des récompenses peut avoir une valeur fixe tout au long du traitement ou bien variable
@@ -62,13 +62,13 @@ Certaines de ces caractéristiques ont déjà été indivividuellement étudiée
 		\item le nombre de sessions de \gls{nfb}, 
 		\item la durée et la fréquence des sessions, 
 		\item la durée du traitement, 
-		\item l'individualisation des bandes de fréquence basée sur l'\gls{iapf} (l'\gls{iapf} est la valeur du pic dans la bande alpha qui diffère selon les individus), 
+		\item l'individualisation des bandes de fréquences basée sur l'\gls{iapf} (l'\gls{iapf} est la valeur du pic dans la bande alpha qui diffère selon les individus), 
 		\item le couplage du \gls{nfb} avec le Biofeedback-\gls{emgic} (un retour est donné sur l'activité électrique du cerveau, mais aussi sur l'activité musculaire qui est 
 		également enregistrée : l'enfant doit
 		contrôler les deux simultanément).
 		\end{itemize}
 Il existe différents types de protocoles dont l'efficacité clinique a déjà été comparée précisément
-\citep{Leins2007, Heinrich2019}. Les paramètres concernant l'aide au tranfert d'apprentissage semblent jouer un rôle important comme le soulignent \citet{Arns2014, Gani2008} et \citet{Strehl2006}.
+\citep{Leins2007, Heinrich2019}. Les paramètres concernant l'aide au transfert d'apprentissage semblent jouer un rôle important comme le soulignent \citet{Arns2014, Gani2008} et \citet{Strehl2006}.
 Par ailleurs, l'influence de ces facteurs sur le \gls{nfb} est étudiée à travers la méta-analyse de \citet{Cortese2016} et ses mises à jour en regroupant les études suivant un protocole standard
 \citep{Arns2014}.
 
@@ -174,23 +174,23 @@ Cette analyse comporte trois méthodes qui ont été implémentées à l'aide de
 	  \item un arbre de décision de régression (\glsfirst{dt} en anglais) \citep{Quinlan1986}.
 \end{itemize}
 
-La \gls{wls} a été choisie car son équivalent non pondéré (l'\gls{ols}) est très connue du fait de son utilisation courante. Par ailleurs, cette méthode est très proche de la méta-régression qui est 
+La \gls{wls} a été choisie car son équivalent non pondéré (l'\gls{ols}) est très connu du fait de son utilisation courante. Par ailleurs, cette méthode est très proche de la méta-régression qui est 
 parfois mise en place dans les méta-analyses pour quantifier la relation entre un paramètre des études et leur efficacité \citep{Cortese2016, Borenstein2009}. 
 
 Le \gls{lasso} est également une régression mais permet de sélectionner clairement les variables indépendantes ayant une influence sur la variable dépendante. 
 
-Enfin, une méthode non linéaire, le \gls{dt} de regression, est employée car elle permet d'ordonner les variables indépendantes selon leur influence sur la variable dépendante. 
+Enfin, une méthode non linéaire, le \gls{dt} de régression, est employée car elle permet d'ordonner les variables indépendantes selon leur influence sur la variable dépendante. 
 Par ailleurs, un seuil de décision est calculé, ce qui permet d'avoir une idée de la valeur à partir de laquelle le facteur a une influence positive sur l'efficacité du \gls{nfb}.
 
 Les résultats de ces trois méthodes intrinsèquement différentes vont être combinés : si un facteur est identifié par les trois méthodes, alors son influence sur l'efficacité du 
 \gls{nfb} est plus probable que si une seule méthode l'identifie. 
 
-Il a été décidé d'utiliser trois méthodes car celles choisies sont suffisammment différentes pour mener à des conclusions intéressantes : si malgré leurs dissimilitudes 
+Il a été décidé d'utiliser trois méthodes car celles choisies sont suffisamment différentes pour mener à des conclusions intéressantes : si malgré leurs dissimilitudes 
 elles sont d'accord sur l'influence d'un facteur alors on peut raisonnablement conclure que cette influence est fortement probable. Il aurait été possible
 d'avoir recours à plus de méthodes mais, étant donné l'aspect novateur de cette approche, il semblait préférable de ne pas complexifier le message en utilisant trop de méthodes.
 
 \subsubsection{La régression linéaire multiple et pondérée} \label{wls_part}
-La régression linéaire a pour but d'estimer les coefficients de régression qui lient linéairement les facteurs aux \gls{es}-intra-groupe \citep{Montgomery2012}. Ici, nous préférerons 
+La régression linéaire a pour but d'estimer les coefficients de régression qui lient linéairement les facteurs aux \gls{es}-intra-groupe \citep{Montgomery2012}. Ici, nous préférons 
 utiliser une régression linéaire pondérée (en anglais, \glsfirst{wls}) afin d'être sensible au fait que toutes les études ne contribuent pas de la même manière. 
 En effet, cela permet de prendre en compte que, d'une part, pour certaines études, plusieurs échelles cliniques sont disponibles, et que, d'autre part, les études ont des 
 tailles d'échantillon très différentes.
@@ -335,7 +335,7 @@ Une régression linéaire ordinaire (\gls{ols} en anglais) est aussi mise en pla
 La deuxième méthode appliquée lors de la \gls{saob} est le \glsfirst{lasso} qui intègre la sélection de variables dans le modèle linéaire grâce 
 à un \textit{a priori} de parcimonie des variables/coefficients, obtenue via une régularisation par la norme $\ell_1$ \citep{Tibshirani1996}.
 
-La régression régularisée par la norme $\ell_1$ est préférable ici à la régression \textit{Ridge} \citep{James2013} régularisée par 
+La régression régularisée par la norme $\ell_1$ est préférable ici à la régression Ridge \citep{James2013} régularisée par 
 la norme $\ell_2$ (aussi appelée régularisation de Tikhonov) : en effet, la norme $\ell_2$ donne des coefficients lissés, alors que la norme $\ell_1$ donne des coefficients parcimonieux 
 (i.e., les coefficients utiles sont sélectionnés alors que les autres sont mis à 0). 
 
@@ -346,14 +346,14 @@ Les coefficients $\hat{\beta}_{j}$, $0 \leq j \leq p$ sont obtenus en minimisant
 \end{equation} 
 où $\lambda$ est le paramètre de régularisation qui, en augmentant, met de plus en plus de coefficients à 0. Ce phénomène est illustré à la 
 Figure~\ref{Figure:factors_comparison_lasso_ridge_ols_lasso} où est représentée l'évolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ en fonction de
-la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et \textit{Ridge} (en \textbf{B}) sur des données factices. Lorsque $\lambda = 0$, on retombe
+la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et Ridge (en \textbf{B}) sur des données factices. Lorsque $\lambda = 0$, on retombe
 sur la solution de l'\gls{ols} évoqué en \ref{wls_part}.
 
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1.0\linewidth]{figures/chapter-3/comparison-lasso-ridge-ols-lasso} 
-  \caption[Comparaison des régressions \gls{lasso} et \textit{Ridge} sur des données factices.]{Evolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ (en vert, rouge, jaune, violet et bleu) en fonction de
-  la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et \textit{Ridge} (en \textbf{B}) sur des données factices. Pour $\lambda = 0$, on se retrouve
+  \caption[Comparaison des régressions \gls{lasso} et Ridge sur des données factices.]{Evolution de la valeur de chaque coefficient $\hat{\beta}_{j}$ (en vert, rouge, jaune, violet et bleu) en fonction de
+  la valeur de $\lambda$ dans le cas des régressions \gls{lasso} (en \textbf{A}) et Ridge (en \textbf{B}) sur des données factices. Pour $\lambda = 0$, on se retrouve
   dans le cas de l'\gls{ols}. Le \gls{lasso} effectue bien une sélection de variables en mettant à zéro les coefficients les plus faibles.}
   \label{Figure:factors_comparison_lasso_ridge_ols_lasso}
 \end{figure}
@@ -429,10 +429,10 @@ avec des exigences précises sur les groupes contrôles énoncées en \ref{selec
 \gls{tdah} sans tenir compte de la présence d'un groupe contrôle et du type de contrôle. 
 
 Ainsi, le critère d'inclusion de \citet{Cortese2016} a été élargi : la \gls{saob} se concentrant sur l'efficacité du \gls{nfb} au sein du 
-groupe suivant le traitement grâce à l'\gls{es}-intra-groupes défini en \ref{es_within}, les pré-requis concernant les groupes contrôles 
+groupe suivant le traitement grâce à l'\gls{es}-intra-groupe défini en \ref{es_within}, les pré-requis concernant les groupes contrôles 
 ne sont pas nécessaires.
 
-Une fois les études identifiées, celles à inclure dans la \gls{saob} sont sélectionnées
+Une fois les études identifiées, celles à inclure dans la \gls{saob} sont sélectionnées.
 
 \subsubsection{Résultats de la sélection}
 
@@ -461,7 +461,7 @@ Figure~\ref{Figure:distribution_ES_within}. Les \gls{es}-intra-groupe négatifs 
   \centering
 	\includegraphics[width=0.5\linewidth]{figures/chapter-3/distribution-ES-within} 
   \caption[Distribution des tailles d'effet intra-groupe calculées pour les études incluses dans la \gls{saob}.]{Distribution des \gls{es}-intra-groupe calculés pour les études 
-	incluses dans la \gls{saob}, une valeur négative est en faveur du Neurofeedback. Les lignes 
+	incluses dans la \gls{saob}, une valeur négative est en faveur du \gls{nfb}. Les lignes 
 	verticales noires correspondent aux bornes supérieure et 
 	inférieure de l'intervalle dans lequel les observations sont acceptées. La courbe verte est la Gaussienne ayant pour paramètres $\mu$ la moyenne
 	de tous les \gls{es}-intra-groupe et $\sigma$ l'écart-type calculé sur tous les \gls{es}-intra-groupe.}
@@ -488,7 +488,7 @@ qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_
 
 \begin{table}[t]
   \centering
-  \caption[Liste des études incluses dans la \gls{saob}.]{Liste des études incluses dans la \gls{saob}: a) études incluses dans \citet{Cortese2016}
+  \caption[Liste des études incluses dans la \glsfirst{saob}.]{Liste des études incluses dans la \gls{saob}: a) études incluses dans \citet{Cortese2016}
 	(dernière recherche le 30 août 2015) ; b) études satisfaisant le critère d'inclusion de \citet{Cortese2016} (dernière recherche le 2 septembre 2019) ; c) études 
 	satisfaisant le critère d'inclusion de \citet{Cortese2016} à l'exception de la partie concernant le groupe contrôle (dernière recherche le 2 septembre 2019).}
   \input{tables/chapter-3/table_factors_analysis_meta_analysis_list_studies}
@@ -502,7 +502,7 @@ qui sont listées dans la Table~\ref{Table:table_factors_analysis_meta_analysis_
 Vingt-huit paramètres ont été initialement identifiés afin d'analyser leur influence sur l'efficacité du \gls{nfb}. Parmi eux, dix ont dû être exclus car ils étaient trop
 homogènes ou présentaient trop d'observations manquantes sur la base des critères présentés en \ref{preprocessing} : 
 \begin{itemize}
-	\item le protocole visant l'augmentation du rythme beta dans les aires frontales,
+	\item le protocole visant l'augmentation du rythme bêta dans les aires frontales,
 	\item la présence d'un \gls{irb},
   \item l'utilisation d'une carte pour le transfert de ce qui a été appris durant l'entrainement à la maison ou à l'école, 
   \item le type de seuillage pour les récompenses discrètes (incrémental ou fixe),
@@ -553,7 +553,7 @@ Dans le cas de l'\gls{ols}, les mêmes facteurs ont été trouvés significatifs
 à chaque observation permet d'expliquer davantage de variabilité. 
 
 Il est important de noter qu'étant donné qu'un \gls{es}-intra-groupe négatif est en faveur de l'efficacité du \gls{nfb},
-un facteur dont le coefficient est négatif aurait une influence positive sur les résultats \gls{nfb}.
+un facteur dont le coefficient est négatif aurait une influence positive sur les résultats du \gls{nfb}.
 
 
 \subsubsection{La régression linéaire régularisée}
@@ -599,11 +599,11 @@ L'influence des facteurs retournés par deux méthodes est plus incertaine :
 	influenceraient positivement les résultats. 
 \end{itemize}
 
-Quatre facteurs sont retournés seulement par une méthode : le nombre de sessions, l'augmentation du rythme beta dans la zone centrale, l'enregistrement
+Quatre facteurs sont retournés seulement par une méthode : le nombre de sessions, l'augmentation du rythme bêta dans la zone centrale, l'enregistrement
 de l'\gls{eeg} par plus d'une électrode et la durée de la session. 
 
 Huit facteurs, n'ont quant à eux été sélectionnés par aucune méthode : la randomisation des sujets, l'âge minimum et maximum des enfants, prendre des 
-médicaments pendant le traitement par \gls{nfb}, les protocoles \gls{smr}, diminution de theta et \gls{scp}, et le rejet
+médicaments pendant le traitement par \gls{nfb}, les protocoles \gls{smr}, diminution de thêta et \gls{scp}, et le rejet
 des artefacts basée sur l'amplitude. Ainsi ces facteurs n'influenceraient pas l'efficacité du \gls{nfb}. 
 
 Ces résultats sont résumés à la Table~\ref{Table:table_factors_analysis_results_summary_number_of_factors}.
@@ -640,7 +640,7 @@ La \gls{saob} a permis d'identifier des facteurs ayant une potentielle influence
 du \gls{nfb} et de la littérature scientifique sur le sujet. Les résultats trouvés par la \gls{saob} sont discutés ici et mis en perspective avec cette littérature, en s'intéressant à la fois 
 aux paramètres pour lesquels l'influence sur la performance clinique est fortement probable et à ceux pour lesquels l'impact s'avère moins certain. 
 
-Tout d'abord, le type de protocole \gls{nfb} n'a été identifié, étonnamment, par aucune méthode à l'exception de l'augmentation du rythme beta en central qui l'a été par une méthode. 
+Tout d'abord, le type de protocole \gls{nfb} n'a été identifié, étonnamment, par aucune méthode à l'exception de l'augmentation du rythme bêta en central qui l'a été par une méthode. 
 Ainsi, selon la \gls{saob}, quel que serait le protocole d'entrainement, il n'influencerait pas l'efficacité du \gls{nfb}, son effet serait non-spécifique. Cette importance 
 minime octroyée par la \gls{saob} à ces facteurs est contre-intuitive étant donné le rôle central du protocole choisi sur le mode d'action neurophysiologique 
 et donc sur l'impact sur l'efficacité thérapeutique \citep{Vernon2004, Heinrich2019}. Une probable 
@@ -723,7 +723,7 @@ l'efficacité du \gls{nfb} : la qualité de l'\gls{eeg} égale à 2 et la correc
 En effet, selon deux méthodes, enregistrer l'\gls{eeg} dans de bonnes conditions mènerait à de meilleurs résultats. Cette observation peut s'expliquer par le fait qu'un signal
 \gls{eegi} de bonne qualité permet l'extraction plus précise des caractéristiques de l'\gls{eeg} liées au \gls{tdah} et donc conduit à un meilleur apprentissage et 
 à une efficacité thérapeutique augmentée. Cependant, évaluer la qualité des moyens d'acquisition de l'\gls{eeg} (comme l'amplificateur utilisé) 
-est difficile du fait du peu d'informations fourni par les études à ce sujet. Par conséquent, les futures essais cliniques devraient apporter plus 
+est difficile du fait du peu d'informations fourni par les études à ce sujet. Par conséquent, les futurs essais cliniques devraient apporter plus 
 de précisions quant au matériel utilisé afin de pouvoir plus aisément juger de sa qualité. La qualité d'acquisition de signaux \gls{eegi} peut être évaluée grâce à différentes
 métriques dont certaines ont été utilisées par \citep{Bussalb2018benchmark} lors de la comparaison de différents systèmes \gls{eegi}. 
 
@@ -735,7 +735,7 @@ des mouvements oculaires et clignements sur l'\gls{eeg} souligné en \ref{steps_
 
 L'influence d'autres facteurs sur l'efficacité du \gls{nfb} aurait été intéressante à analyser, comme la personnalisation des 
 protocoles d'entrainement basée sur l'\gls{iapf}. En effet, \citet{Vernon2004} et \citet{Klimesch1999} ont noté que les limites des bandes 
-de fréquence varient d'un individu à l'autre et sont aussi dépendantes de l'âge. Par ailleurs, les résultats paraissent prometteurs selon 
+de fréquences varient d'un individu à l'autre et sont aussi dépendantes de l'âge. Par ailleurs, les résultats paraissent prometteurs selon 
 \citet{Bazanova2018, Escolano2014} et \citet{Alkoby2017}. Cependant, ce paramètre n'a pas pu être inclus dans la \gls{saob} faute d'un 
 nombre suffisant d'études proposant un protocole personnalisé. Ce manque d'études est aussi la raison pour laquelle le couplage entre le Biofeedback-\gls{emgic}
 et le \gls{nfb} n'a pas pu être étudié dans la \gls{saob}. 
@@ -745,9 +745,9 @@ Un autre facteur intéressant, qui aurait pu aider à expliquer les résultats s
 comparables car différentes échelles sont utilisées. Afin de résoudre ce problème, ces scores ont été normalisés grâce au score maximum pouvant être atteint
 sur chaque échelle. Toutefois, cette valeur n'a pas pu être trouvée pour plusieurs échelles cliniques : trop d'observations manquantes ont mené au rejet du facteur.
 
-Ensuite, il serait intéressant de s'intéresser au lieu où les sessions de \gls{nfb} sont effectuées. En effet, \citet{Minder2018} ont souligné le fait que le lieu
+Ensuite, il serait intéressant de se pencher sur l'influence du lieu où les sessions de \gls{nfb} sont effectuées. En effet, \citet{Minder2018} ont souligné le fait que le lieu
 d'entrainement pourrait aussi être un facteur contribuant à l'efficacité du \gls{nfb}. Toutefois, dans leur étude aucune différence significative 
-n'est trouvée entre les résultats des performances à la clinique et à l'école. \citet{Vernon2004} a avancé qu'effectuer les séance de \gls{nfb} à l'école
+n'est trouvée entre les résultats des performances à la clinique et à l'école. \citet{Vernon2004} a avancé qu'effectuer les séances de \gls{nfb} à l'école
 pourrait faciliter le transfert de ce qui a été appris lors des sessions de \gls{nfb} à la vie de tous les jours.
 
 Dans la grande majorité des études sur le \gls{nfb} appliqué aux enfants
@@ -784,11 +784,12 @@ expliquée par l'effet placebo. Par ailleurs, les enseignants sont désignés co
 traitement suivi par les enfants. En effet, il est possible que certains enseignants voient les enfants prendre des psychostimulants lors des pauses.
 Cependant, il est difficile d'évaluer l'amplitude de ce phénomène. 
 
-Un élément corrobore cette hypothèse : pour chaque étude incluse dans cette analyse, l'évaluation des symptômes avant le début
+Un élément corrobore cette hypothèse : pour chaque étude incluse dans cette analyse qui satisfait le critère d'inclusion de \citet{Cortese2016} et 
+qui propose la même échelle clinique à remplir aux parents et enseignants, l'évaluation des symptômes avant le début
 du traitement par les parents comparée à celle des enseignants montre que ces derniers ne voient pas l'ensemble des symptômes, autrement dit qu'ils sont probablement
 plus aveugles aux symptômes qu'au traitement comme l'illustre la Figure~\ref{Figure:factors_pblind_discussion}. En effet, à pré-test, les enseignants évaluent les 
 symptômes moins sévèrement que les parents et observent moins d'amélioration à post-test : cela correspond davantage au cas \textbf{A} représentant l'absence d'effet placebo
-qu'au cas \textbf{B}.
+qu'au cas \textbf{B} présentés à la Figure~\ref{Figure:factors_pblind_discussion}.
 
 \begin{figure}[h!]
   \centering
@@ -820,7 +821,7 @@ plus aveugles aux symptômes qu'au traitement. Etant donné que la mise en place
 \citep{Birbaumer1991} faisables est très difficile, il est nécessaire d'avoir recours à une méthode alternative et objective acceptable pour juger de l'efficacité du traitement 
 \citep{World-Medical-Association2000}. Une analyse robuste envisageable serait d'étudier les neuromarqueurs collectés durant le traitement par \gls{nfb} pour démontrer que les 
 patients contrôlent effectivement le neuromarqueur, qu'ils apprennent (c'est à dire que le contrôle du neuromarqueur s'intensifie avec le temps), et que cet apprentissage conduit 
-à une réorgarnisation cérébrale durable. Ce genre d'analyse a été menée pour certaines études et conduit à des résultats favorables mais n'est pas 
+à une réorganisation cérébrale durable. Ce genre d'analyse a été menée pour certaines études et conduit à des résultats favorables mais n'est pas 
 systématique \citep{Arns2014}. Si aucune évolution du neuromarqueur n'est observée au cours du traitement alors que les évaluateurs \gls{mprox} notent une amélioration clinique 
 des symptômes, on pourrait conclure que l'effet placebo joue un rôle dans ces résultats.
 
@@ -866,10 +867,10 @@ A l'inverse, la présence d'une phase de transfert est désormais sélectionnée
 
 \subsubsection{Etude de l'évolution du nombre de méthodes sélectionnant un facteur entre les résultats de \citet{Bussalb2019clinical} et ceux de sa mise à jour} \label{evolution_methods}
 Afin de mettre évidence la fluctuation des résultats, la même approche que celle décrite en \ref{meta_analysis_update} est suivie ici : l'évolution du nombre de méthodes de régression pour 
-lesquelles un facteur est sélectionnné au fur et à mesure de l'ajout,
+lesquelles un facteur est sélectionné au fur et à mesure de l'ajout,
 selon leur année de publication, des nouvelles études mettant à jour \citet{Bussalb2019clinical} est étudiée. 
 
-Il a été decidé de s'intéresser à l'évolution des résultats en prenant comme origine ceux présentés dans \citet{Bussalb2019clinical} car le nombre d'observations y est déjà faible (67) compte tenu du nombre 
+Il a été décidé de s'intéresser à l'évolution des résultats en prenant comme origine ceux présentés dans \citet{Bussalb2019clinical} car le nombre d'observations y est déjà faible (67) compte tenu du nombre 
 de variables indépendantes (19) : effectuer la \gls{saob} sur moins d'observations conduirait à des résultats peu fiables. 
 
 \newpage
@@ -884,7 +885,7 @@ L'analyse de son évolution au cours du temps permettra de déterminer si elle s
 \item \textsl{le nombre de sessions :} ce paramètre a été identifié par deux méthodes dans \citet{Bussalb2019clinical}, mais ce nombre est de un suite à la mise à jour des résultats.
 Etant donné que la valeur de ce facteur est très discutée dans la littérature comme rappelé en \ref{discussion_factors}, il semble judicieux d'étudier ce facteur plus précisément,
 \item \textsl{le protocole \gls{smr} :} ce facteur n'est sélectionné par aucune méthode, aussi bien dans \citet{Bussalb2019clinical} que dans sa mise à jour. Il a été choisi arbitrairement
-parmi les protocoles d'entrainenemt retourné par aucune méthode pour mettre en évidence une éventuelle fluctuation au cours du temps de ce type de facteur qui parait intuivement central comme
+parmi les protocoles d'entrainement retourné par aucune méthode pour mettre en évidence une éventuelle fluctuation au cours du temps de ce type de facteur qui parait intuitivement central comme
 discuté en \ref{discussion_factors}.
 \end{itemize}
 
@@ -932,14 +933,14 @@ démontre plutôt un effet placebo.
 Bien que ces résultats contribuent certainement au débat, ce travail montre également que l'ultime démonstration de la preuve de l'efficacité du \gls{nfb}
 appliqué aux enfants \gls{tdah} n'est pas encore atteinte, étant donné que les évaluations des enseignants ont été en partie invalidées comme indicatrices de 
 l'effet placebo. Par conséquent, se référer aux résultats des évaluateurs \gls{pblind} pour mettre en évidence la spécificité de l'efficacité clinique n'est pas 
-recommandé : il serait préférable d'avoir recours au \textit{sham}-\gls{nfb} et à l'analyse des changements de l'\gls{eeg} en fonction des neuromarqueurs entrainés.
+recommandé : il serait préférable d'avoir recours au \textit{sham}-\gls{nfb} et à l'analyse des changements de l'\gls{eeg} en fonction des neuromarqueurs entrainés
+\citep{Gevensleben2009eegeffects, Janssen2016randomized}.
 
 Comme l'a montré la mise à jour des résultats de la \gls{saob}, les conclusions de cette analyse peuvent encore évoluer. Pour qu'elles se stabilisent, 
 davantage d'observations sont nécessaires : une façon de résoudre ce problème serait d'inclure dans la \gls{saob} tous les articles sur l'efficacité du 
 \gls{nfb} sans tenir compte de son application. Une telle \gls{saob} n'aurait pas pour but de déterminer les facteurs ayant une influence sur 
 l'efficacité du \gls{nfb} sur les enfants \gls{tdah} comme c'est le cas dans ce chapitre, mais ceux ayant une influence en général sur 
-l'efficacité du \gls{nfb}, quelle que soit son application. Toutefois, les résultats de l'analyse menée ici donne tout de même des pistes pour améliorer 
-la performance du \gls{nfb} appliqué aux enfants \gls{tdah}. 
+l'efficacité du \gls{nfb}, quelle que soit son application. 
 
 Au vu du nombre important d'études publiées sur le \gls{nfb} appliqué aux enfants \gls{tdah}, certains facteurs vont pouvoir finir par être inclus dans la \gls{saob}, comme par exemple 
 l'individualisation du protocole de \gls{nfb} qui semble prometteuse. Le chapitre suivant va justement s'intéresser à la distribution d'un marqueur de l'attention, 

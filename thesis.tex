@@ -3,67 +3,67 @@
 %% ---------------------------------------------------------------
 
 \pdfobjcompresslevel 0
-\documentclass[12pt,a4paper,french]{report}
 
-\input{preamble}
+\documentclass[utf8,12pt,a4paper,french, twoside]{thesis_template}
+
 \input{glossaries}
 
 \begin{document}
 
-\afterpage{\blankpage}
-
 \input{title_page}
-
-\input{dedication}
-\thispagestyle{empty}
-
-\pagebreak{\blankpage}
-
-\input{acknowledgments}
-\thispagestyle{empty}
 
 \pagebreak{\blankpage}
 
 \input{abstract_keywords_french}
-\thispagestyle{empty}
-
-\pagebreak{\blankpage}
+\thispagestyle{style5}
 
 \input{abstract_keywords}
+\thispagestyle{style5}
+
+%\pagebreak{\blankpage}
+
+\newpage
+\input{dedication}
 \thispagestyle{empty}
 
-\pagebreak{\blankpage}
+\newpage
+\input{acknowledgments}
+%\thispagestyle{empty}
+
+%\pagebreak{\blankpage}
 
 \tableofcontents
-\thispagestyle{empty}
+\thispagestyle{style2}
 
 \listoffigures
+\thispagestyle{style3}
 \newpage
 
 \listoftables
 
 \newpage
-\printglossary[title=Abréviations, type=\acronymtype]
+\printglossary[title=Abréviations, type=\acronymtype, nonumberlist, style=long]
 
+\newpage
 \input{chapter_1}
 
 \newpage
-
 \input{chapter_2}
 
 \newpage
-
 \input{chapter_3}
 
 \newpage
-
 \input{chapter_4}
 
 \newpage
-
 \input{chapter_5}
 
 \newpage
+\fancyhead[RO]{Bibliographie}
 \bibliography{bibliography}
+
+\newpage
+\thispagestyle{empty}
 
 \end{document}
