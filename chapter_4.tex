@@ -52,7 +52,8 @@ Au moment où le travail décrit dans ce chapitre a été mené, NEWROFEED étai
 seulement une partie des données était disponible. Ainsi, 122 enregistrements \gls{eegi} d'enfants diagnostiqués \gls{tdah} d'après les critères du DSM-IV \citep{DSM-4} 
 ont été analysés. L'\gls{eeg} a été enregistré avec l'appareil Mensia Koala équipé de 8 électrodes \gls{agcl} individuellement blindées, positionnées sur le scalp en accord avec 
 le système international 10-20 : Fpz, F3, Fz, F4, C3, Cz, C4, Pz. La fréquence d'échantillonnage était de 512Hz. Les impédances devaient être
-inférieures à $40\text{k}\Omega$ et le niveau de contamination électromagnétique devait rester inférieur à 1/3 de l'énergie totale du signal. 
+inférieures à $40\text{k}\Omega$ et le niveau de contamination électromagnétique devait rester inférieur à 1/3 de l'énergie totale du signal. Ces deux points étaient vérifiés 
+grâce à des étapes de contrôle qui devaient validées pour pouvoir passer à l'enregistrement de l'\gls{eeg}.
 
 Pour participer à l'étude NEWROFEED, les sujets devaient remplir les critères suivants :
 \begin{enumerate}
@@ -146,7 +147,8 @@ Une stratégie est ici mise en place pour détecter de façon fiable ces électr
 \end{enumerate}
 Si le $Z$-score temporel n'est pas compris entre -5 et 5, le signal est détecté comme étant un artefact et est interpolé à partir des canaux voisins.
 Si le $Z$-score spatial n'est pas compris entre -2 et 2, soit le signal a une trop grande variance (autrement dit il est bruité), soit une trop faible
-variance (autrement dit l'électrode doit être déconnectée et n'enregistre rien) : dans les deux cas il est interpolé. Ces valeurs ont été choisies
+variance (autrement dit l'électrode doit être déconnectée et n'enregistre rien) : dans les deux cas il est interpolé par \textit{spherical spline interpolation} \citep{Freeden1984}. 
+Ces valeurs ont été choisies
 empiriquement en se basant sur la distribution des variances mais n'ont pas été validées de manière plus précise.  
 
 Les données sont re-référencées sur l'électrode de la mastoïde gauche (électrode 57 de l'\gls{egi}-128) pour correspondre au référencement de la base
@@ -364,7 +366,7 @@ et $\mu_k$.
 \end{enumerate}
 
 Ce processus est répété jusqu'à ce que l'algorithme converge, menant à l'estimation de la \textit{maximum likelihood}. La même approche est suivie pour le \gls{bgmm} pour lequel 
-les informations des \textit{a priori} sont intégrées. 
+les informations des \textit{a priori} sont intégrées. Ces \textit{a priori} sont les valeurs normalisées des \gls{tbr} des 74 sujets sains de la base de données \gls{cmi-hbn}.
 
 Afin de déterminer le nombre de composantes qui décrit le mieux la distribution des \gls{srntbr}, la significativité de la différence entre chaque 
 modèle est testée grâce à un test $\chi^2$ sur la déviance \citep[Chapitre~6]{James2013}. Etant donné que dans le cas du \textit{Gaussian Mixture Model} les modèles
@@ -815,9 +817,14 @@ En effet, deux points ont été approfondis ici pour juger de leur impact sur le
 \subsubsection{Correction des artefacts oculaires}
 
 La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eegi}. Ces artefacts de basse fréquence
-peuvent affecter les calculs de puissance et donc, par ricochet, les valeurs de \gls{tbr}. Les distributions des valeurs de \gls{tbr} sans et avec 
-la correction d'artefacts oculaires basée sur la séparation aveugle de sources (\textit{blind source separation} en anglais) \citep{Barthelemy2017} 
-ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} où aucune grande différence entre les deux distributions n'est observée. Par conséquent, la correction des artefacts 
+peuvent affecter les calculs de puissance et donc, par ricochet, les valeurs de \gls{tbr}. Ainsi, afin de qualifier l'impact de la correction des artefacts oculaires,
+la distibution des valeurs de \gls{tbr} obtenues sans cette correction est comparée à celle obtenue sur les signaux corrigés. Les artefacts oculaires ont ici été corrigés 
+à l'aide d'une méthode basée sur la \gls{bss} : l'\textit{approximate joint diagonalization of Fourier cospectra} (l'\gls{ajdc}) \citep{Barthelemy2017} qui est appliquée en temps 
+réel. 
+
+Les distributions des valeurs de \gls{tbr} sans et avec 
+la correction d'artefacts oculaires ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction}.
+ où aucune grande différence entre les deux distributions n'est observée. Par conséquent, la correction des artefacts 
 oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées. 
 
 Une des hypothèses justifiant ce 

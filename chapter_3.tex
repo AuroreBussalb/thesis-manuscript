@@ -156,7 +156,7 @@ lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\g
 \noindent où $M_{\text{t},T}$ est la moyenne sur l'échelle clinique, pour le traitement $T$, au moment t (pré-test ou post-test) et $\sigma_{\text{t},T}$ représente
 son écart-type. Au contraire de l'\gls{es}-inter-groupes défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de se concentrer sur l'effet du 
 traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} a déjà été précédemment utilisée dans la littérature sur le \gls{nfb} 
-appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Plus la valeur absolue de l'\gls{es}-intra-groupe est élevée, plus
+appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Dans le cas de l'analyse réalisée ici, lorsque l'\gls{es}-intra-groupe est négatif et plus sa valeur absolue est élevée, plus
 le traitement étudié est efficace. 
 
 Afin de limiter l'influence d'observations extrêmes parmi les valeurs des \gls{es}-intra-groupe, celles se trouvant à plus de 3 écart-types de la moyenne
@@ -267,7 +267,7 @@ La \textit{skewness} $\gamma$ rend compte d'à quel point la forme générale d'
 \label{eq:factors_skewness}
 \gamma = E \Big[ \Big(\frac{ Y - \mu }{ \sigma }\Big)^{3} \Big], 
 \end{equation}
-avec $E$ la valeur attendue, $Y$ la variable aléatoire, $\mu$ la moyenne de la population et $\sigma$ l'écart-type de la population.
+avec $E$ l'espérance statistique, $Y$ la variable aléatoire, $\mu$ la moyenne de la population et $\sigma$ l'écart-type de la population.
 
 La \textit{skewness} d'une distribution normale vaut 0.
 
@@ -399,7 +399,7 @@ Un arbre exemple est schématisé à la Figure~\ref{Figure:factors_decision_tree
   \label{Figure:factors_decision_tree_example}
 \end{figure}
 
-Afin que les seuils calculés par le \gls{dt} aient un sens, la variables indépendantes n'ont ici pas été standardisées. Dans le cas de la \gls{saob}, 
+Afin que les seuils calculés par le \gls{dt} aient un sens, les variables indépendantes n'ont ici pas été standardisées. Dans le cas de la \gls{saob}, 
 les facteurs se retrouvent dans les noeuds : leur influence sur l'efficacité du \gls{nfb} est quantifiée par la valeur de la variable dépendante 
 obtenue après chaque division mais aussi par leur place dans l'arbre. En effet, plus un facteur est en haut de l'arbre plus les divisions se font sur un grand nombre
 d'observations, ainsi son impact sur l'efficacité est davantage probable.
