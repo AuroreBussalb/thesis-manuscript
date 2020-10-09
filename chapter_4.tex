@@ -53,7 +53,7 @@ seulement une partie des données était disponible. Ainsi, 122 enregistrements 
 ont été analysés. L'\gls{eeg} a été enregistré avec l'appareil Mensia Koala équipé de 8 électrodes \gls{agcl} individuellement blindées, positionnées sur le scalp en accord avec 
 le système international 10-20 : Fpz, F3, Fz, F4, C3, Cz, C4, Pz. La fréquence d'échantillonnage était de 512Hz. Les impédances devaient être
 inférieures à $40\text{k}\Omega$ et le niveau de contamination électromagnétique devait rester inférieur à 1/3 de l'énergie totale du signal. Ces deux points étaient vérifiés 
-grâce à des étapes de contrôle qui devaient validées pour pouvoir passer à l'enregistrement de l'\gls{eeg}.
+grâce à des étapes de contrôle qui devaient être validées pour pouvoir passer à l'enregistrement de l'\gls{eeg}.
 
 Pour participer à l'étude NEWROFEED, les sujets devaient remplir les critères suivants :
 \begin{enumerate}
@@ -147,7 +147,7 @@ Une stratégie est ici mise en place pour détecter de façon fiable ces électr
 \end{enumerate}
 Si le $Z$-score temporel n'est pas compris entre -5 et 5, le signal est détecté comme étant un artefact et est interpolé à partir des canaux voisins.
 Si le $Z$-score spatial n'est pas compris entre -2 et 2, soit le signal a une trop grande variance (autrement dit il est bruité), soit une trop faible
-variance (autrement dit l'électrode doit être déconnectée et n'enregistre rien) : dans les deux cas il est interpolé par \textit{spherical spline interpolation} \citep{Freeden1984}. 
+variance (autrement dit l'électrode doit être déconnectée et n'enregistre rien) : dans les deux cas il est interpolé par \textit{spherical spline interpolation} \citep{Freeden1984, Perrin1989}. 
 Ces valeurs ont été choisies
 empiriquement en se basant sur la distribution des variances mais n'ont pas été validées de manière plus précise.  
 
@@ -209,13 +209,13 @@ L'extraction du \gls{tbr} des \gls{eeg} obtenus après les pré-traitements pré
 \end{enumerate}
 
 \subsubsection{Rejet des artefacts}
-Tout d'abord, les données artefactées sont exclues en utilisant le géométrie Riemannienne \citep{Barachant2013, Barthelemy2019}. 
+Tout d'abord, les données artefactées sont exclues en utilisant une méthode basée sur la géométrie Riemannienne : le \gls{rpf} \citep{Barachant2013, Barthelemy2019}. 
 
 Le principe de cette méthode consiste à calculer la matrice de covariance de chaque segment d'\gls{eeg} : les époques dont la matrice de covariance se trouve à l'extérieur d'une région
 d'acceptabilité, appelée patate, définie par un $Z$-score sont considérées artefactées et donc rejetées. Cette région d'acceptabilité est définie par une référence d'\gls{eeg} propre.
-
 Afin d'augmenter la sensibilité et la spécificité de cette méthode de rejet, plusieurs petites patates définies sur certains canaux peuvent travailler en parallèle \citep{Barthelemy2019}, 
-cette méthode a été appliquée ici.
+cette méthode a été appliquée ici. 
+
 Les données \gls{eegi} sont segmentées (durée de 2 secondes avec un chevauchement toutes les 0.125s) et sont analysées simultanément par six patates. Chaque patate a pour but de détecter 
 un type d'artefact, les canaux de chaque patate ainsi que le filtrage du signal \gls{eegi} sont donc choisis de façon à pouvoir le repérer. 
 Les sous-ensembles de canaux choisis ici et les bandes de fréquences \gls{eegi} analysées sont les suivants :
@@ -226,7 +226,11 @@ Les sous-ensembles de canaux choisis ici et les bandes de fréquences \gls{eegi}
 aux ondes \gls{eegi} d'intérêt.
 \end{itemize}
 Pour chaque patate un $Z$-score est calculé, ceux-ci sont ensuite combinés pour aboutir à une seule $p$-value : un segment d'\gls{eeg} est considéré comme propre si cette $p$-value est 
-plus grande qu'un seuil obtenu grâce à une référence d'\gls{eeg} propres. 
+plus grande qu'un seuil obtenu grâce à une référence d'\gls{eeg} propre. 
+
+Ici, la calibration des patates n'a pas été réalisée à l'aide d'une référence d'\gls{eeg} propre, mais en utilisant les signaux \gls{eegi} desquels les artefacts doivent être rejetés : 
+il s'agit d'un \textit{self-calibrated} \gls{rpf} \citep{Barthelemy2019}. Cette technique peut être appliquée si et seulement si les signaux \gls{eegi} sont de bonne qualité, ce qui est 
+supposé être le cas ici étant donné que tous les enregistrements ont été effectués dans un environnement contrôlé et sous la supervision d'un spécialiste \citep{Bioulac2019, Langer2017, Alexander2017}. 
 
 \subsubsection{Extraction de l'\gls{iapf}} \label{extraction_iapf}
 Ensuite, l'\gls{iapf}, définie en \ref{principe_nfb}, est calculée en déterminant la fréquence à laquelle le pic de puissance est observé dans la bande alpha prise entre 7 et 13Hz.
@@ -274,10 +278,11 @@ puis ces deux puissances sont divisées entre elles :
 conduisant à un ratio instantané de valeurs de puissances qui représente une implémentation en temps réel du \gls{tbr}.
 
 La distribution de l'ensemble des $\bar{P}_{c,b}$ n'étant pas normale, la médiane obtenue à Fz et Cz est utilisée pour représenter le \gls{tbr} sur l'ensemble 
-de l'enregistrement, puis le maximum sur ces deux électrodes est retenu.
+de l'enregistrement, puis le maximum sur ces deux électrodes est retenu en accord avec les directives du comité scientifique de NEWROFEED.
 
-Enfin, cette valeur de \gls{tbr} doit être normalisée pour les analyses de partitionnement qui vont suivre. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
-le \glsfirst{bgmm} et le \gls{gmm} détaillées par la suite, supposent que la distribution des \gls{tbr} est normale. 
+Enfin, cette valeur de \gls{tbr} est normalisée pour les analyses de partitionnement qui vont suivre. En effet, deux des méthodes utilisées pour modéliser la distribution des \gls{tbr},
+le \glsfirst{bgmm} et le \gls{gmm} détaillés par la suite, requièrent que les données soient distribuées selon un mélange de Gaussiennes \citep{Blei2006}, 
+ainsi on normalise les données afin que chaque mode potentiel soit effectivement distribué normalement. 
 En effet, un \gls{bgmm} appliqué à une distribution non normale identifierait de faux groupes (\textit{clusters} en anglais) pour ajuster les données. 
 Ainsi, pour être certain que l'hypothèse de normalité est valide, la distribution des \gls{tbr} de patients sains (provenant de la base de données \gls{cmi-hbn})
 est analysée avec deux techniques de normalisation différentes : la \textit{log normalization} et la \textit{square-root-normalization}.
@@ -295,7 +300,7 @@ nulle de normalité ($p$-value = 0.46). Ainsi, on suppose que les valeurs de \gl
 	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-normalization} 
   \caption[Comparaison de techniques de normalisation des valeurs de \gls{tbr}.]{Comparaison de techniques de normalisation des valeurs de \gls{tbr}. 
 	Les histogrammes des distributions de valeurs \gls{tbr} des patients sains non nomalisées,
-	log normalisées et \textit{square-root} normalisées sont presentés à la première ligne. La seconde ligne contient les tracés de probabilités comparant les
+	log normalisées et \textit{square-root} normalisées sont présentés à la première ligne. La seconde ligne contient les tracés de probabilités comparant les
 	distributions. La statistique W du test de Shapiro-Wilk et la $p$-value correspondante sont affichées sur chaque tracé de probabilité.}
   \label{Figure:tbr_normalization}
 \end{figure}
@@ -332,7 +337,8 @@ d'un nombre fini de distributions Gaussiennes aux paramètres inconnus \citep{Yu
 Le \gls{bgmm}, à la différence du \gls{gmm}, utilise des \textit{a priori} sur la distribution des données pour 
 assigner des probabilités \textit{a posteriori} à chaque \textit{Gaussian Mixture} distribution. Un grand nombre de \gls{tbr} 
 extraits de sujets sains de la base de données \gls{cmi-hbn} étant disponible, ces valeurs sont donc utilisées pour estimer les \textit{a priori} du \gls{bgmm}. 
-Lorsque les observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle gaussien constitué d'un nombre prédéfini de courbes Gaussiennes est 
+
+Lorsque les observations sont ajustées par un \gls{bgmm} ou un \gls{gmm}, un modèle Gaussien constitué d'un nombre prédéfini de courbes Gaussiennes est 
 créé pour modéliser les données. Ici, la distribution multimodale des valeurs de \gls{srntbr} est modélisée par un \gls{bgmm} avec un nombre 
 de modes/composantes allant de 1 à 3. 
 Il en va de même pour l'algorithme du \gls{gmm}. 
@@ -365,8 +371,12 @@ et $\mu_k$. L'\textit{expectation} correspond à la probabilité que $x_i$ soit 
 et $\mu_k$. 
 \end{enumerate}
 
-Ce processus est répété jusqu'à ce que l'algorithme converge, menant à l'estimation de la \textit{maximum likelihood}. La même approche est suivie pour le \gls{bgmm} pour lequel 
-les informations des \textit{a priori} sont intégrées. Ces \textit{a priori} sont les valeurs normalisées des \gls{tbr} des 74 sujets sains de la base de données \gls{cmi-hbn}.
+Ce processus est répété jusqu'à ce que l'algorithme converge, menant à l'estimation de la \textit{maximum likelihood}. 
+
+La même approche est suivie pour le \gls{bgmm} qui repose sur un algorithme d'inférence variationnelle (\textit{variational inference algorithm} en anglais), 
+une variante de la technique d'\gls{em}, qui permet en plus une régularisation en intégrant des informations à partir de distributions d'\textit{a priori} \citep{Blei2006}.
+Les \textit{a priori} utilisés ici sont les valeurs normalisées des \gls{tbr} des 74 sujets sains de la base de données \gls{cmi-hbn}, car on suppose que ces sujets
+ont une activité cérébrale plutôt proche de celle des enfants \gls{tdah}.
 
 Afin de déterminer le nombre de composantes qui décrit le mieux la distribution des \gls{srntbr}, la significativité de la différence entre chaque 
 modèle est testée grâce à un test $\chi^2$ sur la déviance \citep[Chapitre~6]{James2013}. Etant donné que dans le cas du \textit{Gaussian Mixture Model} les modèles
@@ -409,7 +419,7 @@ la variance des deux groupes qui sont fusionnés \citep{Ward1963}.
 
 Le nombre de groupes estimé par cette méthode varie de 2 à 3 pour comparer les résultats obtenus à ceux du \gls{bgmm}. 
 
-Ce partionnement hierarchique agglomérant est représenté par un dendrogramme, dont un exemple est donné à la 
+Ce partitionnement hiérarchique agglomérant est représenté par un dendrogramme, dont un exemple est donné à la 
 Figure~\ref{Figure:tbr_dendrogram_example}. Il s'agit d'un arbre souvent renversé dont l'analyse visuelle 
 peut aider à choisir le nombre de partitions à identifier \citep[Chapitre~10]{James2013}.
 Chaque feuille de l'arbre correspond à une observation et, plus on remonte dans l'arbre, plus les feuilles se regroupent en branches lorsque elles 
@@ -579,9 +589,19 @@ du \gls{bgmm} ($p$-value = 0.005), alors qu'aucune différence statistiquement s
 et à 3 composantes du \gls{bgmm} ($p$-value = 0.850). On peut donc en conclure que le \gls{bgmm} à 2 modes décrit mieux la donnée que les deux
 autres modes. 
 
-Le \gls{gmm} arrive à la même conclusion : la distribution des \gls{srntbr} semble bimodale ($p$-value pour la comparaison
+Le \gls{gmm} arrive à la même conclusion comme illustré à la Figure~\ref{Figure:tbr_gmm} : la distribution des \gls{srntbr} semble bimodale ($p$-value pour la comparaison
 entre le modèle à 1 mode (modèle nul) et à 2 modes = 0.002). Ainsi, les \textit{a priori} utilisés pour le \gls{bgmm} semblent bien 
 représenter la donnée. 
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=1.0\linewidth]{figures/chapter-4/tbr-gmm} 
+  \caption[Résultats des \gls{gmm} avec une à trois composantes.]{Tracés des distributions de \gls{srntbr} (\textit{rug plot}) avec en \textbf{A} 1 mode, en \textbf{B} 
+	2 modes et en \textbf{C} 3 modes du \gls{gmm} superposés. $P$-value (1-2) correspond
+	à la $p$-value du test de déviance comparant les \gls{gmm} à 1 mode et 2 modes ; $p$-value (2-3) correspond à la $p$-value du test de déviance comparant les \gls{gmm}
+	à 2 modes et 3 modes. La significativité est symbolisée par ** et fixée à 1\%. Le seuil \gls{srntbr} est précisé pour le modèle à 2 composantes et représenté par un cercle bleu.}
+  \label{Figure:tbr_gmm} 
+\end{figure}
 
 \subsubsection{Méthode de Ward}
 Tout d'abord, les résultats du partitionnement hiérarchique agglomérant basé sur la distance de Ward sont représentés sur le dendrogramme présenté à la 
@@ -727,7 +747,7 @@ des \gls{tbr} plus faibles.
 La méthode de Ward a déjà été utilisée lors de recherches 
 précédentes sur l'identification de sous-groupes chez les enfants \gls{tdah} basée sur l'\gls{eeg} \citep{Clarke2011}. Dans cette étude le partitionnement
 se basait sur les puissances totales et relatives dans les bandes de fréquences delta (1.5 - 3.5 Hz), thêta (3.5 - 7.5 Hz), alpha (7.5 - 12.5 Hz) et bêta 
-(12.5 - 25 Hz) isolées dans les zones frontales, temporales et centrales et aussi sur l'âge des sujets. Quatre groupes ont été ientifiés : 
+(12.5 - 25 Hz) isolées dans les zones frontales, temporales et centrales et aussi sur l'âge des sujets. Quatre groupes ont été identifiés : 
 \begin{itemize}
 \item \emph{Premier groupe :} activité bêta élevée,
 \item \emph{Deuxième groupe :} activité thêta élevée avec peu d'alpha et bêta,
@@ -762,26 +782,29 @@ L'essai clinique de Mensia Technologies a fixé un seuil de \gls{tbr} à 4.5 qui
 au groupe devant diminuer leur \gls{tbr}. La courbe \gls{roc} représentée à la Figure~\ref{Figure:tbr_roc}, montre que choisir un seuil \gls{tbr} égal à 4.5 conduit
 à une \gls{acc} de 75.7\% et à un \gls{fpr} qui est environ deux fois plus faible que celui obtenu avec le seuil déterminé par le \gls{bgmm}. Toutefois, 
 le \gls{tpr} est plus faible avec le seuil \gls{tbr} à 4.5. En supposant que le but du seuil est de maximiser l'\gls{acc}, le seuil \gls{bgmm} serait le 
-plus adéquat, avec une \gls{acc} de 79.2\%.
+plus adéquat, avec une \gls{acc} de 79.2\%. Toutefois, la courbe \gls{roc} étant calculée à partir du \gls{bgmm} à deux composantes, il était attendu que le
+seuil obtenu avec ce partitionnement présente l'\gls{acc} la plus élevée. Par ailleurs, se baser sur l'\gls{acc} n'est réellement pertinent que lorsque le nombre 
+d'observations dans les deux groupes estimés est le même, ce qui n'est pas le cas ici comme détaillé ensuite. Il serait alors préférable d'utiliser le \gls{tpr}.
 
 Le seuil calculé à partir du \gls{bgmm} à deux composantes conduit à un groupe d'enfants au \gls{tbr} élevé représentant 36\% de la population étudiée. 
 Ce pourcentage est en accord avec les précédentes études qui concluent qu'entre 25 et 40\% des patients \gls{tdah} présentent un \gls{tbr} élevé \citep{Arns2012}. 
 De plus,\citet{Clarke2011} trouvent que 35\% des patients \gls{tdah} ont un \gls{tbr} élevé. 
 Les seuils identifiés par les méthodes utilisées ici permettent de former un groupe d'enfants \gls{tdah} présentant un \gls{tbr} élevé comprenant entre
 25 et 40\% de la population totale, sauf dans le cas du \gls{dbscan} qui identifie un groupe
-de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que la faible \gls{acc} obtenue laisse à penser
+de \gls{tbr} élevés comprenant seulement 5.79\% de la population. Ce faible pourcentage ainsi que le faible \gls{tpr} obtenu (18.5\%) laisse à penser
 que la valeur de ce seuil ne sépare pas de manière fiable les deux groupes. Le seuil identifié par la méthode de Ward dans le cas de deux groupes
 est proche de celui trouvé par le \gls{bgmm} à deux composantes (4 contre 3.7), ce qui prouve une nouvelle fois qu'il existe un groupe d'enfants \gls{tdah}
 présentant un \gls{tbr} élevé.
 
-Au moment de choisir un seuil pour attribuer le protocole d'entrainement par \gls{nfb}, le seuil le plus précis n'est pas nécessairement le meilleur choix.
+Au moment de choisir un seuil pour attribuer le protocole d'entrainement par \gls{nfb}, le seuil le plus précis n'est pas nécessairement le meilleur choix, surtout
+dans notre cas où le nombre d'observations dans les groupes estimés est différent.
 En effet, optimiser l'\gls{acc} revient à utilser le seuil du \gls{bgmm} de 3.7. Cependant, si on suppose que le protocole de diminution du \gls{tbr} est plus 
 efficace pour les patients dans le groupe des \gls{tbr} élevés tandis que le protocole alternatif est efficace de la même façon pour tous les patients, il 
 serait préférable de minimiser le \gls{fpr} plutôt que de maximiser l'\gls{acc}. Si on fixe raisonnablement un seuil menant à 10\% de \gls{fpr}, un seuil de 4.1
 est obtenu, résultant en un \gls{tpr} de 67\% et une \gls{acc} de 78\%. Cette valeur de seuil a été choisie car un faible \gls{fpr} est intéressant pour traiter 
 les patients qui appartiennent au sous-groupe \gls{tbr} élevé avec un protocole adapté à leur profil \gls{eegi}, comme la diminution du \gls{tbr}.
 
-Au vu de ces réultats, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
+Au vu de ces résultats, nous recommandons l'utilisation d'un seuil \gls{tbr} de 4.1 pour attribuer
 les protocoles d'entrainement du fait de son bon équilibre entre un faible \gls{fpr} et une \gls{acc} et un \gls{tpr} élevés. 
 
 Toutefois, il faut garder à l'esprit que ces \gls{acc} sont théoriques car elles n'ont pas été obtenues à l'aide d'un \textit{gold standard} mais grâce au \gls{bgmm}
@@ -819,12 +842,13 @@ En effet, deux points ont été approfondis ici pour juger de leur impact sur le
 La première source d'erreur possible de cette analyse est que les artefacts oculaires n'ont pas été corrigés sur les signaux \gls{eegi}. Ces artefacts de basse fréquence
 peuvent affecter les calculs de puissance et donc, par ricochet, les valeurs de \gls{tbr}. Ainsi, afin de qualifier l'impact de la correction des artefacts oculaires,
 la distibution des valeurs de \gls{tbr} obtenues sans cette correction est comparée à celle obtenue sur les signaux corrigés. Les artefacts oculaires ont ici été corrigés 
-à l'aide d'une méthode basée sur la \gls{bss} : l'\textit{approximate joint diagonalization of Fourier cospectra} (l'\gls{ajdc}) \citep{Barthelemy2017} qui est appliquée en temps 
-réel. 
+à l'aide d'une méthode basée sur la \gls{bss} : l'\gls{ajdc} \citep{Barthelemy2017}. C'est une méthode
+de correction non supervisée qui nécessite tout de même un enregistrement \gls{eegi} d'une minute contenant des artefacts oculaires. L'\gls{ajdc} est appliquée sur cet enregistrement 
+et les caractéristiques des filtres et des sources obtenues sont par la suite utilisées lors de la correction des signaux \gls{eegi}.
 
 Les distributions des valeurs de \gls{tbr} sans et avec 
-la correction d'artefacts oculaires ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction}.
- où aucune grande différence entre les deux distributions n'est observée. Par conséquent, la correction des artefacts 
+la correction d'artefacts oculaires ont été tracées à la Figure~\ref{Figure:tbr_eye_artifact_correction} 
+où aucune grande différence entre les deux distributions n'est observée. Par conséquent, la correction des artefacts 
 oculaires ne semble pas influencer les valeurs de \gls{tbr} calculées. 
 
 Une des hypothèses justifiant ce 
@@ -844,7 +868,7 @@ la bande thêta ne s'étend que sur 4Hz, contrairement à la bande bêta qui est
 \subsubsection{Influence de l'âge}
 
 Une autre source d'inexactitude pourrait être l'âge des sujets inclus dans l'analyse. En effet, la littérature a montré que les valeurs de \gls{tbr} varient
-avec l'âge des enfants \citep{Liechti2013, Snyder2015, Perone2018}. De plus, le U-test de Mann-Whitney a été appliqué à nos données \gls{tbr} et a montré
+avec l'âge des enfants, qu'ils souffrent du \gls{tdah} ou non \citep{Liechti2013, Snyder2015, Perone2018, Clarke2001sains}. De plus, le U-test de Mann-Whitney a été appliqué à nos données \gls{tbr} et a montré
 qu'il existe une différence significative entre l'âge des enfants du groupe de \gls{tbr} plus faibles et celui des enfants au \gls{tbr} élevé définis avec 
 le seuil de 3.7 du \gls{bgmm} à deux composantes
 ($p\text{-value} = 2.30e-15$\text{,} $U = 22 104$, avec les âges médians $\pm$ l'ecart absolu médian de chaque groupe : 8.0$\pm$1.57 et 10.1$\pm$2.43). Par ailleurs, lorsqu'on trace
