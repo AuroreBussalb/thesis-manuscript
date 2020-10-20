@@ -156,8 +156,8 @@ lorsqu'une étude fournit des résultats pour plus d'une échelle clinique, l'\g
 \noindent où $M_{\text{t},T}$ est la moyenne sur l'échelle clinique, pour le traitement $T$, au moment t (pré-test ou post-test) et $\sigma_{\text{t},T}$ représente
 son écart-type. Au contraire de l'\gls{es}-inter-groupes défini à l'équation Eq.~(\ref{eq:metareview_effect_size_between}), cet \gls{es} permet de se concentrer sur l'effet du 
 traitement au sein du groupe \citep{Cohen1988}. Cette définition de l'\gls{es} a déjà été précédemment utilisée dans la littérature sur le \gls{nfb} 
-appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Dans le cas de l'analyse réalisée ici, lorsque l'\gls{es}-intra-groupe est négatif et plus sa valeur absolue est élevée, plus
-le traitement étudié est efficace. 
+appliquée aux enfants \gls{tdah} \citep{Arns2009, Maurizio2014, Strehl2017}. Dans le cas de l'analyse réalisée ici, lorsque l'\gls{es}-intra-groupe est négatif et que sa valeur 
+absolue est élevée, le traitement étudié est efficace. 
 
 Afin de limiter l'influence d'observations extrêmes parmi les valeurs des \gls{es}-intra-groupe, celles se trouvant à plus de 3 écart-types de la moyenne
 de tous les \gls{es}-intra-groupe calculés ont été retirées de l'analyse \citep{Shewhart1931}.
@@ -309,8 +309,10 @@ $g_{2}$ la variable aléatoire de l'excès de Kurtosis, et $Z_{1}$ et $Z_{2}$ de
 les distributions de $g_{1}$ et $g_{2}$ normales.
 
 Si toutes ces hypothèses sont satisfaites, alors les résultats de la \gls{wls} peuvent être interprétés. A l'aide d'un t-test, on détermine  
-parmi les coefficients $\beta_{j}$ où $0 \leq j \leq p$ ceux qui sont significativement différents de 0 (avec un seuil de significativité de 5\%) : 
-pour ces coefficients, le facteur qui leur est associé est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, 
+parmi les coefficients $\beta_{j}$ où $0 \leq j \leq p$ ceux qui sont significativement différents de 0 (avec un seuil de significativité de 5\%). 
+La variance de chaque coefficient, nécessaire pour effectuer le t-test, est estimée à l'aide des éléments 
+diagonaux de la matrice de covariance des coefficients (\textit{coefficient covariance matrix}) \citep{Seabold2010}.
+Pour les coefficients significativement différents de 0, le facteur qui leur est associé est supposé avoir une influence sur l'efficacité du \gls{nfb}. Par ailleurs, 
 le signe du coefficient indique si cette influence est positive ou négative. 
 
 Etant donné le nombre important de variables indépendantes, le pourcentage de variance estimée par la \gls{wls} est quantifié par le coefficient de 
@@ -581,7 +583,7 @@ en moins d'observations sont disponibles plus on descend dans l'arbre, l'influen
 \begin{figure}[h!]
   \centering
 	\includegraphics[width=1\linewidth]{figures/chapter-3/factors-decision-tree} 
-  \caption[Arbre de décision]{Arbre de décision obtenu : \gls{es} correspond à l'\gls{es}-intra-groupe et $n$ au nombre d'études. L'importance des variables indépendantes
+  \caption[Arbre de décision]{Arbre de décision obtenu : \gls{es} correspond à l'\gls{es}-intra-groupe et $n$ au nombre d'observations. L'importance des variables indépendantes
 	décroît depuis le \textit{root node}. La durée de la session est mesurée en minutes et la durée du traitement en semaines.}
   \label{Figure:factors_decision_tree}
 \end{figure}
