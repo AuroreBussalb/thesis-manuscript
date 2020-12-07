@@ -164,7 +164,7 @@ de tous les \gls{es}-intra-groupe calculés ont été retirées de l'analyse \ci
 
 Par la suite, l'ensemble des \gls{es}-intra-groupe est considéré comme la variable dépendante que les variables indépendantes (les facteurs) vont expliquer. 
 
-\subsection{L'analyse systématique des biais} \label{saob_method}
+\subsection{Analyse systématique des biais} \label{saob_method}
 
 La \gls{saob} a pour but d'identifier les facteurs ayant une influence sur l'efficacité du \gls{nfb} appliquée aux enfants \gls{tdah}. 
 Cette analyse comporte trois méthodes qui ont été implémentées à l'aide des bibliothèques Python Scikit-Learn \citep[version 0.18.1]{Pedregosa2011} et Statsmodels \citep[version 0.8.0]{Seabold2010} : 
@@ -295,7 +295,7 @@ g_{2} = \frac{ \mu_{4} } {s^4},
 \end{equation}
 avec $\mu_{4}$ le quatrième moment central de l'échantillon et $s$ l'écart-type de l'échantillon.
 
-Ainsi, avec les valeurs de kurtosis et de \textit{skewness} on peut quantifier d'à quel point la distribution des résidus diffère 
+Ainsi, avec les valeurs de Kurtosis et de \textit{skewness} on peut quantifier d'à quel point la distribution des résidus diffère 
 d'une distribution normale. Afin de savoir si cette différence est significative, le test Omnibus peut être utilisé. 
 
 Ce test se base sur les valeurs de la \textit{skewness} et d'excès de Kurtosis pour tester l'hypothèse $H_{0}$ qui est que les résidus sont distribués normalement.
@@ -532,7 +532,7 @@ Table~\ref{Table:table_factors_analysis_results_summary}.
 
 \begin{table}[h!]
   \centering
-  \caption[Resultats de la \gls{saob}.]{Resultats de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une $p$-value $<$ 0.05 
+  \caption[Résultats de la \gls{saob}.]{Résultats de la régression linéaire pondérée (\gls{wls}), de la régression linéaire régularisée (\gls{lasso}) et de l'arbre de décision (\gls{dt}). Pour la \gls{wls}, une $p$-value $<$ 0.05 
 	(en gras) signifie que le coefficient du facteur correspondant est significativement différent de 0. Pour le \gls{lasso}, les facteurs dont les coefficients sont non mis à 0 (en gras) sont 
 	sélectionnés. Pour l'arbre de décision, la place du facteur dans l'arbre est indiquée. Pour les deux premières colonnes, quand la valeur du coefficient est négative le facteur 
 	correspondant pourrait mener à de meilleurs résultats du \gls{nfb}.}
@@ -715,9 +715,12 @@ La phase de transfert ayant pour but d'aider à transposer le contrôle appris l
 du \gls{tdah} comme l'ont avancé \citet{Arns2014, Strehl2006} et \citet{Gani2008}, or la \gls{saob} conclut à un impact négatif. Ce résultat s'expliquerait peut-être par le fait qu'une phase de 
 transfert seule ne soit pas si efficace si elle n'est pas couplée à l'utilisation d'une carte représentant la métaphore utilisée lors des sessions de \gls{nfb} qui permet à l'enfant de se 
 souvenir plus facilement du contrôle qu'il exerçait durant la séance \citep{Bioulac2019, Bluschke2016}. Ce facteur devait être analysé mais étant trop homogène (plus de 80\% des observations 
-n'utilisent pas de carte), il a été exclus de l'analyse. 
+n'utilisent pas de carte), il a été exclu de l'analyse. 
 
-Ce résultat va dans le sens d'un effet purement placebo du \gls{nfb}. Cependant, une mise à jour avec un plus grand nombre de données serait nécessaire pour pouvoir l'affirmer.
+L'impact négatif de la phase de transfert va à l'encontre de la littérature \citep{Arns2014}, et peut être un effet défavorable ou un effet nocebo (effet 
+clinique négatif sans cause thérapeutique spécifique). Ce facteur n'avait été identifié que par une seule méthode dans \citet{Bussalb2019clinical} 
+comme souligné en \ref{comparison_with_bussalb_2019}, ainsi une mise à jour avec un plus grand nombre de données est nécessaire pour confirmer l'impact négatif de la 
+phase de transfert, préalable indispensable pour pouvoir ensuite trancher entre les deux modes d'explication.
 
 Tout comme la fréquence des sessions, deux autres paramètres sont retournés par deux méthodes et donc pourraient influencer 
 l'efficacité du \gls{nfb} : la qualité de l'\gls{eeg} égale à 2 et la correction ou rejet des artefacts oculaires.
@@ -766,7 +769,7 @@ préférable selon \citep{Bauer2016}. Une des raisons évoquées pour utiliser u
 \citep{Lansbergen2011}. Cependant, cette approche conduit parfois à récompenser le sujet alors que ses performances ne le justifient pas. En effet, comme souligné par \citep{Strehl2014},
 dès que le sujet est trop ou trop peu récompensé, le seuil est ajusté, rendant la motivation du sujet plus importante que la qualité de la performance.
 
-Selon \citet{Arns2014}, le seuillage automatique est contraire aux prinicipes de la théorie de l'apprentissage : ce type de seuillage ne récompense
+Selon \citet{Arns2014}, le seuillage automatique est contraire aux principes de la théorie de l'apprentissage : ce type de seuillage ne récompense
 pas le sujet sur ses réelles performances d'auto-régulation. Cependant, adapter manuellement la valeur du seuil contraint le sujet à effectuer ses sessions en 
 clinique et empêche la mise en place d'un double aveugle \citep{Lansbergen2011} qui est pourtant recommandé \citep{Ros2019}. 
 
@@ -827,7 +830,7 @@ patients contrôlent effectivement le neuromarqueur, qu'ils apprennent (c'est à
 systématique \citep{Arns2014}. Si aucune évolution du neuromarqueur n'est observée au cours du traitement alors que les évaluateurs \gls{mprox} notent une amélioration clinique 
 des symptômes, on pourrait conclure que l'effet placebo joue un rôle dans ces résultats.
 
-\subsection{Comparaison avec les résultats de Bussalb et al., 2019b}
+\subsection{Comparaison avec les résultats de Bussalb et al., 2019b} \label{comparison_with_bussalb_2019}
 
 L'analyse présentée dans ce chapitre est la mise à jour des résultats de \citet{Bussalb2019clinical}. Etant donné qu'un nombre encore limité d'études
 d'efficacité est disponible sur le \gls{nfb} appliqué aux enfants \gls{tdah}, les analyses telles que les méta-analyses et la \gls{saob} doivent être régulièrement mises
@@ -930,7 +933,7 @@ communauté du \gls{nfb} à être le plus transparent possible quant au matérie
 son impact lors de futures analyses.
 
 Alors que les trois facteurs précédents sont en faveur de l'efficacité du \gls{nfb}, l'influence négative de la présence d'une phase de transfert sur laquelle sont d'accord les trois méthodes, 
-démontre plutôt un effet placebo. 
+démontrerait plutôt un effet défavorable ou nocebo de cette dernière. 
 
 Bien que ces résultats contribuent certainement au débat, ce travail montre également que l'ultime démonstration de la preuve de l'efficacité du \gls{nfb}
 appliqué aux enfants \gls{tdah} n'est pas encore atteinte, étant donné que les évaluations des enseignants ont été en partie invalidées comme indicatrices de 
