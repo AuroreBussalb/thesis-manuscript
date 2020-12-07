@@ -15,6 +15,8 @@
 \pagebreak{\blankpage}
 \pagebreak{\blankpage}
 
+\frontmatter
+
 \input{abstract_keywords_french}
 \thispagestyle{style5}
 
@@ -38,12 +40,15 @@
 
 \listoffigures
 \thispagestyle{style3}
+%\addcontentsline{toc}{chapter}{Table des figures}
 \newpage
 
 \listoftables
 
 \newpage
 \printglossary[title=Abréviations, type=\acronymtype, nonumberlist, style=long]
+
+\mainmatter
 
 \newpage
 \input{chapter_1}
@@ -59,6 +64,10 @@
 
 \newpage
 \input{chapter_5}
+
+\newpage
+\input{chapter_6}
+\addcontentsline{toc}{chapter}{Publications}
 
 \newpage
 \fancyhead[RO]{Bibliographie}
